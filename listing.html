@@ -81,33 +81,31 @@ display:none;
 
 <script>
 
-const params = new URLSearchParams(window.location.search)
+const params=new URLSearchParams(window.location.search)
 
-const data = JSON.parse(decodeURIComponent(params.get("data")))
+const data=JSON.parse(decodeURIComponent(params.get("data")))
 
 function parseListing(n){
 
-const parts = n.split("_")
+const parts=n.split("_")
 
-return {
-
-price: parts[0] || "",
-info: parts.slice(1).join(" • ")
-
+return{
+price:parts[0]||"",
+info:parts.slice(1).join(" • ")
 }
 
 }
 
-const parsed = parseListing(data.name)
+const parsed=parseListing(data.name)
 
-document.getElementById("price").innerText = parsed.price
-document.getElementById("info").innerText = parsed.info
+document.getElementById("price").innerText=parsed.price
+document.getElementById("info").innerText=parsed.info
 
-const gallery = document.getElementById("gallery")
+const gallery=document.getElementById("gallery")
 
-data.photos.forEach(src => {
+data.photos.forEach(src=>{
 
-gallery.innerHTML += `
+gallery.innerHTML+=`
 <div class="swiper-slide">
 <img loading="lazy" src="${src}">
 </div>
