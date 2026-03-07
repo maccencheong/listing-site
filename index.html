@@ -1,67 +1,27 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="UTF-8">
-<title>Property Listings</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f2f2f2;
-padding:40px;
-}
-
-.card{
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
-text-decoration:none;
-color:black;
-display:block;
-}
-
-.card:hover{
-background:#f8f8f8;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<h1>Property Listings</h1>
-
-<div id="listings"></div>
-
 <script>
 
-const listings = [
-"RM470k_1Sty_3R2B_1000sf_TK5",
-"RM820k_2Sty_4R3B_1800sf_Subang"
-]
+const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
 
-const container = document.getElementById("listings")
+fetch(API)
+.then(r=>r.json())
+.then(data=>{
 
-listings.forEach(item=>{
+const container=document.getElementById("listings")
+
+data.forEach(item=>{
 
 const card=document.createElement("a")
 
-card.href="./listing.html?name="+item
+card.href="listing.html?name="+item.name
 
 card.className="card"
 
-card.innerText=item
+card.innerText=item.name
 
 container.appendChild(card)
 
 })
 
+})
+
 </script>
-
-</body>
-
-</html>
