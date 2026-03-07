@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Property Listings</title>
 
@@ -36,12 +36,8 @@ height:160px;
 object-fit:cover;
 }
 
-.cardInfo{
-padding:10px;
-}
-
 .price{
-font-size:18px;
+padding:10px;
 font-weight:bold;
 }
 
@@ -57,65 +53,25 @@ font-weight:bold;
 
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec?mode=list"
-
-function formatPrice(p){
-
-p=p.toUpperCase()
-
-let num=parseFloat(p)
-
-if(p.includes("K")) num*=1000
-if(p.includes("M")) num*=1000000
-
-return "RM"+num.toLocaleString()
-
-}
-
-function parseListing(n){
-
-const parts=n.split("_")
-
-let price=""
-
-parts.forEach(p=>{
-if(p.includes("K")||p.includes("M"))
-price=formatPrice(p)
-})
-
-return {price}
-
-}
-
-fetch(API)
-
+fetch("listings.json")
 .then(r=>r.json())
-
 .then(data=>{
 
 const container=document.getElementById("listings")
 
 data.forEach(item=>{
 
-const parsed=parseListing(item.name)
+container.innerHTML+=`
 
-const card=document.createElement("a")
+<a class="card" href="listing.html?id=${item.id}">
 
-card.className="card"
+<img src="${item.cover}" loading="lazy">
 
-card.href="listing.html?id="+item.id
+<div class="price">${item.name}</div>
 
-card.innerHTML=`
-
-<img src="${item.cover}">
-
-<div class="cardInfo">
-<div class="price">${parsed.price}</div>
-</div>
+</a>
 
 `
-
-container.appendChild(card)
 
 })
 
