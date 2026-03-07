@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Listing</title>
+
+<!-- WhatsApp Preview -->
+
+<meta property="og:title" content="Property Listing">
+<meta property="og:description" content="View property photos">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
@@ -23,18 +29,16 @@ font-family:Arial;
 .topBar{
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:12px 16px;
+padding:12px;
 background:#111;
 }
 
 .backBtn{
-text-decoration:none;
-color:white;
-font-size:14px;
 background:#333;
 padding:6px 12px;
 border-radius:6px;
+text-decoration:none;
+color:white;
 }
 
 .copyBtn{
@@ -44,7 +48,6 @@ color:white;
 padding:6px 12px;
 border-radius:6px;
 cursor:pointer;
-font-size:14px;
 }
 
 .header{
@@ -57,13 +60,12 @@ font-weight:bold;
 }
 
 .type{
-font-size:18px;
-margin-top:4px;
+margin-top:5px;
 }
 
 .info{
 opacity:0.8;
-margin-top:6px;
+margin-top:5px;
 }
 
 .swiper{
@@ -74,7 +76,6 @@ height:70vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:black;
 }
 
 .swiper-slide img{
@@ -84,16 +85,13 @@ object-fit:contain;
 }
 
 .swipeHint{
-
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 background:rgba(0,0,0,0.6);
-padding:10px 20px;
+padding:10px 18px;
 border-radius:20px;
-font-size:14px;
-
 }
 
 </style>
@@ -137,7 +135,9 @@ font-size:14px;
 
 const params=new URLSearchParams(window.location.search)
 
-const data=JSON.parse(decodeURIComponent(params.get("data")))
+const id=params.get("id")
+
+const API="YOUR_SCRIPT_URL?mode=listing&id="+id
 
 function formatPrice(p){
 
@@ -162,7 +162,6 @@ let size=""
 let rooms=""
 
 const typeMap={
-
 "T":"Terrace",
 "F":"Flat",
 "A":"Apartment",
@@ -170,7 +169,6 @@ const typeMap={
 "SA":"Service Apartment",
 "O":"Office",
 "S":"Shop Lot"
-
 }
 
 parts.forEach(p=>{
@@ -190,14 +188,18 @@ rooms=p
 })
 
 return{
-
 price,
 type,
 info:size+" • "+rooms
-
 }
 
 }
+
+fetch(API)
+
+.then(r=>r.json())
+
+.then(data=>{
 
 const parsed=parseListing(data.name)
 
@@ -225,6 +227,8 @@ prevEl:'.swiper-button-prev'
 }
 })
 
+})
+
 function copyURL(){
 
 navigator.clipboard.writeText(window.location.href)
@@ -234,13 +238,10 @@ alert("Listing URL copied")
 }
 
 setTimeout(()=>{
-
 document.getElementById("hint").style.display="none"
-
 },3000)
 
 </script>
 
 </body>
-
 </html>
