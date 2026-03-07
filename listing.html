@@ -29,31 +29,57 @@ font-size:30px;
 font-weight:bold;
 }
 
-.info{
-opacity:0.7;
+.type{
+font-size:18px;
+color:#ddd;
 margin-top:5px;
+}
+
+.info{
+opacity:0.8;
+margin-top:6px;
+}
+
+.copyBtn{
+margin-top:12px;
+padding:8px 14px;
+border-radius:6px;
+border:none;
+background:#2196f3;
+color:white;
+font-size:14px;
+cursor:pointer;
 }
 
 .swiper{
 height:70vh;
 }
 
-.swiper-slide img{
-width:100%;
-height:100%;
-object-fit:cover;
+.swiper-slide{
+display:flex;
+align-items:center;
+justify-content:center;
+background:black;
 }
 
-.videoBtn{
-position:fixed;
-bottom:30px;
-right:30px;
-background:red;
-color:white;
-padding:14px 22px;
-border-radius:30px;
-text-decoration:none;
-display:none;
+.swiper-slide img{
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+}
+
+.swipeHint{
+
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:rgba(0,0,0,0.5);
+padding:10px 18px;
+border-radius:20px;
+font-size:14px;
+opacity:0.8;
+
 }
 
 </style>
@@ -65,7 +91,12 @@ display:none;
 <div class="header">
 
 <div class="price" id="price"></div>
+
+<div class="type" id="type"></div>
+
 <div class="info" id="info"></div>
+
+<button class="copyBtn" onclick="copyURL()">Copy Listing Link</button>
 
 </div>
 
@@ -73,9 +104,12 @@ display:none;
 
 <div class="swiper-wrapper" id="gallery"></div>
 
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+
 </div>
 
-<a id="videoBtn" class="videoBtn">▶ Watch Video</a>
+<div class="swipeHint" id="hint">← Swipe photos →</div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
@@ -87,11 +121,47 @@ const data=JSON.parse(decodeURIComponent(params.get("data")))
 
 function parseListing(n){
 
-const parts=n.split("_")
+const parts = n.split("_")
+
+let price=""
+let type=""
+let size=""
+let rooms=""
+
+const typeMap={
+
+"T":"Terrace",
+"F":"Flat",
+"A":"Apartment",
+"C":"Condominium",
+"SA":"Service Apartment",
+"O":"Office",
+"S":"Shop Lot"
+
+}
+
+parts.forEach(p=>{
+
+if(p.includes("RM")||p.includes("k"))
+price=p
+
+if(typeMap[p])
+type=typeMap[p]
+
+if(p.includes("sf"))
+size=p
+
+if(p.includes("R"))
+rooms=p
+
+})
 
 return{
-price:parts[0],
-info:parts.slice(1).join(" • ")
+
+price:price,
+type:type,
+info:size+" • "+rooms
+
 }
 
 }
@@ -99,6 +169,7 @@ info:parts.slice(1).join(" • ")
 const parsed=parseListing(data.name)
 
 document.getElementById("price").innerText=parsed.price
+document.getElementById("type").innerText=parsed.type
 document.getElementById("info").innerText=parsed.info
 
 const gallery=document.getElementById("gallery")
@@ -113,17 +184,25 @@ gallery.innerHTML+=`
 
 })
 
-new Swiper('.swiper',{loop:true})
+new Swiper('.swiper',{
+loop:true,
+navigation:{
+nextEl:'.swiper-button-next',
+prevEl:'.swiper-button-prev'
+}
+})
 
-if(data.video){
+function copyURL(){
 
-const btn=document.getElementById("videoBtn")
+navigator.clipboard.writeText(window.location.href)
 
-btn.style.display="block"
-
-btn.href=data.video
+alert("Listing URL copied!")
 
 }
+
+setTimeout(()=>{
+document.getElementById("hint").style.display="none"
+},3000)
 
 </script>
 
