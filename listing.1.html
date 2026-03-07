@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Listing</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+<style>
+
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial;
+}
+
+.topBar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 16px;
+background:#111;
+}
+
+.backBtn{
+text-decoration:none;
+color:white;
+font-size:14px;
+background:#333;
+padding:6px 12px;
+border-radius:6px;
+}
+
+.copyBtn{
+background:#2196f3;
+border:none;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+.header{
+padding:20px;
+}
+
+.price{
+font-size:28px;
+font-weight:bold;
+}
+
+.type{
+font-size:18px;
+margin-top:4px;
+}
+
+.info{
+opacity:0.8;
+margin-top:6px;
+}
+
+.swiper{
+height:70vh;
+}
+
+.swiper-slide{
+display:flex;
+align-items:center;
+justify-content:center;
+background:black;
+}
+
+.swiper-slide img{
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+}
+
+.swipeHint{
+
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:rgba(0,0,0,0.6);
+padding:10px 20px;
+border-radius:20px;
+font-size:14px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topBar">
+
+<a class="backBtn" href="index.html">← Back</a>
+
+<button class="copyBtn" onclick="copyURL()">Copy Link</button>
+
+</div>
+
+<div class="header">
+
+<div class="price" id="price"></div>
+
+<div class="type" id="type"></div>
+
+<div class="info" id="info"></div>
+
+</div>
+
+<div class="swiper">
+
+<div class="swiper-wrapper" id="gallery"></div>
+
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+
+</div>
+
+<div class="swipeHint" id="hint">← Swipe photos →</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<script>
+
+const params=new URLSearchParams(window.location.search)
+
+const data=JSON.parse(decodeURIComponent(params.get("data")))
+
+function formatPrice(p){
+
+p=p.toUpperCase()
+
+let num=parseFloat(p)
+
+if(p.includes("K")) num*=1000
+if(p.includes("M")) num*=1000000
+
+return "RM"+num.toLocaleString()
+
+}
+
+function parseListing(n){
+
+const parts=n.split("_")
+
+let price=""
+let type=""
+let size=""
+let rooms=""
+
+const typeMap={
+
+"T":"Terrace",
+"F":"Flat",
+"A":"Apartment",
+"C":"Condominium",
+"SA":"Service Apartment",
+"O":"Office",
+"S":"Shop Lot"
+
+}
+
+parts.forEach(p=>{
+
+if(p.includes("K")||p.includes("M"))
+price=formatPrice(p)
+
+if(typeMap[p])
+type=typeMap[p]
+
+if(p.includes("sf"))
+size=p
+
+if(p.includes("R"))
+rooms=p
+
+})
+
+return{
+
+price,
+type,
+info:size+" • "+rooms
+
+}
+
+}
+
+const parsed=parseListing(data.name)
+
+document.getElementById("price").innerText=parsed.price
+document.getElementById("type").innerText=parsed.type
+document.getElementById("info").innerText=parsed.info
+
+const gallery=document.getElementById("gallery")
+
+data.photos.forEach(src=>{
+
+gallery.innerHTML+=`
+<div class="swiper-slide">
+<img loading="lazy" src="${src}">
+</div>
+`
+
+})
+
+new Swiper('.swiper',{
+loop:true,
+navigation:{
+nextEl:'.swiper-button-next',
+prevEl:'.swiper-button-prev'
+}
+})
+
+function copyURL(){
+
+navigator.clipboard.writeText(window.location.href)
+
+alert("Listing URL copied")
+
+}
+
+setTimeout(()=>{
+
+document.getElementById("hint").style.display="none"
+
+},3000)
+
+</script>
+
+</body>
+
+</html>
