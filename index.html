@@ -1,172 +1,33 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Listing</title>
-
-<style>
-
-body{
-margin:0;
-background:black;
-color:white;
-font-family:Arial;
-}
-
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px;
-background:#111;
-position:sticky;
-top:0;
-}
-
-.button{
-background:#333;
-border:none;
-color:white;
-padding:8px 14px;
-border-radius:6px;
-cursor:pointer;
-font-size:14px;
-}
-
-.gallery{
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-height:90vh;
-overflow:hidden;
-}
-
-.gallery img{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-}
-
-.nav{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:40px;
-background:rgba(0,0,0,0.5);
-border:none;
-color:white;
-cursor:pointer;
-padding:10px;
-}
-
-.prev{
-left:10px;
-}
-
-.next{
-right:10px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="topbar">
-
-<button class="button" onclick="goBack()">← Back</button>
-
-<button class="button" onclick="copyLink()">Copy Link</button>
-
-</div>
-
-<div class="gallery">
-
-<button class="nav prev" onclick="prev()">❮</button>
-
-<img id="photo">
-
-<button class="nav next" onclick="next()">❯</button>
-
-</div>
-
 <script>
 
-const id=new URLSearchParams(location.search).get("id")
-
-let photos=[]
-let index=0
-
 fetch("listings.json")
+.then(function(response){
+return response.json()
+})
+.then(function(data){
 
-.then(r=>r.json())
+const container = document.getElementById("listings")
 
-.then(data=>{
+data.forEach(function(item){
 
-const listing=data.find(x=>x.id==id)
+const card = document.createElement("a")
 
-photos=listing.photos
+card.className="card"
 
-show()
+card.href="listing.html?id="+item.id
+
+card.innerHTML = `
+<img src="${item.cover}" loading="lazy">
+<div class="price">${item.name}</div>
+`
+
+container.appendChild(card)
 
 })
 
-function show(){
-
-document.getElementById("photo").src=photos[index]
-
-}
-
-function next(){
-
-index++
-
-if(index>=photos.length){
-
-index=0
-
-}
-
-show()
-
-}
-
-function prev(){
-
-index--
-
-if(index<0){
-
-index=photos.length-1
-
-}
-
-show()
-
-}
-
-function goBack(){
-
-window.location.href="index.html"
-
-}
-
-function copyLink(){
-
-navigator.clipboard.writeText(window.location.href)
-
-alert("Listing link copied")
-
-}
+})
+.catch(function(error){
+console.log("JSON load error:",error)
+})
 
 </script>
-
-</body>
-
-</html>
