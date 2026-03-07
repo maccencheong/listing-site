@@ -1,57 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
-<style>
-body{
-margin:0;
-background:black;
-}
-
-img{
-width:100%;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="swiper">
-<div class="swiper-wrapper" id="gallery"></div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
 <script>
 
-const params = new URLSearchParams(window.location.search)
-const name = params.get("name")
+const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
 
-const photos = [
-"https://picsum.photos/1200/800?1",
-"https://picsum.photos/1200/800?2",
-"https://picsum.photos/1200/800?3"
-]
+const params=new URLSearchParams(window.location.search)
+const name=params.get("name")
 
-const gallery = document.getElementById("gallery")
+document.getElementById("title").innerText=name
 
-photos.forEach(src=>{
-gallery.innerHTML += `
+fetch(API)
+.then(r=>r.json())
+.then(data=>{
+
+const listing=data.find(l=>l.name===name)
+
+const gallery=document.getElementById("gallery")
+
+listing.photos.forEach(src=>{
+
+gallery.innerHTML+=`
 <div class="swiper-slide">
 <img src="${src}">
 </div>
 `
+
 })
 
 new Swiper('.swiper',{loop:true})
 
-</script>
+if(listing.video){
 
-</body>
-</html>
+const btn=document.getElementById("videoBtn")
+btn.style.display="block"
+btn.href=listing.video
+
+}
+
+})
+
+</script>
