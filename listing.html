@@ -1,28 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Property</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+}
+
+.header{
+padding:20px;
+background:#000;
+}
+
+.price{
+font-size:28px;
+font-weight:bold;
+}
+
+.info{
+margin-top:5px;
+opacity:0.8;
+}
+
+.swiper{
+width:100%;
+height:70vh;
+}
+
+.swiper-slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.videoBtn{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#ff3b3b;
+color:white;
+padding:14px 20px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="price" id="price"></div>
+<div class="info" id="info"></div>
+
+</div>
+
+<div class="swiper">
+
+<div class="swiper-wrapper" id="gallery"></div>
+
+</div>
+
+<a id="videoBtn" class="videoBtn">▶ Watch Video</a>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
 <script>
 
-const API = "https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
+const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
+
+const params=new URLSearchParams(window.location.search)
+const name=params.get("name")
+
+// 解析 listing 名字
+function parseListing(n){
+
+const parts=n.split("_")
+
+let price=parts[0]||""
+let type=parts[1]||""
+let rooms=parts[2]||""
+let size=parts[3]||""
+let location=parts[4]||""
+
+return {
+price,
+info:type+" • "+rooms+" • "+size+" • "+location
+}
+
+}
+
+const parsed=parseListing(name)
+
+document.getElementById("price").innerText=parsed.price
+document.getElementById("info").innerText=parsed.info
 
 fetch(API)
-.then(response => response.json())
-.then(data => {
 
-const container = document.getElementById("listings")
+.then(r=>r.json())
 
-data.forEach(item => {
+.then(data=>{
 
-const card = document.createElement("a")
+const listing=data.find(l=>l.name===name)
 
-card.href = "listing.html?name=" + item.name
+if(!listing) return
 
-card.className = "card"
+const gallery=document.getElementById("gallery")
 
-card.innerText = item.name
+listing.photos.forEach(src=>{
 
-container.appendChild(card)
+gallery.innerHTML+=`
+<div class="swiper-slide">
+<img loading="lazy" src="${src}">
+</div>
+`
 
 })
 
+new Swiper('.swiper',{
+loop:true,
+lazy:true
 })
-.catch(err => console.log(err))
+
+// 视频按钮
+if(listing.video){
+
+const btn=document.getElementById("videoBtn")
+
+btn.style.display="block"
+
+btn.onclick=function(){
+
+const frame=document.createElement("iframe")
+
+frame.src=listing.video
+frame.style.position="fixed"
+frame.style.top="0"
+frame.style.left="0"
+frame.style.width="100%"
+frame.style.height="100%"
+frame.style.border="none"
+frame.style.zIndex="9999"
+
+document.body.appendChild(frame)
+
+}
+
+}
+
+})
 
 </script>
+
+</body>
+
+</html>
