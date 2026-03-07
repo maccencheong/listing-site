@@ -1,40 +1,28 @@
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
-
-const params=new URLSearchParams(window.location.search)
-const name=params.get("name")
-
-document.getElementById("title").innerText=name
+const API = "https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
 
 fetch(API)
-.then(r=>r.json())
-.then(data=>{
+.then(response => response.json())
+.then(data => {
 
-const listing=data.find(l=>l.name===name)
+const container = document.getElementById("listings")
 
-const gallery=document.getElementById("gallery")
+data.forEach(item => {
 
-listing.photos.forEach(src=>{
+const card = document.createElement("a")
 
-gallery.innerHTML+=`
-<div class="swiper-slide">
-<img src="${src}">
-</div>
-`
+card.href = "listing.html?name=" + item.name
 
-})
+card.className = "card"
 
-new Swiper('.swiper',{loop:true})
+card.innerText = item.name
 
-if(listing.video){
-
-const btn=document.getElementById("videoBtn")
-btn.style.display="block"
-btn.href=listing.video
-
-}
+container.appendChild(card)
 
 })
+
+})
+.catch(err => console.log(err))
 
 </script>
