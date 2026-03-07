@@ -1,22 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Property Listings</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:40px;
+}
+
+h1{
+margin-bottom:30px;
+}
+
+.card{
+display:block;
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:10px;
+text-decoration:none;
+color:black;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+background:#f9f9f9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Property Listings</h1>
+
+<div id="listings">Loading listings...</div>
+
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
+const API = "https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
 
 fetch(API)
-.then(r=>r.json())
-.then(data=>{
 
-const container=document.getElementById("listings")
+.then(response => response.json())
 
-data.forEach(item=>{
+.then(data => {
 
-const card=document.createElement("a")
+const container = document.getElementById("listings")
 
-card.href="listing.html?name="+item.name
+container.innerHTML = ""
 
-card.className="card"
+data.forEach(item => {
 
-card.innerText=item.name
+const card = document.createElement("a")
+
+card.href = "listing.html?name=" + encodeURIComponent(item.name)
+
+card.className = "card"
+
+card.innerText = item.name
 
 container.appendChild(card)
 
@@ -24,4 +75,16 @@ container.appendChild(card)
 
 })
 
+.catch(error => {
+
+document.getElementById("listings").innerHTML = "Error loading listings"
+
+console.error(error)
+
+})
+
 </script>
+
+</body>
+
+</html>
