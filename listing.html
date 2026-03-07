@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Property</title>
+<title>Listing</title>
 
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
@@ -31,8 +31,7 @@ font-weight:bold;
 
 .type{
 font-size:18px;
-color:#ddd;
-margin-top:5px;
+margin-top:4px;
 }
 
 .info{
@@ -47,8 +46,19 @@ border-radius:6px;
 border:none;
 background:#2196f3;
 color:white;
-font-size:14px;
 cursor:pointer;
+}
+
+.backBtn{
+position:fixed;
+top:15px;
+left:15px;
+background:black;
+padding:6px 12px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+z-index:10;
 }
 
 .swiper{
@@ -69,17 +79,14 @@ object-fit:contain;
 }
 
 .swipeHint{
-
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-background:rgba(0,0,0,0.5);
-padding:10px 18px;
+background:rgba(0,0,0,0.6);
+padding:10px 20px;
 border-radius:20px;
 font-size:14px;
-opacity:0.8;
-
 }
 
 </style>
@@ -87,6 +94,8 @@ opacity:0.8;
 </head>
 
 <body>
+
+<a class="backBtn" href="index.html">← Back</a>
 
 <div class="header">
 
@@ -117,11 +126,27 @@ opacity:0.8;
 
 const params=new URLSearchParams(window.location.search)
 
-const data=JSON.parse(decodeURIComponent(params.get("data")))
+const id=params.get("id")
+
+const API="YOUR_SCRIPT_URL?mode=listing&id="+id
+
+
+function formatPrice(p){
+
+p=p.toUpperCase()
+
+let num=parseFloat(p)
+
+if(p.includes("K")) num*=1000
+if(p.includes("M")) num*=1000000
+
+return "RM"+num.toLocaleString()
+
+}
 
 function parseListing(n){
 
-const parts = n.split("_")
+const parts=n.split("_")
 
 let price=""
 let type=""
@@ -142,8 +167,8 @@ const typeMap={
 
 parts.forEach(p=>{
 
-if(p.includes("RM")||p.includes("k"))
-price=p
+if(p.includes("K")||p.includes("M"))
+price=formatPrice(p)
 
 if(typeMap[p])
 type=typeMap[p]
@@ -158,13 +183,20 @@ rooms=p
 
 return{
 
-price:price,
-type:type,
+price,
+type,
 info:size+" • "+rooms
 
 }
 
 }
+
+
+fetch(API)
+
+.then(r=>r.json())
+
+.then(data=>{
 
 const parsed=parseListing(data.name)
 
@@ -192,16 +224,22 @@ prevEl:'.swiper-button-prev'
 }
 })
 
+})
+
+
 function copyURL(){
 
 navigator.clipboard.writeText(window.location.href)
 
-alert("Listing URL copied!")
+alert("Listing URL copied")
 
 }
 
+
 setTimeout(()=>{
+
 document.getElementById("hint").style.display="none"
+
 },3000)
 
 </script>
