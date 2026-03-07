@@ -71,7 +71,7 @@ function parseListing(n){
 const parts=n.split("_")
 
 return{
-price:parts[0]||"",
+price:parts[0],
 info:parts.slice(1).join(" • ")
 }
 
@@ -114,14 +114,6 @@ card.innerHTML=`
 container.appendChild(card)
 
 })
-
-})
-
-.catch(err=>{
-
-document.getElementById("listings").innerHTML="Error loading listings"
-
-console.log(err)
 
 })
 
