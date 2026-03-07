@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Property Listings</title>
+<title>Listings</title>
 
 <style>
 
@@ -14,18 +14,18 @@ body{
 font-family:Arial;
 background:#111;
 color:white;
-padding:30px;
+padding:20px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
 gap:20px;
 }
 
 .card{
 background:#222;
-border-radius:10px;
+border-radius:8px;
 overflow:hidden;
 text-decoration:none;
 color:white;
@@ -33,23 +33,17 @@ color:white;
 
 .card img{
 width:100%;
-height:200px;
+height:160px;
 object-fit:cover;
 }
 
 .cardInfo{
-padding:15px;
+padding:10px;
 }
 
 .price{
-font-size:22px;
+font-size:18px;
 font-weight:bold;
-}
-
-.info{
-opacity:0.7;
-font-size:14px;
-margin-top:5px;
 }
 
 </style>
@@ -66,14 +60,33 @@ margin-top:5px;
 
 const API="https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
 
+function formatPrice(p){
+
+p=p.toUpperCase()
+
+let num=parseFloat(p)
+
+if(p.includes("K")) num*=1000
+if(p.includes("M")) num*=1000000
+
+return "RM"+num.toLocaleString()
+
+}
+
 function parseListing(n){
 
 const parts=n.split("_")
 
-return{
-price:parts[0],
-info:parts.slice(1).join(" • ")
-}
+let price=""
+
+parts.forEach(p=>{
+
+if(p.includes("K")||p.includes("M"))
+price=formatPrice(p)
+
+})
+
+return{price}
 
 }
 
@@ -95,7 +108,7 @@ const card=document.createElement("a")
 
 card.className="card"
 
-card.href="listing.html?data="+encodeURIComponent(JSON.stringify(item))
+card.href="listing.html?id="+item.id
 
 card.innerHTML=`
 
@@ -104,8 +117,6 @@ card.innerHTML=`
 <div class="cardInfo">
 
 <div class="price">${parsed.price}</div>
-
-<div class="info">${parsed.info}</div>
 
 </div>
 
