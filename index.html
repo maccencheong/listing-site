@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Listings</title>
+<title>Property Listings</title>
 
 <style>
 
 body{
-font-family:Arial;
 background:#111;
 color:white;
+font-family:Arial;
 padding:20px;
 }
 
@@ -54,7 +53,7 @@ font-weight:bold;
 
 <h2>Property Listings</h2>
 
-<div id="listings" class="grid">Loading...</div>
+<div id="listings" class="grid"></div>
 
 <script>
 
@@ -80,13 +79,11 @@ const parts=n.split("_")
 let price=""
 
 parts.forEach(p=>{
-
 if(p.includes("K")||p.includes("M"))
 price=formatPrice(p)
-
 })
 
-return{price}
+return {price}
 
 }
 
@@ -97,8 +94,6 @@ fetch(API)
 .then(data=>{
 
 const container=document.getElementById("listings")
-
-container.innerHTML=""
 
 data.forEach(item=>{
 
@@ -112,12 +107,10 @@ card.href="listing.html?id="+item.id
 
 card.innerHTML=`
 
-<img src="${item.cover||""}">
+<img src="${item.cover}">
 
 <div class="cardInfo">
-
 <div class="price">${parsed.price}</div>
-
 </div>
 
 `
@@ -131,5 +124,4 @@ container.appendChild(card)
 </script>
 
 </body>
-
 </html>
