@@ -63,7 +63,7 @@ data.forEach(item => {
 
 const card = document.createElement("a")
 
-card.href = "listing.html?name=" + encodeURIComponent(item.name)
+card.href = "listing.html?data=" + encodeURIComponent(JSON.stringify(item))
 
 card.className = "card"
 
