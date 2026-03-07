@@ -15,7 +15,7 @@ href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
 body{
 margin:0;
-background:#000;
+background:black;
 color:white;
 font-family:Arial;
 }
@@ -81,10 +81,9 @@ display:none;
 
 <script>
 
-const API = "https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
-
 const params = new URLSearchParams(window.location.search)
-const name = params.get("name")
+
+const data = JSON.parse(decodeURIComponent(params.get("data")))
 
 function parseListing(n){
 
@@ -99,29 +98,14 @@ info: parts.slice(1).join(" • ")
 
 }
 
-const parsed = parseListing(name)
+const parsed = parseListing(data.name)
 
 document.getElementById("price").innerText = parsed.price
 document.getElementById("info").innerText = parsed.info
 
-fetch(API)
-
-.then(res => res.json())
-
-.then(data => {
-
-const listing = data.find(l => l.name === name)
-
-if(!listing){
-
-document.body.innerHTML="Listing not found"
-return
-
-}
-
 const gallery = document.getElementById("gallery")
 
-listing.photos.forEach(src => {
+data.photos.forEach(src => {
 
 gallery.innerHTML += `
 <div class="swiper-slide">
@@ -133,25 +117,15 @@ gallery.innerHTML += `
 
 new Swiper('.swiper',{loop:true})
 
-if(listing.video){
+if(data.video){
 
 const btn=document.getElementById("videoBtn")
 
 btn.style.display="block"
 
-btn.href=listing.video
+btn.href=data.video
 
 }
-
-})
-
-.catch(err => {
-
-document.body.innerHTML="Error loading listing"
-
-console.log(err)
-
-})
 
 </script>
 
