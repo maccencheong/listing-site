@@ -53,26 +53,16 @@ font-weight:bold;
 
 <script>
 
+const id=new URLSearchParams(location.search).get("id")
+
 fetch("listings.json")
 .then(r=>r.json())
 .then(data=>{
 
-const container=document.getElementById("listings")
+const listing=data.find(x=>x.id==id)
 
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<a class="card" href="listing.html?id=${item.id}">
-
-<img src="${item.cover}" loading="lazy">
-
-<div class="price">${item.name}</div>
-
-</a>
-
-`
-
+listing.photos.forEach(p=>{
+gallery.innerHTML+=`<img src="${p}">`
 })
 
 })
