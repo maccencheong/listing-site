@@ -3,95 +3,27 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Listing</title>
-
-<!-- WhatsApp Preview -->
-
-<meta property="og:title" content="Property Listing">
-<meta property="og:description" content="View property photos">
-<meta property="og:image" content="">
-<meta property="og:type" content="website">
-
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
 <style>
 
 body{
 margin:0;
 background:black;
-color:white;
-font-family:Arial;
 }
 
-.topBar{
+.gallery{
 display:flex;
-justify-content:space-between;
-padding:12px;
-background:#111;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
 }
 
-.backBtn{
-background:#333;
-padding:6px 12px;
-border-radius:6px;
-text-decoration:none;
-color:white;
-}
-
-.copyBtn{
-background:#2196f3;
-border:none;
-color:white;
-padding:6px 12px;
-border-radius:6px;
-cursor:pointer;
-}
-
-.header{
-padding:20px;
-}
-
-.price{
-font-size:28px;
-font-weight:bold;
-}
-
-.type{
-margin-top:5px;
-}
-
-.info{
-opacity:0.8;
-margin-top:5px;
-}
-
-.swiper{
-height:70vh;
-}
-
-.swiper-slide{
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.swiper-slide img{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-}
-
-.swipeHint{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:rgba(0,0,0,0.6);
-padding:10px 18px;
-border-radius:20px;
+.gallery img{
+width:100%;
+flex:0 0 100%;
+scroll-snap-align:center;
 }
 
 </style>
@@ -100,146 +32,25 @@ border-radius:20px;
 
 <body>
 
-<div class="topBar">
-
-<a class="backBtn" href="index.html">← Back</a>
-
-<button class="copyBtn" onclick="copyURL()">Copy Link</button>
-
-</div>
-
-<div class="header">
-
-<div class="price" id="price"></div>
-
-<div class="type" id="type"></div>
-
-<div class="info" id="info"></div>
-
-</div>
-
-<div class="swiper">
-
-<div class="swiper-wrapper" id="gallery"></div>
-
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-
-</div>
-
-<div class="swipeHint" id="hint">← Swipe photos →</div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<div class="gallery" id="gallery"></div>
 
 <script>
 
-const params=new URLSearchParams(window.location.search)
+const id=new URLSearchParams(location.search).get("id")
 
-const id=params.get("id")
-
-const API="YOUR_SCRIPT_URL?mode=listing&id="+id
-
-function formatPrice(p){
-
-p=p.toUpperCase()
-
-let num=parseFloat(p)
-
-if(p.includes("K")) num*=1000
-if(p.includes("M")) num*=1000000
-
-return "RM"+num.toLocaleString()
-
-}
-
-function parseListing(n){
-
-const parts=n.split("_")
-
-let price=""
-let type=""
-let size=""
-let rooms=""
-
-const typeMap={
-"T":"Terrace",
-"F":"Flat",
-"A":"Apartment",
-"C":"Condominium",
-"SA":"Service Apartment",
-"O":"Office",
-"S":"Shop Lot"
-}
-
-parts.forEach(p=>{
-
-if(p.includes("K")||p.includes("M"))
-price=formatPrice(p)
-
-if(typeMap[p])
-type=typeMap[p]
-
-if(p.includes("sf"))
-size=p
-
-if(p.includes("R"))
-rooms=p
-
-})
-
-return{
-price,
-type,
-info:size+" • "+rooms
-}
-
-}
-
-fetch(API)
-
+fetch("listings.json")
 .then(r=>r.json())
-
 .then(data=>{
 
-const parsed=parseListing(data.name)
+const listing=data.find(x=>x.id==id)
 
-document.getElementById("price").innerText=parsed.price
-document.getElementById("type").innerText=parsed.type
-document.getElementById("info").innerText=parsed.info
+const g=document.getElementById("gallery")
 
-const gallery=document.getElementById("gallery")
-
-data.photos.forEach(src=>{
-
-gallery.innerHTML+=`
-<div class="swiper-slide">
-<img loading="lazy" src="${src}">
-</div>
-`
-
-})
-
-new Swiper('.swiper',{
-loop:true,
-navigation:{
-nextEl:'.swiper-button-next',
-prevEl:'.swiper-button-prev'
-}
+listing.photos.forEach(p=>{
+g.innerHTML+=`<img src="${p}" loading="lazy">`
 })
 
 })
-
-function copyURL(){
-
-navigator.clipboard.writeText(window.location.href)
-
-alert("Listing URL copied")
-
-}
-
-setTimeout(()=>{
-document.getElementById("hint").style.display="none"
-},3000)
 
 </script>
 
