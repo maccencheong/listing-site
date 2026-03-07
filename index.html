@@ -59,10 +59,22 @@ fetch("listings.json")
 .then(r=>r.json())
 .then(data=>{
 
-const listing=data.find(x=>x.id==id)
+const container=document.getElementById("listings")
 
-listing.photos.forEach(p=>{
-gallery.innerHTML+=`<img src="${p}">`
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<a class="card" href="listing.html?id=${item.id}">
+
+<img src="${item.cover}" loading="lazy">
+
+<div class="price">${item.name}</div>
+
+</a>
+
+`
+
 })
 
 })
