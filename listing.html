@@ -15,28 +15,26 @@ href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
 body{
 margin:0;
-font-family:Arial;
-background:#111;
+background:#000;
 color:white;
+font-family:Arial;
 }
 
 .header{
 padding:20px;
-background:#000;
 }
 
 .price{
-font-size:28px;
+font-size:30px;
 font-weight:bold;
 }
 
 .info{
+opacity:0.7;
 margin-top:5px;
-opacity:0.8;
 }
 
 .swiper{
-width:100%;
 height:70vh;
 }
 
@@ -50,12 +48,11 @@ object-fit:cover;
 position:fixed;
 bottom:30px;
 right:30px;
-background:#ff3b3b;
+background:red;
 color:white;
-padding:14px 20px;
+padding:14px 22px;
 border-radius:30px;
 text-decoration:none;
-font-weight:bold;
 display:none;
 }
 
@@ -84,49 +81,49 @@ display:none;
 
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbwNzDUVNkVZed_AiNsJuFGR4nT8MJD4PbFHzzOqyR1x/dev"
+const API = "https://script.google.com/macros/s/AKfycbzwfYqX3ks4bFt4a11ZDGb8DWIgGMCC0JHS3t5bWZFYMhejGz6xsdGE7xg0gBI3P8qhXA/exec"
 
-const params=new URLSearchParams(window.location.search)
-const name=params.get("name")
+const params = new URLSearchParams(window.location.search)
+const name = params.get("name")
 
-// 解析 listing 名字
 function parseListing(n){
 
-const parts=n.split("_")
-
-let price=parts[0]||""
-let type=parts[1]||""
-let rooms=parts[2]||""
-let size=parts[3]||""
-let location=parts[4]||""
+const parts = n.split("_")
 
 return {
-price,
-info:type+" • "+rooms+" • "+size+" • "+location
-}
+
+price: parts[0] || "",
+info: parts.slice(1).join(" • ")
 
 }
 
-const parsed=parseListing(name)
+}
 
-document.getElementById("price").innerText=parsed.price
-document.getElementById("info").innerText=parsed.info
+const parsed = parseListing(name)
+
+document.getElementById("price").innerText = parsed.price
+document.getElementById("info").innerText = parsed.info
 
 fetch(API)
 
-.then(r=>r.json())
+.then(res => res.json())
 
-.then(data=>{
+.then(data => {
 
-const listing=data.find(l=>l.name===name)
+const listing = data.find(l => l.name === name)
 
-if(!listing) return
+if(!listing){
 
-const gallery=document.getElementById("gallery")
+document.body.innerHTML="Listing not found"
+return
 
-listing.photos.forEach(src=>{
+}
 
-gallery.innerHTML+=`
+const gallery = document.getElementById("gallery")
+
+listing.photos.forEach(src => {
+
+gallery.innerHTML += `
 <div class="swiper-slide">
 <img loading="lazy" src="${src}">
 </div>
@@ -134,36 +131,25 @@ gallery.innerHTML+=`
 
 })
 
-new Swiper('.swiper',{
-loop:true,
-lazy:true
-})
+new Swiper('.swiper',{loop:true})
 
-// 视频按钮
 if(listing.video){
 
 const btn=document.getElementById("videoBtn")
 
 btn.style.display="block"
 
-btn.onclick=function(){
-
-const frame=document.createElement("iframe")
-
-frame.src=listing.video
-frame.style.position="fixed"
-frame.style.top="0"
-frame.style.left="0"
-frame.style.width="100%"
-frame.style.height="100%"
-frame.style.border="none"
-frame.style.zIndex="9999"
-
-document.body.appendChild(frame)
+btn.href=listing.video
 
 }
 
-}
+})
+
+.catch(err => {
+
+document.body.innerHTML="Error loading listing"
+
+console.log(err)
 
 })
 
