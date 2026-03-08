@@ -1,36 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Listing</title>
+
+<style>
+
+body{
+margin:0;
+background:#000;
+color:#fff;
+font-family:Arial;
+}
+
+.topbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
+height:50px;
+background:#111;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 10px;
+z-index:10;
+}
+
+.button{
+background:#333;
+border:none;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+}
+
+.gallery{
+position:absolute;
+top:50px;
+bottom:0;
+left:0;
+right:0;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.gallery img{
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+}
+
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+background:rgba(0,0,0,0.5);
+border:none;
+color:white;
+cursor:pointer;
+padding:10px;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+.videoBtn{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#e91e63;
+border:none;
+padding:10px 18px;
+color:white;
+border-radius:8px;
+cursor:pointer;
+display:none;
+}
+
+.videoPlayer{
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:black;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:20;
+}
+
+.videoPlayer video{
+max-width:100%;
+max-height:100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+<button class="button" onclick="goBack()">← Back</button>
+
+<button class="button" onclick="copyLink()">Copy Link</button>
+
+</div>
+
+<div class="gallery">
+
+<button class="nav prev" onclick="prev()">❮</button>
+
+<img id="photo">
+
+<button class="nav next" onclick="next()">❯</button>
+
+</div>
+
+<button id="videoBtn" class="videoBtn" onclick="playVideo()">Play Video</button>
+
+<div id="videoPlayer" class="videoPlayer">
+
+<video id="video" controls></video>
+
+</div>
+
 <script>
 
-const id=new URLSearchParams(location.search).get("id")
+const params=new URLSearchParams(location.search)
+const id=params.get("id")
 
 let photos=[]
+let video=null
 let index=0
 
 fetch("listings.json")
+
 .then(r=>r.json())
+
 .then(data=>{
 
-const listing=data.find(x=>x.id==id)
+const listing=data.find(x=>x.id===id)
 
 if(!listing){
 
 alert("Listing not found")
-
 return
 
 }
+
+if(listing.photos && listing.photos.length>0){
 
 photos=listing.photos
 
-if(!photos || photos.length===0){
+}else if(listing.cover){
 
-document.getElementById("photo").src=listing.cover
-return
+photos=[listing.cover]
+
+}else{
+
+photos=["https://via.placeholder.com/800x600?text=No+Photo"]
 
 }
 
-index=0
+if(listing.video){
+
+video=listing.video
+
+document.getElementById("videoBtn").style.display="block"
+
+}
 
 show()
+
+})
+
+.catch(err=>{
+
+console.log("JSON error:",err)
 
 })
 
@@ -42,15 +201,9 @@ document.getElementById("photo").src=photos[index]
 
 function next(){
 
-if(photos.length===0) return
-
 index++
 
-if(index>=photos.length){
-
-index=0
-
-}
+if(index>=photos.length) index=0
 
 show()
 
@@ -58,15 +211,9 @@ show()
 
 function prev(){
 
-if(photos.length===0) return
-
 index--
 
-if(index<0){
-
-index=photos.length-1
-
-}
+if(index<0) index=photos.length-1
 
 show()
 
@@ -86,4 +233,20 @@ alert("Listing link copied")
 
 }
 
+function playVideo(){
+
+document.getElementById("videoPlayer").style.display="flex"
+
+const v=document.getElementById("video")
+
+v.src=video
+
+v.play()
+
+}
+
 </script>
+
+</body>
+
+</html>
