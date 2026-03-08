@@ -1,6 +1,8 @@
 function getID(){
+
 const url=new URL(window.location.href)
 return url.searchParams.get("id")
+
 }
 
 const id=getID()
@@ -34,11 +36,7 @@ card.innerHTML=`
 
 <img loading="lazy" src="${item.photos[0]}">
 
-<div class="card-body">
-
 <h3>${item.name}</h3>
-
-</div>
 
 </a>
 
@@ -81,8 +79,6 @@ videoHTML=`
 
 container.innerHTML=`
 
-<div class="property-page">
-
 <h1>${listing.name}</h1>
 
 <div class="gallery">
@@ -92,8 +88,6 @@ ${gallery}
 </div>
 
 ${videoHTML}
-
-</div>
 
 `
 
