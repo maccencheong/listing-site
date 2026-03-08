@@ -40,7 +40,9 @@ object-fit:cover;
 <script>
 
 fetch("listings.json")
+
 .then(r=>r.json())
+
 .then(data=>{
 
 const container=document.getElementById("listings")
@@ -51,7 +53,7 @@ container.innerHTML+=`
 
 <a class="card" href="listings/${item.page}">
 
-<img src="${item.cover}">
+<img src="${item.cover}" loading="lazy">
 
 <div>${item.name}</div>
 
