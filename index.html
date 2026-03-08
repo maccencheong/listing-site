@@ -1,24 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Property Listings</title>
+
+<style>
+
+body{
+margin:0;
+background:#000;
+color:#fff;
+font-family:Arial;
+}
+
+h2{
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.card{
+background:#111;
+border-radius:8px;
+overflow:hidden;
+text-decoration:none;
+color:white;
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+background:#222;
+}
+
+.price{
+padding:10px;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Property Listings</h2>
+
+<div id="listings" class="grid"></div>
+
 <script>
 
 fetch("listings.json")
-.then(function(response){
-return response.json()
-})
-.then(function(data){
 
-const container = document.getElementById("listings")
+.then(response=>response.json())
 
-data.forEach(function(item){
+.then(data=>{
 
-const card = document.createElement("a")
+const container=document.getElementById("listings")
+
+container.innerHTML=""
+
+data.forEach(item=>{
+
+const card=document.createElement("a")
 
 card.className="card"
 
 card.href="listing.html?id="+item.id
 
-card.innerHTML = `
-<img src="${item.cover}" loading="lazy">
-<div class="price">${item.name}</div>
+// 如果没有封面
+let cover=item.cover
+
+if(!cover){
+
+cover="https://via.placeholder.com/400x300?text=No+Photo"
+
+}
+
+card.innerHTML=`
+
+<img src="${cover}" loading="lazy">
+
+<div class="price">
+
+${item.name}
+
+</div>
+
 `
 
 container.appendChild(card)
@@ -26,8 +104,17 @@ container.appendChild(card)
 })
 
 })
-.catch(function(error){
+
+.catch(error=>{
+
 console.log("JSON load error:",error)
+
+document.getElementById("listings").innerHTML="Failed to load listings"
+
 })
 
 </script>
+
+</body>
+
+</html>
