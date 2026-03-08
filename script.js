@@ -1,15 +1,17 @@
 fetch("listings.json")
-.then(res => res.json())
-.then(data => {
+.then(res=>res.json())
+.then(data=>{
 
-const container = document.getElementById("listings")
+const container=document.getElementById("listings")
 
-data.forEach(item => {
+data.forEach(item=>{
 
-const card = document.createElement("div")
-card.className = "card"
+const card=document.createElement("div")
 
-card.innerHTML = `
+card.className="card"
+
+card.innerHTML=`
+
 <a href="l/${item.id}.html">
 
 <img src="${item.photo}">
