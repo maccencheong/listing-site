@@ -1,71 +1,22 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
 
 <meta charset="UTF-8">
 
-<title>Maccen Property Listing</title>
+<title>Property Listings</title>
 
-<style>
-
-body{
-background:black;
-color:white;
-font-family:Arial;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:20px;
-}
-
-.card img{
-width:100%;
-height:160px;
-object-fit:cover;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h2>Maccen Property Listing</h2>
+<div id="listings"></div>
 
-<div id="listings" class="grid"></div>
-
-<script>
-
-fetch("listings.json")
-
-.then(r=>r.json())
-
-.then(data=>{
-
-const container=document.getElementById("listings")
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<a class="card" href="listings/${item.page}">
-
-<img src="${item.cover}" loading="lazy">
-
-<div>${item.name}</div>
-
-</a>
-
-`
-
-})
-
-})
-
-</script>
+<script src="script.js"></script>
 
 </body>
 
