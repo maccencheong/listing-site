@@ -1,39 +1,45 @@
-fetch("data/listings.json")
+function pushGithub(path,content){
 
-.then(res=>res.json())
+const token = PropertiesService.getScriptProperties().getProperty("GITHUB_TOKEN");
+const repo="Maccen-Prop/listing-site";
 
-.then(data=>{
+const api="https://api.github.com/repos/"+repo+"/contents/"+path;
 
-let html="";
+let sha=null;
 
-data.forEach(p=>{
+try{
 
-html+=`
-
-<a href="l/${p.short}.html">
-
-<div class="card">
-
-<div class="price">${p.price}</div>
-
-<div>
-
-${p.type}
-${p.bedroom}R
-${p.bathroom}B
-${p.parking}P
-${p.size}sf
-
-</div>
-
-</div>
-
-</a>
-
-`;
-
+let res=UrlFetchApp.fetch(api,{
+method:"get",
+headers:{Authorization:"token "+token},
+muteHttpExceptions:true
 });
 
-document.getElementById("listings").innerHTML=html;
+let json=JSON.parse(res.getContentText());
 
-});
+if(json.sha){
+sha=json.sha;
+}
+
+}catch(e){}
+
+let payload={
+message:"auto update listing",
+content:Utilities.base64Encode(content)
+};
+
+if(sha){
+payload.sha=sha;
+}
+
+let options={
+method:"put",
+headers:{Authorization:"token "+token},
+contentType:"application/json",
+payload:JSON.stringify(payload),
+muteHttpExceptions:true
+};
+
+UrlFetchApp.fetch(api,options);
+
+}
