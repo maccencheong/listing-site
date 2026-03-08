@@ -1,45 +1,33 @@
-function pushGithub(path,content){
+fetch("listings.json")
+.then(res => res.json())
+.then(data => {
 
-const token = PropertiesService.getScriptProperties().getProperty("GITHUB_TOKEN");
-const repo="Maccen-Prop/listing-site";
+const container = document.getElementById("listings")
 
-const api="https://api.github.com/repos/"+repo+"/contents/"+path;
+data.forEach(item => {
 
-let sha=null;
+const card = document.createElement("div")
+card.className = "card"
 
-try{
+card.innerHTML = `
+<a href="l/${item.id}.html">
 
-let res=UrlFetchApp.fetch(api,{
-method:"get",
-headers:{Authorization:"token "+token},
-muteHttpExceptions:true
-});
+<img src="${item.photo}">
 
-let json=JSON.parse(res.getContentText());
+<div class="card-body">
 
-if(json.sha){
-sha=json.sha;
-}
+<div class="price">RM ${item.price}</div>
 
-}catch(e){}
+<div>${item.type}</div>
+<div>${item.area}</div>
 
-let payload={
-message:"auto update listing",
-content:Utilities.base64Encode(content)
-};
+</div>
 
-if(sha){
-payload.sha=sha;
-}
+</a>
+`
 
-let options={
-method:"put",
-headers:{Authorization:"token "+token},
-contentType:"application/json",
-payload:JSON.stringify(payload),
-muteHttpExceptions:true
-};
+container.appendChild(card)
 
-UrlFetchApp.fetch(api,options);
+})
 
-}
+})
