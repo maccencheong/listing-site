@@ -1,8 +1,6 @@
 function getID(){
-
 const url=new URL(window.location.href)
 return url.searchParams.get("id")
-
 }
 
 const id=getID()
@@ -12,17 +10,12 @@ fetch("listings.json")
 .then(data=>{
 
 if(id){
-
 showProperty(data)
-
 }else{
-
 showListings(data)
-
 }
 
 })
-
 
 
 function showListings(data){
@@ -39,11 +32,11 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img loading="lazy" src="${item.photo}">
+<img loading="lazy" src="${item.photos[0]}">
 
 <div class="card-body">
 
-<div class="price">${item.name}</div>
+<h3>${item.name}</h3>
 
 </div>
 
@@ -58,7 +51,6 @@ container.appendChild(card)
 }
 
 
-
 function showProperty(data){
 
 const container=document.getElementById("property")
@@ -67,6 +59,12 @@ const listing=data.find(l=>l.id===id)
 
 if(!listing) return
 
+let gallery=""
+
+listing.photos.forEach(p=>{
+gallery+=`<img src="${p}">`
+})
+
 let videoHTML=""
 
 if(listing.video){
@@ -74,9 +72,7 @@ if(listing.video){
 videoHTML=`
 
 <video width="100%" controls>
-
 <source src="${listing.video}">
-
 </video>
 
 `
@@ -91,7 +87,7 @@ container.innerHTML=`
 
 <div class="gallery">
 
-<img src="${listing.photo}">
+${gallery}
 
 </div>
 
