@@ -1,1 +1,282 @@
-[]
+[
+  {
+    "id": "850k-2sty432-1500-85-bk-5-8d-bandar-kinrara",
+    "name": "850K_2Sty432-1500 85 BK 5/8D bandar kinrara",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=10HQw2qJyEHtSb_Uw5QExJRQeyv5MgDOc"
+  },
+  {
+    "id": "880k-2sty432-1400-27-jalan-bk-5-5a-bandar-kinrara",
+    "name": "880K_2sty432-1400 27 Jalan BK 5/5a bandar kinrara",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1Y2efBkjljyodsgi-04qO6KkS-R3Gdv7W"
+  },
+  {
+    "id": "400k-1sty-322-1200-37-jln-gombak-setia-27-65-alam-megah",
+    "name": "400K_1Sty-322-1200 37, Jln Gombak Setia 27-65 Alam Megah",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=17dxMEN8pvbHtzLsIrDUTuirXduEfY_Kh"
+  },
+  {
+    "id": "140k-p32-624-2-tingkat-4-block-4-taman-salak-selatan-kl",
+    "name": "140K_P32-624 2, Tingkat 4, Block 4 Taman Salak Selatan KL",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=168nunZQLPaOoP5JE_4U7ZX4yipk4XOut"
+  },
+  {
+    "id": "1100-p322-946-3-03-07-laggon-perdana",
+    "name": "1100_P322-946 3-03-07 Laggon Perdana",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1sp64VMMBF5cLdmYvpfe89OHP-19Ws2Da"
+  },
+  {
+    "id": "2200-c321-117-b-25-10-the-wharf-residnece",
+    "name": "2200_C321-117  B-25-10 The Wharf Residnece",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1y9oCdzIOQgw5YTCJFbq6v0Hm4asNT_T9"
+  },
+  {
+    "id": "akasia-a-16-01-rm-2-000",
+    "name": "Akasia A-16-01 RM 2,000",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1vC5trFvvPouzfbEU-ojNzQDVDrd7iKB3"
+  },
+  {
+    "id": "669k-2sty432-2000-31-jalan-kampung-tengah-27-48-seksyen-27-40400-shah-alam-selangor",
+    "name": "669K_2Sty432-2000 31, JALAN KAMPUNG TENGAH\r\n27/48, SEKSYEN 27, 40400 SHAH\r\nALAM, SELANGOR\r",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1dKDrWCwPZr9WGH5qJdFMegu7iVBeE_id"
+  },
+  {
+    "id": "550k-1-5sty322-1400-32-jalan-tanjung-jinti-28-19",
+    "name": "550K_1.5Sty322-1400 (32, Jalan Tanjung Jinti 28-19)",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1Nz1RCPJvNW96bJnaqWxLOOF3uGdTtVvW"
+  },
+  {
+    "id": "1500-2sty432-1700-49-zaituan-8-2-bdr-saujana-utama-sg-buluh",
+    "name": "1500_2Sty432-1700, 49, Zaituan 8/2 Bdr Saujana utama Sg buluh",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1AT06ylACM79i8XcXrSANlP1KPskcFwFo"
+  },
+  {
+    "id": "1800-321-940-6-13-02-vista-angkasa-bukit-kerinci",
+    "name": "1800_321-940, 6-13-02 Vista Angkasa, Bukit kerinci",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1_FpSRsBu23s6XuDZmbdTPDG6IZUxr1p8"
+  },
+  {
+    "id": "600k-2sty-432-1400-19-jalan-bukit-merbau-27-28-alam-megah",
+    "name": "600K_2Sty 432 - 1400 19, Jalan Bukit Merbau 27-28 Alam Megah",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=11IOmfzyqhGnk7PZtPXFOqZOomsQdXPRL"
+  },
+  {
+    "id": "2800-shop-1750-50-g-pusat-perdagangan-one-puchong-jalan-op15-off-jalan-puchong-bandar-puchong-jaya",
+    "name": "2800_Shop - 1750 50-G PUSAT PERDAGANGAN ONE PUCHONG JALAN OP15, OFF, JALAN PUCHONG, Bandar Puchong Jaya",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1wVcy2rBHS0QUvJabWSp_FmUNPI2Vahz0"
+  },
+  {
+    "id": "670k-2sty432-1700-11-iln-tk2-2-taman-kinrara-puchong",
+    "name": "670K_2sty432 - 1700  11 iln tk2/2\ntaman kinrara Puchong",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=17OlVZndrQb_P1rIvwJBxzPvIz1EPzqNY"
+  },
+  {
+    "id": "290k-c321-980-j2-3-palm-ville-kinrara",
+    "name": "290K_C321-980 J2-3-  Palm Ville Kinrara",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1yyAyRFSd4Jsc7eRTTLi5_tfirtz4rjFn"
+  },
+  {
+    "id": "540k-1-5sty322-1200-no-12-jalan-kanchung-laut-28-20-seksyen-28",
+    "name": "540K_1.5Sty322-1200 No 12, Jalan Kanchung Laut 28/20, Seksyen 28",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1-QmXRnqONHwnCanx4vF-dBwepStX45gD"
+  },
+  {
+    "id": "750k-2-sty43-1700-4-sungai-cincin-dua-27-57b-sek-27",
+    "name": "750K_2-Sty43-1700 4,Sungai Cincin Dua 27- 57b Sek 27",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=10xdRncp3XQm9Tt_08rj-ejvt3iJZMcbH"
+  },
+  {
+    "id": "1-05m-2-sty535-4937-31-jalan-sungai-cincin-dua-2757b-40400-seksyen-27-shah-alam-selangor",
+    "name": "1.05M_ 2-Sty535-4937 31, Jalan Sungai Cincin Dua, 2757B, 40400 Seksyen 27, Shah?alam?Selangor",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=10y2pBZC1dGlxYqmyRojdslK8E4pMGnWn"
+  },
+  {
+    "id": "175k-p321-650-b5-07-37-desa-mentari",
+    "name": "175k_P321-650 B5-07-37 Desa Mentari",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1ow7rs4U2jiisPbHQhZb7lgqe2uce-2iX"
+  },
+  {
+    "id": "1500-p321-1000-mercu-jalil",
+    "name": "1500_P321-1000 Mercu jalil",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=14mu1wPSjYpFcOnBgNS8Jp3xhNgnz-daC"
+  },
+  {
+    "id": "jalil-damai-apartments-bukit-jalil-1st-floor-jason",
+    "name": "Jalil Damai Apartments, Bukit Jalil 1st floor (Jason)",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1Z2K4Ihf24TcDd40CtOb2B6EvDBNqO73f"
+  },
+  {
+    "id": "460k-1-sty53-1650-no-42-jln-sungai-gong-27-78-tmn-alam-megah",
+    "name": "460K_1-Sty53-1650 No.42 Jln Sungai Gong 27/78 Tmn Alam Megah",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1izWrbtYE0tcW4VW3CA-jgcdl1Q7k8ARq"
+  },
+  {
+    "id": "350k-p322-1000-a-19-13-harmoni",
+    "name": "350K_P322-1000 A-19-13 Harmoni",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1UFuBm73If-wvMD8hn23nvLugNp8uhlit"
+  },
+  {
+    "id": "630k-2-sty43-2000-7-jln-sungai-cincin-dua-27-57b-aster-alam-megah",
+    "name": "630k_2-Sty43-2000 7, Jln sungai Cincin dua 27/57B aster Alam Megah",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1hfrpblWXrdM6Tg_MqawHJPKwI6DlhuLR"
+  },
+  {
+    "id": "610k-2-sty42-1700-28-27-44-sek27-tmn-bunga-negara",
+    "name": "610k_2-Sty42-1700 28, 27-44 Sek27 Tmn Bunga negara",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1hTWN53JZW_vl78Yd13i9Qwh3FOnjiZfq"
+  },
+  {
+    "id": "650k-s321-1200-d-20-03-main-place",
+    "name": "650K_S321-1200 D-20-03 Main Place",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=17DFDDV3znrDxqucFovDFuaXHFm0xfJG9"
+  },
+  {
+    "id": "2300-c322-1200-b-11-04-akasia",
+    "name": "2300_C322-1200 B-11-04 Akasia",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1undEleBkDybVRgTsV4ocOGZUm-vUlkqX"
+  },
+  {
+    "id": "355k-p322-1000-b-14-harmoni-1-putra-heights-co-agent",
+    "name": "355k_P322-1000 B-14 - Harmoni 1 Putra Heights (Co Agent)",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1hZcJ-fp9Fr8v_GMqTpsuH0kSgUp6arF_"
+  },
+  {
+    "id": "343k-p322-1000-b-19-13-harmoni-1-putra-heights-co-jason",
+    "name": "343K_P322-1000 B-19-13 Harmoni 1 Putra heights (Co - Jason)",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1qfRTQsYP3Le9b0xXAvmhyfLsTsYtGvwh"
+  },
+  {
+    "id": "3500-o224-1193-suit-03-08-seri-bukit-ceylon",
+    "name": "3500_O224-1193- Suit 03-08 Seri Bukit Ceylon",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1pU3zTjfx8CL1cu5lHq789gtrTr6cAJwp"
+  },
+  {
+    "id": "670k-t432-1950-39-pantan-27-12a",
+    "name": "670k_T432-1950 39,Pantan 27-12A",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1TIQEBqATu2vT16ZvU-GaoJzMFO1o4cKi"
+  },
+  {
+    "id": "340k-p322-1000-b-13-13-harmoni",
+    "name": "340K_P322-1000 B-13-13 Harmoni",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1GFU8Y5w0SQVyAWCcc2SvqlfVLXi3Y3Lz"
+  },
+  {
+    "id": "2200-c322-b-31-07-the-harve",
+    "name": "2200_C322-B-31-07 The Harve",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1xoFVst-a2_VKYIPKL654Q7AQUFr-W6Qy"
+  },
+  {
+    "id": "610k-2sty534-1650-12-pangsun-2-27-12b",
+    "name": "610k_2Sty534-1650 12 Pangsun 2 27-12B",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=12dPU_111gg95BFq-22BZ0x7tGp7Iwmy5"
+  },
+  {
+    "id": "700k-432-1550-20-pangsun-4-27-12d",
+    "name": "700k_432-1550 20 Pangsun 4 27-12D",
+    "price": "250000",
+    "type": "Apartment",
+    "area": "Puchong",
+    "photo": "https://drive.google.com/uc?id=1Lre6eKvNFjSZxrM1ZMtx7B2UDGqOENF2"
+  }
+]
