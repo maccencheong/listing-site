@@ -1,35 +1,104 @@
+function getID(){
+
+const url=new URL(window.location.href)
+return url.searchParams.get("id")
+
+}
+
+const id=getID()
+
 fetch("listings.json")
-.then(res=>res.json())
+.then(r=>r.json())
 .then(data=>{
+
+if(id){
+
+showProperty(data)
+
+}else{
+
+showListings(data)
+
+}
+
+})
+
+
+
+function showListings(data){
 
 const container=document.getElementById("listings")
 
 data.forEach(item=>{
 
-const card=document.createElement("div")
+let card=document.createElement("div")
 
 card.className="card"
 
 card.innerHTML=`
 
-<a href="l/${item.id}.html">
+<a href="?id=${item.id}">
 
-<img src="${item.photo}">
+<img loading="lazy" src="${item.photo}">
 
 <div class="card-body">
 
-<div class="price">RM ${item.price}</div>
-
-<div>${item.type}</div>
-<div>${item.area}</div>
+<div class="price">${item.name}</div>
 
 </div>
 
 </a>
+
 `
 
 container.appendChild(card)
 
 })
 
-})
+}
+
+
+
+function showProperty(data){
+
+const container=document.getElementById("property")
+
+const listing=data.find(l=>l.id===id)
+
+if(!listing) return
+
+let videoHTML=""
+
+if(listing.video){
+
+videoHTML=`
+
+<video width="100%" controls>
+
+<source src="${listing.video}">
+
+</video>
+
+`
+
+}
+
+container.innerHTML=`
+
+<div class="property-page">
+
+<h1>${listing.name}</h1>
+
+<div class="gallery">
+
+<img src="${listing.photo}">
+
+</div>
+
+${videoHTML}
+
+</div>
+
+`
+
+}
