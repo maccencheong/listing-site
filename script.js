@@ -1,25 +1,37 @@
 const perPage = 50;
+
 let page = 1;
+let allData = [];
 
 function getID(){
+
 const url=new URL(window.location.href);
 return url.searchParams.get("id");
+
 }
 
 const id=getID();
 
 fetch("listings.json")
+
 .then(r=>r.json())
+
 .then(data=>{
+
+allData=data;
 
 data.forEach(item=>{
 item.info=parseFolder(item.name);
 });
 
 if(id){
+
 showProperty(data);
+
 }else{
+
 showListings(data);
+
 }
 
 });
@@ -38,7 +50,7 @@ let bathroom="";
 let parking="";
 let build="";
 
-let priceMatch=text.match(/(RM)?\s*\d+(\.\d+)?\s*(K|M)/);
+let priceMatch=text.match(/(RM)?\s*\d+(\.\d+)?\s*(K|M)|\b\d{3,7}\b/);
 
 if(priceMatch){
 
@@ -48,6 +60,8 @@ let num=parseFloat(p);
 
 if(p.includes("K")) num*=1000;
 if(p.includes("M")) num*=1000000;
+
+if(!p.includes("K")&&!p.includes("M")) num=parseInt(p);
 
 price="RM "+Math.round(num)
 .toString()
@@ -137,8 +151,6 @@ let items=data.slice(start,end);
 
 items.forEach(item=>{
 
-let cover=item.photos[0];
-
 let card=document.createElement("div");
 
 card.className="card";
@@ -147,7 +159,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img loading="lazy" src="${cover}">
+<img src="${item.photos[0]}">
 
 <div class="info">
 
@@ -186,19 +198,21 @@ nav.innerHTML="";
 if(pages<=1) return;
 
 if(page>1){
+
 nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
+
 }
 
 for(let i=1;i<=pages;i++){
 
-nav.innerHTML+=`
-<button onclick="page=${i};reload()">${i}</button>
-`;
+nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
 
 }
 
 if(page<pages){
+
 nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
+
 }
 
 }
@@ -207,17 +221,7 @@ nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
 
 function reload(){
 
-fetch("listings.json")
-.then(r=>r.json())
-.then(data=>{
-
-data.forEach(item=>{
-item.info=parseFolder(item.name);
-});
-
-showListings(data);
-
-});
+showListings(allData);
 
 }
 
@@ -271,24 +275,71 @@ container.innerHTML=`
 }
 
 window.next=function(){
+
 if(i<listing.photos.length-1){
 i++;
 render();
 }
+
 }
 
 window.prev=function(){
+
 if(i>0){
 i--;
 render();
 }
+
 }
 
 window.copyURL=function(){
+
 navigator.clipboard.writeText(window.location.href);
 alert("Listing URL copied");
+
 }
 
 render();
 
 }
+
+
+
+/* SEARCH */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const search=document.getElementById("searchInput");
+
+if(!search) return;
+
+search.addEventListener("input",function(){
+
+let q=this.value.toLowerCase();
+
+let filtered=allData.filter(item=>{
+
+let info=parseFolder(item.name);
+
+let text=(
+
+info.price+" "+
+info.type+" "+
+info.bedroom+" "+
+info.bathroom+" "+
+info.parking+" "+
+info.build
+
+).toLowerCase();
+
+return text.includes(q);
+
+});
+
+page=1;
+
+showListings(filtered);
+
+});
+
+});
