@@ -3,6 +3,46 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 
+/* PRICE FORMAT */
+
+function formatPrice(p){
+
+if(!p) return "";
+
+let text=p.toString().toLowerCase().trim();
+
+let num=0;
+
+if(text.includes("k")){
+num=parseFloat(text.replace("k",""))*1000;
+}
+else if(text.includes("m")){
+num=parseFloat(text.replace("m",""))*1000000;
+}
+else{
+num=parseFloat(text);
+}
+
+return "RM "+Math.round(num).toLocaleString();
+
+}
+
+/* ROOM FORMAT */
+
+function formatRooms(r,b,p){
+
+let parts=[];
+
+if(r) parts.push(r+"R");
+if(b) parts.push(b+"B");
+if(p) parts.push(p+"P");
+
+return parts.join(" ");
+
+}
+
+/* GET ID */
+
 function getID(){
 
 const url=new URL(window.location.href);
@@ -61,11 +101,11 @@ card.innerHTML=`
 
 <div class="info">
 
-<div class="price">RM ${item.price||""}</div>
+<div class="price">${formatPrice(item.price)}</div>
 
 <div>${item.type||""}</div>
 
-<div>${item.rooms||""}R ${item.baths||""}B ${item.parking||""}P</div>
+<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
 
 <div>${item.size||""} sqft</div>
 
@@ -157,11 +197,11 @@ container.innerHTML=`
 
 <div class="info">
 
-<div class="price">RM ${listing.price||""}</div>
+<div class="price">${formatPrice(listing.price)}</div>
 
 <div>${listing.type||""}</div>
 
-<div>${listing.rooms||""}R ${listing.baths||""}B ${listing.parking||""}P</div>
+<div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
 
 <div>${listing.size||""} sqft</div>
 
