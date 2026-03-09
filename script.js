@@ -1,4 +1,4 @@
-const perPage = 48;
+const perPage = 50;
 let page = 1;
 
 function getID(){
