@@ -235,7 +235,9 @@ render();
 
 window.copyURL=function(){
 
-navigator.clipboard.writeText(window.location.href);
+let url = "https://listing-site.asiawai42.workers.dev/" + listing.id;
+
+navigator.clipboard.writeText(url);
 
 alert("Listing URL copied");
 
