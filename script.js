@@ -1,34 +1,36 @@
+const API = "https://script.google.com/macros/s/AKfycbwE0OuJijc8fLwqCP1fGkR2mXRUQRIS3u6lXKDVfP63_ZlwqkTBnTHREBvcqPWQPoiR5Q/exec";
+
 function getID(){
-
-const url=new URL(window.location.href)
-return url.searchParams.get("id")
-
+  const url=new URL(window.location.href);
+  return url.searchParams.get("id");
 }
 
-const id=getID()
+const id=getID();
 
-fetch("listings.json")
+fetch(API)
 .then(r=>r.json())
 .then(data=>{
 
 if(id){
-showProperty(data)
+showProperty(data);
 }else{
-showListings(data)
+showListings(data);
 }
 
-})
+});
 
 
 function showListings(data){
 
-const container=document.getElementById("listings")
+const container=document.getElementById("listings");
+
+container.innerHTML="";
 
 data.forEach(item=>{
 
-let card=document.createElement("div")
+let card=document.createElement("div");
 
-card.className="card"
+card.className="card";
 
 card.innerHTML=`
 
@@ -40,30 +42,30 @@ card.innerHTML=`
 
 </a>
 
-`
+`;
 
-container.appendChild(card)
+container.appendChild(card);
 
-})
+});
 
 }
 
 
 function showProperty(data){
 
-const container=document.getElementById("property")
+const container=document.getElementById("property");
 
-const listing=data.find(l=>l.id===id)
+const listing=data.find(l=>l.id===id);
 
-if(!listing) return
+if(!listing) return;
 
-let gallery=""
+let gallery="";
 
 listing.photos.forEach(p=>{
-gallery+=`<img src="${p}">`
-})
+gallery+=`<img src="${p}">`;
+});
 
-let videoHTML=""
+let videoHTML="";
 
 if(listing.video){
 
@@ -73,7 +75,7 @@ videoHTML=`
 <source src="${listing.video}">
 </video>
 
-`
+`;
 
 }
 
@@ -89,6 +91,8 @@ ${gallery}
 
 ${videoHTML}
 
-`
+<a href="/">Back</a>
+
+`;
 
 }
