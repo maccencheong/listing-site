@@ -41,7 +41,7 @@ return parts.join(" ");
 
 }
 
-/* IMAGE OPTIMIZER (Google CDN) */
+/* GOOGLE IMAGE RESIZE */
 
 function img(url,size){
 
@@ -191,7 +191,7 @@ container.innerHTML=`
 
 <button onclick="window.location='./'">← Back</button>
 
-<button onclick="copyURL()">Copy WhatsApp Link</button>
+<button onclick="copyURL()">Copy URL</button>
 
 </div>
 
@@ -200,6 +200,7 @@ container.innerHTML=`
 <img src="${img(listing.photos?.[i],1400)}">
 
 <button class="prev" onclick="prev()">❮</button>
+
 <button class="next" onclick="next()">❯</button>
 
 </div>
@@ -248,7 +249,7 @@ let url="https://listing-site.asiawai42.workers.dev/"+listing.id;
 
 navigator.clipboard.writeText(url);
 
-alert("WhatsApp link copied");
+alert("Listing URL copied");
 
 }
 
