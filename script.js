@@ -234,7 +234,7 @@ render();
 
 window.copyURL=function(){
 
-let url="https://listing-site.maccen.asiawai42.workers.dev/"+listing.id;
+let url="https://maccen.asiawai42.workers.dev/"+listing.id;
 
 navigator.clipboard.writeText(url);
 
