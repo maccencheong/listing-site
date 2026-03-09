@@ -97,7 +97,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos[0]}=w400" loading="lazy">
+<img src="${listing.photos[i]}">
 
 <div class="info">
 
@@ -187,7 +187,7 @@ container.innerHTML=`
 
 <div class="gallery">
 
-<img src="${listing.photos[i]}=w1200">
+<img src="${listing.photos[i]}">
 
 <button class="prev" onclick="prev()">❮</button>
 
