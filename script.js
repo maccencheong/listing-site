@@ -1,5 +1,3 @@
-const API = "https://script.google.com/macros/s/AKfycbwE0OuJijc8fLwqCP1fGkR2mXRUQRIS3u6lXKDVfP63_ZlwqkTBnTHREBvcqPWQPoiR5Q/exec";
-
 function getID(){
   const url=new URL(window.location.href);
   return url.searchParams.get("id");
@@ -7,7 +5,7 @@ function getID(){
 
 const id=getID();
 
-fetch(API)
+fetch("listings.json")
 .then(r=>r.json())
 .then(data=>{
 
