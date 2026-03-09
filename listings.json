@@ -2,12 +2,12 @@
   {
     "id": "5djN3FnOXi",
     "price": "390k",
-    "type": "",
+    "type": "inrara",
     "floor": "1 Storey",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "332",
+    "size": "1100",
     "photos": [
       "https://lh3.googleusercontent.com/d/1xly2yuHi8mVDCI0DJhnX2VtTdbzWL9cl=w1200",
       "https://lh3.googleusercontent.com/d/1jDRoK9rF-4RLKxTevNiQRQIVApPUtuAH=w1200",
@@ -63,7 +63,7 @@
   {
     "id": "HiZ5HKYnJJ",
     "price": "830K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -125,7 +125,7 @@
   {
     "id": "cFXUOBKjMr",
     "price": "509K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "3",
     "baths": "3",
@@ -166,7 +166,7 @@
   {
     "id": "rIbVGK8xjC",
     "price": "890K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -188,7 +188,7 @@
   {
     "id": "99HgwDOBDy",
     "price": "850K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -219,7 +219,7 @@
   {
     "id": "FfXkKrHcwE",
     "price": "880K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -262,12 +262,12 @@
   {
     "id": "CvksT21Lbe",
     "price": "400K",
-    "type": "",
+    "type": "Setia",
     "floor": "1 Storey",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "322",
+    "size": "1200",
     "photos": [
       "https://lh3.googleusercontent.com/d/1By4ZxtHA21lO8NuYJjxIG--hSshRkw3Q=w1200",
       "https://lh3.googleusercontent.com/d/17dxMEN8pvbHtzLsIrDUTuirXduEfY_Kh=w1200",
@@ -506,7 +506,7 @@
   {
     "id": "BlbjpWaXhK",
     "price": "",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -537,7 +537,7 @@
   {
     "id": "oaUhU7yldb",
     "price": "",
-    "type": "",
+    "type": "INRARA",
     "floor": "2 Storey",
     "rooms": "5",
     "baths": "5",
@@ -672,7 +672,7 @@
   {
     "id": "L043POoY6g",
     "price": "815K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -779,12 +779,12 @@
   {
     "id": "dXLdZehoYa",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "000",
     "photos": [
       "https://lh3.googleusercontent.com/d/1vC5trFvvPouzfbEU-ojNzQDVDrd7iKB3=w1200",
       "https://lh3.googleusercontent.com/d/1dVHIhe49vxcJZLUEq1_DMwWYijyGVPE3=w1200",
@@ -821,12 +821,12 @@
   {
     "id": "E401K6dKUF",
     "price": "669K",
-    "type": "",
+    "type": "AMPUNG",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
     "parking": "2",
-    "size": "2000",
+    "size": "40400",
     "photos": [
       "https://lh3.googleusercontent.com/d/1dKDrWCwPZr9WGH5qJdFMegu7iVBeE_id=w1200",
       "https://lh3.googleusercontent.com/d/1poC8cg28NI7ldItFUBsDuoAIUi5zaT9D=w1200",
@@ -886,7 +886,7 @@
   {
     "id": "vu4XluDBU4",
     "price": "",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "7",
     "baths": "4",
@@ -911,12 +911,12 @@
   {
     "id": "hJbx7oKYQ8",
     "price": "700K",
-    "type": "",
+    "type": "elang",
     "floor": "2 Storey",
     "rooms": "3",
     "baths": "3",
     "parking": "2",
-    "size": "1800",
+    "size": "40400",
     "photos": [
       "https://lh3.googleusercontent.com/d/1ugxnJLLbxjJvyOqORGD29w3QbvaqTSxr=w1200",
       "https://lh3.googleusercontent.com/d/1VrRU-wdyJjVB0OSMSWErof0GvAc7bOwU=w1200",
@@ -979,7 +979,7 @@
   {
     "id": "SfrcWUDx4m",
     "price": "",
-    "type": "",
+    "type": "asa",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -1003,7 +1003,7 @@
   {
     "id": "FHpwOV5bqy",
     "price": "750K",
-    "type": "",
+    "type": "inrar",
     "floor": "5 Storey",
     "rooms": "",
     "baths": "",
@@ -1054,11 +1054,11 @@
   {
     "id": "fmMwo2wFlR",
     "price": "600K",
-    "type": "",
+    "type": "it",
     "floor": "2 Storey",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
+    "rooms": "4",
+    "baths": "3",
+    "parking": "2",
     "size": "1400",
     "photos": [
       "https://lh3.googleusercontent.com/d/11IOmfzyqhGnk7PZtPXFOqZOomsQdXPRL=w1200",
@@ -1094,11 +1094,11 @@
   {
     "id": "YaQlXZUNsJ",
     "price": "760K",
-    "type": "",
+    "type": "inrara",
     "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
+    "rooms": "4",
+    "baths": "3",
+    "parking": "2",
     "size": "1000",
     "photos": [
       "https://lh3.googleusercontent.com/d/1qyb1lM5cin64Zyiwp2NrfeG1-DmVG8UN=w1200",
@@ -1201,7 +1201,7 @@
   {
     "id": "2ZlVw87GW3",
     "price": "670K",
-    "type": "",
+    "type": "inrara",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "3",
@@ -1280,7 +1280,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "432",
+    "size": "1400",
     "photos": [
       "https://lh3.googleusercontent.com/d/1B-lepjDB01acoM3__wgmSFRfRNVMmBEP=w1200",
       "https://lh3.googleusercontent.com/d/19mjDEHoYH1YO8mjimU7ximIQmv_TJhqR=w1200",
@@ -1321,7 +1321,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "422",
+    "size": "1600",
     "photos": [
       "https://lh3.googleusercontent.com/d/1qTY9qhfuLfqE5aiLdBi-e1ZAIJ2gvEQB=w1200",
       "https://lh3.googleusercontent.com/d/15NnvuQJuXJK54nAzz1_9pfcH2U27Etjw=w1200",
@@ -1348,7 +1348,7 @@
   {
     "id": "cGCHlt1r5Q",
     "price": "540K",
-    "type": "",
+    "type": "anchung",
     "floor": "5 Storey",
     "rooms": "3",
     "baths": "2",
@@ -1381,7 +1381,7 @@
     "type": "",
     "floor": "",
     "rooms": "",
-    "baths": "",
+    "baths": "7",
     "parking": "",
     "size": "1700",
     "photos": [
@@ -1410,10 +1410,10 @@
     "price": "680K",
     "type": "",
     "floor": "2 Storey",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1600",
+    "rooms": "3",
+    "baths": "3",
+    "parking": "2",
+    "size": "2712",
     "photos": [
       "https://lh3.googleusercontent.com/d/1sjHPicgxjdX_aKlFNEnCUSZGnuojUH95=w1200",
       "https://lh3.googleusercontent.com/d/1m9LAmJoSq1zdrX1msh6kYgZhfouUdYUa=w1200",
@@ -1445,12 +1445,12 @@
   {
     "id": "1MHG5IGio8",
     "price": "520k",
-    "type": "",
+    "type": "ancung",
     "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "322",
     "photos": [
       "https://lh3.googleusercontent.com/d/1qf2bdap590-gZz3rpawBIpGw1pFSEPte=w1200",
       "https://lh3.googleusercontent.com/d/1gqRx-rMCgNbRDFsYxhJVC6-uVHK8fALv=w1200",
@@ -1516,12 +1516,12 @@
   {
     "id": "cvg1HSvGSI",
     "price": "",
-    "type": "",
+    "type": "syen",
     "floor": "",
     "rooms": "5",
     "baths": "3",
     "parking": "5",
-    "size": "4937",
+    "size": "40400",
     "photos": [
       "https://lh3.googleusercontent.com/d/10y2pBZC1dGlxYqmyRojdslK8E4pMGnWn=w1200",
       "https://lh3.googleusercontent.com/d/1u_huImpRy3-Ect7c0LWRHGvQpjoVWKxQ=w1200",
@@ -1647,7 +1647,7 @@
   {
     "id": "yDnibwrLE9",
     "price": "",
-    "type": "",
+    "type": "it",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -1766,7 +1766,7 @@
   {
     "id": "m40P7secBb",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -1790,7 +1790,7 @@
   {
     "id": "BzhFO1EnWh",
     "price": "",
-    "type": "",
+    "type": "er",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -1827,7 +1827,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "2553",
     "photos": [
       "https://lh3.googleusercontent.com/d/1RlhFhYVczYl5EjtbRx7He91HeSTIRys7=w1200",
       "https://lh3.googleusercontent.com/d/1rOUNU6c5UwWsts1lLaeKil4C9jafi-C5=w1200"
@@ -1963,7 +1963,7 @@
   {
     "id": "JIoYoX0gu0",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -2095,7 +2095,7 @@
     "type": "",
     "floor": "",
     "rooms": "",
-    "baths": "",
+    "baths": "7",
     "parking": "",
     "size": "2000",
     "photos": [
@@ -2130,7 +2130,7 @@
   {
     "id": "KhwyrbSF0R",
     "price": "",
-    "type": "",
+    "type": "a",
     "floor": "2 Storey",
     "rooms": "",
     "baths": "",
@@ -2404,7 +2404,7 @@
   {
     "id": "IAXRvnLrKn",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -2454,7 +2454,7 @@
   {
     "id": "nIfnrXYLxL",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -2478,7 +2478,7 @@
   {
     "id": "KrZvpumi6u",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -2578,7 +2578,7 @@
   {
     "id": "nCo4yjY3la",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -2716,7 +2716,7 @@
   {
     "id": "nUx6ucLWsz",
     "price": "",
-    "type": "",
+    "type": "aisa",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -2881,7 +2881,7 @@
   {
     "id": "6xADsH2cRj",
     "price": "",
-    "type": "",
+    "type": "it",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -3004,7 +3004,7 @@
     "type": "",
     "floor": "",
     "rooms": "",
-    "baths": "",
+    "baths": "7",
     "parking": "",
     "size": "1800",
     "photos": [
@@ -3038,7 +3038,7 @@
   {
     "id": "M0LCUMYOVw",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -3096,7 +3096,7 @@
   {
     "id": "YWKe9Wxuu9",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -3162,7 +3162,7 @@
     "type": "",
     "floor": "",
     "rooms": "",
-    "baths": "",
+    "baths": "2",
     "parking": "",
     "size": "1800",
     "photos": [
@@ -3250,7 +3250,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "322",
     "photos": [
       "https://lh3.googleusercontent.com/d/11dYz8PFR4qdKPnUNmU3dYP8LD1adm7nN=w1200",
       "https://lh3.googleusercontent.com/d/1UMf8iaKDsHLtTw_pQ3iRioSH2DSCsJD-=w1200",
@@ -3314,7 +3314,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "322",
     "photos": [
       "https://lh3.googleusercontent.com/d/1xoFVst-a2_VKYIPKL654Q7AQUFr-W6Qy=w1200",
       "https://lh3.googleusercontent.com/d/1lVQuQHrf9jgxh4NjwL1KVFE_s1WlQ5EX=w1200",
@@ -3332,7 +3332,7 @@
   {
     "id": "vXH4QHY2Le",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -3356,7 +3356,7 @@
   {
     "id": "rvVpNNZixd",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -3672,7 +3672,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "322",
     "photos": [
       "https://lh3.googleusercontent.com/d/15y24e44gmVykDhKART0m4eztd_2NU7os=w1200",
       "https://lh3.googleusercontent.com/d/1S77CdWg-pCJ9lrymmfVh7xhcvGKAWcpr=w1200",
@@ -3823,10 +3823,10 @@
     "price": "550K",
     "type": "",
     "floor": "2 Storey",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1207",
+    "rooms": "4",
+    "baths": "2",
+    "parking": "2",
+    "size": "2827",
     "photos": [
       "https://lh3.googleusercontent.com/d/11g60v9Phz70eot-bqiO2pEHNs5AQym9q=w1200",
       "https://lh3.googleusercontent.com/d/1tvJPaRUrIgdcE9_BqFkTXrIZfGulMlVI=w1200",
@@ -3848,7 +3848,7 @@
   {
     "id": "Knhpl3KYAX",
     "price": "",
-    "type": "",
+    "type": "syen",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -3951,7 +3951,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "322",
     "photos": [
       "https://lh3.googleusercontent.com/d/15zxpuBmi9j0LOmX-sIbMEX21NPwREFLN=w1200",
       "https://lh3.googleusercontent.com/d/16Nrws4TeRmOyl7U9daLRalQeLh4qoN8w=w1200",
@@ -4014,7 +4014,7 @@
   {
     "id": "9ECg5ulA7K",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4038,7 +4038,7 @@
   {
     "id": "MwZJLB7NX7",
     "price": "",
-    "type": "",
+    "type": "Oncidium",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4092,12 +4092,12 @@
   {
     "id": "wbCzuIqm3L",
     "price": "",
-    "type": "",
+    "type": "ajang",
     "floor": "2 Storey",
     "rooms": "4",
     "baths": "2",
     "parking": "2",
-    "size": "",
+    "size": "4300",
     "photos": [
       "https://lh3.googleusercontent.com/d/1MZhnQC0E2ixL3YFdvXg5CgehaKcLtNJm=w1200",
       "https://lh3.googleusercontent.com/d/1SLVfw-xVPglRLT-RplWh1yUGtRum6n8A=w1200",
@@ -4336,7 +4336,7 @@
   {
     "id": "SrOIYkSsR9",
     "price": "",
-    "type": "",
+    "type": "Hill",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4399,7 +4399,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "321",
     "photos": [
       "https://lh3.googleusercontent.com/d/1IluzNmlv9eb0k73KEmZE_4B-cC2MHyXN=w1200",
       "https://lh3.googleusercontent.com/d/1jjBny9qVaYs8kVGMZMQBNlX9M1nSGbOn=w1200",
@@ -4481,7 +4481,7 @@
   {
     "id": "G4PM6r9FvA",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4525,7 +4525,7 @@
   {
     "id": "v2T7NQC0z3",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4553,7 +4553,7 @@
   {
     "id": "5uWvYIZqNt",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4576,7 +4576,7 @@
   {
     "id": "CzaAORrhc2",
     "price": "",
-    "type": "",
+    "type": "ASIA",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4600,7 +4600,7 @@
   {
     "id": "kEFeB6S2yZ",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4623,12 +4623,12 @@
   {
     "id": "p9Nvfhjdyc",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "332",
     "photos": [
       "https://lh3.googleusercontent.com/d/1Og9FV8SuI7L87xvDVBSw6d0y9TSn_aQt=w1200",
       "https://lh3.googleusercontent.com/d/1der51_J6ELr-ho3I7nf4r13gJUWMBsnB=w1200",
@@ -4642,7 +4642,7 @@
   {
     "id": "68sXPpMu04",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4715,7 +4715,7 @@
   {
     "id": "mdYumixgRp",
     "price": "",
-    "type": "",
+    "type": "hill",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4750,7 +4750,7 @@
   {
     "id": "jYF2wqkc4Y",
     "price": "",
-    "type": "",
+    "type": "hill",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4840,7 +4840,7 @@
   {
     "id": "mjgpabbCJo",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4940,7 +4940,7 @@
   {
     "id": "YN77BBXGjM",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -4968,7 +4968,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "950",
     "photos": [
       "https://lh3.googleusercontent.com/d/1sPPrOmPfC4mBRX37ufHH1fM_VZEWUL4G=w1200",
       "https://lh3.googleusercontent.com/d/1M9-1_FCqqTQCf4z-Q5QGGOTZWiB7rf5_=w1200",
@@ -5001,7 +5001,7 @@
   {
     "id": "zeUWzLzZco",
     "price": "",
-    "type": "",
+    "type": "Residence",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5025,7 +5025,7 @@
   {
     "id": "70tQlnHPRI",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5157,7 +5157,7 @@
   {
     "id": "1DO4NISe5j",
     "price": "2K",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5182,7 +5182,7 @@
   {
     "id": "1OZyHUB4Z2",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5292,12 +5292,12 @@
   {
     "id": "Bt4G4wsdFm",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1800",
     "photos": [
       "https://lh3.googleusercontent.com/d/1UPDcG6tRjbWj3b44nzY5tJSo0CVjVkp9=w1200",
       "https://lh3.googleusercontent.com/d/1a4O28XjTrfJsxToMgksqYU_aQWVmwzmw=w1200",
@@ -5313,7 +5313,7 @@
   {
     "id": "c20h1COSYZ",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5334,7 +5334,7 @@
   {
     "id": "Ud2l6Yjf2W",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5356,7 +5356,7 @@
   {
     "id": "tf16wyZJCJ",
     "price": "",
-    "type": "",
+    "type": "C",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5617,7 +5617,7 @@
   {
     "id": "o6YOmJFdVZ",
     "price": "",
-    "type": "",
+    "type": "embangan",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5765,12 +5765,12 @@
   {
     "id": "wIHvGkPfHm",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1600",
     "photos": [
       "https://lh3.googleusercontent.com/d/1EPd37b3TovY3Udzo4RRdSRJhEuv3Mic8=w1200",
       "https://lh3.googleusercontent.com/d/1sjNjVSUU5OgohwupEMvBu2K1jQtnJoOw=w1200",
@@ -5816,7 +5816,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "2300",
     "photos": [
       "https://lh3.googleusercontent.com/d/1Bg52mX3cieCyUNtOMNQCNqtfkyIl5SYM=w1200",
       "https://lh3.googleusercontent.com/d/1RM_r9yRijumZbHO8Dulc25UOuMBP_0fs=w1200",
@@ -5830,7 +5830,7 @@
   {
     "id": "P2xhvDn55G",
     "price": "3k",
-    "type": "",
+    "type": "it",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -5882,7 +5882,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1200",
     "photos": [
       "https://lh3.googleusercontent.com/d/1MBTtNiABjPx75yyMaQafAizKRpJtMJhv=w1200",
       "https://lh3.googleusercontent.com/d/1dBMNM0A70K4iyEctkM4dbOH_vffL6BSn=w1200",
@@ -5903,7 +5903,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1400",
     "photos": [
       "https://lh3.googleusercontent.com/d/1Jv0sE8yHn2zHWg4FU5tultLCckIhfs-E=w1200",
       "https://lh3.googleusercontent.com/d/1MJDLIE2txjCMPThNcAhPDrQkjHtR22Rv=w1200",
@@ -5927,7 +5927,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1650",
     "photos": [
       "https://lh3.googleusercontent.com/d/1MwLvo5cJOHDWGDpnKbAriiywequUmoNb=w1200",
       "https://lh3.googleusercontent.com/d/17KS63H6QZXhg6wsMHIsDh0a9SJ2rujV7=w1200",
@@ -5953,7 +5953,7 @@
   {
     "id": "7eaNMxn4Wv",
     "price": "4k",
-    "type": "",
+    "type": "PF",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6001,12 +6001,12 @@
   {
     "id": "PgmVy14bXD",
     "price": "285k",
-    "type": "",
+    "type": "syen",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "285",
     "photos": [
       "https://lh3.googleusercontent.com/d/1SgX_W4jsy3RQLbjSWNIo2DALcR-gGMMI=w1200",
       "https://lh3.googleusercontent.com/d/1eaQqKhna4rAzRvMjeKv9sAYkwHj9EzHE=w1200",
@@ -6079,7 +6079,7 @@
   {
     "id": "zrfiQ9RSUR",
     "price": "",
-    "type": "",
+    "type": "a",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6136,7 +6136,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "2700",
     "photos": [
       "https://lh3.googleusercontent.com/d/1c3nS7gFcWafSmWtXHmcCF1FskhwtYO6O=w1200",
       "https://lh3.googleusercontent.com/d/1H7XPAmwkSKON20zY-bw5K0D2RDNNkbnj=w1200",
@@ -6178,7 +6178,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "000",
     "photos": [
       "https://lh3.googleusercontent.com/d/1a1OwcaUAtPmngk5XNlbPiT510yaME3NN=w1200",
       "https://lh3.googleusercontent.com/d/1UGNp2bzqRcOkYoUeBHVSSrDstmgsAIP2=w1200",
@@ -6199,7 +6199,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1150",
     "photos": [
       "https://lh3.googleusercontent.com/d/1y91hRgQrsHsoj1jKL8CIflYVIgvqyGf-=w1200",
       "https://lh3.googleusercontent.com/d/1Vjn_1Rn7IamzDgLEUeS6o7bWUpoPB2mm=w1200",
@@ -6211,12 +6211,12 @@
   {
     "id": "nDQZsf5tJ8",
     "price": "",
-    "type": "",
+    "type": "a",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "200",
     "photos": [
       "https://lh3.googleusercontent.com/d/1GPnHkyGP5kIetO1qB4L7H49wL99jQaD9=w1200",
       "https://lh3.googleusercontent.com/d/1GfMkZu_boe_SOxlAPfFp_7g39hc-krJH=w1200",
@@ -6253,12 +6253,12 @@
   {
     "id": "cVstfD4yfY",
     "price": "",
-    "type": "",
+    "type": "NS",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1250",
     "photos": [
       "https://lh3.googleusercontent.com/d/1BXejAbtreeI3UjT7BJ8ecJgAvbJFCZEa=w1200",
       "https://lh3.googleusercontent.com/d/1Kgz1yg8pCRmMRzAAY9Ge_2E2Uqu-yaAh=w1200",
@@ -6276,7 +6276,7 @@
   {
     "id": "PDCaKGurbT",
     "price": "",
-    "type": "",
+    "type": "emuning",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6293,12 +6293,12 @@
   {
     "id": "H2eezgNtnv",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1600",
     "photos": [
       "https://lh3.googleusercontent.com/d/1ZX8LzRioA2ffB9aOdWXc5BEXlNGqtAHD=w1200",
       "https://lh3.googleusercontent.com/d/1arKlRyztyscxOB86MIp14KT_d5CSV5x6=w1200",
@@ -6323,12 +6323,12 @@
   {
     "id": "X7lXxZNFUh",
     "price": "",
-    "type": "",
+    "type": "ajang",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "300",
     "photos": [
       "https://lh3.googleusercontent.com/d/1C1fjzEd9E0Qf5Ea3L85ZRhQHUjcbIQzZ=w1200",
       "https://lh3.googleusercontent.com/d/1sMhqxK7Es4PlLZpG2Dx4OqjxjTCEnsQr=w1200",
@@ -6354,7 +6354,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1750",
     "photos": [
       "https://lh3.googleusercontent.com/d/1a8Fz8JSrDSxuJfI-yyLU2olROFUyW_R_=w1200",
       "https://lh3.googleusercontent.com/d/1zoEl-ozSM0vwe_cwJVjdxSzhx9rAst5M=w1200",
@@ -6374,7 +6374,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1700",
     "photos": [
       "https://lh3.googleusercontent.com/d/1bsZb97RISJi3HCiraMR0hlKbFTTfAU1a=w1200",
       "https://lh3.googleusercontent.com/d/1ke2EYE6n83JGw1CfxP1EKt41D3ESwRir=w1200",
@@ -6410,7 +6410,7 @@
   {
     "id": "g1zzJ8Ba5h",
     "price": "4k",
-    "type": "",
+    "type": "ypark",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6435,7 +6435,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "600",
     "photos": [
       "https://lh3.googleusercontent.com/d/1SrPgoHqZUeKAEzB7QwT5cOonQeaGSr6i=w1200",
       "https://lh3.googleusercontent.com/d/14WvPC_UAbBDb4Nkv69w85YWWzt6hREby=w1200",
@@ -6465,7 +6465,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "900",
     "photos": [
       "https://lh3.googleusercontent.com/d/1GkxieqB1lQkNhfuFy8_ocO6tB838j4_T=w1200",
       "https://lh3.googleusercontent.com/d/1TCX272CHqMGk2dk_FVFsVYrqVpnsf16z=w1200",
@@ -6499,7 +6499,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "700",
     "photos": [
       "https://lh3.googleusercontent.com/d/1EKBN7CtAitQxeTnm0C3G-yztbQxHjVYH=w1200",
       "https://lh3.googleusercontent.com/d/1byqnCVNiz_fNVyTZkZ6Nsl08wCcSacKD=w1200",
@@ -6533,7 +6533,7 @@
   {
     "id": "cwc77JC5jU",
     "price": "",
-    "type": "",
+    "type": "y",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6574,7 +6574,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "700",
     "photos": [
       "https://lh3.googleusercontent.com/d/1do9vJ1gIGBI8Csbfsyp5u8t0ZeYFhuB-=w1200",
       "https://lh3.googleusercontent.com/d/1Z7ZGshomYhkFd7P2UEYhOejO_IsrRg1i=w1200",
@@ -6599,7 +6599,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "500",
     "photos": [
       "https://lh3.googleusercontent.com/d/1xj15fVPLpnt486XRah82hJ8WgU8nGbbt=w1200",
       "https://lh3.googleusercontent.com/d/1iIIFoNNzmfXkpMtaHDEtivprLGw2BvWs=w1200",
@@ -6615,7 +6615,7 @@
   {
     "id": "iGYaLHuAF0",
     "price": "",
-    "type": "",
+    "type": "syen",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6679,7 +6679,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1700",
     "photos": [
       "https://lh3.googleusercontent.com/d/1wgqLqUucLUP_zU8zDt2vGDlJKgeSidxN=w1200",
       "https://lh3.googleusercontent.com/d/1BKDP3zDcOKLa4JWOba6q12xGZB-gO323=w1200",
@@ -6698,12 +6698,12 @@
   {
     "id": "G686mFyoyM",
     "price": "",
-    "type": "",
+    "type": "asia",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "500",
     "photos": [
       "https://lh3.googleusercontent.com/d/1uIqbgoWPDGZklLM37TAN1DCBosdxHnYx=w1200",
       "https://lh3.googleusercontent.com/d/1h56UtqV2dH8isH5urGZgoN1ASET0DM5O=w1200",
@@ -6758,7 +6758,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "400",
     "photos": [
       "https://lh3.googleusercontent.com/d/1jwkGkpw2bZGvq1RJ0mhmb66hDkVDMbzv=w1200",
       "https://lh3.googleusercontent.com/d/1-Z5Jd6PXKMKsm_Y0M9GJO9PKscsT-XXv=w1200",
@@ -6797,7 +6797,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "100",
     "photos": [
       "https://lh3.googleusercontent.com/d/1Ngdtk9avCgXsuP-ftCPKimBGmyllCGHK=w1200",
       "https://lh3.googleusercontent.com/d/1irsoL-O5gDlzUqS-0Ct56lzYAwbpDM0j=w1200",
@@ -6842,7 +6842,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1000",
     "photos": [
       "https://lh3.googleusercontent.com/d/1Jv2F_FbQvHUsGzeq8zRolOoHs9poIZWp=w1200",
       "https://lh3.googleusercontent.com/d/1R4RTEk3wdZuFs19wnLueGNeeoxfvFycp=w1200",
@@ -6858,7 +6858,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1300",
     "photos": [
       "https://lh3.googleusercontent.com/d/1U_CCt_MMfeFr0QngfcX3z10npcTc1hIJ=w1200",
       "https://lh3.googleusercontent.com/d/1EyomR2qfn2kPo30wfm8nOxfvTaOVYHTo=w1200",
@@ -6882,12 +6882,12 @@
   {
     "id": "CsOGy8VMVb",
     "price": "",
-    "type": "",
+    "type": "it",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "2000",
     "photos": [
       "https://lh3.googleusercontent.com/d/1gQr-Zy5vWA4u4o0T7KQMBiACgKsWCiBp=w1200",
       "https://lh3.googleusercontent.com/d/1dnF7ef-YOLn2gjWEms5wZO3wwM6G6OYQ=w1200",
@@ -6903,7 +6903,7 @@
   {
     "id": "tGpOX4l05a",
     "price": "",
-    "type": "",
+    "type": "enwingston",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -6929,12 +6929,12 @@
   {
     "id": "wyjIGGEpCi",
     "price": "",
-    "type": "",
+    "type": "yat",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1350",
     "photos": [
       "https://lh3.googleusercontent.com/d/1IbX6HX_iBnCSC62U7LXXIktyRtRqmzSy=w1200",
       "https://lh3.googleusercontent.com/d/16rYt-nDxLqjpRD6U2tO9piMdYD0pqh7R=w1200",
@@ -6951,7 +6951,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1700",
     "photos": [
       "https://lh3.googleusercontent.com/d/1ANaMSzcv9rTCm1eAxutSHv73PWrhVqF9=w1200",
       "https://lh3.googleusercontent.com/d/1obrXYdEchXxeyjRZr153xGTv5ruJ3yjJ=w1200",
@@ -6987,7 +6987,7 @@
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1400",
     "photos": [
       "https://lh3.googleusercontent.com/d/1s2dq2M1aztpEJuIvdKGwb7mlihXCGua6=w1200",
       "https://lh3.googleusercontent.com/d/1whecBR1y4IHRbCqc0tGquVzrJ-_dzbyh=w1200",
@@ -7005,7 +7005,7 @@
   {
     "id": "gHHXmOFvnR",
     "price": "",
-    "type": "",
+    "type": "omanwel",
     "floor": "",
     "rooms": "",
     "baths": "",
@@ -7052,12 +7052,12 @@
   {
     "id": "59e8fUXl39",
     "price": "",
-    "type": "",
+    "type": "hill",
     "floor": "",
     "rooms": "",
     "baths": "",
     "parking": "",
-    "size": "",
+    "size": "800",
     "photos": [
       "https://lh3.googleusercontent.com/d/1b7H7YJi4eGAJtUAAYVaqY3PEHCuJQbGM=w1200",
       "https://lh3.googleusercontent.com/d/1o-Y_LbtnHNZm6FWYkax1Sr3WFlJVGFsN=w1200",
