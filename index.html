@@ -4,15 +4,64 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Maccen Property Listing</title>
+<title>Listing Site</title>
 
 <link rel="stylesheet" href="style.css">
 
-<meta property="og:title" content="Maccen Property Listing">
-<meta property="og:description" content="Latest property listings by Maccen">
+<!-- OG META -->
+<meta property="og:title" content="Property Listing">
+<meta property="og:description" content="Property for sale in Malaysia">
+<meta property="og:image" content="">
 <meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- WHATSAPP PREVIEW SCRIPT -->
+<script>
+
+(function(){
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if(!id) return;
+
+fetch("listings.json")
+.then(res => res.json())
+.then(data => {
+
+const listing = data.find(x => x.id == id);
+if(!listing) return;
+
+/* title */
+document.querySelector('meta[property="og:title"]')
+.setAttribute("content",
+listing.price + " | " + listing.location);
+
+/* description */
+document.querySelector('meta[property="og:description"]')
+.setAttribute("content",
+listing.rooms + "R " +
+listing.bathrooms + "B | " +
+listing.size + " sqft");
+
+/* image */
+document.querySelector('meta[property="og:image"]')
+.setAttribute("content",
+listing.cover);
+
+/* url */
+document.querySelector('meta[property="og:url"]')
+.setAttribute("content",
+window.location.href);
+
+});
+
+})();
+
+</script>
 
 </head>
 
