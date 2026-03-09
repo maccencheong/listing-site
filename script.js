@@ -315,7 +315,7 @@ if(!search) return;
 
 search.addEventListener("input",function(){
 
-let q=this.value.toLowerCase();
+let q=this.value.toLowerCase().replace(/[^a-z0-9]/g,"");
 
 let filtered=allData.filter(item=>{
 
@@ -330,7 +330,7 @@ info.bathroom+" "+
 info.parking+" "+
 info.build
 
-).toLowerCase();
+).toLowerCase().replace(/[^a-z0-9]/g,"");
 
 return text.includes(q);
 
