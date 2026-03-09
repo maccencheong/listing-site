@@ -22,10 +22,9 @@ showListings(data);
 });
 
 
-
 function parseFolder(name){
 
-let upper=name.toUpperCase();
+let text=name.toUpperCase();
 
 let price="";
 let type="";
@@ -34,29 +33,42 @@ let rooms="";
 let build="";
 
 
+// price
 
-let priceMatch=upper.match(/RM?\d+(K|M)?|\b\d+(K|M)\b/);
+let priceMatch=text.match(/RM?\s?\d+(K|M)|\b\d+(K|M)\b|\b\d{3,7}\b/);
 
 if(priceMatch){
 
-let p=priceMatch[0].replace("RM","");
+let p=priceMatch[0].replace("RM","").trim();
 
 if(p.includes("K")){
-price="RM "+Number(p.replace("K",""))*1000;
+
+price="RM "+(parseInt(p)*1000);
+
 }
+
 else if(p.includes("M")){
-price="RM "+Number(p.replace("M",""))*1000000;
+
+price="RM "+(parseInt(p)*1000000);
+
 }
+
 else{
-price="RM "+Number(p);
+
+price="RM "+parseInt(p);
+
 }
 
 price=price.replace(/\B(?=(\d{3})+(?!\d))/g,",");
+
 }
 
 
 
-const map={
+// property type
+
+const types={
+
 P:"Apartment",
 A:"Apartment",
 C:"Condo",
@@ -65,49 +77,71 @@ S:"Shop Lot",
 F:"Factory",
 SA:"Service Apartment",
 O:"Office"
+
 };
 
-for(let key in map){
+for(let key in types){
 
-if(upper.includes("_"+key)){
-type=map[key];
+if(text.includes("_"+key)){
+
+type=types[key];
+
 }
 
 }
 
 
 
-let sty=upper.match(/\d\s?STY|\d\s?STOREY/);
+// storey
 
-if(sty){
-storey=sty[0].replace("STY"," Storey").replace("STOREY"," Storey");
+let s=text.match(/\d\s?STY|\d\s?STOREY/);
+
+if(s){
+
+storey=s[0].replace("STY"," Storey").replace("STOREY"," Storey");
+
 }
 
 
 
-let r=upper.match(/\b\d{3}\b/);
+// rooms bathrooms parking
+
+let r=text.match(/\b\d{3}\b/);
 
 if(r){
-let a=r[0];
-rooms=a[0]+"R "+a[1]+"B "+a[2]+"P";
+
+let v=r[0];
+
+rooms=v[0]+" Bedroom • "+v[1]+" Bathroom • "+v[2]+" Parking";
+
 }
 
 
 
-let b=upper.match(/\-\d{3,5}/);
+// build up
+
+let b=text.match(/\-\d{3,5}/);
 
 if(b){
-build=b[0].replace("-","")+" sqft";
+
+let val=b[0].replace("-","");
+
+if(val!==r?.[0]){
+
+build=val+" sqft";
+
 }
 
-
+}
 
 return{
+
 price:price,
 type:type,
 storey:storey,
 rooms:rooms,
 build:build
+
 };
 
 }
@@ -133,20 +167,25 @@ let items=data.slice(start,end);
 items.forEach(item=>{
 
 let card=document.createElement("div");
+
 card.className="card";
 
 card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img loading="lazy" class="loading" src="${item.photos[0]}" onload="this.classList.remove('loading');this.classList.add('loaded');">
+<img loading="lazy" src="${item.photos[0]}">
 
 <div class="info">
 
 <div class="price">${item.info.price}</div>
+
 <div>${item.info.type}</div>
+
 <div>${item.info.storey}</div>
+
 <div>${item.info.rooms}</div>
+
 <div>${item.info.build}</div>
 
 </div>
@@ -175,46 +214,15 @@ nav.innerHTML="";
 
 if(page>1){
 
-let prev=document.createElement("button");
-
-prev.innerText="Prev";
-
-prev.onclick=()=>{
-page--;
-reload();
-};
-
-nav.appendChild(prev);
+nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
 
 }
 
-for(let i=1;i<=pages;i++){
-
-let b=document.createElement("button");
-
-b.innerText=i;
-
-b.onclick=()=>{
-page=i;
-reload();
-};
-
-nav.appendChild(b);
-
-}
+nav.innerHTML+=` Page ${page} of ${pages} `;
 
 if(page<pages){
 
-let next=document.createElement("button");
-
-next.innerText="Next";
-
-next.onclick=()=>{
-page++;
-reload();
-};
-
-nav.appendChild(next);
+nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
 
 }
 
@@ -248,18 +256,9 @@ const container=document.getElementById("property");
 
 const listing=data.find(l=>l.id===id);
 
-if(!listing)return;
-
 let i=0;
 
 function render(){
-
-let nextPhoto=listing.photos[i+1];
-
-if(nextPhoto){
-let img=new Image();
-img.src=nextPhoto;
-}
 
 container.innerHTML=`
 
@@ -267,91 +266,67 @@ container.innerHTML=`
 
 <button onclick="window.location='index.html'">← Back</button>
 
-<button onclick="copyURL()">Copy Link</button>
+<button onclick="copyURL()">Copy URL</button>
 
 </div>
-
-
 
 <div class="gallery">
 
-<button onclick="prev()">←</button>
-
 <img src="${listing.photos[i]}">
 
-<button onclick="next()">→</button>
+<button class="prev" onclick="prev()">❮</button>
+
+<button class="next" onclick="next()">❯</button>
 
 </div>
-
-
 
 <div class="info">
 
 <div class="price">${listing.info.price}</div>
+
 <div>${listing.info.type}</div>
+
 <div>${listing.info.storey}</div>
+
 <div>${listing.info.rooms}</div>
+
 <div>${listing.info.build}</div>
 
 </div>
 
 `;
 
-let startX=0;
-
-document.querySelector(".gallery img").addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
-});
-
-document.querySelector(".gallery img").addEventListener("touchend",e=>{
-
-let endX=e.changedTouches[0].clientX;
-
-if(startX-endX>50){
-next();
 }
-
-if(endX-startX>50){
-prev();
-}
-
-});
-
-}
-
-
 
 window.next=function(){
 
 if(i<listing.photos.length-1){
+
 i++;
 render();
-}
 
 }
 
-
+}
 
 window.prev=function(){
 
 if(i>0){
+
 i--;
 render();
-}
 
 }
 
-
+}
 
 window.copyURL=function(){
 
 navigator.clipboard.writeText(window.location.href);
 
-alert("Listing URL copied");
+alert("URL copied");
 
 }
-
-
 
 render();
 
