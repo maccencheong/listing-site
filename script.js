@@ -41,16 +41,6 @@ return parts.join(" ");
 
 }
 
-/* GOOGLE IMAGE RESIZE */
-
-function img(url,size){
-
-if(!url) return "";
-
-return url+"=w"+size;
-
-}
-
 /* GET ID */
 
 function getID(){
@@ -107,7 +97,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${img(item.photos?.[0],600)}" loading="lazy">
+<img src="${item.photos?.[0] || ''}" loading="lazy">
 
 <div class="info">
 
@@ -197,10 +187,9 @@ container.innerHTML=`
 
 <div class="gallery">
 
-<img src="${img(listing.photos?.[i],1400)}">
+<img src="${listing.photos?.[i] || ''}">
 
 <button class="prev" onclick="prev()">❮</button>
-
 <button class="next" onclick="next()">❯</button>
 
 </div>
