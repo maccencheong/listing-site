@@ -22,6 +22,7 @@ showListings(data);
 });
 
 
+
 function parseFolder(name){
 
 let text=name.toUpperCase();
@@ -29,34 +30,28 @@ let text=name.toUpperCase();
 let price="";
 let type="";
 let storey="";
-let rooms="";
+let bedroom="";
+let bathroom="";
+let parking="";
 let build="";
 
 
-// price
+// PRICE
 
-let priceMatch=text.match(/RM?\s?\d+(K|M)|\b\d+(K|M)\b|\b\d{3,7}\b/);
+let priceMatch=text.match(/RM?\d+(K|M)|\b\d+(K|M)\b|\b\d{3,7}\b/);
 
 if(priceMatch){
 
-let p=priceMatch[0].replace("RM","").trim();
+let p=priceMatch[0].replace("RM","");
 
 if(p.includes("K")){
-
 price="RM "+(parseInt(p)*1000);
-
 }
-
 else if(p.includes("M")){
-
 price="RM "+(parseInt(p)*1000000);
-
 }
-
 else{
-
 price="RM "+parseInt(p);
-
 }
 
 price=price.replace(/\B(?=(\d{3})+(?!\d))/g,",");
@@ -65,7 +60,7 @@ price=price.replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
 
 
-// property type
+// PROPERTY TYPE
 
 const types={
 
@@ -83,28 +78,28 @@ O:"Office"
 for(let key in types){
 
 if(text.includes("_"+key)){
-
 type=types[key];
-
 }
 
 }
 
 
 
-// storey
+// STOREY
 
 let s=text.match(/\d\s?STY|\d\s?STOREY/);
 
 if(s){
 
-storey=s[0].replace("STY"," Storey").replace("STOREY"," Storey");
+storey=s[0]
+.replace("STY"," Storey")
+.replace("STOREY"," Storey");
 
 }
 
 
 
-// rooms bathrooms parking
+// BEDROOM / BATHROOM / PARKING
 
 let r=text.match(/\b\d{3}\b/);
 
@@ -112,13 +107,15 @@ if(r){
 
 let v=r[0];
 
-rooms=v[0]+" Bedroom • "+v[1]+" Bathroom • "+v[2]+" Parking";
+bedroom=v[0]+" Bedroom";
+bathroom=v[1]+" Bathroom";
+parking=v[2]+" Parking";
 
 }
 
 
 
-// build up
+// BUILD UP
 
 let b=text.match(/\-\d{3,5}/);
 
@@ -127,19 +124,21 @@ if(b){
 let val=b[0].replace("-","");
 
 if(val!==r?.[0]){
-
 build=val+" sqft";
-
 }
 
 }
+
+
 
 return{
 
 price:price,
 type:type,
 storey:storey,
-rooms:rooms,
+bedroom:bedroom,
+bathroom:bathroom,
+parking:parking,
 build:build
 
 };
@@ -184,7 +183,11 @@ card.innerHTML=`
 
 <div>${item.info.storey}</div>
 
-<div>${item.info.rooms}</div>
+<div>${item.info.bedroom}</div>
+
+<div>${item.info.bathroom}</div>
+
+<div>${item.info.parking}</div>
 
 <div>${item.info.build}</div>
 
@@ -256,6 +259,8 @@ const container=document.getElementById("property");
 
 const listing=data.find(l=>l.id===id);
 
+if(!listing)return;
+
 let i=0;
 
 function render(){
@@ -264,11 +269,13 @@ container.innerHTML=`
 
 <div class="topbar">
 
-<button onclick="window.location='index.html'">← Back</button>
+<button onclick="window.location='./'">← Back</button>
 
 <button onclick="copyURL()">Copy URL</button>
 
 </div>
+
+
 
 <div class="gallery">
 
@@ -280,6 +287,8 @@ container.innerHTML=`
 
 </div>
 
+
+
 <div class="info">
 
 <div class="price">${listing.info.price}</div>
@@ -288,7 +297,11 @@ container.innerHTML=`
 
 <div>${listing.info.storey}</div>
 
-<div>${listing.info.rooms}</div>
+<div>${listing.info.bedroom}</div>
+
+<div>${listing.info.bathroom}</div>
+
+<div>${listing.info.parking}</div>
 
 <div>${listing.info.build}</div>
 
@@ -296,7 +309,31 @@ container.innerHTML=`
 
 `;
 
+
+
+let startX=0;
+
+document.querySelector(".gallery img").addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+});
+
+document.querySelector(".gallery img").addEventListener("touchend",e=>{
+
+let endX=e.changedTouches[0].clientX;
+
+if(startX-endX>50){
+next();
 }
+
+if(endX-startX>50){
+prev();
+}
+
+});
+
+}
+
+
 
 window.next=function(){
 
@@ -309,6 +346,8 @@ render();
 
 }
 
+
+
 window.prev=function(){
 
 if(i>0){
@@ -320,13 +359,17 @@ render();
 
 }
 
+
+
 window.copyURL=function(){
 
 navigator.clipboard.writeText(window.location.href);
 
-alert("URL copied");
+alert("Listing URL copied");
 
 }
+
+
 
 render();
 
