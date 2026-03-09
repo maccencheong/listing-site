@@ -1,16 +1,19 @@
+const perPage = 48;
+let page = 1;
+
 function getID(){
-const url=new URL(window.location.href);
+const url = new URL(window.location.href);
 return url.searchParams.get("id");
 }
 
-const id=getID();
+const id = getID();
 
 fetch("listings.json")
 .then(r=>r.json())
 .then(data=>{
 
 data.forEach(item=>{
-item.info=parseFolder(item.name);
+item.info = parseFolder(item.name);
 });
 
 if(id){
@@ -25,7 +28,7 @@ showListings(data);
 
 function parseFolder(name){
 
-let text=name.toUpperCase();
+let text = name.toUpperCase();
 
 let price="";
 let type="";
@@ -36,7 +39,7 @@ let parking="";
 let build="";
 
 
-// PRICE
+// PRICE (支持 1.3K)
 
 let priceMatch=text.match(/(RM)?\s*\d+(\.\d+)?\s*(K|M)/);
 
@@ -48,20 +51,14 @@ let p=priceMatch[0]
 
 let num=parseFloat(p);
 
-if(p.includes("K")){
-num=num*1000;
-}
-
-if(p.includes("M")){
-num=num*1000000;
-}
+if(p.includes("K")) num*=1000;
+if(p.includes("M")) num*=1000000;
 
 price="RM "+Math.round(num)
 .toString()
 .replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
 }
-
 
 
 // PROPERTY TYPE
@@ -86,35 +83,32 @@ type=types[key];
 }
 
 
-
 // STOREY
 
-let storeyMatch=text.match(/\d\s?(STY|STOREY)/);
+let s=text.match(/\d\s?(STY|STOREY)/);
 
-if(storeyMatch){
+if(s){
 
-storey=storeyMatch[0]
+storey=s[0]
 .replace("STY"," Storey")
 .replace("STOREY"," Storey");
 
 }
 
 
-
 // ROOMS
 
-let roomMatch=text.match(/\b\d{3}\b/);
+let r=text.match(/\b\d{3}\b/);
 
-if(roomMatch){
+if(r){
 
-let v=roomMatch[0];
+let v=r[0];
 
 bedroom=v[0]+" Bedroom";
 bathroom=v[1]+" Bathroom";
 parking=v[2]+" Parking";
 
 }
-
 
 
 // BUILD UP
@@ -124,17 +118,14 @@ let numbers=text.match(/\b\d{3,5}\b/g);
 if(numbers){
 
 numbers.forEach(n=>{
-
-if(n!==roomMatch?.[0]){
+if(n!==r?.[0]){
 build=n+" sqft";
 }
-
 });
 
 }
 
 return{
-
 price,
 type,
 storey,
@@ -142,15 +133,9 @@ bedroom,
 bathroom,
 parking,
 build
-
 };
 
 }
-
-
-
-let page=1;
-const perPage=20;
 
 
 
@@ -185,7 +170,7 @@ card.innerHTML=`
 
 <div>${item.info.type}</div>
 
-<div>${item.info.bedroom}  ${item.info.bathroom}  ${item.info.parking}</div>
+<div>${item.info.bedroom} ${item.info.bathroom} ${item.info.parking}</div>
 
 <div>${item.info.build}</div>
 
@@ -230,9 +215,7 @@ nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
 function reload(){
 
 fetch("listings.json")
-
 .then(r=>r.json())
-
 .then(data=>{
 
 data.forEach(item=>{
@@ -253,7 +236,7 @@ const container=document.getElementById("property");
 
 const listing=data.find(l=>l.id===id);
 
-if(!listing)return;
+if(!listing) return;
 
 let i=0;
 
@@ -269,19 +252,14 @@ container.innerHTML=`
 
 </div>
 
-
-
 <div class="gallery">
 
 <img src="${listing.photos[i]}">
 
 <button class="prev" onclick="prev()">❮</button>
-
 <button class="next" onclick="next()">❯</button>
 
 </div>
-
-
 
 <div class="info">
 
@@ -289,7 +267,7 @@ container.innerHTML=`
 
 <div>${listing.info.type}</div>
 
-<div>${listing.info.bedroom}  ${listing.info.bathroom}  ${listing.info.parking}</div>
+<div>${listing.info.bedroom} ${listing.info.bathroom} ${listing.info.parking}</div>
 
 <div>${listing.info.build}</div>
 
@@ -297,62 +275,28 @@ container.innerHTML=`
 
 `;
 
-
-
-let startX=0;
-
-document.querySelector(".gallery img").addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
-});
-
-document.querySelector(".gallery img").addEventListener("touchend",e=>{
-
-let endX=e.changedTouches[0].clientX;
-
-if(startX-endX>50){
-next();
-}
-
-if(endX-startX>50){
-prev();
-}
-
-});
-
 }
 
 
 
 window.next=function(){
-
 if(i<listing.photos.length-1){
 i++;
 render();
 }
-
 }
 
-
-
 window.prev=function(){
-
 if(i>0){
 i--;
 render();
 }
-
 }
-
-
 
 window.copyURL=function(){
-
 navigator.clipboard.writeText(window.location.href);
 alert("Listing URL copied");
-
 }
-
-
 
 render();
 
