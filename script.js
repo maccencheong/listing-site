@@ -41,6 +41,16 @@ return parts.join(" ");
 
 }
 
+/* IMAGE OPTIMIZER (Google CDN) */
+
+function img(url,size){
+
+if(!url) return "";
+
+return url+"=w"+size;
+
+}
+
 /* GET ID */
 
 function getID(){
@@ -97,7 +107,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${listing.photos[i]}">
+<img src="${img(item.photos?.[0],600)}" loading="lazy">
 
 <div class="info">
 
@@ -181,16 +191,15 @@ container.innerHTML=`
 
 <button onclick="window.location='./'">← Back</button>
 
-<button onclick="copyURL()">Copy URL</button>
+<button onclick="copyURL()">Copy WhatsApp Link</button>
 
 </div>
 
 <div class="gallery">
 
-<img src="${listing.photos[i]}">
+<img src="${img(listing.photos?.[i],1400)}">
 
 <button class="prev" onclick="prev()">❮</button>
-
 <button class="next" onclick="next()">❯</button>
 
 </div>
@@ -235,11 +244,11 @@ render();
 
 window.copyURL=function(){
 
-let url = "https://maccen.asiawai42.workers.dev/" + listing.id;
+let url="https://listing-site.asiawai42.workers.dev/"+listing.id;
 
 navigator.clipboard.writeText(url);
 
-alert("Listing URL copied");
+alert("WhatsApp link copied");
 
 }
 
