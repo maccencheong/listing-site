@@ -12,6 +12,8 @@ return url.searchParams.get("id");
 
 const id=getID();
 
+/* LOAD DATA */
+
 fetch("listings.json")
 
 .then(r=>r.json())
@@ -19,10 +21,6 @@ fetch("listings.json")
 .then(data=>{
 
 allData=data;
-
-data.forEach(item=>{
-item.info=parseFolder(item.name);
-});
 
 if(id){
 
@@ -36,107 +34,7 @@ showListings(data);
 
 });
 
-
-
-function parseFolder(name){
-
-let text=name.toUpperCase();
-
-let price="";
-let type="";
-let storey="";
-let bedroom="";
-let bathroom="";
-let parking="";
-let build="";
-
-let priceMatch=text.match(/(RM)?\s*\d+(\.\d+)?\s*(K|M)|\b\d{3,7}\b/);
-
-if(priceMatch){
-
-let p=priceMatch[0].replace("RM","").replace(/\s/g,"");
-
-let num=parseFloat(p);
-
-if(p.includes("K")) num*=1000;
-if(p.includes("M")) num*=1000000;
-
-if(!p.includes("K")&&!p.includes("M")) num=parseInt(p);
-
-price="RM "+Math.round(num)
-.toString()
-.replace(/\B(?=(\d{3})+(?!\d))/g,",");
-
-}
-
-const types={
-SA:"Service Apartment",
-P:"Apartment",
-A:"Apartment",
-C:"Condo",
-T:"Terrace",
-S:"Shop Lot",
-F:"Factory",
-O:"Office"
-};
-
-for(let key in types){
-
-if(text.includes("_"+key)){
-type=types[key];
-}
-
-}
-
-let s=text.match(/\d\s?(STY|STOREY)/);
-
-if(s){
-
-storey=s[0]
-.replace("STY"," Storey")
-.replace("STOREY"," Storey");
-
-}
-
-let r=text.match(/\b\d{3}\b/);
-
-if(r){
-
-let v=r[0];
-
-bedroom=v[0]+" Bedroom";
-bathroom=v[1]+" Bathroom";
-parking=v[2]+" Parking";
-
-}
-
-let numbers=text.match(/\b\d{3,5}\b/g);
-
-if(numbers){
-
-numbers.forEach(n=>{
-
-if(n!==r?.[0]){
-build=n+" sqft";
-}
-
-});
-
-}
-
-return{
-price,
-type,
-storey,
-bedroom,
-bathroom,
-parking,
-build
-};
-
-}
-
-
+/* LISTINGS PAGE */
 
 function showListings(data){
 
@@ -159,17 +57,17 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos[0]}">
+<img src="${item.photos[0]}=w400" loading="lazy">
 
 <div class="info">
 
-<div class="price">${item.info.price}</div>
+<div class="price">RM ${item.price||""}</div>
 
-<div>${item.info.type}</div>
+<div>${item.type||""}</div>
 
-<div>${item.info.bedroom} ${item.info.bathroom} ${item.info.parking}</div>
+<div>${item.rooms||""}R ${item.baths||""}B ${item.parking||""}P</div>
 
-<div>${item.info.build}</div>
+<div>${item.size||""} sqft</div>
 
 </div>
 
@@ -185,7 +83,7 @@ renderPagination(data.length);
 
 }
 
-
+/* PAGINATION */
 
 function renderPagination(total){
 
@@ -217,15 +115,13 @@ nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
 
 }
 
-
-
 function reload(){
 
 showListings(allData);
 
 }
 
-
+/* PROPERTY PAGE */
 
 function showProperty(data){
 
@@ -251,28 +147,31 @@ container.innerHTML=`
 
 <div class="gallery">
 
-<img src="${listing.photos[i]}">
+<img src="${listing.photos[i]}=w1200">
 
 <button class="prev" onclick="prev()">❮</button>
+
 <button class="next" onclick="next()">❯</button>
 
 </div>
 
 <div class="info">
 
-<div class="price">${listing.info.price}</div>
+<div class="price">RM ${listing.price||""}</div>
 
-<div>${listing.info.type}</div>
+<div>${listing.type||""}</div>
 
-<div>${listing.info.bedroom} ${listing.info.bathroom} ${listing.info.parking}</div>
+<div>${listing.rooms||""}R ${listing.baths||""}B ${listing.parking||""}P</div>
 
-<div>${listing.info.build}</div>
+<div>${listing.size||""} sqft</div>
 
 </div>
 
 `;
 
 }
+
+/* gallery controls */
 
 window.next=function(){
 
@@ -292,9 +191,12 @@ render();
 
 }
 
+/* copy url */
+
 window.copyURL=function(){
 
 navigator.clipboard.writeText(window.location.href);
+
 alert("Listing URL copied");
 
 }
@@ -302,8 +204,6 @@ alert("Listing URL copied");
 render();
 
 }
-
-
 
 /* SEARCH */
 
@@ -315,22 +215,20 @@ if(!search) return;
 
 search.addEventListener("input",function(){
 
-let q=this.value.toLowerCase().replace(/[^a-z0-9]/g,"");
+let q=this.value.toLowerCase();
 
 let filtered=allData.filter(item=>{
 
-let info=parseFolder(item.name);
-
 let text=(
 
-info.price+" "+
-info.type+" "+
-info.bedroom+" "+
-info.bathroom+" "+
-info.parking+" "+
-info.build
+(item.price||"")+" "+
+(item.type||"")+" "+
+(item.rooms||"")+" "+
+(item.baths||"")+" "+
+(item.parking||"")+" "+
+(item.size||"")
 
-).toLowerCase().replace(/[^a-z0-9]/g,"");
+).toLowerCase();
 
 return text.includes(q);
 
