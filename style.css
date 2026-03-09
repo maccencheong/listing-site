@@ -186,3 +186,17 @@ border-radius:8px;
 
 .gallery .prev{ left:10px; }
 .gallery .next{ right:10px; }
+
+/* FORCE PROPERTY TEXT BLACK */
+
+#property,
+#property *{
+color:#000 !important;
+}
+
+/* REMOVE LINK BLUE COLOR */
+
+#property a{
+color:#000 !important;
+text-decoration:none;
+}
