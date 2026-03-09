@@ -2,18 +2,18 @@ const perPage = 48;
 let page = 1;
 
 function getID(){
-const url = new URL(window.location.href);
+const url=new URL(window.location.href);
 return url.searchParams.get("id");
 }
 
-const id = getID();
+const id=getID();
 
 fetch("listings.json")
 .then(r=>r.json())
 .then(data=>{
 
 data.forEach(item=>{
-item.info = parseFolder(item.name);
+item.info=parseFolder(item.name);
 });
 
 if(id){
@@ -28,7 +28,7 @@ showListings(data);
 
 function parseFolder(name){
 
-let text = name.toUpperCase();
+let text=name.toUpperCase();
 
 let price="";
 let type="";
@@ -38,16 +38,11 @@ let bathroom="";
 let parking="";
 let build="";
 
-
-// PRICE (支持 1.3K)
-
 let priceMatch=text.match(/(RM)?\s*\d+(\.\d+)?\s*(K|M)/);
 
 if(priceMatch){
 
-let p=priceMatch[0]
-.replace("RM","")
-.replace(/\s/g,"");
+let p=priceMatch[0].replace("RM","").replace(/\s/g,"");
 
 let num=parseFloat(p);
 
@@ -59,9 +54,6 @@ price="RM "+Math.round(num)
 .replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
 }
-
-
-// PROPERTY TYPE
 
 const types={
 SA:"Service Apartment",
@@ -82,9 +74,6 @@ type=types[key];
 
 }
 
-
-// STOREY
-
 let s=text.match(/\d\s?(STY|STOREY)/);
 
 if(s){
@@ -94,9 +83,6 @@ storey=s[0]
 .replace("STOREY"," Storey");
 
 }
-
-
-// ROOMS
 
 let r=text.match(/\b\d{3}\b/);
 
@@ -110,17 +96,16 @@ parking=v[2]+" Parking";
 
 }
 
-
-// BUILD UP
-
 let numbers=text.match(/\b\d{3,5}\b/g);
 
 if(numbers){
 
 numbers.forEach(n=>{
+
 if(n!==r?.[0]){
 build=n+" sqft";
 }
+
 });
 
 }
@@ -162,7 +147,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img loading="lazy" src="${cover}" class="cover">
+<img loading="lazy" src="${cover}">
 
 <div class="info">
 
@@ -198,11 +183,19 @@ let nav=document.getElementById("pagination");
 
 nav.innerHTML="";
 
+if(pages<=1) return;
+
 if(page>1){
 nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
 }
 
-nav.innerHTML+=` Page ${page} of ${pages} `;
+for(let i=1;i<=pages;i++){
+
+nav.innerHTML+=`
+<button onclick="page=${i};reload()">${i}</button>
+`;
+
+}
 
 if(page<pages){
 nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
@@ -276,8 +269,6 @@ container.innerHTML=`
 `;
 
 }
-
-
 
 window.next=function(){
 if(i<listing.photos.length-1){
