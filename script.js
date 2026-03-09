@@ -38,7 +38,7 @@ let build="";
 
 // PRICE
 
-let priceMatch=text.match(/RM?\d+(K|M)|\b\d+(K|M)\b|\b\d{3,7}\b/);
+let priceMatch=text.match(/(RM)?\d+(K|M)/);
 
 if(priceMatch){
 
@@ -50,9 +50,6 @@ price="RM "+(parseInt(p)*1000);
 else if(p.includes("M")){
 price="RM "+(parseInt(p)*1000000);
 }
-else{
-price="RM "+parseInt(p);
-}
 
 price=price.replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
@@ -63,16 +60,14 @@ price=price.replace(/\B(?=(\d{3})+(?!\d))/g,",");
 // PROPERTY TYPE
 
 const types={
-
+SA:"Service Apartment",
 P:"Apartment",
 A:"Apartment",
 C:"Condo",
 T:"Terrace",
 S:"Shop Lot",
 F:"Factory",
-SA:"Service Apartment",
 O:"Office"
-
 };
 
 for(let key in types){
@@ -87,7 +82,7 @@ type=types[key];
 
 // STOREY
 
-let s=text.match(/\d\s?STY|\d\s?STOREY/);
+let s=text.match(/\d\s?(STY|STOREY)/);
 
 if(s){
 
@@ -99,13 +94,13 @@ storey=s[0]
 
 
 
-// BEDROOM / BATHROOM / PARKING
+// ROOMS
 
-let r=text.match(/\b\d{3}\b/);
+let roomMatch=text.match(/\b\d{3}\b/);
 
-if(r){
+if(roomMatch){
 
-let v=r[0];
+let v=roomMatch[0];
 
 bedroom=v[0]+" Bedroom";
 bathroom=v[1]+" Bathroom";
@@ -117,29 +112,45 @@ parking=v[2]+" Parking";
 
 // BUILD UP
 
-let b=text.match(/\-\d{3,5}/);
+let buildMatch=text.match(/-\d{3,5}/);
 
-if(b){
+if(buildMatch){
 
-let val=b[0].replace("-","");
+let val=buildMatch[0].replace("-","");
 
-if(val!==r?.[0]){
+if(val!==roomMatch?.[0]){
 build=val+" sqft";
 }
 
 }
 
+if(!build){
 
+let numbers=text.match(/\b\d{3,5}\b/g);
+
+if(numbers){
+
+numbers.forEach(n=>{
+
+if(n!==roomMatch?.[0] && !n.includes("K") && !n.includes("M")){
+build=n+" sqft";
+}
+
+});
+
+}
+
+}
 
 return{
 
-price:price,
-type:type,
-storey:storey,
-bedroom:bedroom,
-bathroom:bathroom,
-parking:parking,
-build:build
+price,
+type,
+storey,
+bedroom,
+bathroom,
+parking,
+build
 
 };
 
@@ -181,13 +192,7 @@ card.innerHTML=`
 
 <div>${item.info.type}</div>
 
-<div>${item.info.storey}</div>
-
-<div>${item.info.bedroom}</div>
-
-<div>${item.info.bathroom}</div>
-
-<div>${item.info.parking}</div>
+<div>${item.info.bedroom}  ${item.info.bathroom}  ${item.info.parking}</div>
 
 <div>${item.info.build}</div>
 
@@ -295,13 +300,7 @@ container.innerHTML=`
 
 <div>${listing.info.type}</div>
 
-<div>${listing.info.storey}</div>
-
-<div>${listing.info.bedroom}</div>
-
-<div>${listing.info.bathroom}</div>
-
-<div>${listing.info.parking}</div>
+<div>${listing.info.bedroom}  ${listing.info.bathroom}  ${listing.info.parking}</div>
 
 <div>${listing.info.build}</div>
 
