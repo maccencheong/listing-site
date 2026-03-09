@@ -38,20 +38,27 @@ let build="";
 
 // PRICE
 
-let priceMatch=text.match(/(RM)?\d+(K|M)/);
+let priceMatch=text.match(/(RM)?\s*\d+(\.\d+)?\s*(K|M)/);
 
 if(priceMatch){
 
-let p=priceMatch[0].replace("RM","");
+let p=priceMatch[0]
+.replace("RM","")
+.replace(/\s/g,"");
+
+let num=parseFloat(p);
 
 if(p.includes("K")){
-price="RM "+(parseInt(p)*1000);
-}
-else if(p.includes("M")){
-price="RM "+(parseInt(p)*1000000);
+num=num*1000;
 }
 
-price=price.replace(/\B(?=(\d{3})+(?!\d))/g,",");
+if(p.includes("M")){
+num=num*1000000;
+}
+
+price="RM "+Math.round(num)
+.toString()
+.replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
 }
 
@@ -82,11 +89,11 @@ type=types[key];
 
 // STOREY
 
-let s=text.match(/\d\s?(STY|STOREY)/);
+let storeyMatch=text.match(/\d\s?(STY|STOREY)/);
 
-if(s){
+if(storeyMatch){
 
-storey=s[0]
+storey=storeyMatch[0]
 .replace("STY"," Storey")
 .replace("STOREY"," Storey");
 
@@ -112,33 +119,17 @@ parking=v[2]+" Parking";
 
 // BUILD UP
 
-let buildMatch=text.match(/-\d{3,5}/);
-
-if(buildMatch){
-
-let val=buildMatch[0].replace("-","");
-
-if(val!==roomMatch?.[0]){
-build=val+" sqft";
-}
-
-}
-
-if(!build){
-
 let numbers=text.match(/\b\d{3,5}\b/g);
 
 if(numbers){
 
 numbers.forEach(n=>{
 
-if(n!==roomMatch?.[0] && !n.includes("K") && !n.includes("M")){
+if(n!==roomMatch?.[0]){
 build=n+" sqft";
 }
 
 });
-
-}
 
 }
 
@@ -176,6 +167,8 @@ let items=data.slice(start,end);
 
 items.forEach(item=>{
 
+let cover=item.photos[0];
+
 let card=document.createElement("div");
 
 card.className="card";
@@ -184,7 +177,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img loading="lazy" src="${item.photos[0]}">
+<img loading="lazy" src="${cover}" class="cover">
 
 <div class="info">
 
@@ -221,17 +214,13 @@ let nav=document.getElementById("pagination");
 nav.innerHTML="";
 
 if(page>1){
-
 nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
-
 }
 
 nav.innerHTML+=` Page ${page} of ${pages} `;
 
 if(page<pages){
-
 nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
-
 }
 
 }
@@ -337,10 +326,8 @@ prev();
 window.next=function(){
 
 if(i<listing.photos.length-1){
-
 i++;
 render();
-
 }
 
 }
@@ -350,10 +337,8 @@ render();
 window.prev=function(){
 
 if(i>0){
-
 i--;
 render();
-
 }
 
 }
@@ -363,7 +348,6 @@ render();
 window.copyURL=function(){
 
 navigator.clipboard.writeText(window.location.href);
-
 alert("Listing URL copied");
 
 }
