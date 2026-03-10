@@ -136,6 +136,7 @@ container.appendChild(card);
 
 });
 
+
 }
 
 
@@ -144,6 +145,6 @@ container.appendChild(card);
 loadPage(page);
 
 
-/* AUTO CHECK UPDATE */
+/* AUTO UPDATE CHECK */
 
 setInterval(checkVersion,10000);
