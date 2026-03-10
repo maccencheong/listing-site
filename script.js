@@ -3,7 +3,7 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 
-/* PRICE FORMAT */
+/* PRICE FORMAT */a
 
 function formatPrice(p){
 
@@ -136,8 +136,22 @@ nav.innerHTML="";
 if(pages<=1) return;
 
 if(page>1){
-
 nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
+}
+
+for(let i=1;i<=pages;i++){
+
+if(i===page){
+nav.innerHTML+=`<button style="background:#999">${i}</button>`;
+}else{
+nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
+}
+
+}
+
+if(page<pages){
+nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
+}
 
 }
 
