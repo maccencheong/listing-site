@@ -3,6 +3,7 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 
+
 /* PRICE FORMAT */
 
 function formatPrice(p){
@@ -27,6 +28,7 @@ return "RM "+Math.round(num).toLocaleString();
 
 }
 
+
 /* ROOM FORMAT */
 
 function formatRooms(r,b,p){
@@ -41,20 +43,23 @@ return parts.join(" ");
 
 }
 
-/* GET ID */
+
+/* GET URL ID */
 
 function getID(){
 
 const url=new URL(window.location.href);
+
 return url.searchParams.get("id");
 
 }
 
 const id=getID();
 
-/* LOAD DATA */
 
-fetch("listings.json")
+/* LOAD JSON */
+
+fetch("listings.json?v="+Date.now())
 
 .then(r=>r.json())
 
@@ -63,14 +68,19 @@ fetch("listings.json")
 allData=data;
 
 if(id){
+
 showProperty(data);
+
 }else{
+
 showListings(data);
+
 }
 
 });
 
-/* LISTINGS PAGE */
+
+/* LISTING PAGE */
 
 function showListings(data){
 
@@ -79,9 +89,11 @@ const container=document.getElementById("listings");
 container.innerHTML="";
 
 let start=(page-1)*perPage;
+
 let end=start+perPage;
 
 let items=data.slice(start,end);
+
 
 items.forEach(item=>{
 
@@ -93,7 +105,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos?.[0] || ''}" loading="lazy">
+<img src="${item.photos?.[0]||""}" loading="lazy">
 
 <div class="info">
 
@@ -115,9 +127,11 @@ container.appendChild(card);
 
 });
 
+
 renderPagination(data.length);
 
 }
+
 
 /* PAGINATION */
 
@@ -132,28 +146,40 @@ nav.innerHTML="";
 if(pages<=1) return;
 
 if(page>1){
+
 nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
+
 }
 
 for(let i=1;i<=pages;i++){
 
 if(i===page){
+
 nav.innerHTML+=`<button style="background:#999">${i}</button>`;
+
 }else{
+
 nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
+
 }
 
 }
 
 if(page<pages){
+
 nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
+
 }
 
 }
+
 
 function reload(){
+
 showListings(allData);
+
 }
+
 
 /* PROPERTY PAGE */
 
@@ -167,6 +193,7 @@ if(!listing) return;
 
 let i=0;
 
+
 function render(){
 
 container.innerHTML=`
@@ -179,14 +206,17 @@ container.innerHTML=`
 
 </div>
 
+
 <div class="gallery">
 
-<img src="${listing.photos?.[i] || ''}">
+<img src="${listing.photos?.[i]||""}">
 
 <button class="prev" onclick="prev()">❮</button>
+
 <button class="next" onclick="next()">❯</button>
 
 </div>
+
 
 <div class="info">
 
@@ -204,13 +234,17 @@ container.innerHTML=`
 
 }
 
-/* gallery controls */
+
+/* gallery */
 
 window.next=function(){
 
 if(i<listing.photos.length-1){
+
 i++;
+
 render();
+
 }
 
 }
@@ -218,13 +252,17 @@ render();
 window.prev=function(){
 
 if(i>0){
+
 i--;
+
 render();
-}
 
 }
 
-/* copy url */
+}
+
+
+/* COPY URL */
 
 window.copyURL=function(){
 
@@ -239,6 +277,7 @@ alert("Listing URL copied");
 render();
 
 }
+
 
 /* SEARCH */
 
@@ -256,11 +295,11 @@ let filtered=allData.filter(item=>{
 
 let text=(
 
-(item.price||"")+" "+
-(item.type||"")+" "+
-(item.rooms||"")+" "+
-(item.baths||"")+" "+
-(item.parking||"")+" "+
+(item.price||"")+" "+  
+(item.type||"")+" "+  
+(item.rooms||"")+" "+  
+(item.baths||"")+" "+  
+(item.parking||"")+" "+  
 (item.size||"")
 
 ).toLowerCase();
