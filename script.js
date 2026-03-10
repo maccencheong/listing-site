@@ -9,7 +9,7 @@ let currentVersion=null;
 
 function loadPage(p){
 
-fetch("https://maccen.asiawai42.workers.dev/api/listings?v="+Date.now())
+fetch("version.json?v="+Date.now())
 
 .then(r=>r.json())
 
@@ -29,7 +29,7 @@ renderListings(data);
 
 function checkVersion(){
 
-fetch("https://maccen.asiawai42.workers.dev/api/version?v="+Date.now())
+fetch("version.json?v="+Date.now())
 
 .then(r=>r.json())
 
