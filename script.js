@@ -1,6 +1,7 @@
 const perPage = 50;
 
-let page = 1;
+let page = Number(new URLSearchParams(location.search).get("page")) || 1;
+
 let allData = [];
 
 
@@ -57,9 +58,9 @@ return url.searchParams.get("id");
 const id=getID();
 
 
-/* LOAD JSON */
+/* LOAD JSON (RAW GITHUB VERSION) */
 
-fetch("listings.json?v="+Date.now())
+fetch("https://raw.githubusercontent.com/maccencheong/listing-site/main/listings.json?v="+Date.now())
 
 .then(r=>r.json())
 
@@ -147,7 +148,7 @@ if(pages<=1) return;
 
 if(page>1){
 
-nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
+nav.innerHTML+=`<button onclick="goPage(${page-1})">Prev</button>`;
 
 }
 
@@ -159,7 +160,7 @@ nav.innerHTML+=`<button style="background:#999">${i}</button>`;
 
 }else{
 
-nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
+nav.innerHTML+=`<button onclick="goPage(${i})">${i}</button>`;
 
 }
 
@@ -167,16 +168,20 @@ nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
 
 if(page<pages){
 
-nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
+nav.innerHTML+=`<button onclick="goPage(${page+1})">Next</button>`;
 
 }
 
 }
 
 
-function reload(){
+function goPage(p){
 
-showListings(allData);
+const url=new URL(window.location.href);
+
+url.searchParams.set("page",p);
+
+window.location=url;
 
 }
 
