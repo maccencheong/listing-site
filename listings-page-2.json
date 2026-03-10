@@ -1,7 +1,7 @@
 [
   {
     "id": "_pR8jkxvir",
-    "price": "520K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "3",
@@ -29,7 +29,7 @@
   },
   {
     "id": "seJ-xloiCZ",
-    "price": "620K",
+    "price": "",
     "type": "",
     "floor": "",
     "rooms": "4",
@@ -72,7 +72,7 @@
   },
   {
     "id": "9DeSPgKYga",
-    "price": "1.05M",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "5",
@@ -120,7 +120,7 @@
   },
   {
     "id": "v83zHqC-71",
-    "price": "175K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -207,7 +207,7 @@
   },
   {
     "id": "A7QEbGzF7t",
-    "price": "460K",
+    "price": "",
     "type": "",
     "floor": "1 Storey",
     "rooms": "",
@@ -248,7 +248,7 @@
   },
   {
     "id": "2Itn4O8f6e",
-    "price": "380K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -284,7 +284,7 @@
   },
   {
     "id": "kEIZVj9O1W",
-    "price": "310K",
+    "price": "",
     "type": "",
     "floor": "",
     "rooms": "3",
@@ -355,7 +355,7 @@
   },
   {
     "id": "maCfB_fdng",
-    "price": "360K",
+    "price": "",
     "type": "",
     "floor": "3 Storey",
     "rooms": "",
@@ -370,7 +370,7 @@
   },
   {
     "id": "aoor9rAQOJ",
-    "price": "750K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "",
@@ -414,7 +414,7 @@
   },
   {
     "id": "S_YPbRET-b",
-    "price": "345K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -472,7 +472,7 @@
   },
   {
     "id": "KKGhN3UKhX",
-    "price": "350K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -551,7 +551,7 @@
   },
   {
     "id": "Z3u4ZChukZ",
-    "price": "315K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -580,7 +580,7 @@
   },
   {
     "id": "7rv7mY7aTI",
-    "price": "360K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -603,7 +603,7 @@
   },
   {
     "id": "AmYIeeuyJM",
-    "price": "350K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -624,7 +624,7 @@
   },
   {
     "id": "wXMda93OCi",
-    "price": "630K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "",
@@ -662,7 +662,7 @@
   },
   {
     "id": "O6rVXT-TGr",
-    "price": "1.5M",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "",
@@ -685,7 +685,7 @@
   },
   {
     "id": "S1A3hhTjq9",
-    "price": "630K",
+    "price": "",
     "type": "",
     "floor": "1.5 Storey",
     "rooms": "",
@@ -719,7 +719,7 @@
   },
   {
     "id": "fY8rMfpft2",
-    "price": "650K",
+    "price": "",
     "type": "",
     "floor": "2.0 Storey",
     "rooms": "",
@@ -748,7 +748,7 @@
   },
   {
     "id": "ByJw5bQ6W_",
-    "price": "750K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "3",
@@ -789,7 +789,7 @@
   },
   {
     "id": "WnfosoCPWc",
-    "price": "610K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "",
@@ -825,7 +825,7 @@
   },
   {
     "id": "ggbRidfJNm",
-    "price": "570K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "3",
@@ -867,7 +867,7 @@
   },
   {
     "id": "ut-YHNXc07",
-    "price": "370K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -887,7 +887,7 @@
   },
   {
     "id": "ehWbDvuHb5",
-    "price": "630K",
+    "price": "",
     "type": "",
     "floor": "2 Storey",
     "rooms": "",
@@ -950,7 +950,7 @@
   },
   {
     "id": "2phYRfe3a7",
-    "price": "650K",
+    "price": "",
     "type": "Shop Lot",
     "floor": "",
     "rooms": "3",
@@ -1022,7 +1022,7 @@
   },
   {
     "id": "OV9tjTuD0o",
-    "price": "330K",
+    "price": "",
     "type": "Shop Lot",
     "floor": "",
     "rooms": "",
@@ -1062,7 +1062,7 @@
   },
   {
     "id": "4J6c4Bz7Z6",
-    "price": "360K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -1120,7 +1120,7 @@
   },
   {
     "id": "U-hWoNeXWB",
-    "price": "598K",
+    "price": "",
     "type": "",
     "floor": "",
     "rooms": "3",
@@ -1138,7 +1138,7 @@
   },
   {
     "id": "n3ENmp8jn7",
-    "price": "550K",
+    "price": "",
     "type": "Condo",
     "floor": "",
     "rooms": "3",
@@ -1161,7 +1161,7 @@
   },
   {
     "id": "F8NXIL2Tv9",
-    "price": "850K",
+    "price": "",
     "type": "Condo",
     "floor": "",
     "rooms": "3",
@@ -1192,7 +1192,7 @@
   },
   {
     "id": "RYh0obmPPx",
-    "price": "654K",
+    "price": "",
     "type": "Condo",
     "floor": "",
     "rooms": "3",
@@ -1283,7 +1283,7 @@
   },
   {
     "id": "3v9SAYk3At",
-    "price": "355K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -1297,7 +1297,7 @@
   },
   {
     "id": "C7eu3DMOQj",
-    "price": "343K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -1322,7 +1322,7 @@
   },
   {
     "id": "aBNmJrM31F",
-    "price": "350K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -1345,7 +1345,7 @@
   },
   {
     "id": "1sXI7wPIuD",
-    "price": "340K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
@@ -1369,7 +1369,7 @@
   },
   {
     "id": "DCEYGUPGTM",
-    "price": "380K",
+    "price": "",
     "type": "Apartment",
     "floor": "",
     "rooms": "3",
