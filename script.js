@@ -50,6 +50,7 @@ return parts.join(" ");
 function getID(){
 
 const url=new URL(window.location.href);
+
 return url.searchParams.get("id");
 
 }
@@ -71,8 +72,7 @@ allData=data;
 
 if(id){
 showProperty(data);
-}
-else{
+}else{
 showListings(data);
 }
 
@@ -92,10 +92,8 @@ fetch("https://raw.githubusercontent.com/maccencheong/listing-site/main/version.
 .then(v=>{
 
 if(!currentVersion){
-
 currentVersion=v.version;
 return;
-
 }
 
 if(v.version!==currentVersion){
@@ -119,12 +117,7 @@ const container=document.getElementById("listings");
 
 container.innerHTML="";
 
-let start=(page-1)*perPage;
-let end=start+perPage;
-
-let items=data.slice(start,end);
-
-items.forEach(item=>{
+data.forEach(item=>{
 
 let card=document.createElement("div");
 
@@ -134,7 +127,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos?.[0] || ''}" loading="lazy">
+<img src="${item.photos?.[0]||""}" loading="lazy">
 
 <div class="info">
 
@@ -156,46 +149,50 @@ container.appendChild(card);
 
 });
 
-renderPagination(data.length);
+renderPagination();
 
 }
 
 
 /* PAGINATION */
 
-function renderPagination(total){
-
-let pages=Math.ceil(total/perPage);
+function renderPagination(){
 
 let nav=document.getElementById("pagination");
 
+if(!nav) return;
+
 nav.innerHTML="";
 
-if(pages<=1) return;
+/* PREV */
 
 if(page>1){
-nav.innerHTML+=`<button onclick="page--;reload()">Prev</button>`;
-}
 
-for(let i=1;i<=pages;i++){
-
-if(i===page){
-nav.innerHTML+=`<button style="background:#999">${i}</button>`;
-}else{
-nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
-}
-
-}
-
-if(page<pages){
-nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
-}
+nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
 
 }
 
 
-function reload(){
+/* CURRENT PAGE */
+
+nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
+
+
+/* NEXT */
+
+nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
+
+}
+
+
+function changePage(p){
+
+page=p;
+
 loadPage();
+
+window.scrollTo(0,0);
+
 }
 
 
@@ -218,18 +215,22 @@ container.innerHTML=`
 <div class="topbar">
 
 <button onclick="window.location='./'">← Back</button>
+
 <button onclick="copyURL()">Copy URL</button>
 
 </div>
 
+
 <div class="gallery">
 
-<img src="${listing.photos?.[i] || ''}">
+<img src="${listing.photos?.[i]||""}">
 
 <button class="prev" onclick="prev()">❮</button>
+
 <button class="next" onclick="next()">❯</button>
 
 </div>
+
 
 <div class="info">
 
@@ -248,13 +249,16 @@ container.innerHTML=`
 }
 
 
-/* gallery controls */
+/* gallery */
 
 window.next=function(){
 
 if(i<listing.photos.length-1){
+
 i++;
+
 render();
+
 }
 
 }
@@ -262,18 +266,21 @@ render();
 window.prev=function(){
 
 if(i>0){
+
 i--;
+
 render();
-}
 
 }
 
+}
 
-/* copy url */
+
+/* COPY URL */
 
 window.copyURL=function(){
 
-let url=window.location.href;
+let url="https://maccen.asiawai42.workers.dev/"+listing.id;
 
 navigator.clipboard.writeText(url);
 
@@ -315,8 +322,6 @@ return text.includes(q);
 
 });
 
-page=1;
-
 showListings(filtered);
 
 });
@@ -327,6 +332,7 @@ showListings(filtered);
 /* INIT */
 
 loadPage();
+
 
 /* AUTO UPDATE */
 
