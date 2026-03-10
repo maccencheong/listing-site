@@ -3,7 +3,7 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 
-/* PRICE FORMAT */a
+/* PRICE FORMAT */
 
 function formatPrice(p){
 
@@ -63,13 +63,9 @@ fetch("listings.json")
 allData=data;
 
 if(id){
-
 showProperty(data);
-
 }else{
-
 showListings(data);
-
 }
 
 });
@@ -155,22 +151,8 @@ nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
 
 }
 
-for(let i=1;i<=pages;i++){
-
-nav.innerHTML+=`<button onclick="page=${i};reload()">${i}</button>`;
-
-}
-
-if(page<pages){
-
-nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
-
-}
-
 function reload(){
-
 showListings(allData);
-
 }
 
 /* PROPERTY PAGE */
