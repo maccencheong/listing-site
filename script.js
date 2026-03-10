@@ -167,8 +167,6 @@ nav.innerHTML+=`<button onclick="page++;reload()">Next</button>`;
 
 }
 
-}
-
 function reload(){
 
 showListings(allData);
