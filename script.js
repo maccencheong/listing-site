@@ -1,24 +1,23 @@
-const perPage = 50;
-
 let page = 1;
 let allData = [];
+let currentVersion = null;
 
-const id = new URLSearchParams(window.location.search).get("id");
 
+/* PRICE FORMAT */
 
 function formatPrice(p){
 
 if(!p) return "";
 
-let text=p.toString().toLowerCase().replace("rm","").trim();
+let text=p.toString().toLowerCase().trim();
 
 let num=0;
 
 if(text.includes("k")){
-num=parseFloat(text)*1000;
+num=parseFloat(text.replace("k",""))*1000;
 }
 else if(text.includes("m")){
-num=parseFloat(text)*1000000;
+num=parseFloat(text.replace("m",""))*1000000;
 }
 else{
 num=parseFloat(text);
@@ -28,6 +27,8 @@ return "RM "+Math.round(num).toLocaleString();
 
 }
 
+
+/* ROOM FORMAT */
 
 function formatRooms(r,b,p){
 
@@ -42,48 +43,112 @@ return parts.join(" ");
 }
 
 
-async function loadAll(){
+/* GET URL ID */
 
-let i=1;
+function getID(){
 
-while(true){
+const url=new URL(window.location.href);
 
-let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
+return url.searchParams.get("id");
+
+}
+
+const id=getID();
+
+
+/* LOAD ALL JSON */
+
+async function loadAllListings(){
+
+let page=1;
+let results=[];
+let keepLoading=true;
+
+while(keepLoading){
 
 try{
 
-let res=await fetch(url);
+let res=await fetch(`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${page}.json?v=`+Date.now());
 
 if(!res.ok){
+keepLoading=false;
 break;
 }
 
 let data=await res.json();
 
-allData=allData.concat(data);
+if(!data.length){
+keepLoading=false;
+break;
+}
 
-i++;
+results=results.concat(data);
+
+page++;
 
 }catch(e){
 
-break;
+keepLoading=false;
 
 }
 
 }
 
+return results;
+
 }
 
 
-function showListings(){
+/* LOAD PAGE */
+
+async function loadPage(){
+
+allData=await loadAllListings();
+
+if(id){
+showProperty(allData);
+}else{
+showListings(allData);
+}
+
+}
+
+
+/* CHECK VERSION */
+
+function checkVersion(){
+
+fetch("https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json?v="+Date.now())
+
+.then(r=>r.json())
+
+.then(v=>{
+
+if(!currentVersion){
+currentVersion=v.version;
+return;
+}
+
+if(v.version!==currentVersion){
+
+currentVersion=v.version;
+
+loadPage();
+
+}
+
+});
+
+}
+
+
+/* LISTINGS */
+
+function showListings(data){
 
 const container=document.getElementById("listings");
 
 container.innerHTML="";
-
-let start=(page-1)*perPage;
-
-let data=allData.slice(start,start+perPage);
 
 data.forEach(item=>{
 
@@ -91,23 +156,21 @@ let card=document.createElement("div");
 
 card.className="card";
 
-let cover=item.photos?.[0] || "";
-
 card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${cover}" loading="lazy">
+<img src="${item.photos?.[0]||""}" loading="lazy">
 
 <div class="info">
 
 <div class="price">${formatPrice(item.price)}</div>
 
-<div>${item.type || ""}</div>
+<div>${item.type||""}</div>
 
 <div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
 
-<div>${item.size || ""} sqft</div>
+<div>${item.size||""} sqft</div>
 
 </div>
 
@@ -119,52 +182,23 @@ container.appendChild(card);
 
 });
 
-renderPagination();
-
 }
 
 
-function renderPagination(){
+/* PROPERTY PAGE */
 
-let nav=document.getElementById("pagination");
-
-nav.innerHTML="";
-
-if(page>1){
-
-nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
-
-}
-
-nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
-
-if(page*perPage < allData.length){
-
-nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
-
-}
-
-}
-
-
-function changePage(p){
-
-page=p;
-
-showListings();
-
-window.scrollTo(0,0);
-
-}
-
-
-function showProperty(){
+function showProperty(data){
 
 const container=document.getElementById("property");
 
-const listing=allData.find(l=>l.id===id);
+const listing=data.find(l=>l.id===id);
 
-if(!listing) return;
+if(!listing){
+
+container.innerHTML="<h2>Listing not found</h2>";
+return;
+
+}
 
 let i=0;
 
@@ -178,13 +212,11 @@ container.innerHTML=`
 
 <button onclick="copyURL()">Copy URL</button>
 
-<button onclick="downloadPhotos()">Download Photos</button>
-
 </div>
 
 <div class="gallery">
 
-<img src="${listing.photos[i]}">
+<img src="${listing.photos?.[i]||""}">
 
 <button class="prev" onclick="prev()">❮</button>
 
@@ -196,11 +228,11 @@ container.innerHTML=`
 
 <div class="price">${formatPrice(listing.price)}</div>
 
-<div>${listing.type || ""}</div>
+<div>${listing.type||""}</div>
 
 <div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
 
-<div>${listing.size || ""} sqft</div>
+<div>${listing.size||""} sqft</div>
 
 </div>
 
@@ -209,11 +241,14 @@ container.innerHTML=`
 }
 
 
+/* gallery */
+
 window.next=function(){
 
 if(i<listing.photos.length-1){
 
 i++;
+
 render();
 
 }
@@ -225,6 +260,7 @@ window.prev=function(){
 if(i>0){
 
 i--;
+
 render();
 
 }
@@ -232,39 +268,24 @@ render();
 }
 
 
+/* COPY URL */
+
 window.copyURL=function(){
 
-navigator.clipboard.writeText(window.location.href);
+let url="https://maccen.asiawai42.workers.dev/"+listing.id;
+
+navigator.clipboard.writeText(url);
 
 alert("Listing URL copied");
 
 }
 
-
-window.downloadPhotos=function(){
-
-listing.photos.forEach((url,i)=>{
-
-setTimeout(()=>{
-
-let a=document.createElement("a");
-
-a.href=url;
-
-a.download="photo-"+(i+1)+".jpg";
-
-a.click();
-
-},i*400);
-
-});
-
-}
-
 render();
 
 }
 
+
+/* SEARCH */
 
 document.addEventListener("DOMContentLoaded",function(){
 
@@ -293,61 +314,18 @@ return text.includes(q);
 
 });
 
-const container=document.getElementById("listings");
-
-container.innerHTML="";
-
-filtered.forEach(item=>{
-
-let card=document.createElement("div");
-
-card.className="card";
-
-card.innerHTML=`
-
-<a href="?id=${item.id}">
-
-<img src="${item.photos?.[0]||""}">
-
-<div class="info">
-
-<div class="price">${formatPrice(item.price)}</div>
-
-<div>${item.type||""}</div>
-
-<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
-
-<div>${item.size||""} sqft</div>
-
-</div>
-
-</a>
-
-`;
-
-container.appendChild(card);
-
-});
+showListings(filtered);
 
 });
 
 });
 
 
-async function init(){
+/* INIT */
 
-await loadAll();
+loadPage();
 
-if(id){
 
-showProperty();
+/* AUTO UPDATE */
 
-}else{
-
-showListings();
-
-}
-
-}
-
-init();
+setInterval(checkVersion,10000);
