@@ -2,24 +2,25 @@ const perPage = 50;
 
 let page = 1;
 let allData = [];
-let id = new URLSearchParams(window.location.search).get("id");
+
+const id = new URLSearchParams(window.location.search).get("id");
 
 
-/* PRICE FORMAT */
+/* PRICE */
 
 function formatPrice(p){
 
 if(!p) return "";
 
-let text=p.toString().toLowerCase().replace("rm","").trim();
+let text=p.toString().toLowerCase();
 
 let num=0;
 
 if(text.includes("k")){
-num=parseFloat(text.replace("k",""))*1000;
+num=parseFloat(text)*1000;
 }
 else if(text.includes("m")){
-num=parseFloat(text.replace("m",""))*1000000;
+num=parseFloat(text)*1000000;
 }
 else{
 num=parseFloat(text);
@@ -30,7 +31,7 @@ return "RM "+Math.round(num).toLocaleString();
 }
 
 
-/* ROOM FORMAT */
+/* ROOM */
 
 function formatRooms(r,b,p){
 
@@ -55,9 +56,7 @@ while(true){
 
 try{
 
-let res=await fetch(
-`https://cdn.jsdelivr.net/gh/maccencheong/listing-site@main/listings-page-${i}.json`
-);
+let res=await fetch(`listings-page-${i}.json`);
 
 if(!res.ok) break;
 
@@ -78,7 +77,7 @@ break;
 }
 
 
-/* SHOW LISTINGS */
+/* MAIN LISTING */
 
 function showListings(){
 
@@ -96,9 +95,7 @@ let card=document.createElement("div");
 
 card.className="card";
 
-let cover=item.photos?.[0] 
-? item.photos[0]+"=w600"
-: "";
+let cover=item.photos?.[0] || "";
 
 card.innerHTML=`
 
@@ -171,19 +168,11 @@ const container=document.getElementById("property");
 
 const listing=allData.find(l=>l.id===id);
 
-if(!listing){
-
-container.innerHTML="Listing not found";
-
-return;
-
-}
+if(!listing) return;
 
 let i=0;
 
 function render(){
-
-let photo=listing.photos[i]+"=w1600";
 
 container.innerHTML=`
 
@@ -193,13 +182,13 @@ container.innerHTML=`
 
 <button onclick="copyURL()">Copy URL</button>
 
-<button onclick="downloadPhotos()">Download All Photos</button>
+<button onclick="downloadPhotos()">Download Photos</button>
 
 </div>
 
 <div class="gallery">
 
-<img src="${photo}">
+<img src="${listing.photos[i]}">
 
 <button class="prev" onclick="prev()">❮</button>
 
@@ -223,12 +212,14 @@ container.innerHTML=`
 
 }
 
+
+/* GALLERY */
+
 window.next=function(){
 
 if(i<listing.photos.length-1){
 
 i++;
-
 render();
 
 }
@@ -240,7 +231,6 @@ window.prev=function(){
 if(i>0){
 
 i--;
-
 render();
 
 }
@@ -259,31 +249,25 @@ alert("Listing URL copied");
 }
 
 
-/* DOWNLOAD ZIP */
+/* DOWNLOAD ALL */
 
-window.downloadPhotos=async function(){
+window.downloadPhotos=function(){
 
-let zip=new JSZip();
+listing.photos.forEach((url,i)=>{
 
-for(let i=0;i<listing.photos.length;i++){
-
-let res=await fetch(listing.photos[i]+"=w2000");
-
-let blob=await res.blob();
-
-zip.file("photo-"+(i+1)+".jpg",blob);
-
-}
-
-let content=await zip.generateAsync({type:"blob"});
+setTimeout(()=>{
 
 let a=document.createElement("a");
 
-a.href=URL.createObjectURL(content);
+a.href=url;
 
-a.download="listing-"+listing.id+".zip";
+a.download="photo-"+(i+1)+".jpg";
 
 a.click();
+
+},i*500);
+
+});
 
 }
 
@@ -294,13 +278,7 @@ render();
 
 /* SEARCH */
 
-document.addEventListener("DOMContentLoaded",function(){
-
-const search=document.getElementById("searchInput");
-
-if(!search) return;
-
-search.addEventListener("input",function(){
+document.getElementById("searchInput").addEventListener("input",function(){
 
 let q=this.value.toLowerCase();
 
@@ -331,15 +309,11 @@ let card=document.createElement("div");
 
 card.className="card";
 
-let cover=item.photos?.[0] 
-? item.photos[0]+"=w600"
-: "";
-
 card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${cover}" loading="lazy">
+<img src="${item.photos?.[0]||""}">
 
 <div class="info">
 
@@ -358,8 +332,6 @@ card.innerHTML=`
 `;
 
 container.appendChild(card);
-
-});
 
 });
 
