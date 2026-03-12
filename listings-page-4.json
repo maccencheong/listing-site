@@ -87,30 +87,6 @@
     ]
   },
   {
-    "id": "xRifI1T9tk",
-    "price": "1600",
-    "type": "",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1000",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1A84n_mow_FY1DIaBDD7arOCxUK21nwlr=w1200",
-      "https://lh3.googleusercontent.com/d/1ahcrAXQnIsu54gydEKNIGvrvm-Gn3eqb=w1200",
-      "https://lh3.googleusercontent.com/d/1E-lZGG0Sw_FtZMoYz2TeX0RmVnkfLXll=w1200",
-      "https://lh3.googleusercontent.com/d/14EPUiNyc1H3_q_PgW6eFTEfi75Wh1BEH=w1200",
-      "https://lh3.googleusercontent.com/d/1aqU9Hy0c_T4betdfSLPTs2DY0UF32_eb=w1200",
-      "https://lh3.googleusercontent.com/d/1IghIb55S6SjeDai3nnYMHajb-Se9pcme=w1200",
-      "https://lh3.googleusercontent.com/d/1nlyrm8s2V21t75yUulmYbztGXaaOgdVD=w1200",
-      "https://lh3.googleusercontent.com/d/1SOKYPIiXphH0Uem4j7v5XBZlga_mhWQE=w1200",
-      "https://lh3.googleusercontent.com/d/1-YJ_MSX7jvt3Y31xJy4M90TWoy4dLSi_=w1200",
-      "https://lh3.googleusercontent.com/d/17mGMjUlmw4ExhNWeE7kuEbAkLGPOiujB=w1200",
-      "https://lh3.googleusercontent.com/d/1gfonET3Vs6m_alYwzKiTZzOcrJ2M_QSV=w1200",
-      "https://lh3.googleusercontent.com/d/10QoYFIwGUrJQdOvOcuzBHUdIFIb9I5wJ=w1200"
-    ]
-  },
-  {
     "id": "IIGvEHrJiW",
     "price": "1900",
     "type": "",
@@ -150,33 +126,6 @@
       "https://lh3.googleusercontent.com/d/1QfwTVMfVn27kAcw_OCs-7Pa7eYLUAhOw=w1200",
       "https://lh3.googleusercontent.com/d/1Hk2YF_DoOJBei7V_4ZnPkKNqxOryQbbf=w1200",
       "https://lh3.googleusercontent.com/d/1Huv9cTq8-OnFuyyZ4TEYl49AQof0AMLU=w1200"
-    ]
-  },
-  {
-    "id": "sPoztuEPLR",
-    "price": "2100",
-    "type": "Condo",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1200",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1h0fuS3igcnpP6VFjLqqGs1-HCe1K1O-f=w1200",
-      "https://lh3.googleusercontent.com/d/1TRnH5nRYZ4YSaOMKbyZ-3_Le-Eprz2aX=w1200",
-      "https://lh3.googleusercontent.com/d/1eQD88ZruaGOQiPNknWgxSIdujur1PXXy=w1200",
-      "https://lh3.googleusercontent.com/d/13Q9zBgZJAX0JEYCAaz0q8D9Rbvntanm8=w1200",
-      "https://lh3.googleusercontent.com/d/1v7vaWB9Vxi2zTyCu4qGxPpcvfn9SrvrM=w1200",
-      "https://lh3.googleusercontent.com/d/1obyBXqeTEIXsVmtdmIH50zTmj6geRb0V=w1200",
-      "https://lh3.googleusercontent.com/d/1to2ywGLUWfCr0vmpK29A_3q2uVQNn6tN=w1200",
-      "https://lh3.googleusercontent.com/d/1rVeg1Nl6TpWyEMhQ47cN_F4mNBdJBvzp=w1200",
-      "https://lh3.googleusercontent.com/d/1MG-b696DI3zGjpkGYqozKEEsVJOXTIMw=w1200",
-      "https://lh3.googleusercontent.com/d/13NapbOlCV0MRu--kE6TxS7eKOgtRnega=w1200",
-      "https://lh3.googleusercontent.com/d/1hxl7owbjT3t_oT0sM_kfAszEmrTldxEi=w1200",
-      "https://lh3.googleusercontent.com/d/1yKt0RCUJB6zvqRI7QzthNZ01jZwpCTDt=w1200",
-      "https://lh3.googleusercontent.com/d/1aux5QbqABCGLONVOXSqPrQOcf3AXWmsD=w1200",
-      "https://lh3.googleusercontent.com/d/1UW5j53xXMVLyiZrv7bbFM8hBfvSnX_7o=w1200",
-      "https://lh3.googleusercontent.com/d/1CmFEYrRLOyYEz9QMGLBG96Y5Qbng7C9g=w1200"
     ]
   },
   {
@@ -1225,6 +1174,50 @@
       "https://lh3.googleusercontent.com/d/1zvOkdRCTQjDmEIVuLO2n6Yf8_1ik0DE0=w1200",
       "https://lh3.googleusercontent.com/d/1kCRhzZBWTZDFv-ouahWtRg8htuxFu6_y=w1200",
       "https://lh3.googleusercontent.com/d/16vgDLJvD5fjp3OuF219UVyLLmv20iIu-=w1200"
+    ]
+  },
+  {
+    "id": "aQMxfJk74B",
+    "price": "580K",
+    "type": "Condo",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "1012",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/18QV1OPDsd55f8kaJdrJZXxDgCnvef7ej=w1200",
+      "https://lh3.googleusercontent.com/d/1C55d1AwATdCbGB_QEKKMZFyQTF6FmRDT=w1200",
+      "https://lh3.googleusercontent.com/d/1D8t2ZLXs4KIyZ4-ty522u_NBKoos6Eur=w1200",
+      "https://lh3.googleusercontent.com/d/1TLIb261qqB7OSeVcopnpo3AsAA9__7lo=w1200",
+      "https://lh3.googleusercontent.com/d/1zWqXy3g_j6UYYxzJq7HZCTxvM5lslesa=w1200",
+      "https://lh3.googleusercontent.com/d/1VB3y8e8j0dwQ5obrriJ7j42tyG_85oI6=w1200",
+      "https://lh3.googleusercontent.com/d/1TW9l95kV6hDM5Ns1ahpRJQ-7N2JgNMoI=w1200"
+    ]
+  },
+  {
+    "id": "Uin0htufMN",
+    "price": "250K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "5",
+    "baths": "0",
+    "parking": "0",
+    "size": "",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1qWAeLOnjw9apTTNTaIlgHYR4-V1ugeHA=w1200",
+      "https://lh3.googleusercontent.com/d/1WDEWKKmjpTvqnHjULMBrbMkRBPOE-8-j=w1200",
+      "https://lh3.googleusercontent.com/d/1NJf2VaXUZ0i8kLTyBITyhbEAi-_vYTT9=w1200",
+      "https://lh3.googleusercontent.com/d/1EbtAiLypgkyuLksdk2O8GhzLx4LnQqyQ=w1200",
+      "https://lh3.googleusercontent.com/d/1ripl6fQ056WmX_KsbTkn1mUO1-kHYy1-=w1200",
+      "https://lh3.googleusercontent.com/d/1EnO9yQfHh-skuPE6Vsug61FyAjhobfOI=w1200",
+      "https://lh3.googleusercontent.com/d/1Pe1kxes86XwU8A4VHBIlSoAvtZvNrlTX=w1200",
+      "https://lh3.googleusercontent.com/d/1Jx07bSjNVb12UtwpANkW1IQVb3Xqywpw=w1200",
+      "https://lh3.googleusercontent.com/d/1KQdBZLj4gwJJcm-x94n82B3EDHPtYqZs=w1200",
+      "https://lh3.googleusercontent.com/d/1l0P58PVPNRqc4jm2pIDf4Svk01AqwEx9=w1200",
+      "https://lh3.googleusercontent.com/d/1gXaRocoSCv4QgMoIFM34ROV9lYn4Sez4=w1200",
+      "https://lh3.googleusercontent.com/d/1g2bZIhTHhWTYCb-yXyRMwnHiTcOwJUj-=w1200",
+      "https://lh3.googleusercontent.com/d/1-aWE3KB8sauBeQ_CTVBJj4IKdPfUCC2F=w1200"
     ]
   }
 ]
