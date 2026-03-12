@@ -46,32 +46,32 @@ return parts.join(" ");
 }
 
 
-/* LOAD JSON */
+/* LOAD ALL JSON */
 
 async function loadAll(){
 
-let version = await fetch(
-"https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
-).then(r=>r.json());
+let i=1;
 
-let pages = version.pages;
-
-for(let i=1;i<=pages;i++){
+while(true){
 
 let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
 
 let res=await fetch(url);
 
+if(!res.ok) break;
+
 let data=await res.json();
 
 allData=allData.concat(data);
 
-}
+i++;
 
 }
 
+}
 
-/* LISTINGS PAGE */
+
+/* SHOW LISTINGS */
 
 function showListings(){
 
@@ -83,19 +83,21 @@ container.innerHTML="";
 
 let start=(page-1)*perPage;
 
-let data=allData.slice(start,start+perPage);
+let items=allData.slice(start,start+perPage);
 
-data.forEach(item=>{
+items.forEach(item=>{
 
 let card=document.createElement("div");
 
 card.className="card";
 
+let cover=item.photos?.[0] ? item.photos[0] : "";
+
 card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos?.[0]||""}" loading="lazy">
+<img src="${cover}" loading="lazy">
 
 <div class="info">
 
@@ -128,8 +130,6 @@ function renderPagination(){
 
 let nav=document.getElementById("pagination");
 
-if(!nav) return;
-
 nav.innerHTML="";
 
 if(page>1){
@@ -140,7 +140,7 @@ nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
 
 nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
 
-if(page*perPage<allData.length){
+if(page*perPage < allData.length){
 
 nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
 
@@ -185,13 +185,13 @@ container.innerHTML=`
 
 <button onclick="copyURL()">Copy URL</button>
 
-<button onclick="downloadAll()">Download Photos</button>
+<button onclick="downloadPhotos()">Download Photos</button>
 
 </div>
 
 <div class="gallery">
 
-<img src="${listing.photos?.[i]||""}">
+<img src="${listing.photos[i]}">
 
 <button class="prev" onclick="prev()">❮</button>
 
@@ -203,11 +203,11 @@ container.innerHTML=`
 
 <div class="price">${formatPrice(listing.price)}</div>
 
-<div>${listing.type||""}</div>
+<div>${listing.type || ""}</div>
 
 <div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
 
-<div>${listing.size||""} sqft</div>
+<div>${listing.size || ""} sqft</div>
 
 </div>
 
@@ -223,7 +223,6 @@ window.next=function(){
 if(i<listing.photos.length-1){
 
 i++;
-
 render();
 
 }
@@ -235,7 +234,6 @@ window.prev=function(){
 if(i>0){
 
 i--;
-
 render();
 
 }
@@ -254,9 +252,9 @@ alert("Listing URL copied");
 }
 
 
-/* DOWNLOAD */
+/* DOWNLOAD ALL */
 
-window.downloadAll=function(){
+window.downloadPhotos=function(){
 
 listing.photos.forEach((url,i)=>{
 
@@ -268,13 +266,9 @@ a.href=url;
 
 a.download="photo-"+(i+1)+".jpg";
 
-document.body.appendChild(a);
-
 a.click();
 
-a.remove();
-
-},i*400);
+},i*300);
 
 });
 
@@ -283,6 +277,76 @@ a.remove();
 render();
 
 }
+
+
+/* SEARCH */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const search=document.getElementById("searchInput");
+
+if(!search) return;
+
+search.addEventListener("input",function(){
+
+let q=this.value.toLowerCase();
+
+let filtered=allData.filter(item=>{
+
+let text=(
+
+(item.price||"")+" "+
+(item.type||"")+" "+
+(item.rooms||"")+" "+
+(item.baths||"")+" "+
+(item.parking||"")+" "+
+(item.size||"")
+
+).toLowerCase();
+
+return text.includes(q);
+
+});
+
+const container=document.getElementById("listings");
+
+container.innerHTML="";
+
+filtered.forEach(item=>{
+
+let card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+
+<a href="?id=${item.id}">
+
+<img src="${item.photos?.[0]||""}" loading="lazy">
+
+<div class="info">
+
+<div class="price">${formatPrice(item.price)}</div>
+
+<div>${item.type||""}</div>
+
+<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
+
+<div>${item.size||""} sqft</div>
+
+</div>
+
+</a>
+
+`;
+
+container.appendChild(card);
+
+});
+
+});
+
+});
 
 
 /* INIT */
