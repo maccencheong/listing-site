@@ -1,78 +1,5 @@
 [
   {
-    "id": "6ONUd75rRQ",
-    "price": "",
-    "type": "",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1ysmh8E_i7724Dg9WSrbsE7Ee04NsBxlo=w1200",
-      "https://lh3.googleusercontent.com/d/1yY8wYc1rXedCU_q6hxvMnPLK5sK_mRut=w1200",
-      "https://lh3.googleusercontent.com/d/1MAJeB-FbU5ZQT7G14TYgjoSVjP_3PIGV=w1200",
-      "https://lh3.googleusercontent.com/d/17IqpNK1sGDMK_MAqQblCsrCaC28pCIXP=w1200",
-      "https://lh3.googleusercontent.com/d/1ZKVSJNOzxfEo0zvtbzAqpHeOQHwGGTGQ=w1200",
-      "https://lh3.googleusercontent.com/d/1m2jmZSIGjm6-76mV1WGrQ3edMxTFa0z9=w1200",
-      "https://lh3.googleusercontent.com/d/1DfsJp-IYfEKVOp4vPyhXHr1lj8K5KX3N=w1200",
-      "https://lh3.googleusercontent.com/d/1mdYNVoMj85GP3vr1-H6AdHPvqPejSe-H=w1200",
-      "https://lh3.googleusercontent.com/d/1P-BcUybvua0xYCZHH8KPAdU2I47vO7o-=w1200",
-      "https://lh3.googleusercontent.com/d/1PYtf3nDVUWoS6keF6BeMtAY_dK0FTCup=w1200",
-      "https://lh3.googleusercontent.com/d/1pd1L5k2NnDH7qnQr5TIeEojw-LKVbPzq=w1200",
-      "https://lh3.googleusercontent.com/d/1_54ijpPyp9JchEa29-IheVcRBUZSZeYx=w1200",
-      "https://lh3.googleusercontent.com/d/1hFTaHzbAOjwZU814L8PDEbxUvx1zFSU7=w1200",
-      "https://lh3.googleusercontent.com/d/1AmY2wNUjQw2H_iJGHxN1majzdpmCOeHc=w1200",
-      "https://lh3.googleusercontent.com/d/1stGl1nTp3kE_PbQmYHL-niOdEKUbpz6j=w1200",
-      "https://lh3.googleusercontent.com/d/1SSWrWUa32Qmt-YJ6oQKZNqF34GUfnCU3=w1200"
-    ]
-  },
-  {
-    "id": "TiJUL_gvG7",
-    "price": "1600",
-    "type": "",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1600",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1EPd37b3TovY3Udzo4RRdSRJhEuv3Mic8=w1200",
-      "https://lh3.googleusercontent.com/d/1sjNjVSUU5OgohwupEMvBu2K1jQtnJoOw=w1200",
-      "https://lh3.googleusercontent.com/d/1VwldScRJaMvlGIyS9DPFNbOJEjKbLoyW=w1200",
-      "https://lh3.googleusercontent.com/d/1yEXORidM3YniMwwCvj0kvfB3ZdzpXQJ5=w1200",
-      "https://lh3.googleusercontent.com/d/160aIR8DsTEwaZGWzY4RRxDA-3VPrVma0=w1200",
-      "https://lh3.googleusercontent.com/d/1lZi7Ynln_IjI2XTM7wNYdmdAh9-sHOmY=w1200",
-      "https://lh3.googleusercontent.com/d/11jZrhlRFVbv5GNbvDTHIYnOFllXO09LL=w1200",
-      "https://lh3.googleusercontent.com/d/10xq9JR3hQStWO5-rPdZNsGr93e2sgjNP=w1200",
-      "https://lh3.googleusercontent.com/d/1vBo-qAHPOtxry6w7oJWZifrTqxi86CXD=w1200",
-      "https://lh3.googleusercontent.com/d/1D-uErqu6CoVjwByXss5xDeFf5tiK2Jec=w1200",
-      "https://lh3.googleusercontent.com/d/1BR68bHkQHBgenji0Z7FUlaY7oZp33OOF=w1200",
-      "https://lh3.googleusercontent.com/d/1CXwNpqD-yLxJ9pWMIsUI_U01Pwk0znlz=w1200",
-      "https://lh3.googleusercontent.com/d/1wJzJioFY0qxPy9iTxt3z1xaZaD93nIvT=w1200",
-      "https://lh3.googleusercontent.com/d/1rnPtFObwQB_qnsaaWE2fvgKf2452aY9x=w1200",
-      "https://lh3.googleusercontent.com/d/1M_8XhRaJfapzdr4qfLbc0kFPyfSIUVSo=w1200",
-      "https://lh3.googleusercontent.com/d/1s26ktvga8Vk6MNNB6rhW0AFUCIYuGS5O=w1200",
-      "https://lh3.googleusercontent.com/d/1ZB88H_FJ5LQkrjLH8-0qbORdfFKK7PRh=w1200",
-      "https://lh3.googleusercontent.com/d/1skPGb5SmOg88VNuAMJDkBEyekLQEYY5U=w1200",
-      "https://lh3.googleusercontent.com/d/1fOdFBHxM1XDbd79tTcEAuwzZnGSkmipS=w1200",
-      "https://lh3.googleusercontent.com/d/1ZhkVd8vQjEx2oeAhMkhjAiBUFjTbyW42=w1200",
-      "https://lh3.googleusercontent.com/d/1CQZt34dgtKeN1G7nnIzUU2aX76itltQz=w1200",
-      "https://lh3.googleusercontent.com/d/1zcxNTMcv7_--DmYhm4Tl3Z6MQI1CYo_Q=w1200",
-      "https://lh3.googleusercontent.com/d/1BJk2q5ITS3Wcy7ZtMSP0zZe3mNzbC8su=w1200",
-      "https://lh3.googleusercontent.com/d/1WTGnju7LZasMIh877O9euX0ZfiqqkN12=w1200",
-      "https://lh3.googleusercontent.com/d/1JL5jjghBvaIMJekkG6hEIDvGZ--v0hJ1=w1200",
-      "https://lh3.googleusercontent.com/d/1AOx_KRsTQAEwVPi-jnyOHEwO0wBPoFVv=w1200",
-      "https://lh3.googleusercontent.com/d/1v5yAOfUUAtIO52XoDflej58zSPhRSHXN=w1200",
-      "https://lh3.googleusercontent.com/d/1ijm5vAKHaMhoV8U3cQgx7dKQ4Ya_2jpt=w1200",
-      "https://lh3.googleusercontent.com/d/121kBmN8jwvIPGE2YuIVEUuvlYfES2g8F=w1200",
-      "https://lh3.googleusercontent.com/d/1rd9YT7pdtUrgFGJAEmkqgUrxFEjS9ulC=w1200",
-      "https://lh3.googleusercontent.com/d/1l1P_zfhg2MeOy86YQEdOLkYRx058MHCZ=w1200",
-      "https://lh3.googleusercontent.com/d/1IRhmPEuK0z9uyFptDh048T_PI4zGcakg=w1200",
-      "https://lh3.googleusercontent.com/d/1_lbr2MmPUM2qNcYUww73BOzLcMvRktJo=w1200"
-    ]
-  },
-  {
     "id": "buifFZcNi8",
     "price": "20",
     "type": "",
@@ -626,6 +553,26 @@
     ]
   },
   {
+    "id": "YOCH4kyhBR",
+    "price": "1",
+    "type": "",
+    "floor": "1 Storey",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1YYxBQTW6sH5Q0g3_X94WCOmf7YwjGhxV=w1200",
+      "https://lh3.googleusercontent.com/d/1l-bUMd6_ZQEg87bPzbjQ7k5Y572JzTKn=w1200",
+      "https://lh3.googleusercontent.com/d/1rlgdigkJ2ZOJWDuqQNPMwxw1kJ4e7MIH=w1200",
+      "https://lh3.googleusercontent.com/d/1pk5N9SpFb409PmYGV7jHsMuhwiZ7U_Xv=w1200",
+      "https://lh3.googleusercontent.com/d/16o8-vFnu9Af7_SWRRLOibfJALkrsqUnW=w1200",
+      "https://lh3.googleusercontent.com/d/1RGgY5rJZUc3TAFUTdcesNSZ1Yj59LDgl=w1200",
+      "https://lh3.googleusercontent.com/d/12XxjYhu9Mtn2NniNp-PcUIUQ-BbB1mBB=w1200",
+      "https://lh3.googleusercontent.com/d/1dd4PjEvgvnD3VNr07NabSsmTO_g4Ew_V=w1200"
+    ]
+  },
+  {
     "id": "ZLEu_LW84k",
     "price": "1.4K",
     "type": "",
@@ -725,6 +672,21 @@
       "https://lh3.googleusercontent.com/d/1ear5OJ3seE7UdsXCydlmDN6lv3h0ggiz=w1200",
       "https://lh3.googleusercontent.com/d/11em8sxCWOK2BZ8ampLhYipB8-d6Unypk=w1200",
       "https://lh3.googleusercontent.com/d/1OdPIt5DYr9nwNmXIzspmEFAhCPWcQ0sS=w1200"
+    ]
+  },
+  {
+    "id": "5L-ac15O4b",
+    "price": "",
+    "type": "",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1HnOtKH284WqFQwIQ5NK0qBC_-7tCNo_H=w1200",
+      "https://lh3.googleusercontent.com/d/1tkg9Xbkpq3r47PaTOlLzjqxToKsUuVzH=w1200",
+      "https://lh3.googleusercontent.com/d/1StIwEeMchoUFMF9vzMVUeJlnv0sViVuI=w1200"
     ]
   },
   {
@@ -859,6 +821,82 @@
       "https://lh3.googleusercontent.com/d/1gCR1o59BraaQjv_1j9UiD8ccH0feR5sO=w1200",
       "https://lh3.googleusercontent.com/d/1grAQWJJT3VvoeltuDwm1UUmqWUFh-Ss7=w1200",
       "https://lh3.googleusercontent.com/d/1fLgpnG1XkEaNlB93xqu25EvyOyzaikgc=w1200"
+    ]
+  },
+  {
+    "id": "6X4PJYpAVp",
+    "price": "1700",
+    "type": "",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "1700",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1wgqLqUucLUP_zU8zDt2vGDlJKgeSidxN=w1200",
+      "https://lh3.googleusercontent.com/d/1BKDP3zDcOKLa4JWOba6q12xGZB-gO323=w1200",
+      "https://lh3.googleusercontent.com/d/1j3cObZjgqr-JHQHexBbVpoHTb77nu3oA=w1200",
+      "https://lh3.googleusercontent.com/d/12E9SCm1Q8DoIzNcDcVYXbanDRqrzvitM=w1200",
+      "https://lh3.googleusercontent.com/d/1k6KyXduFemE_NGYUJLviF4uvxfnC1nEC=w1200",
+      "https://lh3.googleusercontent.com/d/1NTkFGxQFso01YuxiyeX8CX7Y3MnClzEY=w1200",
+      "https://lh3.googleusercontent.com/d/14X_9BB9GRnSeTfi_Xlbe-xmJLuIgPN4h=w1200",
+      "https://lh3.googleusercontent.com/d/1dzPyb-MNn3isdSwFM4MQ9A11rAnHG6pO=w1200",
+      "https://lh3.googleusercontent.com/d/1r9D3wZWsDSO-KLBubGtjHv0cVIqAS3tU=w1200",
+      "https://lh3.googleusercontent.com/d/1_xFkj13S6MNlHtMXbM8arK_m150smfY7=w1200",
+      "https://lh3.googleusercontent.com/d/1OyU0nlOK2K3jBC0SGpqekWgkyeOWPkyi=w1200"
+    ]
+  },
+  {
+    "id": "qUn4jywE9l",
+    "price": "1",
+    "type": "",
+    "floor": "",
+    "rooms": "5",
+    "baths": "0",
+    "parking": "0",
+    "size": "",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1uIqbgoWPDGZklLM37TAN1DCBosdxHnYx=w1200",
+      "https://lh3.googleusercontent.com/d/1h56UtqV2dH8isH5urGZgoN1ASET0DM5O=w1200",
+      "https://lh3.googleusercontent.com/d/1MR4EWf10sHzmbTht4uab5DtEU6Gcz72E=w1200",
+      "https://lh3.googleusercontent.com/d/15MQxrnfPZAhpiPqqsrSB9QoQwt2HgCTF=w1200",
+      "https://lh3.googleusercontent.com/d/1PECKco2b7A2uzYkBP56r6mstNFFtZCzw=w1200",
+      "https://lh3.googleusercontent.com/d/1PqenW-1nLLKazFzr-W-znFz7uMDH1nYK=w1200",
+      "https://lh3.googleusercontent.com/d/1ym41s3AkacSEOMWlickGfEOVKb_s4DAd=w1200",
+      "https://lh3.googleusercontent.com/d/10oSbymBerU6EVaydGmVwWBhIJXdiTfuE=w1200",
+      "https://lh3.googleusercontent.com/d/1krVTKWK22rMNxrKrTRLH1WNPfxvwaVUt=w1200",
+      "https://lh3.googleusercontent.com/d/1uoXgS1TWzvMhRNSrmsOiQhrWtZO3LOfp=w1200",
+      "https://lh3.googleusercontent.com/d/1WHrLnstScvp_tsTCUGdZjBjEPk6vsvip=w1200",
+      "https://lh3.googleusercontent.com/d/1QAuou3lN1C8zTshfKxJ1_L3Gxrt_zTkh=w1200",
+      "https://lh3.googleusercontent.com/d/1UfLuc9hsnVQVK5RZGH1J457H_t4PKxcr=w1200",
+      "https://lh3.googleusercontent.com/d/1sVBGm6mj1zHkPJmfECDVtZQWV7NFIIXp=w1200"
+    ]
+  },
+  {
+    "id": "efTmQ-nysD",
+    "price": "",
+    "type": "",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1ZTEZs-v1pHtMl3mznhOLniqe29K8GtJQ=w1200",
+      "https://lh3.googleusercontent.com/d/1QutZDDR-RKsN4j_NKfolMk366yzmoN11=w1200",
+      "https://lh3.googleusercontent.com/d/1r61ISMJQLlah4CY27mZ9ZePHR1XXirQx=w1200",
+      "https://lh3.googleusercontent.com/d/10OjPxaen7npUxmPDfbh3PTSOsDbWcsBN=w1200",
+      "https://lh3.googleusercontent.com/d/1sCcLKa8wAF0bxWHyC0fKk6uYBWl1cK1b=w1200",
+      "https://lh3.googleusercontent.com/d/1gtL9MlmZet_zR0MHt8wm5zyRLsqHRnq4=w1200",
+      "https://lh3.googleusercontent.com/d/1IXl4hBLVH7B0UssQQ7B86pz6IqJ-4UJU=w1200",
+      "https://lh3.googleusercontent.com/d/1lI1lLcI9k-AsIj1l1ogASbHh4r8fEhW-=w1200",
+      "https://lh3.googleusercontent.com/d/11-RFGGWCygcID6w1YgGIIGyMitRfD84W=w1200",
+      "https://lh3.googleusercontent.com/d/1h_EAA_DMICGV0eb6vpnXekyEOW6Ph-q-=w1200",
+      "https://lh3.googleusercontent.com/d/1UYEuzRFg60mspySk01oxW98sxRv0XBEL=w1200",
+      "https://lh3.googleusercontent.com/d/1MC8TjN3fTX74SvRM3GOz6fKbI3mducrz=w1200",
+      "https://lh3.googleusercontent.com/d/1-3ziK5EMqmndMgw-fu9SlVe2zpTY9ZpO=w1200",
+      "https://lh3.googleusercontent.com/d/1nYpo8XIz-WXsTiW9Sodf-iTvm2swRaFK=w1200",
+      "https://lh3.googleusercontent.com/d/1icujRRKF3VFQ3f60ieEsZbl63xAAT5kl=w1200"
     ]
   },
   {
@@ -1027,79 +1065,6 @@
       "https://lh3.googleusercontent.com/d/1IDKQ2KAmzf-34t3aO9W46NtZXUTkdaec=w1200",
       "https://lh3.googleusercontent.com/d/12cy0x1Zkd4Utk6_CX28xlFrEtX_nzl1Z=w1200",
       "https://lh3.googleusercontent.com/d/1aX0M-VNnCbua6ZLBFVH7RhzjCJtxcl3Q=w1200"
-    ]
-  },
-  {
-    "id": "lGhETF1Q-K",
-    "price": "1350",
-    "type": "",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1350",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1IbX6HX_iBnCSC62U7LXXIktyRtRqmzSy=w1200",
-      "https://lh3.googleusercontent.com/d/16rYt-nDxLqjpRD6U2tO9piMdYD0pqh7R=w1200",
-      "https://lh3.googleusercontent.com/d/14i82rzXaQFiAJHu0odeLLkE6VSOkJfsl=w1200",
-      "https://lh3.googleusercontent.com/d/1nTF8q2Td6yz7K587P1blf4yE_RsZTca5=w1200"
-    ]
-  },
-  {
-    "id": "N8bFqUyLzK",
-    "price": "1700",
-    "type": "",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1700",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1ANaMSzcv9rTCm1eAxutSHv73PWrhVqF9=w1200",
-      "https://lh3.googleusercontent.com/d/1obrXYdEchXxeyjRZr153xGTv5ruJ3yjJ=w1200",
-      "https://lh3.googleusercontent.com/d/1wYxTy_72Lp0Jjae82HUvL3ZHwMuEKQ10=w1200",
-      "https://lh3.googleusercontent.com/d/1WNHbQPODGxYhe-xA9nUWrgGKhyk-Rx8l=w1200",
-      "https://lh3.googleusercontent.com/d/1I1v6Y3m-i7r7MSVcFDp9HnGmIbxKTH7E=w1200",
-      "https://lh3.googleusercontent.com/d/1hiewQf_lnCS0OsUtrmppqIkJ0_ijI-Jj=w1200",
-      "https://lh3.googleusercontent.com/d/1aiYjZVpk51ccCG8LVabzSkrRqI-F6vBh=w1200",
-      "https://lh3.googleusercontent.com/d/1HZhiOnCNSgMNJWYigK2caMikSj1t9Ve9=w1200",
-      "https://lh3.googleusercontent.com/d/114xkyvf0hd-mcTArYOcUdO1i7ml2cIIi=w1200",
-      "https://lh3.googleusercontent.com/d/1-NpsG15g2QLfmrl9zcVatn7hGDQ2U58S=w1200",
-      "https://lh3.googleusercontent.com/d/1vBvQbxZcihbO3kgXD84BUG4rH6BaK7mx=w1200",
-      "https://lh3.googleusercontent.com/d/1ipePUzEAhutnl-VcOrBgtDafVBblCPtZ=w1200",
-      "https://lh3.googleusercontent.com/d/1BrWhpAGB5bOv9julydyTfSUQMHM2ZTUf=w1200",
-      "https://lh3.googleusercontent.com/d/1OJMMTvK_QedOiH90GcXsyK0_RS93OBSf=w1200",
-      "https://lh3.googleusercontent.com/d/1ORFEkKB9eOqgNXE8RTp0GfuDFgve_5xC=w1200",
-      "https://lh3.googleusercontent.com/d/1RBbUFt3YHtMTYoKzYQLieU9RlIAzUQ7O=w1200",
-      "https://lh3.googleusercontent.com/d/1Jy2HGNYkdJg2prpTBY9vfrTn7gbkIN_i=w1200",
-      "https://lh3.googleusercontent.com/d/1apBKNA9fYwO9sFpA8kOWqR_Ff4iC_ywK=w1200",
-      "https://lh3.googleusercontent.com/d/1eB-TkeJeZ-_ppmUCaxxgwpmU9k7RRtwD=w1200",
-      "https://lh3.googleusercontent.com/d/1Ir3sDIgSkzxAUQvNrhpu83J6cPwdteew=w1200",
-      "https://lh3.googleusercontent.com/d/1LrVOj0x-0BEwymTVGUCcRW77PO8oHlUQ=w1200",
-      "https://lh3.googleusercontent.com/d/1fWC7qHbqC2T-3UfWG55u3v1NVioxz991=w1200",
-      "https://lh3.googleusercontent.com/d/1P_l73JO0JfPr0HMxGBpvPssTFzFOiKBr=w1200"
-    ]
-  },
-  {
-    "id": "tHD96HQzaQ",
-    "price": "1400",
-    "type": "",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1400",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1s2dq2M1aztpEJuIvdKGwb7mlihXCGua6=w1200",
-      "https://lh3.googleusercontent.com/d/1whecBR1y4IHRbCqc0tGquVzrJ-_dzbyh=w1200",
-      "https://lh3.googleusercontent.com/d/1hn83u8OqJED0rdQisqlS5uIO0SbA51lG=w1200",
-      "https://lh3.googleusercontent.com/d/1Efee5u-FnRAhTsUUQepBFDsiyxe6hGUW=w1200",
-      "https://lh3.googleusercontent.com/d/1YYgOJxyw78W964t-Mk5oLAA3PvRgCxOb=w1200",
-      "https://lh3.googleusercontent.com/d/1TjviEqFPG0NgToeFgkofjVs_bhmz7MA8=w1200",
-      "https://lh3.googleusercontent.com/d/1NQuY_nkpSkXcE82frZCJLTd1JKLsAVtW=w1200",
-      "https://lh3.googleusercontent.com/d/1kWnv35pswc2RUVL6ptkRNn3kQrCDCtdE=w1200",
-      "https://lh3.googleusercontent.com/d/1pC9QiC32b9MUnpXjzcawtEVccSCv3rg0=w1200",
-      "https://lh3.googleusercontent.com/d/1eh3MdNdv1J8t8kkJHprINtU2Q1CSf0iy=w1200"
     ]
   }
 ]
