@@ -11,7 +11,7 @@ function formatPrice(p){
 
 if(!p) return "";
 
-let text=p.toString().toLowerCase().trim();
+let text=p.toString().toLowerCase().replace("rm","").trim();
 
 let num=0;
 
@@ -164,21 +164,13 @@ if(!nav) return;
 
 nav.innerHTML="";
 
-/* PREV */
-
 if(page>1){
 
 nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
 
 }
 
-
-/* CURRENT PAGE */
-
 nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
-
-
-/* NEXT */
 
 nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
 
@@ -249,8 +241,6 @@ container.innerHTML=`
 }
 
 
-/* gallery */
-
 window.next=function(){
 
 if(i<listing.photos.length-1){
@@ -275,8 +265,6 @@ render();
 
 }
 
-
-/* COPY URL */
 
 window.copyURL=function(){
 
@@ -311,9 +299,7 @@ let text=(
 
 (item.price||"")+" "+
 (item.type||"")+" "+
-(item.rooms||"")+" "+
-(item.baths||"")+" "+
-(item.parking||"")+" "+
+formatRooms(item.rooms,item.baths,item.parking)+" "+
 (item.size||"")
 
 ).toLowerCase();
