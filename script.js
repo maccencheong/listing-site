@@ -2,35 +2,37 @@ const perPage = 50
 
 let page = 1
 let allData = []
-let cache={}
+let cache = {}
 
 const id = new URLSearchParams(window.location.search).get("id")
 
 
+/* PRICE FORMAT */
 
 function formatPrice(p){
 
 if(!p) return ""
 
-let text=p.toString().toLowerCase()
+let text = p.toString().toLowerCase()
 
-let num=0
+let num = 0
 
 if(text.includes("k")){
-num=parseFloat(text)*1000
+num = parseFloat(text) * 1000
 }
 else if(text.includes("m")){
-num=parseFloat(text)*1000000
+num = parseFloat(text) * 1000000
 }
 else{
-num=parseFloat(text)
+num = parseFloat(text)
 }
 
-return "RM "+Math.round(num).toLocaleString()
+return "RM " + Math.round(num).toLocaleString()
 
 }
 
 
+/* ROOM FORMAT */
 
 function formatRooms(r,b,p){
 
@@ -45,38 +47,36 @@ return parts.join(" ")
 }
 
 
-
 /* LOAD ALL JSON */
 
 async function loadAll(){
 
-let version=await fetch(
+let version = await fetch(
 "https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
 ).then(r=>r.json())
 
-let pages=version.pages
+let pages = version.pages
 
 for(let i=1;i<=pages;i++){
 
 if(cache[i]){
-allData=allData.concat(cache[i])
+allData = allData.concat(cache[i])
 continue
 }
 
 let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`
 
-let res=await fetch(url)
+let res = await fetch(url)
 
-let data=await res.json()
+let data = await res.json()
 
-cache[i]=data
+cache[i] = data
 
-allData=allData.concat(data)
-
-}
+allData = allData.concat(data)
 
 }
 
+}
 
 
 /* SHOW LISTINGS */
@@ -132,7 +132,6 @@ renderPagination()
 }
 
 
-
 /* PAGINATION */
 
 function renderPagination(){
@@ -163,7 +162,6 @@ showListings()
 window.scrollTo(0,0)
 
 }
-
 
 
 /* PROPERTY PAGE */
@@ -222,17 +220,13 @@ container.innerHTML=`
 }
 
 
-
 /* GALLERY */
 
 window.next=function(){
 
 if(i<listing.photos.length-1){
-
 i++
-
 render()
-
 }
 
 }
@@ -240,15 +234,11 @@ render()
 window.prev=function(){
 
 if(i>0){
-
 i--
-
 render()
-
 }
 
 }
-
 
 
 /* COPY URL */
@@ -260,7 +250,6 @@ navigator.clipboard.writeText(window.location.href)
 alert("Listing URL copied")
 
 }
-
 
 
 /* DOWNLOAD ZIP */
@@ -303,6 +292,9 @@ a.click()
 
 }
 
+render()
+
+}
 
 
 /* INIT */
