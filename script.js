@@ -227,7 +227,7 @@ container.innerHTML=`
 
 <button onclick="copyURL()">Copy URL</button>
 
-<button onclick="downloadPhotos()">Download Photos</button>
+<button onclick="downloadPhotos()">Download All Photos</button>
 
 </div>
 
@@ -257,6 +257,9 @@ container.innerHTML=`
 
 }
 
+
+/* GALLERY */
+
 window.next=function(){
 
 if(i<listing.photos.length-1){
@@ -275,6 +278,9 @@ render();
 
 }
 
+
+/* COPY URL */
+
 window.copyURL=function(){
 
 let url=window.location.href;
@@ -285,28 +291,40 @@ alert("Listing URL copied");
 
 }
 
-window.downloadPhotos=function(){
 
-if(!listing.photos) return;
+/* DOWNLOAD ZIP */
 
-listing.photos.forEach((url,i)=>{
+window.downloadPhotos=async function(){
 
-setTimeout(()=>{
+if(!listing.photos || listing.photos.length===0) return;
+
+alert("Preparing photos, please wait...");
+
+let zip=new JSZip();
+
+for(let i=0;i<listing.photos.length;i++){
+
+try{
+
+let res=await fetch(listing.photos[i]);
+let blob=await res.blob();
+
+zip.file("photo-"+(i+1)+".jpg",blob);
+
+}catch(e){}
+
+}
+
+let content=await zip.generateAsync({type:"blob"});
 
 let a=document.createElement("a");
 
-a.href=url;
-a.download="listing-"+(i+1)+".jpg";
+a.href=URL.createObjectURL(content);
+a.download="listing-"+listing.id+".zip";
 
 document.body.appendChild(a);
-
 a.click();
-
 document.body.removeChild(a);
-
-},i*800);
-
-});
 
 }
 
