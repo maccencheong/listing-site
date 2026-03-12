@@ -399,40 +399,6 @@
     ]
   },
   {
-    "id": "S_YPbRET-b",
-    "price": "345K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1000",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1E-kcfWaxG2rjdGd2Cgz1jvLUqFooIdrv=w1200",
-      "https://lh3.googleusercontent.com/d/1MIKeIVeZidQ4RxdyILkQK71koiTXad2v=w1200",
-      "https://lh3.googleusercontent.com/d/1RcTHnBz-s837gCUVcSTltuKQwYHvJwv4=w1200",
-      "https://lh3.googleusercontent.com/d/1L41vI2hAlFY0xSrrtHYX5j9SnBLAL7wW=w1200",
-      "https://lh3.googleusercontent.com/d/1U4uZnTCFgPiV8WAt5tq93yI5VgOeQrwM=w1200",
-      "https://lh3.googleusercontent.com/d/14y_KDHWCo_Yhu67nkyBe1nvhxzCJAzwG=w1200",
-      "https://lh3.googleusercontent.com/d/1Mfjiwg3DR9cfwANOTaqHMemIsC5i7vla=w1200",
-      "https://lh3.googleusercontent.com/d/12wz4uP7d8rhMNR8v6udzYfqaP4fDHrSL=w1200",
-      "https://lh3.googleusercontent.com/d/1V5mqFVvWaIWVGiagZ0z--YQ8KN_WyuVc=w1200",
-      "https://lh3.googleusercontent.com/d/1JMEPac3bVlahS4n4b8nVf8GBSMYRDl_x=w1200",
-      "https://lh3.googleusercontent.com/d/1nBeSKkittthK2zgqEHvPLGFhqk3bMdxi=w1200",
-      "https://lh3.googleusercontent.com/d/1TOMNgCyapROker7nM0qBIvGOXuccAWPd=w1200",
-      "https://lh3.googleusercontent.com/d/1yQnh3xzsydgUOeBOpKRPikyDTsW-RUXM=w1200",
-      "https://lh3.googleusercontent.com/d/1Ua335dcyetNJ3hXmjsKobXPcQn4bRP2p=w1200",
-      "https://lh3.googleusercontent.com/d/1xiZfNQpPTHI3OX7NzJ9iEUpVKCc-om55=w1200",
-      "https://lh3.googleusercontent.com/d/1RlO4IByFQw450HoRp8PwbOsmM9a9oETD=w1200",
-      "https://lh3.googleusercontent.com/d/1iqQD0QgF1WvI07jWWO68jOiGsSTSa8Fz=w1200",
-      "https://lh3.googleusercontent.com/d/1Mr2CjlYGMDOOPbMWuTPukMfdHZwAVlSx=w1200",
-      "https://lh3.googleusercontent.com/d/1V05koWXWY-WaWrKKrfUIXEq9cdRD39DL=w1200",
-      "https://lh3.googleusercontent.com/d/1txhv20kiMANExAPQGeanTd43LjB9dIjF=w1200",
-      "https://lh3.googleusercontent.com/d/1KJpkI4jvbXQ_nzTBuQQE2_tGtR8_xxJy=w1200",
-      "https://lh3.googleusercontent.com/d/1OojJ-p9cYGh5chRtmJEb-y2eBZVufIj3=w1200"
-    ]
-  },
-  {
     "id": "7e1dT59FeR",
     "price": "1400",
     "type": "Apartment",
@@ -1342,6 +1308,26 @@
       "https://lh3.googleusercontent.com/d/124grXnt6tza_G0WEZcFfJ7CopbSbSU4O=w1200",
       "https://lh3.googleusercontent.com/d/11w5XwVDIlNEX8F2A4-DauIc-YYjqHfJs=w1200",
       "https://lh3.googleusercontent.com/d/11pJ1HM4ApOOmFJ7pg7j9k-YeL9EHEQHJ=w1200"
+    ]
+  },
+  {
+    "id": "KCrRZheQkv",
+    "price": "3500",
+    "type": "Office",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "1193",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1pU3zTjfx8CL1cu5lHq789gtrTr6cAJwp=w1200",
+      "https://lh3.googleusercontent.com/d/1qlleqHc2dQffrNXGzUPO43qOuoHlU7v8=w1200",
+      "https://lh3.googleusercontent.com/d/1RL-3mjEQHdRc5SFaJL1rFG9nLpZN2Mbg=w1200",
+      "https://lh3.googleusercontent.com/d/18B7Spkv-LGJE8DuPs7OmxSYOEEdJdgbQ=w1200",
+      "https://lh3.googleusercontent.com/d/18TCBgiTqGkiU31PZZQFHmWHiTuITB2B1=w1200",
+      "https://lh3.googleusercontent.com/d/1gej1sp9GY9bIMHzQjfI96nL1L7tKWNMp=w1200",
+      "https://lh3.googleusercontent.com/d/1GNnbKa78JBu35vDbeUhUj7h_j0PrTHvA=w1200",
+      "https://lh3.googleusercontent.com/d/1CxAuWFz71Bev3NZQdWYT3V5oBQlykEDI=w1200"
     ]
   }
 ]
