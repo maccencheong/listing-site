@@ -127,7 +127,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos?.[0]||""}" loading="lazy">
+<img src="${item.photos?.[0]||""}" loading="lazy" decoding="async">
 
 <div class="info">
 
