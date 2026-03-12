@@ -6,8 +6,6 @@ let allData = [];
 const id = new URLSearchParams(window.location.search).get("id");
 
 
-/* PRICE FORMAT */
-
 function formatPrice(p){
 
 if(!p) return "";
@@ -31,8 +29,6 @@ return "RM "+Math.round(num).toLocaleString();
 }
 
 
-/* ROOM FORMAT */
-
 function formatRooms(r,b,p){
 
 let parts=[];
@@ -45,8 +41,6 @@ return parts.join(" ");
 
 }
 
-
-/* LOAD ALL JSON */
 
 async function loadAll(){
 
@@ -80,8 +74,6 @@ break;
 
 }
 
-
-/* SHOW LISTINGS */
 
 function showListings(){
 
@@ -132,8 +124,6 @@ renderPagination();
 }
 
 
-/* PAGINATION */
-
 function renderPagination(){
 
 let nav=document.getElementById("pagination");
@@ -167,8 +157,6 @@ window.scrollTo(0,0);
 
 }
 
-
-/* PROPERTY PAGE */
 
 function showProperty(){
 
@@ -221,8 +209,6 @@ container.innerHTML=`
 }
 
 
-/* GALLERY */
-
 window.next=function(){
 
 if(i<listing.photos.length-1){
@@ -246,8 +232,6 @@ render();
 }
 
 
-/* COPY URL */
-
 window.copyURL=function(){
 
 navigator.clipboard.writeText(window.location.href);
@@ -256,8 +240,6 @@ alert("Listing URL copied");
 
 }
 
-
-/* DOWNLOAD ALL */
 
 window.downloadPhotos=function(){
 
@@ -273,7 +255,7 @@ a.download="photo-"+(i+1)+".jpg";
 
 a.click();
 
-},i*500);
+},i*400);
 
 });
 
@@ -283,8 +265,6 @@ render();
 
 }
 
-
-/* SEARCH */
 
 document.addEventListener("DOMContentLoaded",function(){
 
@@ -353,8 +333,6 @@ container.appendChild(card);
 
 });
 
-
-/* INIT */
 
 async function init(){
 
