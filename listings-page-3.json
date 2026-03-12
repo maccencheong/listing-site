@@ -1,25 +1,5 @@
 [
   {
-    "id": "KCrRZheQkv",
-    "price": "3500",
-    "type": "Office",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1193",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1pU3zTjfx8CL1cu5lHq789gtrTr6cAJwp=w1200",
-      "https://lh3.googleusercontent.com/d/1qlleqHc2dQffrNXGzUPO43qOuoHlU7v8=w1200",
-      "https://lh3.googleusercontent.com/d/1RL-3mjEQHdRc5SFaJL1rFG9nLpZN2Mbg=w1200",
-      "https://lh3.googleusercontent.com/d/18B7Spkv-LGJE8DuPs7OmxSYOEEdJdgbQ=w1200",
-      "https://lh3.googleusercontent.com/d/18TCBgiTqGkiU31PZZQFHmWHiTuITB2B1=w1200",
-      "https://lh3.googleusercontent.com/d/1gej1sp9GY9bIMHzQjfI96nL1L7tKWNMp=w1200",
-      "https://lh3.googleusercontent.com/d/1GNnbKa78JBu35vDbeUhUj7h_j0PrTHvA=w1200",
-      "https://lh3.googleusercontent.com/d/1CxAuWFz71Bev3NZQdWYT3V5oBQlykEDI=w1200"
-    ]
-  },
-  {
     "id": "reoTQVgu2P",
     "price": "670K",
     "type": "Terrace",
@@ -1209,6 +1189,28 @@
       "https://lh3.googleusercontent.com/d/1nRJWss9ixXzf1nMshyuAUgscAb-ml_1V=w1200",
       "https://lh3.googleusercontent.com/d/1ubxw-UsAPXWhPEW6jQdFNnxq-B5CN857=w1200",
       "https://lh3.googleusercontent.com/d/1S8MKLtYjsODFR0WjdrDAYsJ7mnF8Sydt=w1200"
+    ]
+  },
+  {
+    "id": "LAhWcANlsp",
+    "price": "2200",
+    "type": "Condo",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "1209",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/18PkDhI5qSutdeS8QqE8cYEqiT4Qp1qu-=w1200",
+      "https://lh3.googleusercontent.com/d/1_OhKRGXTG7bCvECvV6fxxnCa28JksLhO=w1200",
+      "https://lh3.googleusercontent.com/d/1KlbwJL_gC67SIvhvOScmYPVZtq_fmyka=w1200",
+      "https://lh3.googleusercontent.com/d/1eZM4Lek3UGPAkTBH7K-xMzMGZqasBjI-=w1200",
+      "https://lh3.googleusercontent.com/d/15ILsRLLdfejNH0Cfhm-zB_NByniS8JUX=w1200",
+      "https://lh3.googleusercontent.com/d/17KH3ivCcF78ez7tAARo4pYG43y-r5fRB=w1200",
+      "https://lh3.googleusercontent.com/d/1ZpnC1syhWlUVLS9OjI7jifRvh51n51Hi=w1200",
+      "https://lh3.googleusercontent.com/d/1i4aHNlzhiIcD4NMiR8rCu-GLIuVyy76H=w1200",
+      "https://lh3.googleusercontent.com/d/1OdD6Lr5JBz9nx_Z5bzSA8nkj8v_Och9b=w1200",
+      "https://lh3.googleusercontent.com/d/1KZPtcE-EkSeupx3t2haBm1LYEDRddLEj=w1200"
     ]
   },
   {
