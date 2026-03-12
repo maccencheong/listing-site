@@ -1,5 +1,5 @@
-let allData=[];
 let page=1;
+let allData=[];
 const perPage=50;
 
 const id=new URLSearchParams(window.location.search).get("id");
@@ -30,7 +30,7 @@ return "RM "+Math.round(num).toLocaleString();
 }
 
 
-/* LOAD ALL JSON */
+/* LOAD JSON PAGES */
 
 async function loadAll(){
 
@@ -42,7 +42,7 @@ let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listin
 
 try{
 
-/* CHECK FILE EXISTS */
+/* CHECK PAGE EXISTS */
 
 let head=await fetch(url,{method:"HEAD"});
 
@@ -50,10 +50,9 @@ if(!head.ok){
 break;
 }
 
-/* LOAD JSON */
+/* LOAD DATA */
 
 let res=await fetch(url);
-
 let data=await res.json();
 
 allData=allData.concat(data);
@@ -61,7 +60,9 @@ allData=allData.concat(data);
 i++;
 
 }catch(e){
+
 break;
+
 }
 
 }
@@ -90,23 +91,18 @@ card.className="card";
 card.innerHTML=`
 
 <a href="?id=${item.id}">
-
 <img src="${item.photos?.[0]||""}" loading="lazy">
 
 <div class="info">
 
 <div class="price">${formatPrice(item.price)}</div>
-
 <div>${item.type||""}</div>
-
 <div>${item.rooms||""}R ${item.baths||""}B</div>
-
 <div>${item.size||""} sqft</div>
 
 </div>
 
 </a>
-
 `;
 
 container.appendChild(card);
@@ -180,9 +176,7 @@ container.innerHTML=`
 <div class="topbar">
 
 <button onclick="window.location='./'">← Back</button>
-
 <button onclick="copyURL()">Copy URL</button>
-
 <button onclick="downloadAll()">Download Photos</button>
 
 </div>
@@ -192,7 +186,6 @@ container.innerHTML=`
 <img src="${listing.photos?.[i]||""}">
 
 <button class="prev" onclick="prev()">❮</button>
-
 <button class="next" onclick="next()">❯</button>
 
 </div>
@@ -200,11 +193,8 @@ container.innerHTML=`
 <div class="info">
 
 <div class="price">${formatPrice(listing.price)}</div>
-
 <div>${listing.type||""}</div>
-
 <div>${listing.rooms||""}R ${listing.baths||""}B</div>
-
 <div>${listing.size||""} sqft</div>
 
 </div>
@@ -213,8 +203,6 @@ container.innerHTML=`
 
 }
 
-
-/* GALLERY */
 
 window.next=function(){
 
@@ -250,7 +238,7 @@ alert("Listing URL copied");
 }
 
 
-/* DOWNLOAD PHOTOS */
+/* DOWNLOAD ALL */
 
 window.downloadAll=function(){
 
@@ -281,75 +269,6 @@ render();
 }
 
 
-/* SEARCH */
-
-document.addEventListener("DOMContentLoaded",function(){
-
-const search=document.getElementById("searchInput");
-
-if(!search) return;
-
-search.addEventListener("input",function(){
-
-let q=this.value.toLowerCase();
-
-let filtered=allData.filter(item=>{
-
-let text=(
-
-(item.price||"")+" "+
-(item.type||"")+" "+
-(item.rooms||"")+" "+
-(item.baths||"")+" "+
-(item.size||"")
-
-).toLowerCase();
-
-return text.includes(q);
-
-});
-
-const container=document.getElementById("listings");
-
-container.innerHTML="";
-
-filtered.forEach(item=>{
-
-let card=document.createElement("div");
-
-card.className="card";
-
-card.innerHTML=`
-
-<a href="?id=${item.id}">
-
-<img src="${item.photos?.[0]||""}" loading="lazy">
-
-<div class="info">
-
-<div class="price">${formatPrice(item.price)}</div>
-
-<div>${item.type||""}</div>
-
-<div>${item.rooms||""}R ${item.baths||""}B</div>
-
-<div>${item.size||""} sqft</div>
-
-</div>
-
-</a>
-
-`;
-
-container.appendChild(card);
-
-});
-
-});
-
-});
-
-
 /* INIT */
 
 async function init(){
@@ -357,13 +276,9 @@ async function init(){
 await loadAll();
 
 if(id){
-
 showProperty();
-
 }else{
-
 showListings();
-
 }
 
 }
