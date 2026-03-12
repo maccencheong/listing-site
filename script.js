@@ -6,13 +6,13 @@ let allData = [];
 const id = new URLSearchParams(window.location.search).get("id");
 
 
-/* PRICE */
+/* PRICE FORMAT */
 
 function formatPrice(p){
 
 if(!p) return "";
 
-let text=p.toString().toLowerCase();
+let text=p.toString().toLowerCase().replace("rm","").trim();
 
 let num=0;
 
@@ -31,7 +31,7 @@ return "RM "+Math.round(num).toLocaleString();
 }
 
 
-/* ROOM */
+/* ROOM FORMAT */
 
 function formatRooms(r,b,p){
 
@@ -46,7 +46,7 @@ return parts.join(" ");
 }
 
 
-/* LOAD ALL JSON */
+/* LOAD JSON */
 
 async function loadAll(){
 
@@ -77,7 +77,7 @@ break;
 }
 
 
-/* MAIN LISTING */
+/* SHOW MAIN LISTINGS */
 
 function showListings(){
 
@@ -107,11 +107,11 @@ card.innerHTML=`
 
 <div class="price">${formatPrice(item.price)}</div>
 
-<div>${item.type||""}</div>
+<div>${item.type || ""}</div>
 
 <div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
 
-<div>${item.size||""} sqft</div>
+<div>${item.size || ""} sqft</div>
 
 </div>
 
@@ -200,11 +200,11 @@ container.innerHTML=`
 
 <div class="price">${formatPrice(listing.price)}</div>
 
-<div>${listing.type||""}</div>
+<div>${listing.type || ""}</div>
 
 <div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
 
-<div>${listing.size||""} sqft</div>
+<div>${listing.size || ""} sqft</div>
 
 </div>
 
@@ -249,7 +249,7 @@ alert("Listing URL copied");
 }
 
 
-/* DOWNLOAD ALL */
+/* DOWNLOAD ALL PHOTOS */
 
 window.downloadPhotos=function(){
 
@@ -278,7 +278,11 @@ render();
 
 /* SEARCH */
 
-document.getElementById("searchInput").addEventListener("input",function(){
+document.addEventListener("DOMContentLoaded",function(){
+
+const search=document.getElementById("searchInput");
+
+search.addEventListener("input",function(){
 
 let q=this.value.toLowerCase();
 
@@ -309,21 +313,23 @@ let card=document.createElement("div");
 
 card.className="card";
 
+let cover=item.photos?.[0] || "";
+
 card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos?.[0]||""}">
+<img src="${cover}" loading="lazy">
 
 <div class="info">
 
 <div class="price">${formatPrice(item.price)}</div>
 
-<div>${item.type||""}</div>
+<div>${item.type || ""}</div>
 
 <div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
 
-<div>${item.size||""} sqft</div>
+<div>${item.size || ""} sqft</div>
 
 </div>
 
@@ -332,6 +338,8 @@ card.innerHTML=`
 `;
 
 container.appendChild(card);
+
+});
 
 });
 
