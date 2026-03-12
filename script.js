@@ -3,7 +3,7 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 
-const id = new URLSearchParams(window.location.search).get("id");
+const id=new URLSearchParams(window.location.search).get("id");
 
 
 /* PRICE FORMAT */
@@ -46,25 +46,25 @@ return parts.join(" ");
 }
 
 
-/* LOAD ALL JSON */
+/* LOAD JSON */
 
 async function loadAll(){
 
-let i=1;
+let v=await fetch(
+"https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
+).then(r=>r.json());
 
-while(true){
+let pages=v.pages;
+
+for(let i=1;i<=pages;i++){
 
 let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
 
 let res=await fetch(url);
 
-if(!res.ok) break;
-
 let data=await res.json();
 
 allData=allData.concat(data);
-
-i++;
 
 }
 
@@ -91,7 +91,9 @@ let card=document.createElement("div");
 
 card.className="card";
 
-let cover=item.photos?.[0] ? item.photos[0] : "";
+let cover=item.photos?.[0]
+? item.photos[0]+"=w600"
+: "";
 
 card.innerHTML=`
 
@@ -124,6 +126,7 @@ renderPagination();
 }
 
 
+
 /* PAGINATION */
 
 function renderPagination(){
@@ -133,17 +136,13 @@ let nav=document.getElementById("pagination");
 nav.innerHTML="";
 
 if(page>1){
-
 nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
-
 }
 
 nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
 
 if(page*perPage < allData.length){
-
 nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
-
 }
 
 }
@@ -158,6 +157,7 @@ showListings();
 window.scrollTo(0,0);
 
 }
+
 
 
 /* PROPERTY PAGE */
@@ -177,6 +177,8 @@ let i=0;
 
 function render(){
 
+let photo=listing.photos[i]+"=w1200";
+
 container.innerHTML=`
 
 <div class="topbar">
@@ -191,7 +193,7 @@ container.innerHTML=`
 
 <div class="gallery">
 
-<img src="${listing.photos[i]}">
+<img src="${photo}">
 
 <button class="prev" onclick="prev()">❮</button>
 
@@ -203,17 +205,18 @@ container.innerHTML=`
 
 <div class="price">${formatPrice(listing.price)}</div>
 
-<div>${listing.type || ""}</div>
+<div>${listing.type||""}</div>
 
 <div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
 
-<div>${listing.size || ""} sqft</div>
+<div>${listing.size||""} sqft</div>
 
 </div>
 
 `;
 
 }
+
 
 
 /* GALLERY */
@@ -223,6 +226,7 @@ window.next=function(){
 if(i<listing.photos.length-1){
 
 i++;
+
 render();
 
 }
@@ -234,11 +238,13 @@ window.prev=function(){
 if(i>0){
 
 i--;
+
 render();
 
 }
 
 }
+
 
 
 /* COPY URL */
@@ -252,7 +258,8 @@ alert("Listing URL copied");
 }
 
 
-/* DOWNLOAD ALL */
+
+/* DOWNLOAD */
 
 window.downloadPhotos=function(){
 
@@ -262,7 +269,7 @@ setTimeout(()=>{
 
 let a=document.createElement("a");
 
-a.href=url;
+a.href=url+"=w2000";
 
 a.download="photo-"+(i+1)+".jpg";
 
@@ -277,6 +284,7 @@ a.click();
 render();
 
 }
+
 
 
 /* SEARCH */
@@ -322,7 +330,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${item.photos?.[0]||""}" loading="lazy">
+<img src="${item.photos?.[0]+"=w600"}" loading="lazy">
 
 <div class="info">
 
@@ -349,6 +357,7 @@ container.appendChild(card);
 });
 
 
+
 /* INIT */
 
 async function init(){
@@ -356,13 +365,9 @@ async function init(){
 await loadAll();
 
 if(id){
-
 showProperty();
-
 }else{
-
 showListings();
-
 }
 
 }
