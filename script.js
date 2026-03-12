@@ -1,99 +1,101 @@
-const perPage = 50;
+const perPage = 50
 
-let page = 1;
-let allData = [];
+let page = 1
+let allData = []
 
-const id=new URLSearchParams(window.location.search).get("id");
+const id = new URLSearchParams(window.location.search).get("id")
 
 
-/* PRICE FORMAT */
+
+/* PRICE */
 
 function formatPrice(p){
 
-if(!p) return "";
+if(!p) return ""
 
-let text=p.toString().toLowerCase().trim();
+let text=p.toString().toLowerCase()
 
-let num=0;
+let num=0
 
 if(text.includes("k")){
-num=parseFloat(text.replace("k",""))*1000;
+num=parseFloat(text)*1000
 }
 else if(text.includes("m")){
-num=parseFloat(text.replace("m",""))*1000000;
+num=parseFloat(text)*1000000
 }
 else{
-num=parseFloat(text);
+num=parseFloat(text)
 }
 
-return "RM "+Math.round(num).toLocaleString();
+return "RM "+Math.round(num).toLocaleString()
 
 }
 
 
-/* ROOM FORMAT */
+
+/* ROOMS */
 
 function formatRooms(r,b,p){
 
-let parts=[];
+let parts=[]
 
-if(r) parts.push(r+"R");
-if(b) parts.push(b+"B");
-if(p) parts.push(p+"P");
+if(r) parts.push(r+"R")
+if(b) parts.push(b+"B")
+if(p) parts.push(p+"P")
 
-return parts.join(" ");
+return parts.join(" ")
 
 }
+
 
 
 /* LOAD JSON */
 
 async function loadAll(){
 
-let v=await fetch(
+let version=await fetch(
 "https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
-).then(r=>r.json());
+).then(r=>r.json())
 
-let pages=v.pages;
+let pages=version.pages
 
 for(let i=1;i<=pages;i++){
 
-let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
+let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`
 
-let res=await fetch(url);
+let res=await fetch(url)
 
-let data=await res.json();
+let data=await res.json()
 
-allData=allData.concat(data);
+allData=allData.concat(data)
+
+}
 
 }
 
-}
 
 
 /* SHOW LISTINGS */
 
 function showListings(){
 
-document.getElementById("property").innerHTML="";
+document.getElementById("property").innerHTML=""
 
-const container=document.getElementById("listings");
+const container=document.getElementById("listings")
 
-container.innerHTML="";
+container.innerHTML=""
 
-let start=(page-1)*perPage;
+let start=(page-1)*perPage
 
-let items=allData.slice(start,start+perPage);
+let items=allData.slice(start,start+perPage)
 
 items.forEach(item=>{
 
-let card=document.createElement("div");
+let card=document.createElement("div")
 
-card.className="card";
+card.className="card"
 
-let cover=item.photos?.[0]
-? item.photos[0]+"=w600"
-: "";
+let cover=item.photos?.[0] || ""
 
 card.innerHTML=`
 
@@ -115,13 +117,13 @@ card.innerHTML=`
 
 </a>
 
-`;
+`
 
-container.appendChild(card);
+container.appendChild(card)
 
-});
+})
 
-renderPagination();
+renderPagination()
 
 }
 
@@ -131,18 +133,18 @@ renderPagination();
 
 function renderPagination(){
 
-let nav=document.getElementById("pagination");
+let nav=document.getElementById("pagination")
 
-nav.innerHTML="";
+nav.innerHTML=""
 
 if(page>1){
-nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
+nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`
 }
 
-nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
+nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`
 
-if(page*perPage < allData.length){
-nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
+if(page*perPage<allData.length){
+nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`
 }
 
 }
@@ -150,11 +152,11 @@ nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
 
 function changePage(p){
 
-page=p;
+page=p
 
-showListings();
+showListings()
 
-window.scrollTo(0,0);
+window.scrollTo(0,0)
 
 }
 
@@ -164,20 +166,18 @@ window.scrollTo(0,0);
 
 function showProperty(){
 
-document.getElementById("listings").innerHTML="";
-document.getElementById("pagination").innerHTML="";
+document.getElementById("listings").innerHTML=""
+document.getElementById("pagination").innerHTML=""
 
-const container=document.getElementById("property");
+const container=document.getElementById("property")
 
-const listing=allData.find(l=>l.id===id);
+const listing=allData.find(l=>l.id===id)
 
-if(!listing) return;
+if(!listing) return
 
-let i=0;
+let i=0
 
 function render(){
-
-let photo=listing.photos[i]+"=w1200";
 
 container.innerHTML=`
 
@@ -191,15 +191,17 @@ container.innerHTML=`
 
 </div>
 
+
 <div class="gallery">
 
-<img src="${photo}">
+<img src="${listing.photos[i]}">
 
 <button class="prev" onclick="prev()">❮</button>
 
 <button class="next" onclick="next()">❯</button>
 
 </div>
+
 
 <div class="info">
 
@@ -213,7 +215,7 @@ container.innerHTML=`
 
 </div>
 
-`;
+`
 
 }
 
@@ -224,11 +226,8 @@ container.innerHTML=`
 window.next=function(){
 
 if(i<listing.photos.length-1){
-
-i++;
-
-render();
-
+i++
+render()
 }
 
 }
@@ -236,11 +235,8 @@ render();
 window.prev=function(){
 
 if(i>0){
-
-i--;
-
-render();
-
+i--
+render()
 }
 
 }
@@ -251,9 +247,9 @@ render();
 
 window.copyURL=function(){
 
-navigator.clipboard.writeText(window.location.href);
+navigator.clipboard.writeText(window.location.href)
 
-alert("Listing URL copied");
+alert("Listing URL copied")
 
 }
 
@@ -267,94 +263,23 @@ listing.photos.forEach((url,i)=>{
 
 setTimeout(()=>{
 
-let a=document.createElement("a");
+let a=document.createElement("a")
 
-a.href=url+"=w2000";
+a.href=url
 
-a.download="photo-"+(i+1)+".jpg";
+a.download="photo-"+(i+1)+".jpg"
 
-a.click();
+a.click()
 
-},i*300);
+},i*300)
 
-});
-
-}
-
-render();
+})
 
 }
 
+render()
 
-
-/* SEARCH */
-
-document.addEventListener("DOMContentLoaded",function(){
-
-const search=document.getElementById("searchInput");
-
-if(!search) return;
-
-search.addEventListener("input",function(){
-
-let q=this.value.toLowerCase();
-
-let filtered=allData.filter(item=>{
-
-let text=(
-
-(item.price||"")+" "+
-(item.type||"")+" "+
-(item.rooms||"")+" "+
-(item.baths||"")+" "+
-(item.parking||"")+" "+
-(item.size||"")
-
-).toLowerCase();
-
-return text.includes(q);
-
-});
-
-const container=document.getElementById("listings");
-
-container.innerHTML="";
-
-filtered.forEach(item=>{
-
-let card=document.createElement("div");
-
-card.className="card";
-
-card.innerHTML=`
-
-<a href="?id=${item.id}">
-
-<img src="${item.photos?.[0]+"=w600"}" loading="lazy">
-
-<div class="info">
-
-<div class="price">${formatPrice(item.price)}</div>
-
-<div>${item.type||""}</div>
-
-<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
-
-<div>${item.size||""} sqft</div>
-
-</div>
-
-</a>
-
-`;
-
-container.appendChild(card);
-
-});
-
-});
-
-});
+}
 
 
 
@@ -362,14 +287,14 @@ container.appendChild(card);
 
 async function init(){
 
-await loadAll();
+await loadAll()
 
 if(id){
-showProperty();
+showProperty()
 }else{
-showListings();
+showListings()
 }
 
 }
 
-init();
+init()
