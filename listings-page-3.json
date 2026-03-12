@@ -1,25 +1,5 @@
 [
   {
-    "id": "KCrRZheQkv",
-    "price": "3500",
-    "type": "Office",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1193",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1pU3zTjfx8CL1cu5lHq789gtrTr6cAJwp=w1200",
-      "https://lh3.googleusercontent.com/d/1qlleqHc2dQffrNXGzUPO43qOuoHlU7v8=w1200",
-      "https://lh3.googleusercontent.com/d/1RL-3mjEQHdRc5SFaJL1rFG9nLpZN2Mbg=w1200",
-      "https://lh3.googleusercontent.com/d/18B7Spkv-LGJE8DuPs7OmxSYOEEdJdgbQ=w1200",
-      "https://lh3.googleusercontent.com/d/18TCBgiTqGkiU31PZZQFHmWHiTuITB2B1=w1200",
-      "https://lh3.googleusercontent.com/d/1gej1sp9GY9bIMHzQjfI96nL1L7tKWNMp=w1200",
-      "https://lh3.googleusercontent.com/d/1GNnbKa78JBu35vDbeUhUj7h_j0PrTHvA=w1200",
-      "https://lh3.googleusercontent.com/d/1CxAuWFz71Bev3NZQdWYT3V5oBQlykEDI=w1200"
-    ]
-  },
-  {
     "id": "reoTQVgu2P",
     "price": "670K",
     "type": "Terrace",
@@ -1340,6 +1320,33 @@
       "https://lh3.googleusercontent.com/d/1FI08DGMaQLxpmFDts25DG1rFBb79ynD8=w1200",
       "https://lh3.googleusercontent.com/d/1o_fTJgLxdI9Wkc4n4MGy7QGGJW9DFfTW=w1200",
       "https://lh3.googleusercontent.com/d/1GvpWqILcaqZqlbGolaSCZgW-kiUCnfDP=w1200"
+    ]
+  },
+  {
+    "id": "qggR3lHAQs",
+    "price": "1600",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "1000",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/13C9HTm50So151qDdP-bNJf_I9Ohb1yPp=w1200",
+      "https://lh3.googleusercontent.com/d/1FX4bgwd4weq0Hv8-pxclD53IVT7hpoYt=w1200",
+      "https://lh3.googleusercontent.com/d/1aOmj8rm5UhddAUhQC_vwlJEA1FbxSqNZ=w1200",
+      "https://lh3.googleusercontent.com/d/1emRq5t7g8G293o7883P9ouNSSrrLuVTP=w1200",
+      "https://lh3.googleusercontent.com/d/1D7Zd_ogqTvEMUmaowcPTJbi74kgahO-A=w1200",
+      "https://lh3.googleusercontent.com/d/1eviwFn06vHUrfQ_SM--H1zBG9UGf-grh=w1200",
+      "https://lh3.googleusercontent.com/d/1IVeYwSaU-_wikcUyHU5OhNytWyY-7CR3=w1200",
+      "https://lh3.googleusercontent.com/d/13lO0gCin4v17pQu6_8Xa9VnnFKwQ8k9E=w1200",
+      "https://lh3.googleusercontent.com/d/17ouGV4bV3gdD8qM9kISIziWWk678r6wS=w1200",
+      "https://lh3.googleusercontent.com/d/1SkcHBh1Y0jquxtrRcNEZrkEGQLpo7SiN=w1200",
+      "https://lh3.googleusercontent.com/d/1DnkuiRWZ8TikSeW9bwDT2CSzmIWlDHF6=w1200",
+      "https://lh3.googleusercontent.com/d/1yrbZPoPcFLHLW4Y-pomHTa5T51YDWnxc=w1200",
+      "https://lh3.googleusercontent.com/d/1vkyBA6koczw0EIqGfR3QN-5HicPiGhjV=w1200",
+      "https://lh3.googleusercontent.com/d/1wBvuK0ohovqo2Ko7DTUlxAzCqRkWdAAT=w1200",
+      "https://lh3.googleusercontent.com/d/1SNsTigULz5hEF2FF2H5SdqQaZjplycUi=w1200"
     ]
   }
 ]
