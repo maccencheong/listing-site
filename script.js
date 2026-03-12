@@ -2,12 +2,11 @@ const perPage = 50
 
 let page = 1
 let allData = []
+let cache={}
 
 const id = new URLSearchParams(window.location.search).get("id")
 
 
-
-/* PRICE */
 
 function formatPrice(p){
 
@@ -33,8 +32,6 @@ return "RM "+Math.round(num).toLocaleString()
 
 
 
-/* ROOMS */
-
 function formatRooms(r,b,p){
 
 let parts=[]
@@ -49,7 +46,7 @@ return parts.join(" ")
 
 
 
-/* LOAD JSON */
+/* LOAD ALL JSON */
 
 async function loadAll(){
 
@@ -61,11 +58,18 @@ let pages=version.pages
 
 for(let i=1;i<=pages;i++){
 
+if(cache[i]){
+allData=allData.concat(cache[i])
+continue
+}
+
 let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`
 
 let res=await fetch(url)
 
 let data=await res.json()
+
+cache[i]=data
 
 allData=allData.concat(data)
 
@@ -101,7 +105,7 @@ card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${cover}" loading="lazy">
+<img src="${cover}=w600" loading="lazy">
 
 <div class="info">
 
@@ -187,21 +191,19 @@ container.innerHTML=`
 
 <button onclick="copyURL()">Copy URL</button>
 
-<button onclick="downloadPhotos()">Download Photos</button>
+<button onclick="downloadPhotos()">Download</button>
 
 </div>
 
-
 <div class="gallery">
 
-<img src="${listing.photos[i]}">
+<img src="${listing.photos[i]}=w1200">
 
 <button class="prev" onclick="prev()">❮</button>
 
 <button class="next" onclick="next()">❯</button>
 
 </div>
-
 
 <div class="info">
 
@@ -226,8 +228,11 @@ container.innerHTML=`
 window.next=function(){
 
 if(i<listing.photos.length-1){
+
 i++
+
 render()
+
 }
 
 }
@@ -235,8 +240,11 @@ render()
 window.prev=function(){
 
 if(i>0){
+
 i--
+
 render()
+
 }
 
 }
@@ -255,29 +263,43 @@ alert("Listing URL copied")
 
 
 
-/* DOWNLOAD */
+/* DOWNLOAD ZIP */
 
-window.downloadPhotos=function(){
+window.downloadPhotos = async function(){
 
-listing.photos.forEach((url,i)=>{
+const listing = allData.find(l=>l.id===id)
 
-setTimeout(()=>{
+if(!listing) return
 
-let a=document.createElement("a")
+let zip = new JSZip()
 
-a.href=url
+let folder = zip.folder("photos")
 
-a.download="photo-"+(i+1)+".jpg"
+for(let i=0;i<listing.photos.length;i++){
 
-a.click()
+let url = listing.photos[i]
 
-},i*300)
+try{
 
-})
+let response = await fetch(url)
+
+let blob = await response.blob()
+
+folder.file(`photo-${i+1}.jpg`, blob)
+
+}catch(e){}
 
 }
 
-render()
+let content = await zip.generateAsync({type:"blob"})
+
+let a = document.createElement("a")
+
+a.href = URL.createObjectURL(content)
+
+a.download = "listing-photos.zip"
+
+a.click()
 
 }
 
