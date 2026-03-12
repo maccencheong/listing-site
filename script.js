@@ -46,7 +46,7 @@ return parts.join(" ");
 }
 
 
-/* LOAD JSON */
+/* LOAD ALL JSON */
 
 async function loadAll(){
 
@@ -54,11 +54,15 @@ let i=1;
 
 while(true){
 
+let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
+
 try{
 
-let res=await fetch(`listings-page-${i}.json`);
+let res=await fetch(url);
 
-if(!res.ok) break;
+if(!res.ok){
+break;
+}
 
 let data=await res.json();
 
@@ -77,7 +81,7 @@ break;
 }
 
 
-/* SHOW MAIN LISTINGS */
+/* SHOW LISTINGS */
 
 function showListings(){
 
@@ -144,7 +148,11 @@ nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
 
 nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
 
+if(page*perPage < allData.length){
+
 nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
+
+}
 
 }
 
@@ -249,7 +257,7 @@ alert("Listing URL copied");
 }
 
 
-/* DOWNLOAD ALL PHOTOS */
+/* DOWNLOAD ALL */
 
 window.downloadPhotos=function(){
 
@@ -282,6 +290,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
 const search=document.getElementById("searchInput");
 
+if(!search) return;
+
 search.addEventListener("input",function(){
 
 let q=this.value.toLowerCase();
@@ -313,23 +323,21 @@ let card=document.createElement("div");
 
 card.className="card";
 
-let cover=item.photos?.[0] || "";
-
 card.innerHTML=`
 
 <a href="?id=${item.id}">
 
-<img src="${cover}" loading="lazy">
+<img src="${item.photos?.[0]||""}">
 
 <div class="info">
 
 <div class="price">${formatPrice(item.price)}</div>
 
-<div>${item.type || ""}</div>
+<div>${item.type||""}</div>
 
 <div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
 
-<div>${item.size || ""} sqft</div>
+<div>${item.size||""} sqft</div>
 
 </div>
 
