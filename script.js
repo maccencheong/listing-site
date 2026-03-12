@@ -124,3 +124,238 @@ loadPage();
 });
 
 }
+
+
+/* SHOW LISTINGS */
+
+function showListings(data){
+
+const container=document.getElementById("listings");
+
+container.innerHTML="";
+
+data.forEach(item=>{
+
+let card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+
+<a href="?id=${item.id}">
+
+<img src="${item.photos?.[0]||""}" loading="lazy">
+
+<div class="info">
+
+<div class="price">${formatPrice(item.price)}</div>
+
+<div>${item.type||""}</div>
+
+<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
+
+<div>${item.size||""} sqft</div>
+
+</div>
+
+</a>
+
+`;
+
+container.appendChild(card);
+
+});
+
+renderPagination();
+
+}
+
+
+/* PAGINATION */
+
+function renderPagination(){
+
+let nav=document.getElementById("pagination");
+
+if(!nav) return;
+
+nav.innerHTML="";
+
+if(page>1){
+
+nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
+
+}
+
+nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
+
+nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
+
+}
+
+
+function changePage(p){
+
+page=p;
+
+loadPage();
+
+window.scrollTo(0,0);
+
+}
+
+
+/* PROPERTY PAGE */
+
+function showProperty(data){
+
+const container=document.getElementById("property");
+
+const listing=data.find(l=>l.id===id);
+
+if(!listing) return;
+
+let i=0;
+
+function render(){
+
+container.innerHTML=`
+
+<div class="topbar">
+
+<button onclick="window.location='./'">← Back</button>
+
+<button onclick="copyURL()">Copy URL</button>
+
+<button onclick="downloadPhotos()">Download Photos</button>
+
+</div>
+
+<div class="gallery">
+
+<img src="${listing.photos?.[i]||""}">
+
+<button class="prev" onclick="prev()">❮</button>
+
+<button class="next" onclick="next()">❯</button>
+
+</div>
+
+<div class="info">
+
+<div class="price">${formatPrice(listing.price)}</div>
+
+<div>${listing.type||""}</div>
+
+<div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
+
+<div>${listing.size||""} sqft</div>
+
+</div>
+
+`;
+
+}
+
+window.next=function(){
+
+if(i<listing.photos.length-1){
+i++;
+render();
+}
+
+}
+
+window.prev=function(){
+
+if(i>0){
+i--;
+render();
+}
+
+}
+
+window.copyURL=function(){
+
+let url=window.location.href;
+
+navigator.clipboard.writeText(url);
+
+alert("Listing URL copied");
+
+}
+
+window.downloadPhotos=function(){
+
+if(!listing.photos) return;
+
+listing.photos.forEach((url,i)=>{
+
+setTimeout(()=>{
+
+let a=document.createElement("a");
+
+a.href=url;
+a.download="listing-"+(i+1)+".jpg";
+
+document.body.appendChild(a);
+
+a.click();
+
+document.body.removeChild(a);
+
+},i*800);
+
+});
+
+}
+
+render();
+
+}
+
+
+/* SEARCH */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const search=document.getElementById("searchInput");
+
+if(!search) return;
+
+search.addEventListener("input",function(){
+
+let q=this.value.toLowerCase();
+
+let filtered=allData.filter(item=>{
+
+let text=(
+
+(item.price||"")+" "+
+(item.type||"")+" "+
+(item.rooms||"")+" "+
+(item.baths||"")+" "+
+(item.parking||"")+" "+
+(item.size||"")
+
+).toLowerCase();
+
+return text.includes(q);
+
+});
+
+showListings(filtered);
+
+});
+
+});
+
+
+/* INIT */
+
+loadPage();
+
+
+/* AUTO UPDATE */
+
+setInterval(checkVersion,10000);
