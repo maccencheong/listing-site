@@ -559,28 +559,6 @@
     ]
   },
   {
-    "id": "7rv7mY7aTI",
-    "price": "360K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "1000",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1v4a50C2_hBrfUTcuwVWIosUX_kRdp3UD=w1200",
-      "https://lh3.googleusercontent.com/d/1WGTGHqS0ycW1_OL4I5RBSIa5wXYWMBho=w1200",
-      "https://lh3.googleusercontent.com/d/1PAaRpdqapkm0y0MIUTX-YuxzuiEZwjN2=w1200",
-      "https://lh3.googleusercontent.com/d/1W8B00_6uy74IZprMFyqDMRXeDBSlvaPR=w1200",
-      "https://lh3.googleusercontent.com/d/1XFBGPKSrRHA4A8nznPsK_qmsavRtoF6u=w1200",
-      "https://lh3.googleusercontent.com/d/1zIsdp4paDwK7QXrEbY9ByIXjrWP6fQG6=w1200",
-      "https://lh3.googleusercontent.com/d/1obY4tcH9-4kYlSgq4rSrSkIfZZcgPO-O=w1200",
-      "https://lh3.googleusercontent.com/d/1TKMD2R-jyAmjE78YljBt4jRhSGUL3dy0=w1200",
-      "https://lh3.googleusercontent.com/d/1pW7Bi-nDKC14EyvPjWsOqSK5h0NUbuNn=w1200",
-      "https://lh3.googleusercontent.com/d/1D4L0zMHMM7f9eimInaqH6XFxxIkXO9pr=w1200"
-    ]
-  },
-  {
     "id": "AmYIeeuyJM",
     "price": "350K",
     "type": "Apartment",
@@ -1342,6 +1320,26 @@
       "https://lh3.googleusercontent.com/d/124grXnt6tza_G0WEZcFfJ7CopbSbSU4O=w1200",
       "https://lh3.googleusercontent.com/d/11w5XwVDIlNEX8F2A4-DauIc-YYjqHfJs=w1200",
       "https://lh3.googleusercontent.com/d/11pJ1HM4ApOOmFJ7pg7j9k-YeL9EHEQHJ=w1200"
+    ]
+  },
+  {
+    "id": "KCrRZheQkv",
+    "price": "3500",
+    "type": "Office",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "1193",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1pU3zTjfx8CL1cu5lHq789gtrTr6cAJwp=w1200",
+      "https://lh3.googleusercontent.com/d/1qlleqHc2dQffrNXGzUPO43qOuoHlU7v8=w1200",
+      "https://lh3.googleusercontent.com/d/1RL-3mjEQHdRc5SFaJL1rFG9nLpZN2Mbg=w1200",
+      "https://lh3.googleusercontent.com/d/18B7Spkv-LGJE8DuPs7OmxSYOEEdJdgbQ=w1200",
+      "https://lh3.googleusercontent.com/d/18TCBgiTqGkiU31PZZQFHmWHiTuITB2B1=w1200",
+      "https://lh3.googleusercontent.com/d/1gej1sp9GY9bIMHzQjfI96nL1L7tKWNMp=w1200",
+      "https://lh3.googleusercontent.com/d/1GNnbKa78JBu35vDbeUhUj7h_j0PrTHvA=w1200",
+      "https://lh3.googleusercontent.com/d/1CxAuWFz71Bev3NZQdWYT3V5oBQlykEDI=w1200"
     ]
   }
 ]
