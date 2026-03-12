@@ -1,11 +1,9 @@
-let page=1;
 let allData=[];
+let page=1;
 const perPage=50;
 
 const id=new URLSearchParams(window.location.search).get("id");
 
-
-/* PRICE FORMAT */
 
 function formatPrice(p){
 
@@ -30,40 +28,25 @@ return "RM "+Math.round(num).toLocaleString();
 }
 
 
-/* LOAD JSON PAGES */
+/* LOAD JSON */
 
 async function loadAll(){
 
-let i=1;
+let version=await fetch(
+"https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
+).then(r=>r.json());
 
-while(true){
+let pages=version.pages;
+
+for(let i=1;i<=pages;i++){
 
 let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
 
-try{
-
-/* CHECK PAGE EXISTS */
-
-let head=await fetch(url,{method:"HEAD"});
-
-if(!head.ok){
-break;
-}
-
-/* LOAD DATA */
-
 let res=await fetch(url);
+
 let data=await res.json();
 
 allData=allData.concat(data);
-
-i++;
-
-}catch(e){
-
-break;
-
-}
 
 }
 
@@ -91,6 +74,7 @@ card.className="card";
 card.innerHTML=`
 
 <a href="?id=${item.id}">
+
 <img src="${item.photos?.[0]||""}" loading="lazy">
 
 <div class="info">
@@ -109,46 +93,6 @@ container.appendChild(card);
 
 });
 
-renderPagination();
-
-}
-
-
-/* PAGINATION */
-
-function renderPagination(){
-
-let nav=document.getElementById("pagination");
-
-if(!nav) return;
-
-nav.innerHTML="";
-
-if(page>1){
-
-nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
-
-}
-
-nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
-
-if(page*perPage<allData.length){
-
-nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
-
-}
-
-}
-
-
-function changePage(p){
-
-page=p;
-
-showListings();
-
-window.scrollTo(0,0);
-
 }
 
 
@@ -160,12 +104,7 @@ const container=document.getElementById("property");
 
 const listing=allData.find(x=>x.id===id);
 
-if(!listing){
-
-container.innerHTML="<h2>Listing not found</h2>";
-return;
-
-}
+if(!listing) return;
 
 let i=0;
 
@@ -173,29 +112,12 @@ function render(){
 
 container.innerHTML=`
 
-<div class="topbar">
-
-<button onclick="window.location='./'">← Back</button>
-<button onclick="copyURL()">Copy URL</button>
-<button onclick="downloadAll()">Download Photos</button>
-
-</div>
-
 <div class="gallery">
 
-<img src="${listing.photos?.[i]||""}">
+<img src="${listing.photos[i]}">
 
-<button class="prev" onclick="prev()">❮</button>
-<button class="next" onclick="next()">❯</button>
-
-</div>
-
-<div class="info">
-
-<div class="price">${formatPrice(listing.price)}</div>
-<div>${listing.type||""}</div>
-<div>${listing.rooms||""}R ${listing.baths||""}B</div>
-<div>${listing.size||""} sqft</div>
+<button onclick="prev()">❮</button>
+<button onclick="next()">❯</button>
 
 </div>
 
@@ -203,73 +125,24 @@ container.innerHTML=`
 
 }
 
-
 window.next=function(){
-
 if(i<listing.photos.length-1){
-
 i++;
 render();
-
 }
-
 }
 
 window.prev=function(){
-
 if(i>0){
-
 i--;
 render();
-
 }
-
-}
-
-
-/* COPY URL */
-
-window.copyURL=function(){
-
-navigator.clipboard.writeText(window.location.href);
-
-alert("Listing URL copied");
-
-}
-
-
-/* DOWNLOAD ALL */
-
-window.downloadAll=function(){
-
-listing.photos.forEach((url,i)=>{
-
-setTimeout(()=>{
-
-let a=document.createElement("a");
-
-a.href=url;
-
-a.download="photo-"+(i+1)+".jpg";
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-},i*400);
-
-});
-
 }
 
 render();
 
 }
 
-
-/* INIT */
 
 async function init(){
 
