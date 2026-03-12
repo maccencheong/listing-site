@@ -210,6 +210,8 @@ container.innerHTML=`
 
 <button onclick="copyURL()">Copy URL</button>
 
+<button onclick="downloadPhotos()">Download Photos</button>
+
 </div>
 
 
@@ -241,6 +243,8 @@ container.innerHTML=`
 }
 
 
+/* gallery */
+
 window.next=function(){
 
 if(i<listing.photos.length-1){
@@ -266,13 +270,44 @@ render();
 }
 
 
+/* COPY URL */
+
 window.copyURL=function(){
 
-let url="https://maccen.asiawai42.workers.dev/"+listing.id;
+let url=window.location.origin+"?id="+listing.id;
 
 navigator.clipboard.writeText(url);
 
 alert("Listing URL copied");
+
+}
+
+
+/* DOWNLOAD PHOTOS */
+
+window.downloadPhotos=function(){
+
+if(!listing.photos || listing.photos.length===0) return;
+
+listing.photos.forEach((url,i)=>{
+
+setTimeout(()=>{
+
+let a=document.createElement("a");
+
+a.href=url;
+
+a.download="listing-"+listing.id+"-"+(i+1)+".jpg";
+
+document.body.appendChild(a);
+
+a.click();
+
+document.body.removeChild(a);
+
+},i*800);
+
+});
 
 }
 
