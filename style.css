@@ -1,420 +1,250 @@
-const perPage = 50;
-
-let page = 1;
-let allData = [];
-let currentVersion = null;
-
-let cache = {};
-
-
-/* PRICE FORMAT */
-
-function formatPrice(p){
-
-if(!p) return "";
-
-let text=p.toString().toLowerCase().replace("rm","").trim();
-
-let num=0;
-
-if(text.includes("k")){
-num=parseFloat(text.replace("k",""))*1000;
-}
-else if(text.includes("m")){
-num=parseFloat(text.replace("m",""))*1000000;
-}
-else{
-num=parseFloat(text);
+body{
+font-family:Arial,Helvetica,sans-serif;
+margin:0;
+background:#f5f5f5;
+color:#000;
 }
 
-return "RM "+Math.round(num).toLocaleString();
-
+h1{
+text-align:center;
+margin:20px 0;
 }
 
 
-/* ROOM FORMAT */
+/* REMOVE BLUE LINK */
 
-function formatRooms(r,b,p){
-
-let parts=[];
-
-if(r) parts.push(r+"R");
-if(b) parts.push(b+"B");
-if(p) parts.push(p+"P");
-
-return parts.join(" ");
-
+a{
+color:inherit;
+text-decoration:none;
 }
 
-
-/* GET URL ID */
-
-function getID(){
-
-const url=new URL(window.location.href);
-return url.searchParams.get("id");
-
+a:visited{
+color:inherit;
 }
 
-const id=getID();
-
-
-/* LOAD ALL LISTINGS */
-
-async function loadAll(){
-
-let pageIndex=1;
-let finished=false;
-
-while(!finished){
-
-try{
-
-let res=await fetch(
-`https://cdn.jsdelivr.net/gh/maccencheong/listing-site@main/listings-page-${pageIndex}.json`
-);
-
-if(!res.ok){
-
-finished=true;
-break;
-
+a:hover{
+color:inherit;
 }
 
-let data=await res.json();
-
-allData=allData.concat(data);
-
-pageIndex++;
-
-}catch(e){
-
-finished=true;
-
+a:active{
+color:inherit;
 }
 
-}
-
-}
-
-
-/* LOAD PAGE */
-
-async function loadPage(){
-
-if(allData.length===0){
-
-await loadAll();
-
-}
-
-if(id){
-
-showProperty();
-
-}else{
-
-showListings();
-
-}
-
-}
-
-
-/* SHOW LISTINGS */
-
-function showListings(){
-
-const container=document.getElementById("listings");
-
-container.innerHTML="";
-
-let start=(page-1)*perPage;
-
-let items=allData.slice(start,start+perPage);
-
-items.forEach(item=>{
-
-let card=document.createElement("div");
-
-card.className="card";
-
-let cover=item.photos?.[0]
-? item.photos[0]+"=w600"
-: "";
-
-card.innerHTML=`
-
-<a href="?id=${item.id}">
-
-<img src="${cover}" loading="lazy">
-
-<div class="info">
-
-<div class="price">${formatPrice(item.price)}</div>
-
-<div>${item.type||""}</div>
-
-<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
-
-<div>${item.size||""} sqft</div>
-
-</div>
-
-</a>
-
-`;
-
-container.appendChild(card);
-
-});
-
-renderPagination();
-
-}
-
-
-/* PAGINATION */
-
-function renderPagination(){
-
-let nav=document.getElementById("pagination");
-
-nav.innerHTML="";
-
-if(page>1){
-
-nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`;
-
-}
-
-nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`;
-
-nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`;
-
-}
-
-
-function changePage(p){
-
-page=p;
-
-showListings();
-
-window.scrollTo(0,0);
-
-}
-
-
-/* PROPERTY PAGE */
-
-function showProperty(){
-
-const container=document.getElementById("property");
-
-const listing=allData.find(l=>l.id===id);
-
-if(!listing){
-
-container.innerHTML="Listing not found";
-
-return;
-
-}
-
-let i=0;
-
-function render(){
-
-let photo=listing.photos?.[i]
-? listing.photos[i]+"=w1600"
-: "";
-
-container.innerHTML=`
-
-<div class="topbar">
-
-<button onclick="window.location='./'">← Back</button>
-
-<button onclick="copyURL()">Copy URL</button>
-
-<button onclick="downloadPhotos()">Download All Photos</button>
-
-</div>
-
-<div class="gallery">
-
-<img src="${photo}">
-
-<button class="prev" onclick="prev()">❮</button>
-
-<button class="next" onclick="next()">❯</button>
-
-</div>
-
-<div class="info">
-
-<div class="price">${formatPrice(listing.price)}</div>
-
-<div>${listing.type||""}</div>
-
-<div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
-
-<div>${listing.size||""} sqft</div>
-
-</div>
-
-`;
-
-}
-
-window.next=function(){
-
-if(i<listing.photos.length-1){
-
-i++;
-render();
-
-}
-
-}
-
-window.prev=function(){
-
-if(i>0){
-
-i--;
-render();
-
-}
-
-}
-
-
-/* COPY URL */
-
-window.copyURL=function(){
-
-navigator.clipboard.writeText(window.location.href);
-
-alert("Listing URL copied");
-
-}
-
-
-/* DOWNLOAD ZIP */
-
-window.downloadPhotos=async function(){
-
-alert("Preparing photos...");
-
-let zip=new JSZip();
-
-for(let i=0;i<listing.photos.length;i++){
-
-try{
-
-let res=await fetch(listing.photos[i]+"=w2000");
-
-let blob=await res.blob();
-
-zip.file("photo-"+(i+1)+".jpg",blob);
-
-}catch(e){}
-
-}
-
-let content=await zip.generateAsync({type:"blob"});
-
-let a=document.createElement("a");
-
-a.href=URL.createObjectURL(content);
-
-a.download="listing-"+listing.id+".zip";
-
-a.click();
-
-}
-
-render();
-
-}
 
 
 /* SEARCH */
 
-document.addEventListener("DOMContentLoaded",function(){
+.search-box{
+text-align:center;
+margin-bottom:20px;
+}
 
-const search=document.getElementById("searchInput");
-
-if(!search) return;
-
-search.addEventListener("input",function(){
-
-let q=this.value.toLowerCase();
-
-let filtered=allData.filter(item=>{
-
-let text=(
-
-(item.price||"")+" "+
-(item.type||"")+" "+
-(item.rooms||"")+" "+
-(item.baths||"")+" "+
-(item.parking||"")+" "+
-(item.size||"")
-
-).toLowerCase();
-
-return text.includes(q);
-
-});
-
-const container=document.getElementById("listings");
-
-container.innerHTML="";
-
-filtered.forEach(item=>{
-
-let card=document.createElement("div");
-
-card.className="card";
-
-let cover=item.photos?.[0]
-? item.photos[0]+"=w600"
-: "";
-
-card.innerHTML=`
-
-<a href="?id=${item.id}">
-
-<img src="${cover}" loading="lazy">
-
-<div class="info">
-
-<div class="price">${formatPrice(item.price)}</div>
-
-<div>${item.type||""}</div>
-
-<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
-
-<div>${item.size||""} sqft</div>
-
-</div>
-
-</a>
-
-`;
-
-container.appendChild(card);
-
-});
-
-});
-
-});
+.search-box input{
+width:320px;
+max-width:90%;
+padding:10px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
+}
 
 
-/* INIT */
 
-loadPage();
+/* GRID */
+
+#listings{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+padding:20px;
+max-width:1400px;
+margin:auto;
+
+}
+
+
+
+/* CARD */
+
+.card{
+
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+transition:0.2s;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+box-shadow:0 12px 26px rgba(0,0,0,0.2);
+
+}
+
+.card img{
+
+width:100%;
+height:220px;
+object-fit:cover;
+
+}
+
+
+
+/* INFO */
+
+.info{
+
+padding:14px;
+font-size:14px;
+line-height:1.6;
+color:#000;
+
+}
+
+.price{
+
+font-size:20px;
+font-weight:bold;
+margin-bottom:6px;
+color:#000;
+
+}
+
+
+
+/* PAGINATION */
+
+#pagination{
+text-align:center;
+margin:20px;
+}
+
+#pagination button{
+
+padding:8px 14px;
+margin:4px;
+border:none;
+background:#333;
+color:white;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+
+
+/* PROPERTY DETAIL */
+
+#property{
+
+max-width:900px;
+margin:auto;
+padding:20px;
+color:#000;
+
+}
+
+#property .price{
+
+font-size:32px;
+font-weight:bold;
+color:#000;
+margin-bottom:10px;
+
+}
+
+#property .info{
+
+font-size:18px;
+line-height:1.8;
+color:#000;
+
+}
+
+#property .info div{
+
+margin:6px 0;
+
+}
+
+
+
+/* TOP BAR */
+
+.topbar{
+
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+
+}
+
+.topbar button{
+
+background:#111;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+
+
+/* GALLERY */
+
+.gallery{
+
+position:relative;
+display:flex;
+justify-content:center;
+
+}
+
+.gallery img{
+
+max-width:100%;
+max-height:520px;
+border-radius:12px;
+
+}
+
+.gallery button{
+
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.6);
+color:white;
+border:none;
+font-size:28px;
+padding:10px 16px;
+cursor:pointer;
+border-radius:8px;
+
+}
+
+.gallery .prev{ left:10px; }
+.gallery .next{ right:10px; }
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.card img{
+height:200px;
+}
+
+#property .price{
+font-size:26px;
+}
+
+}
