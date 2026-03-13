@@ -143,18 +143,26 @@ if(page>1){
 nav.innerHTML+=`<button onclick="changePage(${page-1})">Previous</button>`
 }
 
-/* Page Numbers */
+/* Page numbers */
 
 for(let i=1;i<=totalPages;i++){
 
 if(i===page){
 
-nav.innerHTML+=`<button style="font-weight:bold;backgrou
+nav.innerHTML+=`<button class="active-page">${i}</button>`
 
 }else{
 
-nav.innerHTML+=`<button class="active-page">${i}</button>`
+nav.innerHTML+=`<button onclick="changePage(${i})">${i}</button>`
 
+}
+
+}
+
+/* Next */
+
+if(page<totalPages){
+nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`
 }
 
 }
