@@ -166,4 +166,26 @@ border-radius:8px;
 height:200px;
 }
 
+#pagination{
+margin-top:20px;
+}
+
+#pagination button{
+margin:4px;
+padding:8px 14px;
+border:1px solid #ccc;
+background:white;
+cursor:pointer;
+}
+
+#pagination button:hover{
+background:#f2f2f2;
+}
+
+.active-page{
+background:#222 !important;
+color:white !important;
+border-color:#222;
+font-weight:bold;
+}
 }
