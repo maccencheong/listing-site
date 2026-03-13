@@ -1,9 +1,9 @@
 [
   {
-    "id": "1BGKjTRZWgEpN7Mjyhfg91B_pR8jkxvir",
+    "id": "_pR8jkxvir",
     "price": "520K",
     "type": "",
-    "floor": "",
+    "floor": "2 Storey",
     "rooms": "3",
     "baths": "2",
     "parking": "2",
@@ -28,12 +28,12 @@
     "video": ""
   },
   {
-    "id": "1G0xizaLuwc32G_yQ9k38jaseJ-xloiCZ",
+    "id": "seJ-xloiCZ",
     "price": "620K",
     "type": "",
     "floor": "",
-    "rooms": "2",
-    "baths": "4",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1660",
     "photos": [
@@ -71,14 +71,14 @@
     "video": ""
   },
   {
-    "id": "1KRn-cIzjySd_d9ukkKMlvf9DeSPgKYga",
+    "id": "9DeSPgKYga",
     "price": "1.05M",
     "type": "",
-    "floor": "",
-    "rooms": "3",
-    "baths": "1",
+    "floor": "2 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
-    "size": "4937",
+    "size": "40400",
     "photos": [
       "https://lh3.googleusercontent.com/d/10y2pBZC1dGlxYqmyRojdslK8E4pMGnWn",
       "https://lh3.googleusercontent.com/d/1u_huImpRy3-Ect7c0LWRHGvQpjoVWKxQ",
@@ -119,14 +119,14 @@
     "video": ""
   },
   {
-    "id": "1l31N7sCX9chonnc1U4DE8Hv83zHqC-71",
+    "id": "v83zHqC-71",
     "price": "175K",
     "type": "Apartment",
     "floor": "",
     "rooms": "6",
     "baths": "5",
     "parking": "0",
-    "size": "650",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/1ow7rs4U2jiisPbHQhZb7lgqe2uce-2iX",
       "https://lh3.googleusercontent.com/d/1XbY4oT8CuVv4XlVlaUfmKaXKi6AkM_0V",
@@ -143,7 +143,7 @@
     "video": ""
   },
   {
-    "id": "1bkeF1lma_T5P0Ov3CQHnmvYb9X9uIpHS",
+    "id": "Yb9X9uIpHS",
     "price": "1500",
     "type": "Apartment",
     "floor": "",
@@ -169,12 +169,12 @@
     "video": ""
   },
   {
-    "id": "1knoPwjiuiZ2AG6Mg8mZzo3o2ORLWKOBW",
+    "id": "o2ORLWKOBW",
     "price": "14",
     "type": "",
     "floor": "",
-    "rooms": "1",
-    "baths": "4",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "",
     "photos": [
@@ -183,7 +183,7 @@
     "video": ""
   },
   {
-    "id": "1jXxoqk_ZC0-LpAszI4TPoLFAvNFfhW7P",
+    "id": "FAvNFfhW7P",
     "price": "1",
     "type": "",
     "floor": "",
@@ -206,12 +206,12 @@
     "video": ""
   },
   {
-    "id": "1gH9QkukgJTBKK2JeYPEYVFA7QEbGzF7t",
+    "id": "A7QEbGzF7t",
     "price": "460K",
     "type": "",
-    "floor": "",
-    "rooms": "4",
-    "baths": "2",
+    "floor": "1 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1650",
     "photos": [
@@ -247,12 +247,12 @@
     "video": ""
   },
   {
-    "id": "19Z_J1MEPOY7UVBfT3dYmBj2Itn4O8f6e",
+    "id": "2Itn4O8f6e",
     "price": "380K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "5",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -283,12 +283,12 @@
     "video": ""
   },
   {
-    "id": "1HqJuBOaxw7VUtJIa3QyW9qkEIZVj9O1W",
+    "id": "kEIZVj9O1W",
     "price": "310K",
     "type": "",
     "floor": "",
-    "rooms": "0",
-    "baths": "1",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -302,12 +302,12 @@
     "video": ""
   },
   {
-    "id": "1HRvto1y_xtIyo9vTDEdjFM2yfvVzxCa8",
+    "id": "2yfvVzxCa8",
     "price": "1800",
     "type": "Condo",
     "floor": "",
-    "rooms": "0",
-    "baths": "5",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1149",
     "photos": [
@@ -326,7 +326,14 @@
     "video": ""
   },
   {
-    "id": "1ZfMEtyg9yhps0QLohhy_7KviwwcHgdpl",
+    "id": "viwwcHgdpl",
+    "price": "",
+    "type": "",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/139N6VKjlqKfpUIXLAANALg6k9yTN2o6N",
       "https://lh3.googleusercontent.com/d/1-5B1h5vTN8JML-tRby2dYRKcE4t2oMkn",
@@ -347,14 +354,14 @@
     "video": ""
   },
   {
-    "id": "1ya-aG0mOKnh7JzjFQpDE0VmaCfB_fdng",
+    "id": "maCfB_fdng",
     "price": "360K",
     "type": "",
-    "floor": "",
-    "rooms": "2",
-    "baths": "9",
+    "floor": "3 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
-    "size": "",
+    "size": "2553",
     "photos": [
       "https://lh3.googleusercontent.com/d/1RlhFhYVczYl5EjtbRx7He91HeSTIRys7",
       "https://lh3.googleusercontent.com/d/1rOUNU6c5UwWsts1lLaeKil4C9jafi-C5"
@@ -362,12 +369,12 @@
     "video": ""
   },
   {
-    "id": "1JMVHjFX38183ljBMTfgRemaoor9rAQOJ",
+    "id": "aoor9rAQOJ",
     "price": "750K",
     "type": "",
-    "floor": "",
-    "rooms": "5",
-    "baths": "7",
+    "floor": "2 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "3104",
     "photos": [
@@ -406,12 +413,12 @@
     "video": ""
   },
   {
-    "id": "1P8qmo_Y3I0RDpYbHpgKKu_S_YPbRET-b",
+    "id": "S_YPbRET-b",
     "price": "345K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "3",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -441,12 +448,12 @@
     "video": ""
   },
   {
-    "id": "1sblrXFzawxy9ZLUXV51U3f7e1dT59FeR",
+    "id": "7e1dT59FeR",
     "price": "1400",
     "type": "Apartment",
     "floor": "",
-    "rooms": "0",
-    "baths": "2",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -464,12 +471,12 @@
     "video": ""
   },
   {
-    "id": "1y0GAm0wpdOnuGhBbQoqlKwKKGhN3UKhX",
+    "id": "KKGhN3UKhX",
     "price": "350K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "9",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -487,12 +494,12 @@
     "video": ""
   },
   {
-    "id": "1fICQPv5AP7rVYfuMSU-CqHukWjaJYd_d",
+    "id": "ukWjaJYd_d",
     "price": "2000",
     "type": "Condo",
     "floor": "",
-    "rooms": "0",
-    "baths": "9",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1149",
     "photos": [
@@ -523,14 +530,14 @@
     "video": ""
   },
   {
-    "id": "1Q8eM1TXitvMvFO1uSqTnAWV94ftkhfVm",
+    "id": "V94ftkhfVm",
     "price": "300",
     "type": "Apartment",
     "floor": "",
     "rooms": "8",
     "baths": "0",
     "parking": "0",
-    "size": "800",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/1rHbznnBE785C25wGU_u1Fk-J2VekSvY2",
       "https://lh3.googleusercontent.com/d/12azfqHs7abKRn8eSolTgp6CCbCnUrm3f",
@@ -543,14 +550,14 @@
     "video": ""
   },
   {
-    "id": "1xlaJqktKoXIbnb62h19hVYZ3u4ZChukZ",
+    "id": "Z3u4ZChukZ",
     "price": "315K",
     "type": "Apartment",
     "floor": "",
     "rooms": "8",
     "baths": "0",
     "parking": "0",
-    "size": "800",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/1nrOzcrOVNsePh01aUdF63P-f8O9hvp7d",
       "https://lh3.googleusercontent.com/d/1zsu8cd1AfuAH3S7rgG-dwkr4CyheWwUe",
@@ -572,12 +579,12 @@
     "video": ""
   },
   {
-    "id": "12pagrlknANTwra1mFfNOro7rv7mY7aTI",
+    "id": "7rv7mY7aTI",
     "price": "360K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "2",
-    "baths": "0",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -595,14 +602,14 @@
     "video": ""
   },
   {
-    "id": "1tws5hmTjzQmrewSO442O5lAmYIeeuyJM",
+    "id": "AmYIeeuyJM",
     "price": "350K",
     "type": "Apartment",
     "floor": "",
     "rooms": "8",
     "baths": "0",
     "parking": "0",
-    "size": "800",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/1UR_rPiIfmZtXTTnirPxnFEsuFPQ26-73",
       "https://lh3.googleusercontent.com/d/15_b8ZmbjMybsgFH_Q60QDQne0WvejiJx",
@@ -616,12 +623,12 @@
     "video": ""
   },
   {
-    "id": "1WAaIBkccoDf3oFiaa1Ix0nwXMda93OCi",
+    "id": "wXMda93OCi",
     "price": "630K",
     "type": "",
-    "floor": "",
-    "rooms": "2",
-    "baths": "7",
+    "floor": "2 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "2000",
     "photos": [
@@ -654,12 +661,12 @@
     "video": ""
   },
   {
-    "id": "1H7u9B8HR83Y11GAPdizdDNO6rVXT-TGr",
+    "id": "O6rVXT-TGr",
     "price": "1.5M",
     "type": "",
     "floor": "2 Storey",
-    "rooms": "4",
-    "baths": "3",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "6077",
     "photos": [
@@ -677,12 +684,12 @@
     "video": ""
   },
   {
-    "id": "1yVVEJKDKdgq-ECpeoWuYTkS1A3hhTjq9",
+    "id": "S1A3hhTjq9",
     "price": "630K",
     "type": "",
-    "floor": "",
-    "rooms": "5",
-    "baths": "1",
+    "floor": "1.5 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1600",
     "photos": [
@@ -711,12 +718,12 @@
     "video": ""
   },
   {
-    "id": "1Oz2hE2l7otggLLjBJcx3MDfY8rMfpft2",
+    "id": "fY8rMfpft2",
     "price": "650K",
     "type": "",
     "floor": "2.0 Storey",
-    "rooms": "2",
-    "baths": "7",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1800",
     "photos": [
@@ -740,12 +747,12 @@
     "video": ""
   },
   {
-    "id": "1wbTxpm2b8lQ9LHF9gt6meWByJw5bQ6W_",
+    "id": "ByJw5bQ6W_",
     "price": "750K",
     "type": "",
     "floor": "2 Storey",
-    "rooms": "6",
-    "baths": "0",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "2400",
     "photos": [
@@ -781,12 +788,12 @@
     "video": ""
   },
   {
-    "id": "1dPk9zClQkPpxlHVNAe2vOTWnfosoCPWc",
+    "id": "WnfosoCPWc",
     "price": "610K",
     "type": "",
-    "floor": "",
-    "rooms": "2",
-    "baths": "8",
+    "floor": "2 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1700",
     "photos": [
@@ -817,14 +824,14 @@
     "video": ""
   },
   {
-    "id": "1l21IzZ6XYd8GNT1HR2gkPsggbRidfJNm",
+    "id": "ggbRidfJNm",
     "price": "570K",
     "type": "",
     "floor": "2 Storey",
-    "rooms": "1",
-    "baths": "3",
+    "rooms": "",
+    "baths": "",
     "parking": "",
-    "size": "",
+    "size": "2000",
     "photos": [
       "https://lh3.googleusercontent.com/d/10NLq_IWZIHYIIiCo0ApV6BkQ6CyTvL0S",
       "https://lh3.googleusercontent.com/d/1unBVwJuD-gQxlWUY4fTs665PXArjyKoR",
@@ -859,12 +866,12 @@
     "video": ""
   },
   {
-    "id": "1HC9Bvgz3ZEG9rIrKXPy31dut-YHNXc07",
+    "id": "ut-YHNXc07",
     "price": "370K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "0",
-    "baths": "3",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -879,14 +886,14 @@
     "video": ""
   },
   {
-    "id": "1jsUiSYFNwc8W_XMGpiRk-tehWbDvuHb5",
+    "id": "ehWbDvuHb5",
     "price": "630K",
     "type": "",
-    "floor": "",
-    "rooms": "2",
-    "baths": "6",
+    "floor": "2 Storey",
+    "rooms": "",
+    "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1704",
     "photos": [
       "https://lh3.googleusercontent.com/d/1I_pneSCYCrE7cfd8SV30MTE5YTFeWBgB",
       "https://lh3.googleusercontent.com/d/1QPhuKTcmYyjXBB80owDqh__ZJ_pwMpnT",
@@ -916,12 +923,12 @@
     "video": ""
   },
   {
-    "id": "1mHY-H748ltZugTDYr3C7MfslnGGSQuSG",
+    "id": "slnGGSQuSG",
     "price": "1400",
     "type": "Condo",
     "floor": "",
-    "rooms": "1",
-    "baths": "1",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1149",
     "photos": [
@@ -942,12 +949,12 @@
     "video": ""
   },
   {
-    "id": "1nozFgZB9ehDtAEN0VnvmJv2phYRfe3a7",
+    "id": "2phYRfe3a7",
     "price": "650K",
     "type": "Shop Lot",
     "floor": "",
-    "rooms": "2",
-    "baths": "0",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1200",
     "photos": [
@@ -961,12 +968,12 @@
     "video": ""
   },
   {
-    "id": "1T5K7eM8hZkki_WFGgKglNxDQJ0dQ1OPR",
+    "id": "DQJ0dQ1OPR",
     "price": "1800",
     "type": "Condo",
     "floor": "",
-    "rooms": "0",
-    "baths": "7",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1149",
     "photos": [
@@ -985,12 +992,12 @@
     "video": ""
   },
   {
-    "id": "1J8ZMVXxaBb74mFnDggxeiXMceuQFImyE",
+    "id": "MceuQFImyE",
     "price": "2000",
     "type": "Condo",
     "floor": "",
-    "rooms": "1",
-    "baths": "8",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1149",
     "photos": [
@@ -1014,14 +1021,14 @@
     "video": ""
   },
   {
-    "id": "1dbROgXKjN9RkRLyWEuaODIOV9tjTuD0o",
+    "id": "OV9tjTuD0o",
     "price": "330K",
     "type": "Shop Lot",
     "floor": "",
     "rooms": "6",
     "baths": "1",
     "parking": "5",
-    "size": "615",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/1FsvnD8QQt2_YKxcER4lQtGZLt2GcEYgK",
       "https://lh3.googleusercontent.com/d/15GTxqqX-YDtBkD79KCmz9e7WzkL4caHV",
@@ -1032,14 +1039,14 @@
     "video": ""
   },
   {
-    "id": "1tpBjXAax9-T7R00eD9-pXHscucJw4igX",
+    "id": "scucJw4igX",
     "price": "1800",
     "type": "Shop Lot",
     "floor": "",
     "rooms": "6",
     "baths": "0",
     "parking": "0",
-    "size": "600",
+    "size": "",
     "photos": [
       "https://lh3.googleusercontent.com/d/1nrkOUINK0BkRrEXN8ag5wgXAAGwsv-2L",
       "https://lh3.googleusercontent.com/d/1-X3GxLHUyxj-7NWasj_lX0Rp1ISfNWh_",
@@ -1054,12 +1061,12 @@
     "video": ""
   },
   {
-    "id": "1v1qNRPq5G-GDw7tYFndy8H4J6c4Bz7Z6",
+    "id": "4J6c4Bz7Z6",
     "price": "360K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "2",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -1085,12 +1092,12 @@
     "video": ""
   },
   {
-    "id": "1-FS9k2_tuWWm9nL1xlyHYQTdH2YmNQ03",
+    "id": "TdH2YmNQ03",
     "price": "2300",
     "type": "Condo",
     "floor": "",
-    "rooms": "1",
-    "baths": "1",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1200",
     "photos": [
@@ -1112,12 +1119,12 @@
     "video": ""
   },
   {
-    "id": "1vK0T3FMbsDttB9Tc8BhL2kU-hWoNeXWB",
+    "id": "U-hWoNeXWB",
     "price": "598K",
     "type": "",
     "floor": "",
-    "rooms": "2",
-    "baths": "2",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1099",
     "photos": [
@@ -1130,14 +1137,14 @@
     "video": ""
   },
   {
-    "id": "1QN_RqVvK5JJ2YzMX7Rt4f7n3ENmp8jn7",
+    "id": "n3ENmp8jn7",
     "price": "550K",
     "type": "Condo",
     "floor": "",
-    "rooms": "2",
-    "baths": "2",
+    "rooms": "",
+    "baths": "",
     "parking": "",
-    "size": "",
+    "size": "1099",
     "photos": [
       "https://lh3.googleusercontent.com/d/1Eobaqd0P0HYJEBhonbExT1sbXzvWCGXY",
       "https://lh3.googleusercontent.com/d/1W5yi3e0ZWUmUdvVjYO60eUnoOwEUD4Ii",
@@ -1153,12 +1160,12 @@
     "video": ""
   },
   {
-    "id": "1a0ADL8x_vxU7qLwJxpDHU5F8NXIL2Tv9",
+    "id": "F8NXIL2Tv9",
     "price": "850K",
     "type": "Condo",
     "floor": "",
-    "rooms": "1",
-    "baths": "5",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "2250",
     "photos": [
@@ -1184,12 +1191,12 @@
     "video": ""
   },
   {
-    "id": "1MDaq0ne3Ct21wBc_PLfrsRRYh0obmPPx",
+    "id": "RYh0obmPPx",
     "price": "654K",
     "type": "Condo",
     "floor": "",
-    "rooms": "3",
-    "baths": "2",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1009",
     "photos": [
@@ -1223,12 +1230,12 @@
     "video": ""
   },
   {
-    "id": "1oTYWk1Ua0AlBUheJAQ0tH8BvSeMyhvfi",
+    "id": "BvSeMyhvfi",
     "price": "1600",
     "type": "Condo",
     "floor": "",
-    "rooms": "0",
-    "baths": "8",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1149",
     "photos": [
@@ -1249,12 +1256,12 @@
     "video": ""
   },
   {
-    "id": "1648Pb8IzWMyiv_JgkZpJzfkiXhvhLbHC",
+    "id": "kiXhvhLbHC",
     "price": "1400",
     "type": "Apartment",
     "floor": "",
-    "rooms": "0",
-    "baths": "2",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -1275,12 +1282,12 @@
     "video": ""
   },
   {
-    "id": "1wBtAS5pzi1Ppvgbm1-GRfU3v9SAYk3At",
+    "id": "3v9SAYk3At",
     "price": "355K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "4",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -1289,12 +1296,12 @@
     "video": ""
   },
   {
-    "id": "1K1EpXdqxZbLBqBZt2HeEsnC7eu3DMOQj",
+    "id": "C7eu3DMOQj",
     "price": "343K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "9",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -1314,12 +1321,12 @@
     "video": ""
   },
   {
-    "id": "1nT4FAXd_s6GPdsMSQQPoRLaBNmJrM31F",
+    "id": "aBNmJrM31F",
     "price": "350K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "0",
-    "baths": "8",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -1337,12 +1344,12 @@
     "video": ""
   },
   {
-    "id": "1ZznKStWRuxjCX0QtUHQv0a1sXI7wPIuD",
+    "id": "1sXI7wPIuD",
     "price": "340K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "8",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
@@ -1361,12 +1368,12 @@
     "video": ""
   },
   {
-    "id": "11dRMforK2UZNjC0hJMtnKWDCEYGUPGTM",
+    "id": "DCEYGUPGTM",
     "price": "380K",
     "type": "Apartment",
     "floor": "",
-    "rooms": "1",
-    "baths": "8",
+    "rooms": "",
+    "baths": "",
     "parking": "",
     "size": "1000",
     "photos": [
