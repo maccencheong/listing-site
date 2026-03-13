@@ -1,198 +1,295 @@
-body{
-font-family:Arial,Helvetica,sans-serif;
-margin:0;
-background:#f5f5f5;
-color:#000;
+const perPage = 50
+
+let page = 1
+let allData = []
+let cache = {}
+
+const id = new URLSearchParams(window.location.search).get("id")
+
+
+function formatPrice(p){
+
+if(!p) return ""
+
+let text=p.toString().toLowerCase()
+
+let num=0
+
+if(text.includes("k")){
+num=parseFloat(text)*1000
+}
+else if(text.includes("m")){
+num=parseFloat(text)*1000000
+}
+else{
+num=parseFloat(text)
 }
 
-h1{
-text-align:center;
-margin:20px 0;
-}
-
-a{
-color:inherit;
-text-decoration:none;
-}
-
-.search-box{
-text-align:center;
-margin-bottom:20px;
-}
-
-.search-box input{
-width:320px;
-max-width:90%;
-padding:10px;
-font-size:16px;
-border-radius:8px;
-border:1px solid #ccc;
-}
-
-#listings{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
-max-width:1400px;
-margin:auto;
+return "RM "+Math.round(num).toLocaleString()
 
 }
 
-.card{
 
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-transition:0.2s;
+function formatRooms(r,b,p){
 
-}
+let parts=[]
 
-.card:hover{
+if(r) parts.push(r+"R")
+if(b) parts.push(b+"B")
+if(p) parts.push(p+"P")
 
-transform:translateY(-6px);
-box-shadow:0 12px 26px rgba(0,0,0,0.2);
+return parts.join(" ")
 
 }
 
-.card img{
 
-width:100%;
-height:220px;
-object-fit:cover;
 
-}
+/* LOAD DATA WITH CACHE */
 
-.info{
+async function loadAll(){
 
-padding:14px;
-font-size:14px;
-line-height:1.6;
+let version=await fetch(
+"https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
+).then(r=>r.json())
 
-}
+let cacheVersion=localStorage.getItem("listingVersion")
 
-.price{
+if(cacheVersion==version.version){
 
-font-size:20px;
-font-weight:bold;
-margin-bottom:6px;
+let cached=localStorage.getItem("listingData")
 
-}
-
-#pagination{
-text-align:center;
-margin:20px;
-}
-
-#pagination button{
-
-padding:8px 14px;
-margin:4px;
-border:none;
-background:#333;
-color:white;
-border-radius:5px;
-cursor:pointer;
-transition:0.2s;
-
-}
-
-#pagination button:hover{
-background:#555;
-}
-
-/* 当前页高亮 */
-
-.active-page{
-background:#ff6600 !important;
-color:white !important;
-font-weight:bold;
-transform:scale(1.05);
-}
-
-#property{
-
-max-width:900px;
-margin:auto;
-padding:20px;
-
-}
-
-.topbar{
-
-display:flex;
-gap:10px;
-margin-bottom:20px;
-
-}
-
-.topbar button{
-
-background:#111;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:8px;
-cursor:pointer;
-
-}
-
-.gallery{
-
-position:relative;
-display:flex;
-justify-content:center;
-
-}
-
-.gallery img{
-
-max-width:100%;
-max-height:520px;
-border-radius:12px;
-
-}
-
-.gallery button{
-
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.6);
-color:white;
-border:none;
-font-size:28px;
-padding:10px 16px;
-cursor:pointer;
-border-radius:8px;
-
-}
-
-.gallery .prev{ left:10px; }
-.gallery .next{ right:10px; }
-
-@media(max-width:600px){
-
-.card img{
-height:200px;
-}
-
-#pagination{
-margin-top:20px;
-}
-
-#pagination button{
-margin:4px;
-padding:8px 14px;
-border:1px solid #ccc;
-background:white;
-cursor:pointer;
-}
-
-#pagination button:hover{
-background:#f2f2f2;
+if(cached){
+allData=JSON.parse(cached)
+return
 }
 
 }
+
+let pages=version.pages
+
+allData=[]
+
+for(let i=1;i<=pages;i++){
+
+let url=`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`
+
+let res=await fetch(url)
+
+let data=await res.json()
+
+allData=allData.concat(data)
+
+}
+
+localStorage.setItem("listingVersion",version.version)
+localStorage.setItem("listingData",JSON.stringify(allData))
+
+}
+
+
+
+/* LISTING PAGE */
+
+function showListings(){
+
+document.getElementById("property").innerHTML=""
+
+const container=document.getElementById("listings")
+
+container.innerHTML=""
+
+let start=(page-1)*perPage
+
+let items=allData.slice(start,start+perPage)
+
+items.forEach(item=>{
+
+let card=document.createElement("div")
+
+card.className="card"
+
+let cover=item.photos?.[0] || ""
+
+card.innerHTML=`
+<a href="?id=${item.id}">
+<img src="${cover ? cover+'=w600' : ''}" loading="lazy">
+<div class="info">
+<div class="price">${formatPrice(item.price)}</div>
+<div>${item.type||""}</div>
+<div>${formatRooms(item.rooms,item.baths,item.parking)}</div>
+<div>${item.size||""} sqft</div>
+</div>
+</a>
+`
+
+container.appendChild(card)
+
+})
+
+renderPagination()
+
+}
+
+
+
+/* PAGINATION */
+
+function renderPagination(){
+
+let nav=document.getElementById("pagination")
+
+nav.innerHTML=""
+
+let totalPages=Math.ceil(allData.length/perPage)
+
+/* Previous */
+
+if(page>1){
+nav.innerHTML+=`<button onclick="changePage(${page-1})">Previous</button>`
+}
+
+/* Page Numbers */
+
+for(let i=1;i<=totalPages;i++){
+
+if(i===page){
+
+nav.innerHTML+=`<button class="active-page">${i}</button>`
+
+}else{
+
+nav.innerHTML+=`<button onclick="changePage(${i})">${i}</button>`
+
+}
+
+}
+
+/* Next */
+
+if(page<totalPages){
+nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`
+}
+
+}
+
+
+
+function changePage(p){
+
+page=p
+
+showListings()
+
+window.scrollTo(0,0)
+
+}
+
+
+
+/* PROPERTY PAGE */
+
+function showProperty(){
+
+document.getElementById("listings").innerHTML=""
+document.getElementById("pagination").innerHTML=""
+
+const container=document.getElementById("property")
+
+const listing=allData.find(l=>l.id===id)
+
+if(!listing) return
+
+let i=0
+
+function render(){
+
+container.innerHTML=`
+<div class="topbar">
+<button onclick="window.location='./'">← Back</button>
+<button onclick="copyURL()">Copy URL</button>
+<button onclick="downloadPhotos()">Download</button>
+</div>
+
+<div class="gallery">
+<img src="${listing.photos[i]}=w1200">
+<button class="prev" onclick="prev()">❮</button>
+<button class="next" onclick="next()">❯</button>
+</div>
+
+<div class="info">
+<div class="price">${formatPrice(listing.price)}</div>
+<div>${listing.type||""}</div>
+<div>${formatRooms(listing.rooms,listing.baths,listing.parking)}</div>
+<div>${listing.size||""} sqft</div>
+</div>
+`
+}
+
+window.next=function(){
+if(i<listing.photos.length-1){
+i++
+render()
+}
+}
+
+window.prev=function(){
+if(i>0){
+i--
+render()
+}
+}
+
+window.copyURL=function(){
+navigator.clipboard.writeText(window.location.href)
+alert("Listing URL copied")
+}
+
+window.downloadPhotos = async function(){
+
+let zip = new JSZip()
+let folder = zip.folder("photos")
+
+for(let i=0;i<listing.photos.length;i++){
+
+let url = listing.photos[i]
+
+try{
+
+let response = await fetch(url)
+let blob = await response.blob()
+folder.file(`photo-${i+1}.jpg`, blob)
+
+}catch(e){}
+
+}
+
+let content = await zip.generateAsync({type:"blob"})
+
+let a = document.createElement("a")
+a.href = URL.createObjectURL(content)
+a.download = "listing-photos.zip"
+a.click()
+
+}
+
+render()
+
+}
+
+
+
+/* INIT */
+
+async function init(){
+
+await loadAll()
+
+if(id){
+showProperty()
+}else{
+showListings()
+}
+
+}
+
+init()
