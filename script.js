@@ -6,6 +6,7 @@ let cache = {}
 
 const id = new URLSearchParams(window.location.search).get("id")
 
+
 function formatPrice(p){
 
 if(!p) return ""
@@ -28,6 +29,7 @@ return "RM "+Math.round(num).toLocaleString()
 
 }
 
+
 function formatRooms(r,b,p){
 
 let parts=[]
@@ -39,6 +41,7 @@ if(p) parts.push(p+"P")
 return parts.join(" ")
 
 }
+
 
 
 /* LOAD DATA WITH CACHE */
@@ -84,6 +87,7 @@ localStorage.setItem("listingData",JSON.stringify(allData))
 }
 
 
+
 /* LISTING PAGE */
 
 function showListings(){
@@ -127,6 +131,7 @@ renderPagination()
 }
 
 
+
 /* PAGINATION */
 
 function renderPagination(){
@@ -143,7 +148,7 @@ if(page>1){
 nav.innerHTML+=`<button onclick="changePage(${page-1})">Previous</button>`
 }
 
-/* Page numbers */
+/* Page Numbers */
 
 for(let i=1;i<=totalPages;i++){
 
@@ -167,13 +172,7 @@ nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`
 
 }
 
-/* Next */
 
-if(page<totalPages){
-nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`
-}
-
-}
 
 function changePage(p){
 
@@ -184,6 +183,7 @@ showListings()
 window.scrollTo(0,0)
 
 }
+
 
 
 /* PROPERTY PAGE */
@@ -275,6 +275,7 @@ a.click()
 render()
 
 }
+
 
 
 /* INIT */
