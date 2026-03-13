@@ -149,11 +149,11 @@ for(let i=1;i<=totalPages;i++){
 
 if(i===page){
 
-nav.innerHTML+=`<button style="font-weight:bold;background:#333;color:#fff">${i}</button>`
+nav.innerHTML+=`<button style="font-weight:bold;backgrou
 
 }else{
 
-nav.innerHTML+=`<button onclick="changePage(${i})">${i}</button>`
+nav.innerHTML+=`<button class="active-page">${i}</button>`
 
 }
 
