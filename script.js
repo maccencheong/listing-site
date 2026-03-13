@@ -135,13 +135,33 @@ let nav=document.getElementById("pagination")
 
 nav.innerHTML=""
 
+let totalPages=Math.ceil(allData.length/perPage)
+
+/* Previous */
+
 if(page>1){
-nav.innerHTML+=`<button onclick="changePage(${page-1})">Prev</button>`
+nav.innerHTML+=`<button onclick="changePage(${page-1})">Previous</button>`
 }
 
-nav.innerHTML+=`<span style="padding:8px;font-weight:bold">Page ${page}</span>`
+/* Page Numbers */
 
-if(page*perPage<allData.length){
+for(let i=1;i<=totalPages;i++){
+
+if(i===page){
+
+nav.innerHTML+=`<button style="font-weight:bold;background:#333;color:#fff">${i}</button>`
+
+}else{
+
+nav.innerHTML+=`<button onclick="changePage(${i})">${i}</button>`
+
+}
+
+}
+
+/* Next */
+
+if(page<totalPages){
 nav.innerHTML+=`<button onclick="changePage(${page+1})">Next</button>`
 }
 
