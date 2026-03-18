@@ -1,5 +1,33 @@
 [
   {
+    "id": "ccCORehDlz",
+    "price": "670K",
+    "type": "Terrace",
+    "floor": "2Sty",
+    "rooms": "4",
+    "baths": "3",
+    "parking": "2",
+    "size": "1700",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/17OlVZndrQb_P1rIvwJBxzPvIz1EPzqNY",
+      "https://lh3.googleusercontent.com/d/1fWlXjKaXjM8J0P0OnLrZF9iV-NwIz_xq",
+      "https://lh3.googleusercontent.com/d/1lniMYE66ZJ04mX9Y8V-PR4vKEC7mrhpR",
+      "https://lh3.googleusercontent.com/d/1fsS2qkLkxeRX7iHE4lFAPlGc7aDnTYoE",
+      "https://lh3.googleusercontent.com/d/1M3hT-UzpW2K4JFfwvP8UlJ7oXXFlxveu",
+      "https://lh3.googleusercontent.com/d/1HspNVum2opZQsmx4bOyqbofYGwONblwh",
+      "https://lh3.googleusercontent.com/d/1WX44jP7P6lmJ4a4HtQeN8gbxixVlyLj0",
+      "https://lh3.googleusercontent.com/d/1pK3W7-DoUlD1dSWsqlSrD8U9ttCfouuC",
+      "https://lh3.googleusercontent.com/d/1GRVuHt5OnNGe0PFAxRFiv6Kng7K5bVcR",
+      "https://lh3.googleusercontent.com/d/1aSqH_YQSWldyeECoErUqBE4NL9fI1Qev",
+      "https://lh3.googleusercontent.com/d/1ZtSA2pL4fJxBg47yRgO91vRPnVvzl4dp",
+      "https://lh3.googleusercontent.com/d/1U64_9l3ifRX461DD3hCKv47YP1xVL-pz",
+      "https://lh3.googleusercontent.com/d/1FatR8C0W9govgl6lwvfE5xNDm_NmCXjz",
+      "https://lh3.googleusercontent.com/d/1AOA1ow6ci9EsDeA1621zPdjhci0TX7Gc",
+      "https://lh3.googleusercontent.com/d/1W9MlVkh1Qx5RfibuzkjzRpk7BQ6xRcU7"
+    ],
+    "video": ""
+  },
+  {
     "id": "BanigEVaK4",
     "price": "2800",
     "type": "Shop Lot / Service Apartment",
