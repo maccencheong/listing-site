@@ -1,5 +1,26 @@
 [
   {
+    "id": "ThAqX9SYnt",
+    "price": "290K",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "980",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1yyAyRFSd4Jsc7eRTTLi5_tfirtz4rjFn",
+      "https://lh3.googleusercontent.com/d/1TtFx1gdl0-1T_9_sJxFys_emMZMFHC50",
+      "https://lh3.googleusercontent.com/d/1yF5jhhktpnHZfOAxAvxp7WMnqp-LLxRR",
+      "https://lh3.googleusercontent.com/d/1gAD9DiRFWeXeC4mrvtM19onKJf8GwE87",
+      "https://lh3.googleusercontent.com/d/1XaEQ4-KLAgYkLeCzcFvQZbmT8jAuZgJ4",
+      "https://lh3.googleusercontent.com/d/1HwrMwZzG9qfc34qcbl3meT4JCQZB-oym",
+      "https://lh3.googleusercontent.com/d/1qrEl24rWjkXY4d59Bat-I_nCpbkdnwb5",
+      "https://lh3.googleusercontent.com/d/1PfYeUK3j8CoY5oLTAtn3x-v-UeCjz6GV"
+    ],
+    "video": ""
+  },
+  {
     "id": "ccCORehDlz",
     "price": "670K",
     "type": "Terrace",
