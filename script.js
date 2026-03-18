@@ -3,14 +3,13 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 let filteredData = [];
-let cache = {};
 
 const id = new URLSearchParams(window.location.search).get("id");
 
-function formatPrice(p){
-  if(!p) return "";
+function parsePriceNumber(p){
+  if(!p) return 0;
 
-  let text = p.toString().toLowerCase();
+  let text = p.toString().toLowerCase().trim();
   let num = 0;
 
   if(text.includes("k")){
@@ -18,9 +17,15 @@ function formatPrice(p){
   }else if(text.includes("m")){
     num = parseFloat(text) * 1000000;
   }else{
-    num = parseFloat(text);
+    num = parseFloat(text.replace(/,/g, ""));
   }
 
+  return isNaN(num) ? 0 : num;
+}
+
+function formatPrice(p){
+  let num = parsePriceNumber(p);
+  if(!num) return "";
   return "RM " + Math.round(num).toLocaleString();
 }
 
@@ -34,10 +39,32 @@ function formatRooms(r,b,p){
   return parts.join(" ");
 }
 
-function makeSearchText(item){
+function makePriceSearchTokens(price){
+  let num = parsePriceNumber(price);
+  if(!num) return [];
+
+  let rounded = Math.round(num);
+  let thousand = Math.round(num / 1000);
+
   return [
-    item.price || "",
-    formatPrice(item.price || ""),
+    String(price || "").toLowerCase(),
+    String(rounded),
+    rounded.toLocaleString(),
+    "rm" + rounded,
+    "rm " + rounded,
+    "rm" + rounded.toLocaleString(),
+    "rm " + rounded.toLocaleString(),
+    String(thousand),
+    thousand + "k",
+    "rm " + thousand + "k"
+  ];
+}
+
+function makeSearchText(item){
+  let priceTokens = makePriceSearchTokens(item.price || "");
+
+  return [
+    ...priceTokens,
     item.type || "",
     item.floor || "",
     item.rooms ? item.rooms + "r" : "",
@@ -96,14 +123,24 @@ function applySearch(){
 
   if(!q){
     filteredData = [...allData];
-  }else{
-    let keywords = q.split(/\s+/).filter(Boolean);
-
-    filteredData = allData.filter(item => {
-      let text = makeSearchText(item);
-      return keywords.every(k => text.includes(k));
-    });
+    page = 1;
+    showListings();
+    return;
   }
+
+  let keywords = q.split(/\s+/).filter(Boolean);
+
+  filteredData = allData.filter(item => {
+    let text = makeSearchText(item);
+    let priceText = makePriceSearchTokens(item.price || "").join(" ").toLowerCase();
+
+    return keywords.every(k => {
+      if(/^\d+(\.\d+)?k?$/.test(k)){
+        return priceText.includes(k) || text.includes(k);
+      }
+      return text.includes(k);
+    });
+  });
 
   page = 1;
   showListings();
