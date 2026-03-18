@@ -1,35 +1,29 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Maccen Property Listing</title>
-
+<title>Property Listings</title>
 <link rel="stylesheet" href="style.css">
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
 </head>
-
 <body>
 
-<h1>Maccen Property Listing</h1>
+<h1>Property Listings</h1>
 
 <div class="search-box">
-<input type="text" id="searchInput" placeholder="Search price, type, bedroom...">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search price, type, storey, rooms, baths, parking, size..."
+    autocomplete="off"
+  >
 </div>
 
 <div id="listings"></div>
-
 <div id="pagination"></div>
-
 <div id="property"></div>
 
 <script src="script.js"></script>
-
 </body>
-
 </html>
