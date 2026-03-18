@@ -1,19 +1,5 @@
 [
   {
-    "id": "h-wFvYXCTx",
-    "price": "380K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "4",
-    "baths": "3",
-    "parking": "2",
-    "size": "850",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
-    ],
-    "video": ""
-  },
-  {
     "id": "gkSqe3rCw7",
     "price": "539K",
     "type": "Condominium",
@@ -1241,6 +1227,34 @@
       "https://lh3.googleusercontent.com/d/1cx_qcHb_2cvv2V4MZ622hqwW8L9DlVIU",
       "https://lh3.googleusercontent.com/d/12bOse1rOfCG1PCpG8B3Dn16pZQWzlM76",
       "https://lh3.googleusercontent.com/d/1IuusFxVreMEEJUP1sGfuUez2GCCIfmYq"
+    ],
+    "video": ""
+  },
+  {
+    "id": "qggR3lHAQs",
+    "price": "1600",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "1000",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/13C9HTm50So151qDdP-bNJf_I9Ohb1yPp",
+      "https://lh3.googleusercontent.com/d/1FX4bgwd4weq0Hv8-pxclD53IVT7hpoYt",
+      "https://lh3.googleusercontent.com/d/1aOmj8rm5UhddAUhQC_vwlJEA1FbxSqNZ",
+      "https://lh3.googleusercontent.com/d/1emRq5t7g8G293o7883P9ouNSSrrLuVTP",
+      "https://lh3.googleusercontent.com/d/1D7Zd_ogqTvEMUmaowcPTJbi74kgahO-A",
+      "https://lh3.googleusercontent.com/d/1eviwFn06vHUrfQ_SM--H1zBG9UGf-grh",
+      "https://lh3.googleusercontent.com/d/1IVeYwSaU-_wikcUyHU5OhNytWyY-7CR3",
+      "https://lh3.googleusercontent.com/d/13lO0gCin4v17pQu6_8Xa9VnnFKwQ8k9E",
+      "https://lh3.googleusercontent.com/d/17ouGV4bV3gdD8qM9kISIziWWk678r6wS",
+      "https://lh3.googleusercontent.com/d/1SkcHBh1Y0jquxtrRcNEZrkEGQLpo7SiN",
+      "https://lh3.googleusercontent.com/d/1DnkuiRWZ8TikSeW9bwDT2CSzmIWlDHF6",
+      "https://lh3.googleusercontent.com/d/1yrbZPoPcFLHLW4Y-pomHTa5T51YDWnxc",
+      "https://lh3.googleusercontent.com/d/1vkyBA6koczw0EIqGfR3QN-5HicPiGhjV",
+      "https://lh3.googleusercontent.com/d/1wBvuK0ohovqo2Ko7DTUlxAzCqRkWdAAT",
+      "https://lh3.googleusercontent.com/d/1SNsTigULz5hEF2FF2H5SdqQaZjplycUi"
     ],
     "video": ""
   }
