@@ -11,13 +11,25 @@
 
 <h1>Property Listings</h1>
 
-<div class="search-box">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search price, e.g. 1.2m / 1200k / 1,200,000..."
-    autocomplete="off"
-  >
+<div class="toolbar">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search price, e.g. 1.2m / 1200k / 1,200,000..."
+      autocomplete="off"
+    >
+  </div>
+
+  <div class="sort-box">
+    <select id="sortSelect">
+      <option value="default">Default</option>
+      <option value="price-low-high">Price: Low to High</option>
+      <option value="price-high-low">Price: High to Low</option>
+      <option value="size-low-high">Size: Low to High</option>
+      <option value="size-high-low">Size: High to Low</option>
+    </select>
+  </div>
 </div>
 
 <div id="listings"></div>
