@@ -28,35 +28,49 @@ function parsePriceNumber(p){
   return isNaN(num) ? 0 : Math.round(num);
 }
 
-function normalizePriceSearchInput(q){
-  if(q === null || q === undefined) return 0;
+function buildPriceSearchTokens(value){
+  let num = parsePriceNumber(value);
+  if(!num) return [];
 
-  let text = q.toString().toLowerCase().trim();
-  text = text.replace(/rm/g, "").replace(/\s+/g, "").replace(/,/g, "");
+  let thousand = Math.round(num / 1000);
+  let million = num / 1000000;
 
-  if(!text) return 0;
+  let tokens = [
+    String(num),
+    num.toLocaleString(),
+    "rm" + num,
+    "rm " + num,
+    "rm" + num.toLocaleString(),
+    "rm " + num.toLocaleString(),
+    String(thousand),
+    thousand.toLocaleString(),
+    thousand + "k",
+    thousand + ".0k",
+    "rm" + thousand + "k",
+    "rm " + thousand + "k"
+  ];
 
-  let num = 0;
-
-  if(text.endsWith("m")){
-    num = parseFloat(text.slice(0, -1)) * 1000000;
-  }else if(text.endsWith("k")){
-    num = parseFloat(text.slice(0, -1)) * 1000;
+  if(Number.isInteger(million)){
+    tokens.push(String(million) + "m");
+    tokens.push("rm" + million + "m");
+    tokens.push("rm " + million + "m");
   }else{
-    let raw = parseFloat(text);
-
-    if(isNaN(raw)) return 0;
-
-    if(raw >= 100000){
-      num = raw;
-    }else if(raw >= 1000){
-      num = raw * 1000;
-    }else{
-      num = raw;
-    }
+    let m1 = million.toFixed(1);
+    tokens.push(m1 + "m");
+    tokens.push("rm" + m1 + "m");
+    tokens.push("rm " + m1 + "m");
   }
 
-  return isNaN(num) ? 0 : Math.round(num);
+  return [...new Set(tokens.map(t => t.toLowerCase().replace(/,/g, "").replace(/\s+/g, "")))];
+}
+
+function normalizeSearchText(q){
+  return String(q || "")
+    .toLowerCase()
+    .replace(/rm/g, "")
+    .replace(/,/g, "")
+    .replace(/\s+/g, "")
+    .trim();
 }
 
 function formatPrice(p){
@@ -138,7 +152,7 @@ function applySearch(){
   const search = document.getElementById("searchInput");
   if(!search) return;
 
-  let q = search.value.trim();
+  let q = normalizeSearchText(search.value);
 
   if(!q){
     filteredData = [...allData];
@@ -147,18 +161,9 @@ function applySearch(){
     return;
   }
 
-  let targetPrice = normalizePriceSearchInput(q);
-
-  if(!targetPrice){
-    filteredData = [...allData];
-    page = 1;
-    showListings();
-    return;
-  }
-
   filteredData = allData.filter(item => {
-    let itemPrice = parsePriceNumber(item.price || "");
-    return itemPrice === targetPrice;
+    let tokens = buildPriceSearchTokens(item.price || "");
+    return tokens.some(token => token.includes(q) || q.includes(token));
   });
 
   page = 1;
@@ -346,3 +351,6 @@ async function init(){
 }
 
 init();
+
+
+
