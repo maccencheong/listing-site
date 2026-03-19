@@ -4,6 +4,9 @@ let page = 1;
 let allData = [];
 let filteredData = [];
 let currentVersion = "";
+let currentSort = "default";
+let activeSearchPrice = 0;
+let propertyViewState = null;
 
 const id = new URLSearchParams(window.location.search).get("id");
 
@@ -22,55 +25,20 @@ function parsePriceNumber(p){
   }else if(text.endsWith("k")){
     num = parseFloat(text.slice(0, -1)) * 1000;
   }else{
-    num = parseFloat(text);
+    let raw = parseFloat(text);
+
+    if(isNaN(raw)) return 0;
+
+    if(raw >= 100000){
+      num = raw;
+    }else if(raw >= 1000){
+      num = raw * 1000;
+    }else{
+      num = raw;
+    }
   }
 
   return isNaN(num) ? 0 : Math.round(num);
-}
-
-function buildPriceSearchTokens(value){
-  let num = parsePriceNumber(value);
-  if(!num) return [];
-
-  let thousand = Math.round(num / 1000);
-  let million = num / 1000000;
-
-  let tokens = [
-    String(num),
-    num.toLocaleString(),
-    "rm" + num,
-    "rm " + num,
-    "rm" + num.toLocaleString(),
-    "rm " + num.toLocaleString(),
-    String(thousand),
-    thousand.toLocaleString(),
-    thousand + "k",
-    thousand + ".0k",
-    "rm" + thousand + "k",
-    "rm " + thousand + "k"
-  ];
-
-  if(Number.isInteger(million)){
-    tokens.push(String(million) + "m");
-    tokens.push("rm" + million + "m");
-    tokens.push("rm " + million + "m");
-  }else{
-    let m1 = million.toFixed(1);
-    tokens.push(m1 + "m");
-    tokens.push("rm" + m1 + "m");
-    tokens.push("rm " + m1 + "m");
-  }
-
-  return [...new Set(tokens.map(t => t.toLowerCase().replace(/,/g, "").replace(/\s+/g, "")))];
-}
-
-function normalizeSearchText(q){
-  return String(q || "")
-    .toLowerCase()
-    .replace(/rm/g, "")
-    .replace(/,/g, "")
-    .replace(/\s+/g, "")
-    .trim();
 }
 
 function formatPrice(p){
@@ -98,6 +66,70 @@ function withImageSize(url, size){
   if(!url) return "";
   let finalUrl = withVersion(url);
   return finalUrl + (finalUrl.includes("?") ? "&" : "?") + size;
+}
+
+function preloadImage(url){
+  if(!url) return;
+  let img = new Image();
+  img.src = url;
+}
+
+function getSearchInputValue(){
+  const search = document.getElementById("searchInput");
+  return search ? search.value : "";
+}
+
+function normalizeSearchPriceInput(q){
+  return parsePriceNumber(q);
+}
+
+function cloneData(arr){
+  return Array.isArray(arr) ? [...arr] : [];
+}
+
+function sortListings(data){
+  let result = cloneData(data);
+
+  if(activeSearchPrice > 0){
+    result.sort((a, b) => {
+      let aPrice = parsePriceNumber(a.price || "");
+      let bPrice = parsePriceNumber(b.price || "");
+      let aDiff = Math.abs(aPrice - activeSearchPrice);
+      let bDiff = Math.abs(bPrice - activeSearchPrice);
+
+      if(aDiff !== bDiff) return aDiff - bDiff;
+      return bPrice - aPrice;
+    });
+    return result;
+  }
+
+  if(currentSort === "price-low-high"){
+    result.sort((a, b) => parsePriceNumber(a.price || "") - parsePriceNumber(b.price || ""));
+    return result;
+  }
+
+  if(currentSort === "price-high-low"){
+    result.sort((a, b) => parsePriceNumber(b.price || "") - parsePriceNumber(a.price || ""));
+    return result;
+  }
+
+  if(currentSort === "size-low-high"){
+    result.sort((a, b) => Number(a.size || 0) - Number(b.size || 0));
+    return result;
+  }
+
+  if(currentSort === "size-high-low"){
+    result.sort((a, b) => Number(b.size || 0) - Number(a.size || 0));
+    return result;
+  }
+
+  return result;
+}
+
+function updateResults(){
+  filteredData = sortListings(allData);
+  page = 1;
+  showListings();
 }
 
 /* LOAD DATA WITH CACHE-BUST */
@@ -146,28 +178,17 @@ async function loadAll(){
   localStorage.setItem("listingData", JSON.stringify(allData));
 }
 
-/* PRICE SEARCH ONLY */
+/* SEARCH + SORT */
 
 function applySearch(){
-  const search = document.getElementById("searchInput");
-  if(!search) return;
+  activeSearchPrice = normalizeSearchPriceInput(getSearchInputValue());
+  updateResults();
+}
 
-  let q = normalizeSearchText(search.value);
-
-  if(!q){
-    filteredData = [...allData];
-    page = 1;
-    showListings();
-    return;
-  }
-
-  filteredData = allData.filter(item => {
-    let tokens = buildPriceSearchTokens(item.price || "");
-    return tokens.some(token => token.includes(q) || q.includes(token));
-  });
-
-  page = 1;
-  showListings();
+function applySort(){
+  const sort = document.getElementById("sortSelect");
+  currentSort = sort ? sort.value : "default";
+  updateResults();
 }
 
 /* LISTING PAGE */
@@ -183,7 +204,11 @@ function showListings(){
   let items = source.slice(start, start + perPage);
 
   if(items.length === 0){
-    container.innerHTML = `<div class="info">No listings found.</div>`;
+    let noResultText = activeSearchPrice > 0
+      ? `No listings found near ${formatPrice(activeSearchPrice)}.`
+      : `No listings found.`;
+
+    container.innerHTML = `<div class="info">${noResultText}</div>`;
     renderPagination();
     return;
   }
@@ -196,7 +221,10 @@ function showListings(){
 
     card.innerHTML = `
       <a href="?id=${item.id}">
-        <img src="${cover ? withImageSize(cover, 'w600') : ''}" loading="lazy">
+        <div class="image-wrap">
+          <div class="img-skeleton"></div>
+          <img src="${cover ? withImageSize(cover, 'w600') : ''}" loading="lazy">
+        </div>
         <div class="info">
           <div class="price">${formatPrice(item.price)}</div>
           <div>${item.type || ""}</div>
@@ -206,6 +234,20 @@ function showListings(){
         </div>
       </a>
     `;
+
+    let img = card.querySelector("img");
+    let skeleton = card.querySelector(".img-skeleton");
+
+    if(img){
+      img.addEventListener("load", function(){
+        img.classList.add("loaded");
+        if(skeleton) skeleton.classList.add("hidden");
+      });
+
+      img.addEventListener("error", function(){
+        if(skeleton) skeleton.classList.add("hidden");
+      });
+    }
 
     container.appendChild(card);
   });
@@ -223,21 +265,44 @@ function renderPagination(){
 
   if(totalPages <= 1) return;
 
-  if(page > 1){
-    nav.innerHTML += `<button onclick="changePage(${page-1})">Previous</button>`;
-  }
+  function addButton(label, targetPage, isActive = false, isDisabled = false){
+    let button = document.createElement("button");
+    button.textContent = label;
 
-  for(let i = 1; i <= totalPages; i++){
-    if(i === page){
-      nav.innerHTML += `<button class="active-page">${i}</button>`;
-    }else{
-      nav.innerHTML += `<button onclick="changePage(${i})">${i}</button>`;
+    if(isActive) button.className = "active-page";
+    if(isDisabled) button.disabled = true;
+
+    if(!isDisabled && !isActive){
+      button.addEventListener("click", function(){
+        changePage(targetPage);
+      });
     }
+
+    nav.appendChild(button);
   }
 
-  if(page < totalPages){
-    nav.innerHTML += `<button onclick="changePage(${page+1})">Next</button>`;
+  function addEllipsis(){
+    let span = document.createElement("span");
+    span.className = "pagination-ellipsis";
+    span.textContent = "...";
+    nav.appendChild(span);
   }
+
+  addButton("Previous", page - 1, false, page === 1);
+
+  let pagesToShow = new Set([1, totalPages, page - 1, page, page + 1]);
+
+  Array.from(pagesToShow)
+    .filter(p => p >= 1 && p <= totalPages)
+    .sort((a, b) => a - b)
+    .forEach((p, index, arr) => {
+      if(index > 0 && p - arr[index - 1] > 1){
+        addEllipsis();
+      }
+      addButton(String(p), p, p === page, false);
+    });
+
+  addButton("Next", page + 1, false, page === totalPages);
 }
 
 function changePage(p){
@@ -260,76 +325,122 @@ function showProperty(){
     return;
   }
 
-  let i = 0;
+  let photos = Array.isArray(listing.photos) ? listing.photos : [];
 
-  function render(){
-    let currentPhoto = listing.photos[i] || "";
+  propertyViewState = {
+    listing,
+    index: 0,
+    isDownloading: false
+  };
 
-    container.innerHTML = `
-      <div class="topbar">
-        <button onclick="window.location='./'">← Back</button>
-        <button onclick="copyURL()">Copy URL</button>
-        <button onclick="downloadPhotos()">Download</button>
-      </div>
+  container.innerHTML = `
+    <div class="topbar">
+      <button id="backBtn">← Back</button>
+      <button id="copyBtn">Copy URL</button>
+      <button id="downloadBtn">Download</button>
+    </div>
 
-      <div class="gallery">
-        <img src="${currentPhoto ? withImageSize(currentPhoto, 'w1200') : ''}">
-        <button class="prev" onclick="prev()">❮</button>
-        <button class="next" onclick="next()">❯</button>
-      </div>
+    <div class="gallery">
+      <img id="propertyImage" src="">
+      <button class="prev" id="prevBtn">❮</button>
+      <button class="next" id="nextBtn">❯</button>
+    </div>
 
-      <div class="info">
-        <div class="price">${formatPrice(listing.price)}</div>
-        <div>${listing.type || ""}</div>
-        <div>${listing.floor || ""}</div>
-        <div>${formatRooms(listing.rooms, listing.baths, listing.parking)}</div>
-        <div>${listing.size || ""} sqft</div>
-      </div>
-    `;
+    <div class="info">
+      <div class="price">${formatPrice(listing.price)}</div>
+      <div>${listing.type || ""}</div>
+      <div>${listing.floor || ""}</div>
+      <div>${formatRooms(listing.rooms, listing.baths, listing.parking)}</div>
+      <div>${listing.size || ""} sqft</div>
+    </div>
+  `;
+
+  const image = document.getElementById("propertyImage");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const backBtn = document.getElementById("backBtn");
+  const copyBtn = document.getElementById("copyBtn");
+  const downloadBtn = document.getElementById("downloadBtn");
+
+  function updatePropertyImage(){
+    let currentPhoto = photos[propertyViewState.index] || "";
+    image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
+    prevBtn.disabled = propertyViewState.index <= 0;
+    nextBtn.disabled = propertyViewState.index >= photos.length - 1;
+
+    let nextPhoto = photos[propertyViewState.index + 1] || "";
+    let prevPhoto = photos[propertyViewState.index - 1] || "";
+
+    if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
+    if(prevPhoto) preloadImage(withImageSize(prevPhoto, "w1200"));
   }
 
-  window.next = function(){
-    if(i < listing.photos.length - 1){
-      i++;
-      render();
-    }
-  };
+  backBtn.addEventListener("click", function(){
+    window.location = "./";
+  });
 
-  window.prev = function(){
-    if(i > 0){
-      i--;
-      render();
-    }
-  };
-
-  window.copyURL = function(){
+  copyBtn.addEventListener("click", function(){
     navigator.clipboard.writeText(window.location.href);
     alert("Listing URL copied");
-  };
+  });
 
-  window.downloadPhotos = async function(){
-    let zip = new JSZip();
-    let folder = zip.folder("photos");
-
-    for(let i = 0; i < listing.photos.length; i++){
-      let url = listing.photos[i];
-
-      try{
-        let response = await fetch(withVersion(url), { cache: "no-store" });
-        let blob = await response.blob();
-        folder.file(`photo-${i+1}.jpg`, blob);
-      }catch(e){}
+  prevBtn.addEventListener("click", function(){
+    if(propertyViewState.index > 0){
+      propertyViewState.index--;
+      updatePropertyImage();
     }
+  });
 
-    let content = await zip.generateAsync({type:"blob"});
+  nextBtn.addEventListener("click", function(){
+    if(propertyViewState.index < photos.length - 1){
+      propertyViewState.index++;
+      updatePropertyImage();
+    }
+  });
 
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(content);
-    a.download = "listing-photos.zip";
-    a.click();
-  };
+  downloadBtn.addEventListener("click", async function(){
+    if(propertyViewState.isDownloading) return;
 
-  render();
+    propertyViewState.isDownloading = true;
+    downloadBtn.textContent = "Downloading...";
+    downloadBtn.disabled = true;
+
+    try{
+      let zip = new JSZip();
+      let folder = zip.folder("photos");
+
+      for(let i = 0; i < photos.length; i++){
+        let url = photos[i];
+
+        try{
+          let response = await fetch(withVersion(url), { cache: "no-store" });
+          let blob = await response.blob();
+          folder.file(`photo-${i+1}.jpg`, blob);
+        }catch(e){}
+      }
+
+      let content = await zip.generateAsync({type:"blob"});
+
+      let a = document.createElement("a");
+      a.href = URL.createObjectURL(content);
+      a.download = "listing-photos.zip";
+      a.click();
+
+      downloadBtn.textContent = "Done";
+      setTimeout(function(){
+        downloadBtn.textContent = "Download";
+        downloadBtn.disabled = false;
+        propertyViewState.isDownloading = false;
+      }, 1200);
+    }catch(e){
+      downloadBtn.textContent = "Download";
+      downloadBtn.disabled = false;
+      propertyViewState.isDownloading = false;
+      alert("Download failed");
+    }
+  });
+
+  updatePropertyImage();
 }
 
 /* INIT */
@@ -341,8 +452,14 @@ async function init(){
     showProperty();
   }else{
     const search = document.getElementById("searchInput");
+    const sort = document.getElementById("sortSelect");
+
     if(search){
       search.addEventListener("input", applySearch);
+    }
+
+    if(sort){
+      sort.addEventListener("change", applySort);
     }
 
     filteredData = [...allData];
@@ -351,6 +468,3 @@ async function init(){
 }
 
 init();
-
-
-
