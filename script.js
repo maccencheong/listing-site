@@ -8,20 +8,55 @@ let currentVersion = "";
 const id = new URLSearchParams(window.location.search).get("id");
 
 function parsePriceNumber(p){
-  if(!p) return 0;
+  if(p === null || p === undefined) return 0;
 
   let text = p.toString().toLowerCase().trim();
+  text = text.replace(/rm/g, "").replace(/\s+/g, "").replace(/,/g, "");
+
+  if(!text) return 0;
+
   let num = 0;
 
-  if(text.includes("k")){
-    num = parseFloat(text) * 1000;
-  }else if(text.includes("m")){
-    num = parseFloat(text) * 1000000;
+  if(text.endsWith("m")){
+    num = parseFloat(text.slice(0, -1)) * 1000000;
+  }else if(text.endsWith("k")){
+    num = parseFloat(text.slice(0, -1)) * 1000;
   }else{
-    num = parseFloat(text.replace(/,/g, ""));
+    num = parseFloat(text);
   }
 
-  return isNaN(num) ? 0 : num;
+  return isNaN(num) ? 0 : Math.round(num);
+}
+
+function normalizePriceSearchInput(q){
+  if(q === null || q === undefined) return 0;
+
+  let text = q.toString().toLowerCase().trim();
+  text = text.replace(/rm/g, "").replace(/\s+/g, "").replace(/,/g, "");
+
+  if(!text) return 0;
+
+  let num = 0;
+
+  if(text.endsWith("m")){
+    num = parseFloat(text.slice(0, -1)) * 1000000;
+  }else if(text.endsWith("k")){
+    num = parseFloat(text.slice(0, -1)) * 1000;
+  }else{
+    let raw = parseFloat(text);
+
+    if(isNaN(raw)) return 0;
+
+    if(raw >= 100000){
+      num = raw;
+    }else if(raw >= 1000){
+      num = raw * 1000;
+    }else{
+      num = raw;
+    }
+  }
+
+  return isNaN(num) ? 0 : Math.round(num);
 }
 
 function formatPrice(p){
@@ -38,45 +73,6 @@ function formatRooms(r,b,p){
   if(p) parts.push(p + "P");
 
   return parts.join(" ");
-}
-
-function makePriceSearchTokens(price){
-  let num = parsePriceNumber(price);
-  if(!num) return [];
-
-  let rounded = Math.round(num);
-  let thousand = Math.round(num / 1000);
-
-  return [
-    String(price || "").toLowerCase(),
-    String(rounded),
-    rounded.toLocaleString(),
-    "rm" + rounded,
-    "rm " + rounded,
-    "rm" + rounded.toLocaleString(),
-    "rm " + rounded.toLocaleString(),
-    String(thousand),
-    thousand + "k",
-    "rm " + thousand + "k"
-  ];
-}
-
-function makeSearchText(item){
-  let priceTokens = makePriceSearchTokens(item.price || "");
-
-  return [
-    ...priceTokens,
-    item.type || "",
-    item.floor || "",
-    item.rooms ? item.rooms + "r" : "",
-    item.baths ? item.baths + "b" : "",
-    item.parking ? item.parking + "p" : "",
-    item.rooms || "",
-    item.baths || "",
-    item.parking || "",
-    item.size || "",
-    formatRooms(item.rooms, item.baths, item.parking)
-  ].join(" ").toLowerCase();
 }
 
 function withVersion(url){
@@ -136,13 +132,13 @@ async function loadAll(){
   localStorage.setItem("listingData", JSON.stringify(allData));
 }
 
-/* SEARCH */
+/* PRICE SEARCH ONLY */
 
 function applySearch(){
   const search = document.getElementById("searchInput");
   if(!search) return;
 
-  let q = search.value.trim().toLowerCase();
+  let q = search.value.trim();
 
   if(!q){
     filteredData = [...allData];
@@ -151,18 +147,18 @@ function applySearch(){
     return;
   }
 
-  let keywords = q.split(/\s+/).filter(Boolean);
+  let targetPrice = normalizePriceSearchInput(q);
+
+  if(!targetPrice){
+    filteredData = [...allData];
+    page = 1;
+    showListings();
+    return;
+  }
 
   filteredData = allData.filter(item => {
-    let text = makeSearchText(item);
-    let priceText = makePriceSearchTokens(item.price || "").join(" ").toLowerCase();
-
-    return keywords.every(k => {
-      if(/^\d+(\.\d+)?k?$/.test(k)){
-        return priceText.includes(k) || text.includes(k);
-      }
-      return text.includes(k);
-    });
+    let itemPrice = parsePriceNumber(item.price || "");
+    return itemPrice === targetPrice;
   });
 
   page = 1;
