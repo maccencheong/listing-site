@@ -25,17 +25,7 @@ function parsePriceNumber(p){
   }else if(text.endsWith("k")){
     num = parseFloat(text.slice(0, -1)) * 1000;
   }else{
-    let raw = parseFloat(text);
-
-    if(isNaN(raw)) return 0;
-
-    if(raw >= 100000){
-      num = raw;
-    }else if(raw >= 1000){
-      num = raw * 1000;
-    }else{
-      num = raw;
-    }
+    num = parseFloat(text);
   }
 
   return isNaN(num) ? 0 : Math.round(num);
