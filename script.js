@@ -3,6 +3,7 @@ const perPage = 50;
 let page = 1;
 let allData = [];
 let filteredData = [];
+let currentVersion = "";
 
 const id = new URLSearchParams(window.location.search).get("id");
 
@@ -78,16 +79,39 @@ function makeSearchText(item){
   ].join(" ").toLowerCase();
 }
 
-/* LOAD DATA WITH CACHE */
+function withVersion(url){
+  if(!currentVersion) return url;
+  return url + (url.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(currentVersion);
+}
+
+function withImageSize(url, size){
+  if(!url) return "";
+  let finalUrl = withVersion(url);
+  return finalUrl + (finalUrl.includes("?") ? "&" : "?") + size;
+}
+
+/* LOAD DATA WITH CACHE-BUST */
+
+async function fetchJsonNoCache(url){
+  let res = await fetch(url, {
+    cache: "no-store"
+  });
+
+  if(!res.ok){
+    throw new Error("Failed to fetch " + url + " | " + res.status);
+  }
+
+  return res.json();
+}
 
 async function loadAll(){
-  let version = await fetch(
-    "https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json"
-  ).then(r => r.json());
+  let versionUrl = "https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json?t=" + Date.now();
+  let version = await fetchJsonNoCache(versionUrl);
 
+  currentVersion = String(version.version || "");
   let cacheVersion = localStorage.getItem("listingVersion");
 
-  if(cacheVersion == version.version){
+  if(cacheVersion === currentVersion){
     let cached = localStorage.getItem("listingData");
 
     if(cached){
@@ -97,19 +121,18 @@ async function loadAll(){
     }
   }
 
-  let pages = version.pages;
+  let pages = Number(version.pages || 0);
   allData = [];
 
   for(let i = 1; i <= pages; i++){
-    let url = `https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`;
-    let res = await fetch(url);
-    let data = await res.json();
+    let url = withVersion(`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`);
+    let data = await fetchJsonNoCache(url);
     allData = allData.concat(data);
   }
 
   filteredData = [...allData];
 
-  localStorage.setItem("listingVersion", version.version);
+  localStorage.setItem("listingVersion", currentVersion);
   localStorage.setItem("listingData", JSON.stringify(allData));
 }
 
@@ -172,7 +195,7 @@ function showListings(){
 
     card.innerHTML = `
       <a href="?id=${item.id}">
-        <img src="${cover ? cover + '=w600' : ''}" loading="lazy">
+        <img src="${cover ? withImageSize(cover, 'w600') : ''}" loading="lazy">
         <div class="info">
           <div class="price">${formatPrice(item.price)}</div>
           <div>${item.type || ""}</div>
@@ -239,6 +262,8 @@ function showProperty(){
   let i = 0;
 
   function render(){
+    let currentPhoto = listing.photos[i] || "";
+
     container.innerHTML = `
       <div class="topbar">
         <button onclick="window.location='./'">← Back</button>
@@ -247,7 +272,7 @@ function showProperty(){
       </div>
 
       <div class="gallery">
-        <img src="${listing.photos[i]}=w1200">
+        <img src="${currentPhoto ? withImageSize(currentPhoto, 'w1200') : ''}">
         <button class="prev" onclick="prev()">❮</button>
         <button class="next" onclick="next()">❯</button>
       </div>
@@ -289,7 +314,7 @@ function showProperty(){
       let url = listing.photos[i];
 
       try{
-        let response = await fetch(url);
+        let response = await fetch(withVersion(url), { cache: "no-store" });
         let blob = await response.blob();
         folder.file(`photo-${i+1}.jpg`, blob);
       }catch(e){}
