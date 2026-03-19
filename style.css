@@ -16,13 +16,26 @@ color:inherit;
 text-decoration:none;
 }
 
-.search-box{
-text-align:center;
+.toolbar{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
 margin:0 auto 20px;
 padding:0 16px;
+max-width:900px;
+box-sizing:border-box;
 }
 
-.search-box input{
+.search-box,
+.sort-box{
+display:flex;
+justify-content:center;
+}
+
+.search-box input,
+.sort-box select{
 width:360px;
 max-width:100%;
 padding:12px 14px;
@@ -34,7 +47,13 @@ background:#fff;
 box-sizing:border-box;
 }
 
-.search-box input:focus{
+.sort-box select{
+width:220px;
+cursor:pointer;
+}
+
+.search-box input:focus,
+.sort-box select:focus{
 border-color:#999;
 box-shadow:0 0 0 3px rgba(0,0,0,0.06);
 }
@@ -62,12 +81,38 @@ transform:translateY(-6px);
 box-shadow:0 12px 26px rgba(0,0,0,0.2);
 }
 
+.image-wrap{
+position:relative;
+width:100%;
+height:220px;
+overflow:hidden;
+background:#eee;
+}
+
+.img-skeleton{
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,#efefef 25%,#f7f7f7 50%,#efefef 75%);
+background-size:200% 100%;
+animation:skeleton-shimmer 1.3s infinite;
+}
+
+.img-skeleton.hidden{
+display:none;
+}
+
 .card img{
 width:100%;
 height:220px;
 object-fit:cover;
 display:block;
 background:#eee;
+opacity:0;
+transition:opacity 0.2s ease;
+}
+
+.card img.loaded{
+opacity:1;
 }
 
 .info{
@@ -95,11 +140,16 @@ margin-bottom:8px;
 text-align:center;
 margin:20px;
 padding:0 10px 20px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:6px;
+flex-wrap:wrap;
 }
 
 #pagination button{
 padding:8px 14px;
-margin:4px;
+margin:0;
 border:none;
 background:#333;
 color:white;
@@ -112,11 +162,21 @@ transition:0.2s;
 background:#555;
 }
 
+#pagination button:disabled{
+opacity:0.45;
+cursor:not-allowed;
+}
+
 .active-page{
 background:#ff6600 !important;
 color:white !important;
 font-weight:bold;
 transform:scale(1.05);
+}
+
+.pagination-ellipsis{
+padding:0 4px;
+color:#666;
 }
 
 #property{
@@ -145,6 +205,11 @@ transition:0.2s;
 
 .topbar button:hover{
 background:#333;
+}
+
+.topbar button:disabled{
+opacity:0.6;
+cursor:not-allowed;
 }
 
 .gallery{
@@ -179,6 +244,11 @@ cursor:pointer;
 border-radius:8px;
 }
 
+.gallery button:disabled{
+opacity:0.35;
+cursor:not-allowed;
+}
+
 .gallery .prev{
 left:10px;
 }
@@ -202,6 +272,11 @@ font-size:24px;
 margin-bottom:10px;
 }
 
+@keyframes skeleton-shimmer{
+0%{background-position:200% 0;}
+100%{background-position:-200% 0;}
+}
+
 @media(max-width:600px){
 
 h1{
@@ -209,11 +284,20 @@ font-size:24px;
 margin:18px 0;
 }
 
-.search-box{
+.toolbar{
 margin-bottom:16px;
+padding:0 12px;
+gap:10px;
 }
 
-.search-box input{
+.search-box,
+.sort-box{
+width:100%;
+}
+
+.search-box input,
+.sort-box select{
+width:100%;
 font-size:15px;
 padding:11px 12px;
 }
@@ -223,6 +307,7 @@ padding:16px;
 gap:16px;
 }
 
+.image-wrap,
 .card img{
 height:200px;
 }
@@ -233,7 +318,6 @@ padding-bottom:20px;
 }
 
 #pagination button{
-margin:4px;
 padding:8px 12px;
 border:1px solid #ccc;
 background:white;
