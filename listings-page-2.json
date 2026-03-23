@@ -1,5 +1,33 @@
 [
   {
+    "id": "sPoztuEPLR",
+    "price": "2100",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "3",
+    "parking": "2",
+    "size": "1200",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1h0fuS3igcnpP6VFjLqqGs1-HCe1K1O-f",
+      "https://lh3.googleusercontent.com/d/1TRnH5nRYZ4YSaOMKbyZ-3_Le-Eprz2aX",
+      "https://lh3.googleusercontent.com/d/1eQD88ZruaGOQiPNknWgxSIdujur1PXXy",
+      "https://lh3.googleusercontent.com/d/13Q9zBgZJAX0JEYCAaz0q8D9Rbvntanm8",
+      "https://lh3.googleusercontent.com/d/1v7vaWB9Vxi2zTyCu4qGxPpcvfn9SrvrM",
+      "https://lh3.googleusercontent.com/d/1obyBXqeTEIXsVmtdmIH50zTmj6geRb0V",
+      "https://lh3.googleusercontent.com/d/1to2ywGLUWfCr0vmpK29A_3q2uVQNn6tN",
+      "https://lh3.googleusercontent.com/d/1rVeg1Nl6TpWyEMhQ47cN_F4mNBdJBvzp",
+      "https://lh3.googleusercontent.com/d/1MG-b696DI3zGjpkGYqozKEEsVJOXTIMw",
+      "https://lh3.googleusercontent.com/d/13NapbOlCV0MRu--kE6TxS7eKOgtRnega",
+      "https://lh3.googleusercontent.com/d/1hxl7owbjT3t_oT0sM_kfAszEmrTldxEi",
+      "https://lh3.googleusercontent.com/d/1yKt0RCUJB6zvqRI7QzthNZ01jZwpCTDt",
+      "https://lh3.googleusercontent.com/d/1aux5QbqABCGLONVOXSqPrQOcf3AXWmsD",
+      "https://lh3.googleusercontent.com/d/1UW5j53xXMVLyiZrv7bbFM8hBfvSnX_7o",
+      "https://lh3.googleusercontent.com/d/1CmFEYrRLOyYEz9QMGLBG96Y5Qbng7C9g"
+    ],
+    "video": ""
+  },
+  {
     "id": "U9FeI1m8uf",
     "price": "1400",
     "type": "Apartment",
