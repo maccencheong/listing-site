@@ -745,25 +745,6 @@
     "video": ""
   },
   {
-    "id": "L6WSySvGyV",
-    "price": "400K",
-    "type": "Shop Lot / Service Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "864",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1E457Xn4dsDNf7w-kLfMXUeKISUBzBCnS",
-      "https://lh3.googleusercontent.com/d/1eCQdjJR-h2jEF49ySXKFn010EUuhj2bH",
-      "https://lh3.googleusercontent.com/d/1TXeEO3Spa9YZAC8koQfhBnsaa5wgpwxq",
-      "https://lh3.googleusercontent.com/d/1VAY9flpBYk9Y6naHkhRUkGG8Psyb1cXb",
-      "https://lh3.googleusercontent.com/d/14ysEeCXYhBxhy_a94cSm7x5-fChJ3WKa",
-      "https://lh3.googleusercontent.com/d/1BGtEYh2ohBcfm8gKvHuocrw-W4KgXDPz"
-    ],
-    "video": ""
-  },
-  {
     "id": "ozCF0xUKP1",
     "price": "368K",
     "type": "Apartment",
@@ -1270,6 +1251,29 @@
       "https://lh3.googleusercontent.com/d/1ruRrXBU2sLQyK5I4QuEc7dL8jUfTt9Mg",
       "https://lh3.googleusercontent.com/d/1QMEAQhLr0VrbvxVkllFgiC876thmWKhm",
       "https://lh3.googleusercontent.com/d/1U_IKh2KqQnGoVDepDsCSwxxCLQs7kOWT"
+    ],
+    "video": ""
+  },
+  {
+    "id": "1vURhfYA_v",
+    "price": "1700",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1200",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1wf4FPVUbMF51wPXPK1ta7DDVFNi38NPi",
+      "https://lh3.googleusercontent.com/d/1z_YB97T_8QMhFSHAH7yEv8uzFoXvyRdD",
+      "https://lh3.googleusercontent.com/d/197EPys72gEiCTSlji6zsBelWlg7MsSkb",
+      "https://lh3.googleusercontent.com/d/15nJm4bzW06UDQ69WktUIV6QN9jZo7Q21",
+      "https://lh3.googleusercontent.com/d/1CQz8SoA7p8tKnbOL2G6MCxCFYqqhAvZ3",
+      "https://lh3.googleusercontent.com/d/1BTLC_KlJeN0yDAvnJYSu6UBtIHZtP26N",
+      "https://lh3.googleusercontent.com/d/1oSDZstV2l04w0fNtd02R7iUMkPzwf5o5",
+      "https://lh3.googleusercontent.com/d/1L3uatKXgEoTCsfEzKQv5ieLIZURYDbms",
+      "https://lh3.googleusercontent.com/d/1nNDxcNl4DA08-Y2MgjZUXRE17LfP-ryL",
+      "https://lh3.googleusercontent.com/d/1z2iLIN7aeobtvpS5G5UBKt6I0vGi0L-G"
     ],
     "video": ""
   }
