@@ -311,30 +311,6 @@
     "video": ""
   },
   {
-    "id": "YwYyLQ64Cf",
-    "price": "2000",
-    "type": "Condominium",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1009",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1-tT-U1Q6oLU_fBgFVBuTUW7COQ8ezqH1",
-      "https://lh3.googleusercontent.com/d/1V-TcL9PttvOFVJOgfHkSU7KYRDl5rCJl",
-      "https://lh3.googleusercontent.com/d/17d4K8OR-bkwZsOKTgH1nkV5vq4KpXH-K",
-      "https://lh3.googleusercontent.com/d/1t9VeiUlSulyVYiC7PV9XS0WjJVuyOeak",
-      "https://lh3.googleusercontent.com/d/1MGxCpR_84lYAh-5C0DXBftJ7JLW4gIvC",
-      "https://lh3.googleusercontent.com/d/1Vxkad9PiSVv7wm0ntl3qIp_RbZpK9G-v",
-      "https://lh3.googleusercontent.com/d/1Qq36LgIzl6xWIwADpVWjPNY8GJLTM_Kl",
-      "https://lh3.googleusercontent.com/d/1An1Jp_sKzNhd6dY60U-JCOwi_7R-6Otn",
-      "https://lh3.googleusercontent.com/d/1nRJWss9ixXzf1nMshyuAUgscAb-ml_1V",
-      "https://lh3.googleusercontent.com/d/1ubxw-UsAPXWhPEW6jQdFNnxq-B5CN857",
-      "https://lh3.googleusercontent.com/d/1S8MKLtYjsODFR0WjdrDAYsJ7mnF8Sydt"
-    ],
-    "video": ""
-  },
-  {
     "id": "58YZlNiI_B",
     "price": "3000",
     "type": "Condominium",
@@ -1375,6 +1351,23 @@
       "https://lh3.googleusercontent.com/d/1uJA5vxMhSS_cJWDfyEUFCL21GOn7nLwK",
       "https://lh3.googleusercontent.com/d/1EosYHl9FPdD7WEyJ6z_0RjLE6-QfzNG1",
       "https://lh3.googleusercontent.com/d/1UTQCVDvQlatfvhClvtbu28D7PaUlOCEb"
+    ],
+    "video": ""
+  },
+  {
+    "id": "Eif2kgQGYT",
+    "price": "330K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1000",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1ubdCf6DDm2JrtFKgRN7-IvyJ-2pmpCF2",
+      "https://lh3.googleusercontent.com/d/1E69GjJWvBEhRJ40_lspO_565ebmrrc2A",
+      "https://lh3.googleusercontent.com/d/1I9HP3WFYRXMulTn2k7kTrX0b0HAtGCki",
+      "https://lh3.googleusercontent.com/d/1dLfnYvSubZCvIQRTPedV1Dd0RTLwS13X"
     ],
     "video": ""
   }
