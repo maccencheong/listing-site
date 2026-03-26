@@ -370,7 +370,7 @@ function showProperty(){
   });
 
   copyBtn.addEventListener("click", function(){
-  const url = window.location.origin + "/listing/" + id + ".html";
+  const url = window.location.origin + "/listing-site/listing/" + id + ".html";
   navigator.clipboard.writeText(url);
   alert("Listing URL copied");
 });
