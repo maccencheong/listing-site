@@ -370,9 +370,10 @@ function showProperty(){
   });
 
   copyBtn.addEventListener("click", function(){
-    navigator.clipboard.writeText(window.location.href);
-    alert("Listing URL copied");
-  });
+  const url = window.location.origin + "/listing/" + id + ".html";
+  navigator.clipboard.writeText(url);
+  alert("Listing URL copied");
+});
 
   prevBtn.addEventListener("click", function(){
     if(propertyViewState.index > 0){
