@@ -58,6 +58,29 @@
     "video": ""
   },
   {
+    "id": "zbXUBfQf7Q",
+    "price": "480K",
+    "type": "Terrace",
+    "floor": "1Sty",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1000",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1huCSi23sMB7-BpOv3bmVyRWXU3aVB_vE",
+      "https://lh3.googleusercontent.com/d/10YZPghXe5li9xdq0BGSnh5AoEhMPL2s6",
+      "https://lh3.googleusercontent.com/d/164tqqnTx5oo3SexySevwk8Dt0YXBFANI",
+      "https://lh3.googleusercontent.com/d/1Lm8QBc9iff1Z0Bkk1WJUbO5mZluc9Aqq",
+      "https://lh3.googleusercontent.com/d/1NeN-KbraR8oooxYvp59-aDpyroxjUq29",
+      "https://lh3.googleusercontent.com/d/1OEFlmM7kclTeQ6-JXILahBWQmofXmJAA",
+      "https://lh3.googleusercontent.com/d/1XrvYVEj7VpYWSthnG0TJgLpHvA9pQ11J",
+      "https://lh3.googleusercontent.com/d/1nydeoELPgXsp9lh4mstxizVIlVq5jAhl",
+      "https://lh3.googleusercontent.com/d/1ulGS2vbTZnIEOD8FY66yUHRdO1pkPb5E",
+      "https://lh3.googleusercontent.com/d/1zqQuIouG472FWu1hqcUAmK3IYfp6kbAQ"
+    ],
+    "video": ""
+  },
+  {
     "id": "8H5SD6HzHc",
     "price": "560K",
     "type": "Condominium",
@@ -1247,29 +1270,6 @@
       "https://lh3.googleusercontent.com/d/1ruRrXBU2sLQyK5I4QuEc7dL8jUfTt9Mg",
       "https://lh3.googleusercontent.com/d/1QMEAQhLr0VrbvxVkllFgiC876thmWKhm",
       "https://lh3.googleusercontent.com/d/1U_IKh2KqQnGoVDepDsCSwxxCLQs7kOWT"
-    ],
-    "video": ""
-  },
-  {
-    "id": "1vURhfYA_v",
-    "price": "1700",
-    "type": "Condominium",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1200",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1wf4FPVUbMF51wPXPK1ta7DDVFNi38NPi",
-      "https://lh3.googleusercontent.com/d/1z_YB97T_8QMhFSHAH7yEv8uzFoXvyRdD",
-      "https://lh3.googleusercontent.com/d/197EPys72gEiCTSlji6zsBelWlg7MsSkb",
-      "https://lh3.googleusercontent.com/d/15nJm4bzW06UDQ69WktUIV6QN9jZo7Q21",
-      "https://lh3.googleusercontent.com/d/1CQz8SoA7p8tKnbOL2G6MCxCFYqqhAvZ3",
-      "https://lh3.googleusercontent.com/d/1BTLC_KlJeN0yDAvnJYSu6UBtIHZtP26N",
-      "https://lh3.googleusercontent.com/d/1oSDZstV2l04w0fNtd02R7iUMkPzwf5o5",
-      "https://lh3.googleusercontent.com/d/1L3uatKXgEoTCsfEzKQv5ieLIZURYDbms",
-      "https://lh3.googleusercontent.com/d/1nNDxcNl4DA08-Y2MgjZUXRE17LfP-ryL",
-      "https://lh3.googleusercontent.com/d/1z2iLIN7aeobtvpS5G5UBKt6I0vGi0L-G"
     ],
     "video": ""
   }
