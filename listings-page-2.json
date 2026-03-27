@@ -1,5 +1,24 @@
 [
   {
+    "id": "Iv_yKONMCH",
+    "price": "2400",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "332",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1Og9FV8SuI7L87xvDVBSw6d0y9TSn_aQt",
+      "https://lh3.googleusercontent.com/d/1der51_J6ELr-ho3I7nf4r13gJUWMBsnB",
+      "https://lh3.googleusercontent.com/d/1F4T8dHmQPTQdJ8JqfNxTKr7xpOi-WSy3",
+      "https://lh3.googleusercontent.com/d/1AQE4pdLfF1lg2jCyUFXE7awx5f2dxBUy",
+      "https://lh3.googleusercontent.com/d/13K0qEAA-k8kHZEPueZROgSBve_-MKgW0",
+      "https://lh3.googleusercontent.com/d/1pmGMXhknK0GszZkiLnRs06JYTin2Z9-D"
+    ],
+    "video": ""
+  },
+  {
     "id": "a__6s35Zsv",
     "price": "1700",
     "type": "Condominium",
@@ -1339,29 +1358,6 @@
       "https://lh3.googleusercontent.com/d/1POoNyJEYQRdre9y4JzYJge4pLQIefMCa",
       "https://lh3.googleusercontent.com/d/19FQrD9nsoUQ8PqMe01eeGrh8uIsc-ezv",
       "https://lh3.googleusercontent.com/d/14o0preiMfTXID-oc6xm4sDd9HPowI2Bc"
-    ],
-    "video": ""
-  },
-  {
-    "id": "XVBrRmye0K",
-    "price": "1700",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1000",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1rW4VwBDLnfVPrc-hd7Zfn0qNNhXBtIG4",
-      "https://lh3.googleusercontent.com/d/1Eu38toirfauVulT4swnG6st8M_r1G2NZ",
-      "https://lh3.googleusercontent.com/d/1VuyqO2BW10cyLfCZJwJQ-CjkSqvngFDA",
-      "https://lh3.googleusercontent.com/d/1voBXB-C3MgmsAJSJ-jjkQn6rvLiXiesq",
-      "https://lh3.googleusercontent.com/d/1jLq5yQI0FdjruPDe6DiJmbEfWyUn91hI",
-      "https://lh3.googleusercontent.com/d/15nxs8bz8i66rP-jv04IUvSffSAjYCkJh",
-      "https://lh3.googleusercontent.com/d/1Fe9HYceV25oqbf6PfAUTBaoT81JHlNnW",
-      "https://lh3.googleusercontent.com/d/18W-QWQ1UiO76Mpjen8NdBBCtuhPo5X5x",
-      "https://lh3.googleusercontent.com/d/1mGPEl5LpqYfqW_KQxNzfF4TSHmU56D5V",
-      "https://lh3.googleusercontent.com/d/1TCElysDlCF5wiA2XYfM7YHztEu1AcYM8"
     ],
     "video": ""
   }
