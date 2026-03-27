@@ -1,44 +1,5 @@
 [
   {
-    "id": "XDV7UkRN1U",
-    "price": "220K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "1",
-    "size": "721",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1B2Ba6DH3zgI1fSNGp7Xzmzem2n--FTpA",
-      "https://lh3.googleusercontent.com/d/1CexXXO5oZ-k2yvFsa7jshlsMyCSJ4rJE",
-      "https://lh3.googleusercontent.com/d/1F5KfPO6-w7gqU2iPf0goSUD5GZBE7_yA",
-      "https://lh3.googleusercontent.com/d/1HJnbIz0VQLh3oqwlP8VksYZAoaTE_SCm",
-      "https://lh3.googleusercontent.com/d/1S-I81246ZX3CT1Co42Tc9LryvA8uRWj8",
-      "https://lh3.googleusercontent.com/d/1accRe8c10cDVLGeBEndy4pLZLMX3OW3Y",
-      "https://lh3.googleusercontent.com/d/1h7OB4i25q5ondXLsGkPKcPyZaDRfC0Qe",
-      "https://lh3.googleusercontent.com/d/1pJXvA6cuL3TzKqjY-JpMMXHtJGLhgyU8",
-      "https://lh3.googleusercontent.com/d/1vLocWaY1sHZ2SdQaKYKuNW_xV1jS3uN6",
-      "https://lh3.googleusercontent.com/d/14fujRUNpId17XJhVuYF8KvehOJy6ytqx",
-      "https://lh3.googleusercontent.com/d/18S7kJvDWLerU6y6cSsVtcAhGOTozDhz2",
-      "https://lh3.googleusercontent.com/d/1B5ANwmAQRA7M-CooEtS167s6dXlynb0M",
-      "https://lh3.googleusercontent.com/d/1DiTuZmwHuj1_-1LNAqX7suu4zZEqKlwq",
-      "https://lh3.googleusercontent.com/d/1F1QE-_1OdR5NyyQ6rRENRt0aC8okhPHW",
-      "https://lh3.googleusercontent.com/d/1IM05Mh525DvCE4gEFnSncglMjbx77jlP",
-      "https://lh3.googleusercontent.com/d/1OdWDlndWWO7U5BY90WkFvx9oYZbG3Ykp",
-      "https://lh3.googleusercontent.com/d/1bU0qMO07GEK_HSiivoY4QcDjWrB-gjSm",
-      "https://lh3.googleusercontent.com/d/1eLCQu585PwLFo255FFPfaEb89k2kcZhC",
-      "https://lh3.googleusercontent.com/d/1ne0tDggDLU3KpXQesB9j1R-M8RDAh0Vo",
-      "https://lh3.googleusercontent.com/d/1oDXC6QKsQ9dvPsC5JEUwkbN_bX_S1UPA",
-      "https://lh3.googleusercontent.com/d/1sRogEUZHiPWpjTFf-p2sVqusHVL6guR7",
-      "https://lh3.googleusercontent.com/d/1tQtePFN0RZ55Xb4tCaqiU0t9IfEzPiMS",
-      "https://lh3.googleusercontent.com/d/1wriDpDYiEpoQVcihU6sh3ZezI8oTxERp",
-      "https://lh3.googleusercontent.com/d/1xpQUNQR4f5dBokiR_cUqSvyLsIYR5awN",
-      "https://lh3.googleusercontent.com/d/1ycqUGYCGSWZEvN1czdfyTDsz7caccTwy",
-      "https://lh3.googleusercontent.com/d/1yslfNB6Iq7XNwwjRcx3Nc2h6f-EnJjai"
-    ],
-    "video": ""
-  },
-  {
     "id": "ounZRkHX-Z",
     "price": "380K",
     "type": "Terrace",
@@ -1285,6 +1246,30 @@
       "https://lh3.googleusercontent.com/d/1Ej5XQxQGvw0UBiIzyPmjy5zY2SRdF7T8",
       "https://lh3.googleusercontent.com/d/15UA7XNH-rQTglzyB9SJo3LHgHR2Aaj1p",
       "https://lh3.googleusercontent.com/d/1eywBT8i68mYxgmu_0yF1xEzZq5ZojCyn"
+    ],
+    "video": ""
+  },
+  {
+    "id": "wpK4TKt2hx",
+    "price": "1800",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1140",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1BFbUMVzJk6qySLm5kpO2-G3OydiLpE5p",
+      "https://lh3.googleusercontent.com/d/18cDXBKl6xeUyQj3o6_qWSpM2g-QU9KXy",
+      "https://lh3.googleusercontent.com/d/1fTPiosdc9_mGgmGei2blz8C5L9skBn9M",
+      "https://lh3.googleusercontent.com/d/1kyMDSRensPPOrnlZsWjaQdYgrS_7GdkT",
+      "https://lh3.googleusercontent.com/d/18g40IWIvzITIJrwqAtWqyri9CM6ZRDtr",
+      "https://lh3.googleusercontent.com/d/1ZJJUXVTjNv-Ge-1dfJ4F64yc0-6Y1Oxa",
+      "https://lh3.googleusercontent.com/d/1bDM6ivwUaw5evDKubcm8hXVhahualGmV",
+      "https://lh3.googleusercontent.com/d/1sKFlkhPaEWIhoe9e-_3ahJ0vqfSLOlpi",
+      "https://lh3.googleusercontent.com/d/1ruRrXBU2sLQyK5I4QuEc7dL8jUfTt9Mg",
+      "https://lh3.googleusercontent.com/d/1QMEAQhLr0VrbvxVkllFgiC876thmWKhm",
+      "https://lh3.googleusercontent.com/d/1U_IKh2KqQnGoVDepDsCSwxxCLQs7kOWT"
     ],
     "video": ""
   }
