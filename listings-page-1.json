@@ -1,5 +1,19 @@
 [
   {
+    "id": "PKTG6-t3it",
+    "price": "1.3K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "900",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
+    ],
+    "video": ""
+  },
+  {
     "id": "UT45k9zICl",
     "price": "1.6K",
     "type": "Apartment",
@@ -1240,29 +1254,6 @@
       "https://lh3.googleusercontent.com/d/1AQE4pdLfF1lg2jCyUFXE7awx5f2dxBUy",
       "https://lh3.googleusercontent.com/d/13K0qEAA-k8kHZEPueZROgSBve_-MKgW0",
       "https://lh3.googleusercontent.com/d/1pmGMXhknK0GszZkiLnRs06JYTin2Z9-D"
-    ],
-    "video": ""
-  },
-  {
-    "id": "a__6s35Zsv",
-    "price": "1700",
-    "type": "Condominium",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1140",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1DhS_a57hFtkDOUtytVrNBV8KCjEpagjJ",
-      "https://lh3.googleusercontent.com/d/1mR4VnLHxG1PcqDGUttWnjx94KgBGI5C9",
-      "https://lh3.googleusercontent.com/d/1tMzzPCdIvcDAs6fnhSyLV8azImF5w6x2",
-      "https://lh3.googleusercontent.com/d/1Ht7XuJpCLQqvqy3gaAW3WrayzMT2ygN5",
-      "https://lh3.googleusercontent.com/d/1Y0edKEvV_7nndLnOvSwSyzpeq3kYSJRj",
-      "https://lh3.googleusercontent.com/d/10nHWS0Sc7TtAh8L7Knpe7Ky4NztC6dAR",
-      "https://lh3.googleusercontent.com/d/1-4AVeaULuR1qOHPrV7r9RTfqkfOcbCce",
-      "https://lh3.googleusercontent.com/d/1Ej5XQxQGvw0UBiIzyPmjy5zY2SRdF7T8",
-      "https://lh3.googleusercontent.com/d/15UA7XNH-rQTglzyB9SJo3LHgHR2Aaj1p",
-      "https://lh3.googleusercontent.com/d/1eywBT8i68mYxgmu_0yF1xEzZq5ZojCyn"
     ],
     "video": ""
   }
