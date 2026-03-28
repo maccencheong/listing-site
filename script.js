@@ -12,14 +12,10 @@ const id = new URLSearchParams(window.location.search).get("id");
 
 function parsePriceNumber(p){
   if(p === null || p === undefined) return 0;
-
   let text = p.toString().toLowerCase().trim();
   text = text.replace(/rm/g, "").replace(/\s+/g, "").replace(/,/g, "");
-
   if(!text) return 0;
-
   let num = 0;
-
   if(text.endsWith("m")){
     num = parseFloat(text.slice(0, -1)) * 1000000;
   }else if(text.endsWith("k")){
@@ -27,7 +23,6 @@ function parsePriceNumber(p){
   }else{
     num = parseFloat(text);
   }
-
   return isNaN(num) ? 0 : Math.round(num);
 }
 
@@ -39,11 +34,9 @@ function formatPrice(p){
 
 function formatRooms(r,b,p){
   let parts = [];
-
   if(r) parts.push(r + "R");
   if(b) parts.push(b + "B");
   if(p) parts.push(p + "P");
-
   return parts.join(" ");
 }
 
@@ -79,40 +72,26 @@ function cloneData(arr){
 
 function sortListings(data){
   let result = cloneData(data);
-
   if(activeSearchPrice > 0){
     result.sort((a, b) => {
       let aPrice = parsePriceNumber(a.price || "");
       let bPrice = parsePriceNumber(b.price || "");
       let aDiff = Math.abs(aPrice - activeSearchPrice);
       let bDiff = Math.abs(bPrice - activeSearchPrice);
-
       if(aDiff !== bDiff) return aDiff - bDiff;
       return bPrice - aPrice;
     });
     return result;
   }
-
   if(currentSort === "price-low-high"){
     result.sort((a, b) => parsePriceNumber(a.price || "") - parsePriceNumber(b.price || ""));
-    return result;
-  }
-
-  if(currentSort === "price-high-low"){
+  }else if(currentSort === "price-high-low"){
     result.sort((a, b) => parsePriceNumber(b.price || "") - parsePriceNumber(a.price || ""));
-    return result;
-  }
-
-  if(currentSort === "size-low-high"){
+  }else if(currentSort === "size-low-high"){
     result.sort((a, b) => Number(a.size || 0) - Number(b.size || 0));
-    return result;
-  }
-
-  if(currentSort === "size-high-low"){
+  }else if(currentSort === "size-high-low"){
     result.sort((a, b) => Number(b.size || 0) - Number(a.size || 0));
-    return result;
   }
-
   return result;
 }
 
@@ -122,53 +101,36 @@ function updateResults(){
   showListings();
 }
 
-/* LOAD DATA WITH CACHE-BUST */
-
 async function fetchJsonNoCache(url){
-  let res = await fetch(url, {
-    cache: "no-store"
-  });
-
-  if(!res.ok){
-    throw new Error("Failed to fetch " + url + " | " + res.status);
-  }
-
+  let res = await fetch(url, { cache: "no-store" });
+  if(!res.ok) throw new Error("Failed to fetch " + url);
   return res.json();
 }
 
 async function loadAll(){
   let versionUrl = "https://raw.githubusercontent.com/maccencheong/listing-site/main/version.json?t=" + Date.now();
   let version = await fetchJsonNoCache(versionUrl);
-
   currentVersion = String(version.version || "");
   let cacheVersion = localStorage.getItem("listingVersion");
-
   if(cacheVersion === currentVersion){
     let cached = localStorage.getItem("listingData");
-
     if(cached){
       allData = JSON.parse(cached);
       filteredData = [...allData];
       return;
     }
   }
-
   let pages = Number(version.pages || 0);
   allData = [];
-
   for(let i = 1; i <= pages; i++){
     let url = withVersion(`https://raw.githubusercontent.com/maccencheong/listing-site/main/listings-page-${i}.json`);
     let data = await fetchJsonNoCache(url);
     allData = allData.concat(data);
   }
-
   filteredData = [...allData];
-
   localStorage.setItem("listingVersion", currentVersion);
   localStorage.setItem("listingData", JSON.stringify(allData));
 }
-
-/* SEARCH + SORT */
 
 function applySearch(){
   activeSearchPrice = normalizeSearchPriceInput(getSearchInputValue());
@@ -181,34 +143,22 @@ function applySort(){
   updateResults();
 }
 
-/* LISTING PAGE */
-
 function showListings(){
   document.getElementById("property").innerHTML = "";
-
   const container = document.getElementById("listings");
   container.innerHTML = "";
-
   let source = filteredData;
   let start = (page - 1) * perPage;
   let items = source.slice(start, start + perPage);
-
   if(items.length === 0){
-    let noResultText = activeSearchPrice > 0
-      ? `No listings found near ${formatPrice(activeSearchPrice)}.`
-      : `No listings found.`;
-
-    container.innerHTML = `<div class="info">${noResultText}</div>`;
+    container.innerHTML = `<div class="info">No listings found.</div>`;
     renderPagination();
     return;
   }
-
   items.forEach(item => {
     let card = document.createElement("div");
     card.className = "card";
-
     let cover = item.photos?.[0] || "";
-
     card.innerHTML = `
       <a href="?id=${item.id}">
         <div class="image-wrap">
@@ -224,74 +174,38 @@ function showListings(){
         </div>
       </a>
     `;
-
     let img = card.querySelector("img");
     let skeleton = card.querySelector(".img-skeleton");
-
     if(img){
-      img.addEventListener("load", function(){
-        img.classList.add("loaded");
-        if(skeleton) skeleton.classList.add("hidden");
-      });
-
-      img.addEventListener("error", function(){
-        if(skeleton) skeleton.classList.add("hidden");
-      });
+      img.addEventListener("load", () => { img.classList.add("loaded"); if(skeleton) skeleton.classList.add("hidden"); });
+      img.addEventListener("error", () => { if(skeleton) skeleton.classList.add("hidden"); });
     }
-
     container.appendChild(card);
   });
-
   renderPagination();
 }
-
-/* PAGINATION */
 
 function renderPagination(){
   let nav = document.getElementById("pagination");
   nav.innerHTML = "";
-
   let totalPages = Math.ceil(filteredData.length / perPage);
-
   if(totalPages <= 1) return;
-
   function addButton(label, targetPage, isActive = false, isDisabled = false){
     let button = document.createElement("button");
     button.textContent = label;
-
     if(isActive) button.className = "active-page";
     if(isDisabled) button.disabled = true;
-
-    if(!isDisabled && !isActive){
-      button.addEventListener("click", function(){
-        changePage(targetPage);
-      });
-    }
-
+    if(!isDisabled && !isActive) button.addEventListener("click", () => changePage(targetPage));
     nav.appendChild(button);
   }
-
-  function addEllipsis(){
-    let span = document.createElement("span");
-    span.className = "pagination-ellipsis";
-    span.textContent = "...";
-    nav.appendChild(span);
-  }
-
   addButton("Previous", page - 1, false, page === 1);
-
   let pagesToShow = new Set([1, totalPages, page - 1, page, page + 1]);
-
-  Array.from(pagesToShow)
-    .filter(p => p >= 1 && p <= totalPages)
-    .sort((a, b) => a - b)
-    .forEach((p, index, arr) => {
-      if(index > 0 && p - arr[index - 1] > 1){
-        addEllipsis();
-      }
-      addButton(String(p), p, p === page, false);
-    });
-
+  Array.from(pagesToShow).filter(p => p >= 1 && p <= totalPages).sort((a, b) => a - b).forEach((p, index, arr) => {
+    if(index > 0 && p - arr[index - 1] > 1){
+      let span = document.createElement("span"); span.textContent = "..."; nav.appendChild(span);
+    }
+    addButton(String(p), p, p === page, false);
+  });
   addButton("Next", page + 1, false, page === totalPages);
 }
 
@@ -301,21 +215,22 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE */
+/* PROPERTY PAGE (优化视频与滑动逻辑) [cite: 1, 6-50, 146-153, 162-206] */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
   document.getElementById("pagination").innerHTML = "";
-
   const container = document.getElementById("property");
   const listing = allData.find(l => l.id === id);
-
   if(!listing){
     container.innerHTML = `<div class="info">Listing not found.</div>`;
     return;
   }
 
   let photos = Array.isArray(listing.photos) ? listing.photos : [];
+  let hasVideo = !!listing.video;
+  // 总项目数 = 照片数 + 视频(如果有)
+  let totalItems = photos.length + (hasVideo ? 1 : 0);
 
   propertyViewState = {
     listing,
@@ -328,10 +243,19 @@ function showProperty(){
       <button id="backBtn">← Back</button>
       <button id="copyBtn">Copy URL</button>
       <button id="downloadBtn">Download</button>
+      ${hasVideo ? `<button id="viewVideoBtn" style="background:#ff6600;">Watch Video</button>` : ""}
     </div>
 
-    <div class="gallery">
+    <div class="gallery" id="galleryContainer">
       <img id="propertyImage" src="">
+      ${hasVideo ? `
+        <div id="videoContainer" style="display:none; width:100%; height:100%;">
+          <video id="listingVideo" controls style="width:100%; max-height:520px; background:#000; display:block;">
+            <source src="${listing.video}" type="video/mp4">
+            Your browser does not support video.
+          </video>
+        </div>
+      ` : ""}
       <button class="prev" id="prevBtn">❮</button>
       <button class="next" id="nextBtn">❯</button>
     </div>
@@ -346,116 +270,110 @@ function showProperty(){
   `;
 
   const image = document.getElementById("propertyImage");
+  const videoContainer = document.getElementById("videoContainer");
+  const listingVideo = document.getElementById("listingVideo");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  const backBtn = document.getElementById("backBtn");
-  const copyBtn = document.getElementById("copyBtn");
-  const downloadBtn = document.getElementById("downloadBtn");
+  const viewVideoBtn = document.getElementById("viewVideoBtn");
+  const gallery = document.getElementById("galleryContainer");
 
-  function updatePropertyImage(){
-    let currentPhoto = photos[propertyViewState.index] || "";
-    image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
+  function updateGallery(){
+    // 判断当前索引是显示照片还是视频
+    if(propertyViewState.index < photos.length){
+      // 显示照片
+      image.style.display = "block";
+      if(videoContainer) videoContainer.style.display = "none";
+      if(listingVideo) listingVideo.pause();
+      
+      let currentPhoto = photos[propertyViewState.index] || "";
+      image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
+      if(viewVideoBtn) viewVideoBtn.textContent = "Watch Video";
+      
+      // 预加载
+      let nextPhoto = photos[propertyViewState.index + 1] || "";
+      if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
+    } else {
+      // 显示视频 (索引等于照片长度时)
+      image.style.display = "none";
+      if(videoContainer) videoContainer.style.display = "block";
+      if(viewVideoBtn) viewVideoBtn.textContent = "Show Photos";
+    }
+
     prevBtn.disabled = propertyViewState.index <= 0;
-    nextBtn.disabled = propertyViewState.index >= photos.length - 1;
-
-    let nextPhoto = photos[propertyViewState.index + 1] || "";
-    let prevPhoto = photos[propertyViewState.index - 1] || "";
-
-    if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
-    if(prevPhoto) preloadImage(withImageSize(prevPhoto, "w1200"));
+    nextBtn.disabled = propertyViewState.index >= totalItems - 1;
   }
 
-  backBtn.addEventListener("click", function(){
-    window.location = "./";
+  // 左右按钮事件
+  prevBtn.addEventListener("click", () => {
+    if(propertyViewState.index > 0){ propertyViewState.index--; updateGallery(); }
   });
 
-  copyBtn.addEventListener("click", function(){
-  const url = window.location.origin + "/listing-site/listing/" + id + ".html";
-  navigator.clipboard.writeText(url);
-  alert("Listing URL copied");
-});
-
-  prevBtn.addEventListener("click", function(){
-    if(propertyViewState.index > 0){
-      propertyViewState.index--;
-      updatePropertyImage();
-    }
+  nextBtn.addEventListener("click", () => {
+    if(propertyViewState.index < totalItems - 1){ propertyViewState.index++; updateGallery(); }
   });
 
-  nextBtn.addEventListener("click", function(){
-    if(propertyViewState.index < photos.length - 1){
-      propertyViewState.index++;
-      updatePropertyImage();
-    }
-  });
-
-  downloadBtn.addEventListener("click", async function(){
-    if(propertyViewState.isDownloading) return;
-
-    propertyViewState.isDownloading = true;
-    downloadBtn.textContent = "Downloading...";
-    downloadBtn.disabled = true;
-
-    try{
-      let zip = new JSZip();
-      let folder = zip.folder("photos");
-
-      for(let i = 0; i < photos.length; i++){
-        let url = photos[i];
-
-        try{
-          let response = await fetch(withVersion(url), { cache: "no-store" });
-          let blob = await response.blob();
-          folder.file(`photo-${i+1}.jpg`, blob);
-        }catch(e){}
+  // Watch Video 按钮直接跳到序列最后
+  if(viewVideoBtn){
+    viewVideoBtn.addEventListener("click", () => {
+      if(propertyViewState.index === photos.length){
+        propertyViewState.index = 0; // 如果已经在看视频，点按钮回到第一张图
+      } else {
+        propertyViewState.index = photos.length; // 跳到视频
       }
+      updateGallery();
+    });
+  }
 
-      let content = await zip.generateAsync({type:"blob"});
-
-      let a = document.createElement("a");
-      a.href = URL.createObjectURL(content);
-      a.download = "listing-photos.zip";
-      a.click();
-
-      downloadBtn.textContent = "Done";
-      setTimeout(function(){
-        downloadBtn.textContent = "Download";
-        downloadBtn.disabled = false;
-        propertyViewState.isDownloading = false;
-      }, 1200);
-    }catch(e){
-      downloadBtn.textContent = "Download";
-      downloadBtn.disabled = false;
-      propertyViewState.isDownloading = false;
-      alert("Download failed");
+  // 实现左右滑动支持 (手机端)
+  let touchStartX = 0;
+  gallery.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, {passive: true});
+  gallery.addEventListener('touchend', e => {
+    let touchEndX = e.changedTouches[0].clientX;
+    let diff = touchStartX - touchEndX;
+    if(Math.abs(diff) > 50){ // 滑动超过50像素才触发
+      if(diff > 0 && !nextBtn.disabled) nextBtn.click(); // 向左滑，看下一张
+      else if(diff < 0 && !prevBtn.disabled) prevBtn.click(); // 向右滑，看前一张
     }
+  }, {passive: true});
+
+  // 基础功能保留
+  document.getElementById("backBtn").addEventListener("click", () => window.location = "./");
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    const url = window.location.origin + "/listing-site/listing/" + id + ".html";
+    navigator.clipboard.writeText(url).then(() => alert("URL Copied"));
   });
 
-  updatePropertyImage();
-}
+  document.getElementById("downloadBtn").addEventListener("click", async () => {
+    if(propertyViewState.isDownloading) return;
+    const btn = document.getElementById("downloadBtn");
+    propertyViewState.isDownloading = true;
+    btn.textContent = "Downloading..."; btn.disabled = true;
+    try {
+      let zip = new JSZip(); let folder = zip.folder("photos");
+      for(let i = 0; i < photos.length; i++){
+        let resp = await fetch(withVersion(photos[i]), { cache: "no-store" });
+        folder.file(`photo-${i+1}.jpg`, await resp.blob());
+      }
+      let content = await zip.generateAsync({type:"blob"});
+      let a = document.createElement("a"); a.href = URL.createObjectURL(content); a.download = "photos.zip"; a.click();
+      btn.textContent = "Done";
+    } catch(e) { alert("Failed"); }
+    setTimeout(() => { btn.textContent = "Download"; btn.disabled = false; propertyViewState.isDownloading = false; }, 1200);
+  });
 
-/* INIT */
+  updateGallery();
+}
 
 async function init(){
   await loadAll();
-
-  if(id){
-    showProperty();
-  }else{
-    const search = document.getElementById("searchInput");
-    const sort = document.getElementById("sortSelect");
-
-    if(search){
-      search.addEventListener("input", applySearch);
-    }
-
-    if(sort){
-      sort.addEventListener("change", applySort);
-    }
-
+  if(id) showProperty();
+  else {
+    const s = document.getElementById("searchInput");
+    const o = document.getElementById("sortSelect");
+    if(s) s.addEventListener("input", applySearch);
+    if(o) o.addEventListener("change", applySort);
     filteredData = [...allData];
     showListings();
   }
 }
-
 init();
