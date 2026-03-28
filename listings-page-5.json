@@ -1,46 +1,5 @@
 [
   {
-    "id": "dFtOzuH9BW",
-    "price": "455K",
-    "type": "Terrace",
-    "floor": "1Sty",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "1",
-    "size": "1400",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1f7Z6mDxMQB81Qg1MYZHMgOTbCDvm-M4L",
-      "https://lh3.googleusercontent.com/d/12TPJIVGrO2NyRIA_zzHCBBb7B6Hrnt--",
-      "https://lh3.googleusercontent.com/d/14oabTE4MwLD47O_e2ynm9jEwiurQfNHJ",
-      "https://lh3.googleusercontent.com/d/1MAT-4pgpUaQCIoAfUNbAcXpgAUaGvCvh",
-      "https://lh3.googleusercontent.com/d/1OeK67Jcsex0sgGvQ-cZMzPSkBpmlDNhk",
-      "https://lh3.googleusercontent.com/d/1XuDOzdWqIJyAemF9XfNeFNvBM8Lrvqb-",
-      "https://lh3.googleusercontent.com/d/1ZEaEebOhh3CWHo3-r8ZMTjiy_XmPAwKT",
-      "https://lh3.googleusercontent.com/d/1Zzu2WdedzY0EJzt8WUhDHvACmp16UzI7",
-      "https://lh3.googleusercontent.com/d/1F2Giav4-BMwq9L2zrpKaGEbZgSD3iB0S",
-      "https://lh3.googleusercontent.com/d/1cxZDr5AYmp9LubTzguBaSAy395D16JUk"
-    ],
-    "video": ""
-  },
-  {
-    "id": "1SZEKpDO_Z",
-    "price": "300K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "1",
-    "size": "870",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1eAuLNaTrB3Yibjy3qHI0HAwN0z-TnF5l",
-      "https://lh3.googleusercontent.com/d/1Ke4Nrzq32Bl_CATRf589CnxvzqM7diol",
-      "https://lh3.googleusercontent.com/d/1MZgAVf8q9VWiQNAz1NO4ix0IEBiO3ZuC",
-      "https://lh3.googleusercontent.com/d/1vN2M-at3RZ_V34Q1te27wUydcUAWGZv6",
-      "https://lh3.googleusercontent.com/d/1ycADM3hwpW5fW1kq9jkOs4Z2EboMuhbp"
-    ],
-    "video": ""
-  },
-  {
     "id": "z4BBli-kR_",
     "price": "830K",
     "type": "Terrace",
