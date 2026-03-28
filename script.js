@@ -41,8 +41,11 @@ function formatRooms(r,b,p){
 }
 
 function withVersion(url){
-  if(!currentVersion) return url;
-  return url + (url.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(currentVersion);
+  if(!url) return "";
+  // 强制将所有 http 转换为 https 以解决浏览器拦截问题 
+  let secureUrl = url.replace("http://", "https://");
+  if(!currentVersion) return secureUrl;
+  return secureUrl + (secureUrl.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(currentVersion);
 }
 
 function withImageSize(url, size){
@@ -215,7 +218,7 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE (修复视频黑屏逻辑) */
+/* PROPERTY PAGE (修复视频与 Tracking 拦截) */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
@@ -249,8 +252,7 @@ function showProperty(){
       <img id="propertyImage" src="">
       ${hasVideo ? `
         <div id="videoContainer" style="display:none; width:100%; height:100%;">
-          <video id="listingVideo" controls playsinline preload="auto" style="width:100%; max-height:520px; background:#000; display:block;">
-            <source src="${listing.video}" type="video/mp4">
+          <video id="listingVideo" controls playsinline preload="auto" referrerpolicy="no-referrer" style="width:100%; max-height:520px; background:#000; display:block;">
             Your browser does not support video.
           </video>
         </div>
@@ -280,7 +282,7 @@ function showProperty(){
     if(propertyViewState.index < photos.length){
       image.style.display = "block";
       if(videoContainer) videoContainer.style.display = "none";
-      if(listingVideo) listingVideo.pause();
+      if(listingVideo) { listingVideo.pause(); listingVideo.src = ""; }
       
       let currentPhoto = photos[propertyViewState.index] || "";
       image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
@@ -290,13 +292,12 @@ function showProperty(){
       if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
     } else {
       image.style.display = "none";
-      if(videoContainer) {
+      if(videoContainer && listingVideo) {
         videoContainer.style.display = "block";
-        // 关键修复：强制重载视频流并尝试播放
-        if(listingVideo) {
-          listingVideo.load(); 
-          listingVideo.play().catch(e => console.log("Autoplay blocked or error"));
-        }
+        // 关键修复：动态设置 HTTPS 视频源 
+        listingVideo.src = listing.video.replace("http://", "https://");
+        listingVideo.load();
+        listingVideo.play().catch(() => console.log("Video wait for user"));
       }
       if(viewVideoBtn) viewVideoBtn.textContent = "Show Photos";
     }
