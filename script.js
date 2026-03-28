@@ -42,7 +42,7 @@ function formatRooms(r,b,p){
 
 function withVersion(url){
   if(!url) return "";
-  // 强制将所有 http 转换为 https 以解决浏览器拦截问题 
+  // 关键修复：强制 https 并处理路径
   let secureUrl = url.replace("http://", "https://");
   if(!currentVersion) return secureUrl;
   return secureUrl + (secureUrl.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(currentVersion);
@@ -58,6 +58,16 @@ function preloadImage(url){
   if(!url) return;
   let img = new Image();
   img.src = url;
+}
+
+// 核心修复：将下载链接转换为预览链接以解决黑屏
+function getDrivePreviewUrl(url) {
+  if (!url) return "";
+  let match = url.match(/id=([-\w]{25,})/);
+  if (match && match[1]) {
+    return `https://drive.google.com/file/d/${match[1]}/preview`;
+  }
+  return url.replace("http://", "https://");
 }
 
 function getSearchInputValue(){
@@ -218,7 +228,7 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE (修复视频与 Tracking 拦截) */
+/* PROPERTY PAGE (修复视频下载与黑屏问题) */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
@@ -251,10 +261,8 @@ function showProperty(){
     <div class="gallery" id="galleryContainer">
       <img id="propertyImage" src="">
       ${hasVideo ? `
-        <div id="videoContainer" style="display:none; width:100%; height:100%;">
-          <video id="listingVideo" controls playsinline preload="auto" referrerpolicy="no-referrer" style="width:100%; max-height:520px; background:#000; display:block;">
-            Your browser does not support video.
-          </video>
+        <div id="videoContainer" style="display:none; width:100%; height:450px;">
+          <iframe id="listingIframe" src="" style="width:100%; height:100%; border:none; background:#000;" allow="autoplay"></iframe>
         </div>
       ` : ""}
       <button class="prev" id="prevBtn">❮</button>
@@ -272,7 +280,7 @@ function showProperty(){
 
   const image = document.getElementById("propertyImage");
   const videoContainer = document.getElementById("videoContainer");
-  const listingVideo = document.getElementById("listingVideo");
+  const listingIframe = document.getElementById("listingIframe");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
   const viewVideoBtn = document.getElementById("viewVideoBtn");
@@ -280,9 +288,10 @@ function showProperty(){
 
   function updateGallery(){
     if(propertyViewState.index < photos.length){
+      // 显示图片
       image.style.display = "block";
       if(videoContainer) videoContainer.style.display = "none";
-      if(listingVideo) { listingVideo.pause(); listingVideo.src = ""; }
+      if(listingIframe) listingIframe.src = ""; // 停止视频播放
       
       let currentPhoto = photos[propertyViewState.index] || "";
       image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
@@ -291,13 +300,12 @@ function showProperty(){
       let nextPhoto = photos[propertyViewState.index + 1] || "";
       if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
     } else {
+      // 显示视频预览框
       image.style.display = "none";
-      if(videoContainer && listingVideo) {
+      if(videoContainer && listingIframe) {
         videoContainer.style.display = "block";
-        // 关键修复：动态设置 HTTPS 视频源 
-        listingVideo.src = listing.video.replace("http://", "https://");
-        listingVideo.load();
-        listingVideo.play().catch(() => console.log("Video wait for user"));
+        // 将下载链接转换为预览链接
+        listingIframe.src = getDrivePreviewUrl(listing.video);
       }
       if(viewVideoBtn) viewVideoBtn.textContent = "Show Photos";
     }
@@ -320,6 +328,7 @@ function showProperty(){
     });
   }
 
+  // 实现滑动支持
   let touchStartX = 0;
   gallery.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, {passive: true});
   gallery.addEventListener('touchend', e => {
