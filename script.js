@@ -215,7 +215,7 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE (优化视频与滑动逻辑) [cite: 1, 6-50, 146-153, 162-206] */
+/* PROPERTY PAGE (修复视频黑屏逻辑) */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
@@ -229,7 +229,6 @@ function showProperty(){
 
   let photos = Array.isArray(listing.photos) ? listing.photos : [];
   let hasVideo = !!listing.video;
-  // 总项目数 = 照片数 + 视频(如果有)
   let totalItems = photos.length + (hasVideo ? 1 : 0);
 
   propertyViewState = {
@@ -250,7 +249,7 @@ function showProperty(){
       <img id="propertyImage" src="">
       ${hasVideo ? `
         <div id="videoContainer" style="display:none; width:100%; height:100%;">
-          <video id="listingVideo" controls style="width:100%; max-height:520px; background:#000; display:block;">
+          <video id="listingVideo" controls playsinline preload="auto" style="width:100%; max-height:520px; background:#000; display:block;">
             <source src="${listing.video}" type="video/mp4">
             Your browser does not support video.
           </video>
@@ -278,9 +277,7 @@ function showProperty(){
   const gallery = document.getElementById("galleryContainer");
 
   function updateGallery(){
-    // 判断当前索引是显示照片还是视频
     if(propertyViewState.index < photos.length){
-      // 显示照片
       image.style.display = "block";
       if(videoContainer) videoContainer.style.display = "none";
       if(listingVideo) listingVideo.pause();
@@ -289,21 +286,24 @@ function showProperty(){
       image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
       if(viewVideoBtn) viewVideoBtn.textContent = "Watch Video";
       
-      // 预加载
       let nextPhoto = photos[propertyViewState.index + 1] || "";
       if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
     } else {
-      // 显示视频 (索引等于照片长度时)
       image.style.display = "none";
-      if(videoContainer) videoContainer.style.display = "block";
+      if(videoContainer) {
+        videoContainer.style.display = "block";
+        // 关键修复：强制重载视频流并尝试播放
+        if(listingVideo) {
+          listingVideo.load(); 
+          listingVideo.play().catch(e => console.log("Autoplay blocked or error"));
+        }
+      }
       if(viewVideoBtn) viewVideoBtn.textContent = "Show Photos";
     }
-
     prevBtn.disabled = propertyViewState.index <= 0;
     nextBtn.disabled = propertyViewState.index >= totalItems - 1;
   }
 
-  // 左右按钮事件
   prevBtn.addEventListener("click", () => {
     if(propertyViewState.index > 0){ propertyViewState.index--; updateGallery(); }
   });
@@ -312,31 +312,23 @@ function showProperty(){
     if(propertyViewState.index < totalItems - 1){ propertyViewState.index++; updateGallery(); }
   });
 
-  // Watch Video 按钮直接跳到序列最后
   if(viewVideoBtn){
     viewVideoBtn.addEventListener("click", () => {
-      if(propertyViewState.index === photos.length){
-        propertyViewState.index = 0; // 如果已经在看视频，点按钮回到第一张图
-      } else {
-        propertyViewState.index = photos.length; // 跳到视频
-      }
+      propertyViewState.index = (propertyViewState.index === photos.length) ? 0 : photos.length;
       updateGallery();
     });
   }
 
-  // 实现左右滑动支持 (手机端)
   let touchStartX = 0;
   gallery.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, {passive: true});
   gallery.addEventListener('touchend', e => {
-    let touchEndX = e.changedTouches[0].clientX;
-    let diff = touchStartX - touchEndX;
-    if(Math.abs(diff) > 50){ // 滑动超过50像素才触发
-      if(diff > 0 && !nextBtn.disabled) nextBtn.click(); // 向左滑，看下一张
-      else if(diff < 0 && !prevBtn.disabled) prevBtn.click(); // 向右滑，看前一张
+    let diff = touchStartX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 50){
+      if(diff > 0 && !nextBtn.disabled) nextBtn.click();
+      else if(diff < 0 && !prevBtn.disabled) prevBtn.click();
     }
   }, {passive: true});
 
-  // 基础功能保留
   document.getElementById("backBtn").addEventListener("click", () => window.location = "./");
   document.getElementById("copyBtn").addEventListener("click", () => {
     const url = window.location.origin + "/listing-site/listing/" + id + ".html";
