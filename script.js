@@ -42,7 +42,6 @@ function formatRooms(r,b,p){
 
 function withVersion(url){
   if(!url) return "";
-  // 强制使用 https 并转换 URL 格式以提升加载速度并解决拦截报错
   let secureUrl = url.replace("http://", "https://");
   if(!currentVersion) return secureUrl;
   return secureUrl + (secureUrl.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(currentVersion);
@@ -50,12 +49,19 @@ function withVersion(url){
 
 function withImageSize(url, size){
   if(!url) return "";
-  // 提取 Drive ID 并使用更快的 CDN 格式
+
+  // 1. 拦截并修复默认空照片
+  if(url.includes("profile/picture/0") || url.includes("profile/picture/2")){
+     return "https://placehold.co/600x400/eeeeee/999999?text=No+Photo";
+  }
+
+  // 2. 提取真实的 Google Drive ID，还原为 100% 稳定的官方直链，彻底解决不显示问题
   let match = url.match(/[-\w]{25,}/);
   if(match){
-    let s = size === 'w1200' ? 's1200' : 's600';
-    return "https://googleusercontent.com/profile/picture/1" + match[0] + "=" + s;
+    let fileId = match[0];
+    return "https://drive.google.com/uc?export=view&id=" + fileId;
   }
+
   return withVersion(url);
 }
 
@@ -63,6 +69,15 @@ function preloadImage(url){
   if(!url) return;
   let img = new Image();
   img.src = url;
+}
+
+function getDrivePreviewUrl(url) {
+  if (!url) return "";
+  let match = url.match(/id=([-\w]{25,})/);
+  if (match && match[1]) {
+    return `https://drive.google.com/file/d/${match[1]}/preview`;
+  }
+  return url.replace("http://", "https://");
 }
 
 function getSearchInputValue(){
@@ -171,7 +186,7 @@ function showListings(){
       <a href="?id=${item.id}">
         <div class="image-wrap">
           <div class="img-skeleton"></div>
-          <img src="${cover ? withImageSize(cover, 'w600') : ''}" loading="lazy">
+          <img src="${cover ? withImageSize(cover, 'w600') : ''}" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="info">
           <div class="price">${formatPrice(item.price)}</div>
@@ -223,7 +238,7 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE (修复缩放冲突与移除视频组件) */
+/* PROPERTY PAGE */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
@@ -245,7 +260,7 @@ function showProperty(){
       <button id="downloadBtn">Download</button>
     </div>
     <div class="gallery" id="galleryContainer">
-      <img id="propertyImage" src="">
+      <img id="propertyImage" src="" referrerpolicy="no-referrer">
       <button class="prev" id="prevBtn">❮</button>
       <button class="next" id="nextBtn">❯</button>
     </div>
@@ -281,18 +296,17 @@ function showProperty(){
     if(propertyViewState.index < photos.length - 1){ propertyViewState.index++; updateGallery(); }
   });
 
-  // 修复：多指缩放检测，防止缩放时触发滑动
   let touchStartX = null;
   gallery.addEventListener('touchstart', e => {
     if (e.touches.length > 1) {
-      touchStartX = null; // 多指操作（如缩放）时，将起始坐标设为空，屏蔽滑动
+      touchStartX = null;
     } else {
       touchStartX = e.touches[0].clientX;
     }
   }, {passive: true});
 
   gallery.addEventListener('touchend', e => {
-    if (touchStartX === null) return; // 如果是多指操作结束，直接跳过
+    if (touchStartX === null) return;
     let touchEndX = e.changedTouches[0].clientX;
     let diff = touchStartX - touchEndX;
     if(Math.abs(diff) > 50){
@@ -315,7 +329,7 @@ function showProperty(){
     try {
       let zip = new JSZip(); let folder = zip.folder("photos");
       for(let i = 0; i < photos.length; i++){
-        let resp = await fetch(withVersion(photos[i]), { cache: "no-store" });
+        let resp = await fetch(withImageSize(photos[i]), { cache: "no-store" });
         folder.file(`photo-${i+1}.jpg`, await resp.blob());
       }
       let content = await zip.generateAsync({type:"blob"});
