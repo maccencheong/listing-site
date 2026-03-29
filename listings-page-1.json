@@ -1,5 +1,19 @@
 [
   {
+    "id": "SFOxMfdRcZ",
+    "price": "1.3K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "2",
+    "baths": "1",
+    "parking": "1",
+    "size": "680",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
+    ],
+    "video": ""
+  },
+  {
     "id": "dcxTneEmSj",
     "price": "2.5K",
     "type": "Terrace",
@@ -1237,27 +1251,5 @@
       "https://lh3.googleusercontent.com/d/1shveOdo_v5rA6ALBB4y87NJxUe7fW031"
     ],
     "video": "https://drive.google.com/uc?export=download&id=1etrkw5Ve1vH90z1HR40nHsqaUpIZGiAD"
-  },
-  {
-    "id": "K-pVX3f_4w",
-    "price": "550K",
-    "type": "Condominium",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1100",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1NB2unGC7nXo_R0x1VcAfhstxUOhDnCNT",
-      "https://lh3.googleusercontent.com/d/1mweR8vSCzov6znGY6E30gBhrksrsz2kn",
-      "https://lh3.googleusercontent.com/d/1EAUjC5lzIMQ0vt-CPUIScUIFHjRbAbZu",
-      "https://lh3.googleusercontent.com/d/1q144TJO7WmZKrqiDQefWHilWrgE-XDzo",
-      "https://lh3.googleusercontent.com/d/1QMGj3frlFSA_Gk6QlEkiiCpXOJcS2u_k",
-      "https://lh3.googleusercontent.com/d/1bTl45Opvg2bxDG-iuaoNWFYa5eMf08Jd",
-      "https://lh3.googleusercontent.com/d/1C8tP3fuotbVHjUjQc92DyE8HF3jg01yT",
-      "https://lh3.googleusercontent.com/d/1KGmrYZ2MKgsMHjDtaRQ2AGKQBMektBOI",
-      "https://lh3.googleusercontent.com/d/1pBqR8UXyw-XeDlgxV0x_A0ONpbl4njrN"
-    ],
-    "video": ""
   }
 ]
