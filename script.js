@@ -55,29 +55,18 @@ function withImageSize(url, size){
      return "https://placehold.co/600x400/eeeeee/999999?text=No+Photo";
   }
 
-  // 2. 提取真实的 Google Drive ID，还原为 100% 稳定的官方直链，彻底解决不显示问题
-  let match = url.match(/[-\w]{25,}/);
-  if(match){
-    let fileId = match[0];
-    return "https://drive.google.com/uc?export=view&id=" + fileId;
-  }
-
-  return withVersion(url);
+  // 2. 终极回退方案：直接使用最初能完美显示的格式，仅把 http 升级为 https
+  let secureUrl = url.replace("http://", "https://");
+  
+  // 3. 强制加入特殊版本号，粉碎浏览器死缓存，逼迫它重新加载图片！
+  let cacheBuster = currentVersion + "_fix3"; 
+  return secureUrl + (secureUrl.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(cacheBuster);
 }
 
 function preloadImage(url){
   if(!url) return;
   let img = new Image();
   img.src = url;
-}
-
-function getDrivePreviewUrl(url) {
-  if (!url) return "";
-  let match = url.match(/id=([-\w]{25,})/);
-  if (match && match[1]) {
-    return `https://drive.google.com/file/d/${match[1]}/preview`;
-  }
-  return url.replace("http://", "https://");
 }
 
 function getSearchInputValue(){
