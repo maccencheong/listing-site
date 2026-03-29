@@ -1,5 +1,32 @@
 [
   {
+    "id": "FBpaSySRmn",
+    "price": "350K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1000",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1hCap3KNFpCGFybPiOr-hsS089qQsfKOS",
+      "https://lh3.googleusercontent.com/d/1JjlRv_QmVblMF8UehbspsXLpgYyDLz53",
+      "https://lh3.googleusercontent.com/d/1eibzR8iIYdppLX-tOXTC0702F8p7TM4Y",
+      "https://lh3.googleusercontent.com/d/1g-MYJwiZhDITApgmsNOQNxap3gSR9Qzp",
+      "https://lh3.googleusercontent.com/d/1Qnf--DpgrdNfVhSVaxn7w1eZwu4xyGFF",
+      "https://lh3.googleusercontent.com/d/1upcUFews3Gkt5AcBhHKlc0lKZaiOUkmL",
+      "https://lh3.googleusercontent.com/d/1JWykokyv5i_ShPWv67BL6uL27U4TjLVY",
+      "https://lh3.googleusercontent.com/d/1b8XSG0YcFCnM53N9ZxMaxEV97jB1pFeu",
+      "https://lh3.googleusercontent.com/d/19DUDmrP6caFrnrqrPwUdBe4eDKHAlwtS",
+      "https://lh3.googleusercontent.com/d/15Kv1euxq9Ucxn0oSLoz7-Y8gdPYFBemc",
+      "https://lh3.googleusercontent.com/d/1JL6Q1vfpzf717D-1-QgK0jkWMB8_wvOp",
+      "https://lh3.googleusercontent.com/d/1jQ3k0EaV-MZ0GRCqxCt-O8lZ9Z0p5_vU",
+      "https://lh3.googleusercontent.com/d/15FCYiuWKN6RNwWm8PQgUUyeXOLmqFwrm",
+      "https://lh3.googleusercontent.com/d/1_nyOKO7ezMyawPu-Ye82NN2LwxMMPg0_"
+    ],
+    "video": ""
+  },
+  {
     "id": "Fwf7uAe-vz",
     "price": "2700",
     "type": "Condominium",
@@ -1353,25 +1380,6 @@
       "https://lh3.googleusercontent.com/d/1-Dd8NLOyPnyBdE3PTAzbMSxVEP_fHI6U",
       "https://lh3.googleusercontent.com/d/1u54VAvXamdSTFunWSOlhZ-F89qSMvyFd",
       "https://lh3.googleusercontent.com/d/1EhItpwiSK96wS7cFnzBHoqkIwsVTJzIS"
-    ],
-    "video": ""
-  },
-  {
-    "id": "Z66PhUASXQ",
-    "price": "900",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "1",
-    "parking": "1",
-    "size": "680",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1UU1wgtt2YK37woaV9ojzvAxqumC-kWQT",
-      "https://lh3.googleusercontent.com/d/1UP0eyRaUfaoRxTGM9ky9R0mHqqy3bk1k",
-      "https://lh3.googleusercontent.com/d/14q1r6eJYYrajjdpnYQtCr-bejgIY_Srb",
-      "https://lh3.googleusercontent.com/d/1AOpEanGcQrMmxFZeykttgQhUsls5ZtXX",
-      "https://lh3.googleusercontent.com/d/1dfAFyghe9Yhd_GLPoBtqh2dr3epn-uOM",
-      "https://lh3.googleusercontent.com/d/1tX27OQJndl6JG52a810ayzyXjUULHajw"
     ],
     "video": ""
   }
