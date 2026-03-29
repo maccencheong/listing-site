@@ -42,7 +42,7 @@ function formatRooms(r,b,p){
 
 function withVersion(url){
   if(!url) return "";
-  // 关键修复：强制 https 并处理路径
+  // 强制使用 https 并转换 URL 格式以提升加载速度并解决拦截报错
   let secureUrl = url.replace("http://", "https://");
   if(!currentVersion) return secureUrl;
   return secureUrl + (secureUrl.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(currentVersion);
@@ -50,24 +50,19 @@ function withVersion(url){
 
 function withImageSize(url, size){
   if(!url) return "";
-  let finalUrl = withVersion(url);
-  return finalUrl + (finalUrl.includes("?") ? "&" : "?") + size;
+  // 提取 Drive ID 并使用更快的 CDN 格式
+  let match = url.match(/[-\w]{25,}/);
+  if(match){
+    let s = size === 'w1200' ? 's1200' : 's600';
+    return "https://googleusercontent.com/profile/picture/1" + match[0] + "=" + s;
+  }
+  return withVersion(url);
 }
 
 function preloadImage(url){
   if(!url) return;
   let img = new Image();
   img.src = url;
-}
-
-// 核心修复：将下载链接转换为预览链接以解决黑屏
-function getDrivePreviewUrl(url) {
-  if (!url) return "";
-  let match = url.match(/id=([-\w]{25,})/);
-  if (match && match[1]) {
-    return `https://drive.google.com/file/d/${match[1]}/preview`;
-  }
-  return url.replace("http://", "https://");
 }
 
 function getSearchInputValue(){
@@ -228,7 +223,7 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE (修复视频下载与黑屏问题) */
+/* PROPERTY PAGE (修复缩放冲突与移除视频组件) */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
@@ -241,34 +236,19 @@ function showProperty(){
   }
 
   let photos = Array.isArray(listing.photos) ? listing.photos : [];
-  let hasVideo = !!listing.video;
-  let totalItems = photos.length + (hasVideo ? 1 : 0);
-
-  propertyViewState = {
-    listing,
-    index: 0,
-    isDownloading: false
-  };
+  propertyViewState = { listing, index: 0, isDownloading: false };
 
   container.innerHTML = `
     <div class="topbar">
       <button id="backBtn">← Back</button>
       <button id="copyBtn">Copy URL</button>
       <button id="downloadBtn">Download</button>
-      ${hasVideo ? `<button id="viewVideoBtn" style="background:#ff6600;">Watch Video</button>` : ""}
     </div>
-
     <div class="gallery" id="galleryContainer">
       <img id="propertyImage" src="">
-      ${hasVideo ? `
-        <div id="videoContainer" style="display:none; width:100%; height:450px;">
-          <iframe id="listingIframe" src="" style="width:100%; height:100%; border:none; background:#000;" allow="autoplay"></iframe>
-        </div>
-      ` : ""}
       <button class="prev" id="prevBtn">❮</button>
       <button class="next" id="nextBtn">❯</button>
     </div>
-
     <div class="info">
       <div class="price">${formatPrice(listing.price)}</div>
       <div>${listing.type || ""}</div>
@@ -279,38 +259,18 @@ function showProperty(){
   `;
 
   const image = document.getElementById("propertyImage");
-  const videoContainer = document.getElementById("videoContainer");
-  const listingIframe = document.getElementById("listingIframe");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  const viewVideoBtn = document.getElementById("viewVideoBtn");
   const gallery = document.getElementById("galleryContainer");
 
   function updateGallery(){
-    if(propertyViewState.index < photos.length){
-      // 显示图片
-      image.style.display = "block";
-      if(videoContainer) videoContainer.style.display = "none";
-      if(listingIframe) listingIframe.src = ""; // 停止视频播放
-      
-      let currentPhoto = photos[propertyViewState.index] || "";
-      image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
-      if(viewVideoBtn) viewVideoBtn.textContent = "Watch Video";
-      
-      let nextPhoto = photos[propertyViewState.index + 1] || "";
-      if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
-    } else {
-      // 显示视频预览框
-      image.style.display = "none";
-      if(videoContainer && listingIframe) {
-        videoContainer.style.display = "block";
-        // 将下载链接转换为预览链接
-        listingIframe.src = getDrivePreviewUrl(listing.video);
-      }
-      if(viewVideoBtn) viewVideoBtn.textContent = "Show Photos";
-    }
+    let currentPhoto = photos[propertyViewState.index] || "";
+    image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
     prevBtn.disabled = propertyViewState.index <= 0;
-    nextBtn.disabled = propertyViewState.index >= totalItems - 1;
+    nextBtn.disabled = propertyViewState.index >= photos.length - 1;
+
+    let nextPhoto = photos[propertyViewState.index + 1] || "";
+    if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
   }
 
   prevBtn.addEventListener("click", () => {
@@ -318,21 +278,23 @@ function showProperty(){
   });
 
   nextBtn.addEventListener("click", () => {
-    if(propertyViewState.index < totalItems - 1){ propertyViewState.index++; updateGallery(); }
+    if(propertyViewState.index < photos.length - 1){ propertyViewState.index++; updateGallery(); }
   });
 
-  if(viewVideoBtn){
-    viewVideoBtn.addEventListener("click", () => {
-      propertyViewState.index = (propertyViewState.index === photos.length) ? 0 : photos.length;
-      updateGallery();
-    });
-  }
+  // 修复：多指缩放检测，防止缩放时触发滑动
+  let touchStartX = null;
+  gallery.addEventListener('touchstart', e => {
+    if (e.touches.length > 1) {
+      touchStartX = null; // 多指操作（如缩放）时，将起始坐标设为空，屏蔽滑动
+    } else {
+      touchStartX = e.touches[0].clientX;
+    }
+  }, {passive: true});
 
-  // 实现滑动支持
-  let touchStartX = 0;
-  gallery.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, {passive: true});
   gallery.addEventListener('touchend', e => {
-    let diff = touchStartX - e.changedTouches[0].clientX;
+    if (touchStartX === null) return; // 如果是多指操作结束，直接跳过
+    let touchEndX = e.changedTouches[0].clientX;
+    let diff = touchStartX - touchEndX;
     if(Math.abs(diff) > 50){
       if(diff > 0 && !nextBtn.disabled) nextBtn.click();
       else if(diff < 0 && !prevBtn.disabled) prevBtn.click();
