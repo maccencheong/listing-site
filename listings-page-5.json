@@ -1,5 +1,23 @@
 [
   {
+    "id": "1SZEKpDO_Z",
+    "price": "300K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "870",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1eAuLNaTrB3Yibjy3qHI0HAwN0z-TnF5l",
+      "https://lh3.googleusercontent.com/d/1Ke4Nrzq32Bl_CATRf589CnxvzqM7diol",
+      "https://lh3.googleusercontent.com/d/1MZgAVf8q9VWiQNAz1NO4ix0IEBiO3ZuC",
+      "https://lh3.googleusercontent.com/d/1vN2M-at3RZ_V34Q1te27wUydcUAWGZv6",
+      "https://lh3.googleusercontent.com/d/1ycADM3hwpW5fW1kq9jkOs4Z2EboMuhbp"
+    ],
+    "video": ""
+  },
+  {
     "id": "z4BBli-kR_",
     "price": "830K",
     "type": "Terrace",
