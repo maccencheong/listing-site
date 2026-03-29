@@ -1,5 +1,23 @@
 [
   {
+    "id": "MeY-a4YLyF",
+    "price": "509K",
+    "type": "Terrace",
+    "floor": "2Sty",
+    "rooms": "3",
+    "baths": "3",
+    "parking": "2",
+    "size": "1200",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1wN0-HdkCgrOCV_5f8cW5_NDI1NHudZnH",
+      "https://lh3.googleusercontent.com/d/1iUPUm-sxleeqyaZbRYFLu-QF7e0bzQDi",
+      "https://lh3.googleusercontent.com/d/1JGi6lgn3bomvMu7zieGIgoL-J-CyrAao",
+      "https://lh3.googleusercontent.com/d/1Y69jEeE1_oK3UsfcDu121OQXGqhi67RV",
+      "https://lh3.googleusercontent.com/d/1rCsdsr8tXRFp78YNeTiGGhWMcL_10z6i"
+    ],
+    "video": ""
+  },
+  {
     "id": "dFtOzuH9BW",
     "price": "455K",
     "type": "Terrace",
