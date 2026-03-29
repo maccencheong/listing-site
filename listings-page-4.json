@@ -1,5 +1,24 @@
 [
   {
+    "id": "kEIZVj9O1W",
+    "price": "310K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1000",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1I5yeQxg6GuUrOfdiamT8wpA8W3GF5v7G",
+      "https://lh3.googleusercontent.com/d/1I7fQFbid1ehgSTGN4B_bMVrsvOAR3P79",
+      "https://lh3.googleusercontent.com/d/1I9lru8zl47RSWJtenldswjG504UKilGD",
+      "https://lh3.googleusercontent.com/d/1IES8EYwFs3tw-Se5-OUH_ewXaGPsCWkZ",
+      "https://lh3.googleusercontent.com/d/1IJULbcEl8vXvTh21voMeEwLnUlzyBeWt",
+      "https://lh3.googleusercontent.com/d/1I35-Z4Jx01TuT50zgerIsLfcQls9FeG9"
+    ],
+    "video": ""
+  },
+  {
     "id": "2Itn4O8f6e",
     "price": "380K",
     "type": "Apartment",
@@ -1623,29 +1642,6 @@
       "https://lh3.googleusercontent.com/d/1JGi6lgn3bomvMu7zieGIgoL-J-CyrAao",
       "https://lh3.googleusercontent.com/d/1Y69jEeE1_oK3UsfcDu121OQXGqhi67RV",
       "https://lh3.googleusercontent.com/d/1rCsdsr8tXRFp78YNeTiGGhWMcL_10z6i"
-    ],
-    "video": ""
-  },
-  {
-    "id": "dFtOzuH9BW",
-    "price": "455K",
-    "type": "Terrace",
-    "floor": "1Sty",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "1",
-    "size": "1400",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1f7Z6mDxMQB81Qg1MYZHMgOTbCDvm-M4L",
-      "https://lh3.googleusercontent.com/d/12TPJIVGrO2NyRIA_zzHCBBb7B6Hrnt--",
-      "https://lh3.googleusercontent.com/d/14oabTE4MwLD47O_e2ynm9jEwiurQfNHJ",
-      "https://lh3.googleusercontent.com/d/1MAT-4pgpUaQCIoAfUNbAcXpgAUaGvCvh",
-      "https://lh3.googleusercontent.com/d/1OeK67Jcsex0sgGvQ-cZMzPSkBpmlDNhk",
-      "https://lh3.googleusercontent.com/d/1XuDOzdWqIJyAemF9XfNeFNvBM8Lrvqb-",
-      "https://lh3.googleusercontent.com/d/1ZEaEebOhh3CWHo3-r8ZMTjiy_XmPAwKT",
-      "https://lh3.googleusercontent.com/d/1Zzu2WdedzY0EJzt8WUhDHvACmp16UzI7",
-      "https://lh3.googleusercontent.com/d/1F2Giav4-BMwq9L2zrpKaGEbZgSD3iB0S",
-      "https://lh3.googleusercontent.com/d/1cxZDr5AYmp9LubTzguBaSAy395D16JUk"
     ],
     "video": ""
   }
