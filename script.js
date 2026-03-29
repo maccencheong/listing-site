@@ -50,23 +50,35 @@ function withVersion(url){
 function withImageSize(url, size){
   if(!url) return "";
 
-  // 1. 拦截并修复默认空照片
+  // 1. 拦截空照片
   if(url.includes("profile/picture/0") || url.includes("profile/picture/2")){
      return "https://placehold.co/600x400/eeeeee/999999?text=No+Photo";
   }
 
-  // 2. 终极回退方案：直接使用最初能完美显示的格式，仅把 http 升级为 https
-  let secureUrl = url.replace("http://", "https://");
-  
-  // 3. 强制加入特殊版本号，粉碎浏览器死缓存，逼迫它重新加载图片！
-  let cacheBuster = currentVersion + "_fix3"; 
-  return secureUrl + (secureUrl.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(cacheBuster);
+  // 2. 官方极速通道：让照片秒开且无拦截报错
+  let match = url.match(/[-\w]{25,}/);
+  if(match){
+    let fileId = match[0];
+    return `https://drive.google.com/thumbnail?id=${fileId}&sz=${size}`;
+  }
+
+  return withVersion(url);
 }
 
 function preloadImage(url){
   if(!url) return;
   let img = new Image();
   img.src = url;
+}
+
+// 将下载链接转换为预览链接以解决视频黑屏
+function getDrivePreviewUrl(url) {
+  if (!url) return "";
+  let match = url.match(/id=([-\w]{25,})/);
+  if (match && match[1]) {
+    return `https://drive.google.com/file/d/${match[1]}/preview`;
+  }
+  return url.replace("http://", "https://");
 }
 
 function getSearchInputValue(){
@@ -227,7 +239,7 @@ function changePage(p){
   window.scrollTo(0, 0);
 }
 
-/* PROPERTY PAGE */
+/* PROPERTY PAGE (智能识别视频，没有就不显示) */
 
 function showProperty(){
   document.getElementById("listings").innerHTML = "";
@@ -240,107 +252,15 @@ function showProperty(){
   }
 
   let photos = Array.isArray(listing.photos) ? listing.photos : [];
+  
+  // 严格检测视频：只有里面真的有链接，才判定为有视频
+  let hasVideo = listing.video && typeof listing.video === 'string' && listing.video.trim() !== "";
+  
+  // 如果有视频，序列总长度就是照片数+1；如果没有视频，总长度就等于照片数
+  let totalItems = photos.length + (hasVideo ? 1 : 0);
+
   propertyViewState = { listing, index: 0, isDownloading: false };
 
   container.innerHTML = `
     <div class="topbar">
-      <button id="backBtn">← Back</button>
-      <button id="copyBtn">Copy URL</button>
-      <button id="downloadBtn">Download</button>
-    </div>
-    <div class="gallery" id="galleryContainer">
-      <img id="propertyImage" src="" referrerpolicy="no-referrer">
-      <button class="prev" id="prevBtn">❮</button>
-      <button class="next" id="nextBtn">❯</button>
-    </div>
-    <div class="info">
-      <div class="price">${formatPrice(listing.price)}</div>
-      <div>${listing.type || ""}</div>
-      <div>${listing.floor || ""}</div>
-      <div>${formatRooms(listing.rooms, listing.baths, listing.parking)}</div>
-      <div>${listing.size || ""} sqft</div>
-    </div>
-  `;
-
-  const image = document.getElementById("propertyImage");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const gallery = document.getElementById("galleryContainer");
-
-  function updateGallery(){
-    let currentPhoto = photos[propertyViewState.index] || "";
-    image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
-    prevBtn.disabled = propertyViewState.index <= 0;
-    nextBtn.disabled = propertyViewState.index >= photos.length - 1;
-
-    let nextPhoto = photos[propertyViewState.index + 1] || "";
-    if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
-  }
-
-  prevBtn.addEventListener("click", () => {
-    if(propertyViewState.index > 0){ propertyViewState.index--; updateGallery(); }
-  });
-
-  nextBtn.addEventListener("click", () => {
-    if(propertyViewState.index < photos.length - 1){ propertyViewState.index++; updateGallery(); }
-  });
-
-  let touchStartX = null;
-  gallery.addEventListener('touchstart', e => {
-    if (e.touches.length > 1) {
-      touchStartX = null;
-    } else {
-      touchStartX = e.touches[0].clientX;
-    }
-  }, {passive: true});
-
-  gallery.addEventListener('touchend', e => {
-    if (touchStartX === null) return;
-    let touchEndX = e.changedTouches[0].clientX;
-    let diff = touchStartX - touchEndX;
-    if(Math.abs(diff) > 50){
-      if(diff > 0 && !nextBtn.disabled) nextBtn.click();
-      else if(diff < 0 && !prevBtn.disabled) prevBtn.click();
-    }
-  }, {passive: true});
-
-  document.getElementById("backBtn").addEventListener("click", () => window.location = "./");
-  document.getElementById("copyBtn").addEventListener("click", () => {
-    const url = window.location.origin + "/listing-site/listing/" + id + ".html";
-    navigator.clipboard.writeText(url).then(() => alert("URL Copied"));
-  });
-
-  document.getElementById("downloadBtn").addEventListener("click", async () => {
-    if(propertyViewState.isDownloading) return;
-    const btn = document.getElementById("downloadBtn");
-    propertyViewState.isDownloading = true;
-    btn.textContent = "Downloading..."; btn.disabled = true;
-    try {
-      let zip = new JSZip(); let folder = zip.folder("photos");
-      for(let i = 0; i < photos.length; i++){
-        let resp = await fetch(withImageSize(photos[i]), { cache: "no-store" });
-        folder.file(`photo-${i+1}.jpg`, await resp.blob());
-      }
-      let content = await zip.generateAsync({type:"blob"});
-      let a = document.createElement("a"); a.href = URL.createObjectURL(content); a.download = "photos.zip"; a.click();
-      btn.textContent = "Done";
-    } catch(e) { alert("Failed"); }
-    setTimeout(() => { btn.textContent = "Download"; btn.disabled = false; propertyViewState.isDownloading = false; }, 1200);
-  });
-
-  updateGallery();
-}
-
-async function init(){
-  await loadAll();
-  if(id) showProperty();
-  else {
-    const s = document.getElementById("searchInput");
-    const o = document.getElementById("sortSelect");
-    if(s) s.addEventListener("input", applySearch);
-    if(o) o.addEventListener("change", applySort);
-    filteredData = [...allData];
-    showListings();
-  }
-}
-init();
+      <button id="backBtn">← Back
