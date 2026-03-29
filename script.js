@@ -263,4 +263,140 @@ function showProperty(){
 
   container.innerHTML = `
     <div class="topbar">
-      <button id="backBtn">← Back
+      <button id="backBtn">← Back</button>
+      <button id="copyBtn">Copy URL</button>
+      <button id="downloadBtn">Download</button>
+      ${hasVideo ? `<button id="viewVideoBtn" style="background:#ff6600;">Watch Video</button>` : ""}
+    </div>
+    <div class="gallery" id="galleryContainer">
+      <img id="propertyImage" src="" referrerpolicy="no-referrer">
+      ${hasVideo ? `
+        <div id="videoContainer" style="display:none; width:100%; height:450px;">
+          <iframe id="listingIframe" src="" style="width:100%; height:100%; border:none; background:#000;" allow="autoplay"></iframe>
+        </div>
+      ` : ""}
+      <button class="prev" id="prevBtn">❮</button>
+      <button class="next" id="nextBtn">❯</button>
+    </div>
+    <div class="info">
+      <div class="price">${formatPrice(listing.price)}</div>
+      <div>${listing.type || ""}</div>
+      <div>${listing.floor || ""}</div>
+      <div>${formatRooms(listing.rooms, listing.baths, listing.parking)}</div>
+      <div>${listing.size || ""} sqft</div>
+    </div>
+  `;
+
+  const image = document.getElementById("propertyImage");
+  const videoContainer = document.getElementById("videoContainer");
+  const listingIframe = document.getElementById("listingIframe");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const viewVideoBtn = document.getElementById("viewVideoBtn");
+  const gallery = document.getElementById("galleryContainer");
+
+  function updateGallery(){
+    if(propertyViewState.index < photos.length){
+      // 显示照片
+      image.style.display = "block";
+      if(videoContainer) videoContainer.style.display = "none";
+      if(listingIframe) listingIframe.src = ""; 
+      
+      let currentPhoto = photos[propertyViewState.index] || "";
+      image.src = currentPhoto ? withImageSize(currentPhoto, "w1200") : "";
+      if(viewVideoBtn) viewVideoBtn.textContent = "Watch Video";
+      
+      let nextPhoto = photos[propertyViewState.index + 1] || "";
+      if(nextPhoto) preloadImage(withImageSize(nextPhoto, "w1200"));
+    } else if (hasVideo) {
+      // 只有在确定有视频的情况下，才允许进入显示视频的分支
+      image.style.display = "none";
+      if(videoContainer && listingIframe) {
+        videoContainer.style.display = "block";
+        listingIframe.src = getDrivePreviewUrl(listing.video);
+      }
+      if(viewVideoBtn) viewVideoBtn.textContent = "Show Photos";
+    }
+
+    // 禁用按钮逻辑，如果没有视频，划到最后一张照片右边箭头就会变灰，无法继续滑
+    prevBtn.disabled = propertyViewState.index <= 0;
+    nextBtn.disabled = propertyViewState.index >= totalItems - 1;
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if(propertyViewState.index > 0){ propertyViewState.index--; updateGallery(); }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if(propertyViewState.index < totalItems - 1){ propertyViewState.index++; updateGallery(); }
+  });
+
+  if(viewVideoBtn){
+    viewVideoBtn.addEventListener("click", () => {
+      propertyViewState.index = (propertyViewState.index === photos.length) ? 0 : photos.length;
+      updateGallery();
+    });
+  }
+
+  // 多指防冲突检测（防止缩放时误触滑动）
+  let touchStartX = null;
+  gallery.addEventListener('touchstart', e => {
+    if (e.touches.length > 1) {
+      touchStartX = null;
+    } else {
+      touchStartX = e.touches[0].clientX;
+    }
+  }, {passive: true});
+
+  gallery.addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+    let touchEndX = e.changedTouches[0].clientX;
+    let diff = touchStartX - touchEndX;
+    if(Math.abs(diff) > 50){
+      if(diff > 0 && !nextBtn.disabled) nextBtn.click();
+      else if(diff < 0 && !prevBtn.disabled) prevBtn.click();
+    }
+  }, {passive: true});
+
+  document.getElementById("backBtn").addEventListener("click", () => window.location = "./");
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    const url = window.location.origin + "/listing-site/listing/" + id + ".html";
+    navigator.clipboard.writeText(url).then(() => alert("URL Copied"));
+  });
+
+  // 下载时使用原始高清大图
+  document.getElementById("downloadBtn").addEventListener("click", async () => {
+    if(propertyViewState.isDownloading) return;
+    const btn = document.getElementById("downloadBtn");
+    propertyViewState.isDownloading = true;
+    btn.textContent = "Downloading..."; btn.disabled = true;
+    try {
+      let zip = new JSZip(); let folder = zip.folder("photos");
+      for(let i = 0; i < photos.length; i++){
+        let rawUrl = photos[i].replace("http://", "https://");
+        let resp = await fetch(rawUrl, { cache: "no-store" });
+        folder.file(`photo-${i+1}.jpg`, await resp.blob());
+      }
+      let content = await zip.generateAsync({type:"blob"});
+      let a = document.createElement("a"); a.href = URL.createObjectURL(content); a.download = "photos.zip"; a.click();
+      btn.textContent = "Done";
+    } catch(e) { alert("Failed"); }
+    setTimeout(() => { btn.textContent = "Download"; btn.disabled = false; propertyViewState.isDownloading = false; }, 1200);
+  });
+
+  updateGallery();
+}
+
+async function init(){
+  await loadAll();
+  if(id) showProperty();
+  else {
+    const s = document.getElementById("searchInput");
+    const o = document.getElementById("sortSelect");
+    if(s) s.addEventListener("input", applySearch);
+    if(o) o.addEventListener("change", applySort);
+    filteredData = [...allData];
+    showListings();
+  }
+}
+init();
