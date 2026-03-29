@@ -1,5 +1,24 @@
 [
   {
+    "id": "Z66PhUASXQ",
+    "price": "900",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "1",
+    "parking": "1",
+    "size": "680",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1UU1wgtt2YK37woaV9ojzvAxqumC-kWQT",
+      "https://lh3.googleusercontent.com/d/1UP0eyRaUfaoRxTGM9ky9R0mHqqy3bk1k",
+      "https://lh3.googleusercontent.com/d/14q1r6eJYYrajjdpnYQtCr-bejgIY_Srb",
+      "https://lh3.googleusercontent.com/d/1AOpEanGcQrMmxFZeykttgQhUsls5ZtXX",
+      "https://lh3.googleusercontent.com/d/1dfAFyghe9Yhd_GLPoBtqh2dr3epn-uOM",
+      "https://lh3.googleusercontent.com/d/1tX27OQJndl6JG52a810ayzyXjUULHajw"
+    ],
+    "video": ""
+  },
+  {
     "id": "elHSwDqj5y",
     "price": "350K",
     "type": "Condominium",
@@ -1268,25 +1287,6 @@
       "https://lh3.googleusercontent.com/d/1b82rCg7CtjL2UIooO7ClhZPW3dEqvNVO",
       "https://lh3.googleusercontent.com/d/1Kwcn-xGuhCr3Xi1mwxD4yP70lpVDck7V",
       "https://lh3.googleusercontent.com/d/1VCbMdC-vQPVrWR6ntCJxQ3OunIVfII7S"
-    ],
-    "video": ""
-  },
-  {
-    "id": "kEIZVj9O1W",
-    "price": "310K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1000",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1I5yeQxg6GuUrOfdiamT8wpA8W3GF5v7G",
-      "https://lh3.googleusercontent.com/d/1I7fQFbid1ehgSTGN4B_bMVrsvOAR3P79",
-      "https://lh3.googleusercontent.com/d/1I9lru8zl47RSWJtenldswjG504UKilGD",
-      "https://lh3.googleusercontent.com/d/1IES8EYwFs3tw-Se5-OUH_ewXaGPsCWkZ",
-      "https://lh3.googleusercontent.com/d/1IJULbcEl8vXvTh21voMeEwLnUlzyBeWt",
-      "https://lh3.googleusercontent.com/d/1I35-Z4Jx01TuT50zgerIsLfcQls9FeG9"
     ],
     "video": ""
   }
