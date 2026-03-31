@@ -1,19 +1,5 @@
 [
   {
-    "id": "g5iGtGU-Uj",
-    "price": "1.9K",
-    "type": "Shop Lot / Service Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "910",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
-    ],
-    "video": ""
-  },
-  {
     "id": "b3eMndbYjk",
     "price": "1.6K",
     "type": "Condominium",
@@ -23,7 +9,17 @@
     "parking": "1",
     "size": "1076",
     "photos": [
-      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
+      "https://lh3.googleusercontent.com/d/1CAjuxsObxHkGsREPdKN2o0AbO4Ba5OPY",
+      "https://lh3.googleusercontent.com/d/1Hv2_tfMCp98vpwXozjsxDekj69BGl5jh",
+      "https://lh3.googleusercontent.com/d/1LDzkfJsyjg1XsN1cBm3xP3W7f2YKOpY0",
+      "https://lh3.googleusercontent.com/d/1TuffDH0kvIU51W5AF_zb0YkFlIvsCQQw",
+      "https://lh3.googleusercontent.com/d/1U619k_8Il1ubi0AxtE6766XSx878bNQE",
+      "https://lh3.googleusercontent.com/d/1WEDBiHNvaK4K7MbRNt2ZOCYrFSVgayF9",
+      "https://lh3.googleusercontent.com/d/1cbOsJ-WYptaWZzJ7BndUs8jglBz1GzB9",
+      "https://lh3.googleusercontent.com/d/1f1hDYmLz7VNli2iKfUX7Bd5WCEqWNV9g",
+      "https://lh3.googleusercontent.com/d/1h6cNuQl32nbt7MwkMWPbblFebM8nFDyL",
+      "https://lh3.googleusercontent.com/d/1kp0Y9N13mcFQmhLcA6sSF2OUFAAgDPSb",
+      "https://lh3.googleusercontent.com/d/1oMd-enLv9DvRITANeY5V7TKBYMvES3Bx"
     ],
     "video": ""
   },
@@ -1275,6 +1271,20 @@
       "https://lh3.googleusercontent.com/d/1G3BQGHfEWYaRvC-FVoxfY-dPuGwzdlmv",
       "https://lh3.googleusercontent.com/d/1OX3CmuEED923lq6MhdVnwf0qqoZSYqze",
       "https://lh3.googleusercontent.com/d/1YknuhKurSMNR05rx6IlsXdBG5yseFar9"
+    ],
+    "video": ""
+  },
+  {
+    "id": "_RVzrqmRxe",
+    "price": "1200",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "800",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
     ],
     "video": ""
   }
