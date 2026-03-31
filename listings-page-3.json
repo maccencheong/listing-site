@@ -1,5 +1,23 @@
 [
   {
+    "id": "0k855S5ysv",
+    "price": "350K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "5",
+    "parking": "0",
+    "size": "322",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/11dYz8PFR4qdKPnUNmU3dYP8LD1adm7nN",
+      "https://lh3.googleusercontent.com/d/1UMf8iaKDsHLtTw_pQ3iRioSH2DSCsJD-",
+      "https://lh3.googleusercontent.com/d/1VUoS4BdNcRcjfOoO_KyYuGuICyMlJJUx",
+      "https://lh3.googleusercontent.com/d/1NuC01xuFPuTzms_5RQDETWLnnpxs5_x4",
+      "https://lh3.googleusercontent.com/d/1g71oBVxoHJzVFSdHDFV3mG5l2nWJY5oy"
+    ],
+    "video": ""
+  },
+  {
     "id": "-l9K3Il1X1",
     "price": "1600",
     "type": "Apartment",
@@ -1262,20 +1280,5 @@
       "https://lh3.googleusercontent.com/d/1OojJ-p9cYGh5chRtmJEb-y2eBZVufIj3"
     ],
     "video": ""
-  },
-  {
-    "id": "maCfB_fdng",
-    "price": "360K",
-    "type": "Terrace",
-    "floor": "3Sty",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "14",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1RlhFhYVczYl5EjtbRx7He91HeSTIRys7",
-      "https://lh3.googleusercontent.com/d/1rOUNU6c5UwWsts1lLaeKil4C9jafi-C5"
-    ],
-    "video": "https://drive.google.com/uc?export=download&id=1zJ4r1DO_ShjkN-yE-R3HNciZrfL_c7mE"
   }
 ]
