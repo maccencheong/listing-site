@@ -1,5 +1,27 @@
 [
   {
+    "id": "eWHJu9B8TP",
+    "price": "890K",
+    "type": "Terrace",
+    "floor": "2Sty",
+    "rooms": "4",
+    "baths": "3",
+    "parking": "2",
+    "size": "1500",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1kYVMTEjJ78-6HPOLqstICfowkPWgn4jS",
+      "https://lh3.googleusercontent.com/d/1-GSVK5Sm3bkd0v-pEw0nu5PGtOrYBtwu",
+      "https://lh3.googleusercontent.com/d/1-93gvLKfkABXyQY0CbXQBXLe9tAwxps8",
+      "https://lh3.googleusercontent.com/d/1q2_ZjVvv_vMa_1ll_41v5yOTFe2n93Kg",
+      "https://lh3.googleusercontent.com/d/1KVSQrsG_AxVhduymj9W4D9Ageadbm6dc",
+      "https://lh3.googleusercontent.com/d/14ghU43n3IAHvArJED_cytM2fcXhctp-4",
+      "https://lh3.googleusercontent.com/d/1QW0WrJ7AwLJmCc0rQ9vtkQjiN7wmGZpD",
+      "https://lh3.googleusercontent.com/d/1RvVLVqceLiOb9LGP4R_ON6XoozMpQEYu",
+      "https://lh3.googleusercontent.com/d/1btVcc4-7Hn3vVAeB919_Wx9V3jgDwZ6U"
+    ],
+    "video": ""
+  },
+  {
     "id": "e5yx6yVW0g",
     "price": "150K",
     "type": "Apartment",
