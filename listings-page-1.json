@@ -1,5 +1,19 @@
 [
   {
+    "id": "MnIMZ-TPEq",
+    "price": "1.8K",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "900",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
+    ],
+    "video": ""
+  },
+  {
     "id": "b3eMndbYjk",
     "price": "1.6K",
     "type": "Condominium",
@@ -1271,20 +1285,6 @@
       "https://lh3.googleusercontent.com/d/1G3BQGHfEWYaRvC-FVoxfY-dPuGwzdlmv",
       "https://lh3.googleusercontent.com/d/1OX3CmuEED923lq6MhdVnwf0qqoZSYqze",
       "https://lh3.googleusercontent.com/d/1YknuhKurSMNR05rx6IlsXdBG5yseFar9"
-    ],
-    "video": ""
-  },
-  {
-    "id": "_RVzrqmRxe",
-    "price": "1200",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "800",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
     ],
     "video": ""
   }
