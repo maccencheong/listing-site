@@ -1,5 +1,19 @@
 [
   {
+    "id": "sG4DYtkF1w",
+    "price": "1.9K",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "950",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
+    ],
+    "video": ""
+  },
+  {
     "id": "g5iGtGU-Uj",
     "price": "1.9K",
     "type": "Shop Lot / Service Apartment",
@@ -1258,30 +1272,6 @@
       "https://lh3.googleusercontent.com/d/1op7X2GaLOVnW7MPHa_CPUXCVGXf2Cygp",
       "https://lh3.googleusercontent.com/d/10UKxf6Sj35yuSyOtNk9o_YD6EFW9At9a",
       "https://lh3.googleusercontent.com/d/1O6iF6n3zSLYBeA08hnzqUZw_QrBFDbxo"
-    ],
-    "video": ""
-  },
-  {
-    "id": "PEfeyCU-_W",
-    "price": "1500",
-    "type": "Condominium",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1140",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1PDODHT_cscbAxrihh26fkwcDynocNSpR",
-      "https://lh3.googleusercontent.com/d/1fbFTS4ablA2b8F1p2Lg9xzEC6_DsQ_XT",
-      "https://lh3.googleusercontent.com/d/11qB8Tevi-qyLWXGq-AaSI4g8fTnHvv3T",
-      "https://lh3.googleusercontent.com/d/1WebXBHkCm-CSD2-7d4B_HfQth34WpUUV",
-      "https://lh3.googleusercontent.com/d/1mkwhg_Gj8DpP25Jg4aR8D2e7oh0UOQ5p",
-      "https://lh3.googleusercontent.com/d/1ZI39qmOUwyR1qFl0g9spmpuOYpGstztH",
-      "https://lh3.googleusercontent.com/d/15JH2OhMQQXptn5bG5zFdY6TkqsLkwpah",
-      "https://lh3.googleusercontent.com/d/1jPWebGBs3fI5rwM-ONv0TZWj-9fvP1Ud",
-      "https://lh3.googleusercontent.com/d/1T3QNKxNu4LPFj7xIQ_jme_kfSJdHIKUk",
-      "https://lh3.googleusercontent.com/d/1rn9IQ4HdWjmHhJlleYnt72SeqWI-AGqX",
-      "https://lh3.googleusercontent.com/d/1nShAHrPAscpGWAERHgVSMNQESlnnU3OG"
     ],
     "video": ""
   }
