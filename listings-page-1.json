@@ -1,5 +1,27 @@
 [
   {
+    "id": "g5iGtGU-Uj",
+    "price": "1.9K",
+    "type": "Shop Lot / Service Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "910",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1PfdGMQTTviVxRdbNV3c4qDXln5Chizoz",
+      "https://lh3.googleusercontent.com/d/11UdGGLNkC3crPvH1uD3bDvOPJH7NH4xH",
+      "https://lh3.googleusercontent.com/d/14jERLjCaDna82ClbSVfNzft01ZFyFDx8",
+      "https://lh3.googleusercontent.com/d/16XDwBH6v_Uy3K0I8EowtIc3fdMvEE8G6",
+      "https://lh3.googleusercontent.com/d/1EIegkP_OCo2cdBE_mcQthRKvFr5UQkWd",
+      "https://lh3.googleusercontent.com/d/1Oc2joWunAgBDNES5iyqfzSkddb4iX1nh",
+      "https://lh3.googleusercontent.com/d/1X77I6JIRSaMrNKu6zLlGBp1LrsAZXXyE",
+      "https://lh3.googleusercontent.com/d/1gnE33q-9o2wMOfgX5S3PcMddCxOgRX-n",
+      "https://lh3.googleusercontent.com/d/1zIMySwdNxQrzHmBbk3y6Wzo5xFtmnCWB"
+    ],
+    "video": ""
+  },
+  {
     "id": "Z4NIYBp3Wt",
     "price": "1.6K",
     "type": "Apartment",
@@ -1260,30 +1282,6 @@
       "https://lh3.googleusercontent.com/d/1T3QNKxNu4LPFj7xIQ_jme_kfSJdHIKUk",
       "https://lh3.googleusercontent.com/d/1rn9IQ4HdWjmHhJlleYnt72SeqWI-AGqX",
       "https://lh3.googleusercontent.com/d/1nShAHrPAscpGWAERHgVSMNQESlnnU3OG"
-    ],
-    "video": ""
-  },
-  {
-    "id": "9_y_eoKEA8",
-    "price": "1500",
-    "type": "",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1021",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1RA4IlBBLl01Jr7gMgZYfhCbiwl1EXiYm",
-      "https://lh3.googleusercontent.com/d/19AE2rrFYqhW7kXZWNGHR7qEz16hImdDQ",
-      "https://lh3.googleusercontent.com/d/1lX_JXtmOnL9V8T4VAlrUKa2y82Tuyi0o",
-      "https://lh3.googleusercontent.com/d/1wRdR9Ur11nbEXz3b3DhYsDTnB-WtUwbG",
-      "https://lh3.googleusercontent.com/d/1How4t1JLQj47J-RNWRWP32d8UuhLHP9k",
-      "https://lh3.googleusercontent.com/d/148yL9F4h4HyUb0c7KbqZa_WONopyTKSe",
-      "https://lh3.googleusercontent.com/d/1HJOJkfHW1MKoRYaFr2wWUX-x-mL2j-nr",
-      "https://lh3.googleusercontent.com/d/1MN0YQDuEKGE_fWYbppBPzA10yWBwd6BN",
-      "https://lh3.googleusercontent.com/d/1OwOYYgPYkW-IYexopEPPsgvms6vb-xds",
-      "https://lh3.googleusercontent.com/d/1jAhSVBSrLDGXIsonTe9sJZZuX1uY5TFE",
-      "https://lh3.googleusercontent.com/d/1hsq4FWa3hlAJuwMd4pmIigcukm3Bg_kS"
     ],
     "video": ""
   }
