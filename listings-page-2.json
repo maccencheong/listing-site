@@ -1,5 +1,24 @@
 [
   {
+    "id": "L6WSySvGyV",
+    "price": "400K",
+    "type": "Shop Lot / Service Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "864",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1E457Xn4dsDNf7w-kLfMXUeKISUBzBCnS",
+      "https://lh3.googleusercontent.com/d/1eCQdjJR-h2jEF49ySXKFn010EUuhj2bH",
+      "https://lh3.googleusercontent.com/d/1TXeEO3Spa9YZAC8koQfhBnsaa5wgpwxq",
+      "https://lh3.googleusercontent.com/d/1VAY9flpBYk9Y6naHkhRUkGG8Psyb1cXb",
+      "https://lh3.googleusercontent.com/d/14ysEeCXYhBxhy_a94cSm7x5-fChJ3WKa",
+      "https://lh3.googleusercontent.com/d/1BGtEYh2ohBcfm8gKvHuocrw-W4KgXDPz"
+    ],
+    "video": ""
+  },
+  {
     "id": "ozCF0xUKP1",
     "price": "368K",
     "type": "Apartment",
@@ -1307,26 +1326,6 @@
       "https://lh3.googleusercontent.com/d/13s0E07moi65tvBnznypTjORz6Tw8i8Ns",
       "https://lh3.googleusercontent.com/d/1rF-EKV8LYaljlRuE97L1HYYJ5kwGoz1B",
       "https://lh3.googleusercontent.com/d/1IBsc-eHBM8CzaigediKLJJr2jY5FWgFe"
-    ],
-    "video": ""
-  },
-  {
-    "id": "expybyxDjd",
-    "price": "350K",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "5",
-    "parking": "0",
-    "size": "322",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/15y24e44gmVykDhKART0m4eztd_2NU7os",
-      "https://lh3.googleusercontent.com/d/1S77CdWg-pCJ9lrymmfVh7xhcvGKAWcpr",
-      "https://lh3.googleusercontent.com/d/1IT5v0uRPOvTPmYvyS7x1qMzpyj4z9KKa",
-      "https://lh3.googleusercontent.com/d/18wb_iw3AUedHwyf7poOr3CxaRtm3njyy",
-      "https://lh3.googleusercontent.com/d/1Jwqn6QhRvFHdfWKaDfelN1A-4xTiF6c4",
-      "https://lh3.googleusercontent.com/d/1KP0mgc-PG7SndGf70XlyYPHZ4DyqKWoj",
-      "https://lh3.googleusercontent.com/d/1XpakPMZwCkMeXI59c7q81RtONZVxHROA"
     ],
     "video": ""
   }
