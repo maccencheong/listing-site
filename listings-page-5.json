@@ -1,5 +1,25 @@
 [
   {
+    "id": "KZkK_yEs2L",
+    "price": "199K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "852",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1kICpLMC6e-1iUMkksf1t7WAuuRetLe6O",
+      "https://lh3.googleusercontent.com/d/10_L_mEVcJRKyGs-K15AqEkpnRxa4WBfU",
+      "https://lh3.googleusercontent.com/d/1GM3i49yb6EUmqSbpdGpMHbpszugGVMsv",
+      "https://lh3.googleusercontent.com/d/1ImW_AWMNOOAG2OWCwdjAGi-jtlKxtXXG",
+      "https://lh3.googleusercontent.com/d/1PdHALINyl3a_kHONgTiWHYkwm_KVvBfL",
+      "https://lh3.googleusercontent.com/d/1U_j5fljNmeMri-HnPAY3eaAu9NJJjKsz",
+      "https://lh3.googleusercontent.com/d/1XyqkT88dGwXDU7tMlcw4igSMVtJnQbBm"
+    ],
+    "video": ""
+  },
+  {
     "id": "IMq4_J1kT2",
     "price": "200K",
     "type": "Apartment",
