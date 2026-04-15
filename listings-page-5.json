@@ -1,5 +1,22 @@
 [
   {
+    "id": "R8aChmdrf9",
+    "price": "200K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "680",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/12wElntJVkVzbz4rSiL_Ilh4RNhFsZe8j",
+      "https://lh3.googleusercontent.com/d/1CnZLK3ImCCSbHMoPu5yxkDloLhjJDLRu",
+      "https://lh3.googleusercontent.com/d/1UzJiy4sS5qZ7q28Dv3lfPtyKdbB3dQC7",
+      "https://lh3.googleusercontent.com/d/1h1g8HVJVdfsFLzmxvBVctYjCUCyPmUdI"
+    ],
+    "video": ""
+  },
+  {
     "id": "Ky-h3cvasm",
     "price": "815K",
     "type": "Terrace",
