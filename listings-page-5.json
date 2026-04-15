@@ -1,5 +1,26 @@
 [
   {
+    "id": "59nR2tXXFT",
+    "price": "250K",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "860",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/19tbFKXdftXJXHjZxHJNV7D6MYBt_wogl",
+      "https://lh3.googleusercontent.com/d/16b_aKC13Vkp7RmabURGVox1Zkp8SICqj",
+      "https://lh3.googleusercontent.com/d/1ZYwZc2FvAVohdT1HendPxnL1w-vL0l77",
+      "https://lh3.googleusercontent.com/d/1wb1A56JwwgcT-SoR0Gh-kBEkUXjryQAq",
+      "https://lh3.googleusercontent.com/d/1L39K4a_yrrU4jCFVFv0IOOgY_1Gt4m_6",
+      "https://lh3.googleusercontent.com/d/1NgZOQEbLmfREu8RW_JCKbNs3Zk7jxqu_",
+      "https://lh3.googleusercontent.com/d/1resXK0ShtJ2G83V4ss6720gIXrYnj_SV",
+      "https://lh3.googleusercontent.com/d/1XIHDs6mcxp_XLbO4qBanpR77UNhS2RQ6"
+    ],
+    "video": ""
+  },
+  {
     "id": "rizRyW1uTO",
     "price": "780K",
     "type": "Terrace",
