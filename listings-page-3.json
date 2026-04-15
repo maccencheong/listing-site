@@ -1,5 +1,28 @@
 [
   {
+    "id": "2MuT5Br0HW",
+    "price": "380K",
+    "type": "Shop Lot / Service Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "864",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1Cjyyz8M0b_CinbVLeEs3VsTM3BXU42xk",
+      "https://lh3.googleusercontent.com/d/1Nixxl7gllcMJf4Vxz5J4Nl_r7sB-VSEm",
+      "https://lh3.googleusercontent.com/d/19HTD5T2ikMYE0nkWCelNCSLIqU3AGx7f",
+      "https://lh3.googleusercontent.com/d/1TGJ1UX89-Jwz4FFY40cIlxrhBCnegxQC",
+      "https://lh3.googleusercontent.com/d/11SAVdJMlMM9qSumfuezOG3x8SSMJlC-H",
+      "https://lh3.googleusercontent.com/d/1Hwr_AMIrakg9Sx8mdoJ6ztcAWa8dnyOT",
+      "https://lh3.googleusercontent.com/d/1f7nwRMGWFVeBPYp02BBhXZJoEvFRhjgF",
+      "https://lh3.googleusercontent.com/d/1uG21ITO_8O2WD3YAbqMGti2GltdLIu5M",
+      "https://lh3.googleusercontent.com/d/1BBIFxuhOh8ISLaqC6mtdp40HqUQppL95",
+      "https://lh3.googleusercontent.com/d/1O0GZ7Ul8cxxJN1ALv4MVkjCvp9UOJORB"
+    ],
+    "video": ""
+  },
+  {
     "id": "PlsMgCCyNZ",
     "price": "355K",
     "type": "Shop Lot / Service Apartment",
@@ -1306,28 +1329,6 @@
       "https://lh3.googleusercontent.com/d/1XHzMDjgSCW0GpRE0wG-YLHAMqOkmKvoe",
       "https://lh3.googleusercontent.com/d/1W_kyjaaCJT6vxE0y3pmj-yRn7-Ur8RW5",
       "https://lh3.googleusercontent.com/d/1GcWL6dQhKIZZ0MJCttgECO7kWjX5IM1m"
-    ],
-    "video": ""
-  },
-  {
-    "id": "scucJw4igX",
-    "price": "1800",
-    "type": "Shop Lot / Service Apartment",
-    "floor": "",
-    "rooms": "",
-    "baths": "",
-    "parking": "",
-    "size": "600",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1nrkOUINK0BkRrEXN8ag5wgXAAGwsv-2L",
-      "https://lh3.googleusercontent.com/d/1-X3GxLHUyxj-7NWasj_lX0Rp1ISfNWh_",
-      "https://lh3.googleusercontent.com/d/1s9ZqBs-Y5I5t5czkHhZHbAXiScGai0vp",
-      "https://lh3.googleusercontent.com/d/1FVYfrbtcuJ1O9Y27nCzONUihZ70H0tJB",
-      "https://lh3.googleusercontent.com/d/1t5X7KxC8Q-bYheMn67-prOzDlQg_IfXc",
-      "https://lh3.googleusercontent.com/d/16ubORcaHcv6fGcNOh3XeagyOsf_R23kv",
-      "https://lh3.googleusercontent.com/d/1fjia3_fYuZ3zKIEUvQsXXuTho-KqJLcK",
-      "https://lh3.googleusercontent.com/d/1A__1eQsg5WcBMUaWbo_vBV6OTTZU3pPl",
-      "https://lh3.googleusercontent.com/d/1yS1ICb4dp26RJLlyAewGEk-4ap4MKelc"
     ],
     "video": ""
   }
