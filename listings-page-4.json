@@ -1,5 +1,23 @@
 [
   {
+    "id": "OV9tjTuD0o",
+    "price": "330K",
+    "type": "Shop Lot / Service Apartment",
+    "floor": "",
+    "rooms": "",
+    "baths": "",
+    "parking": "",
+    "size": "615",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1FsvnD8QQt2_YKxcER4lQtGZLt2GcEYgK",
+      "https://lh3.googleusercontent.com/d/15GTxqqX-YDtBkD79KCmz9e7WzkL4caHV",
+      "https://lh3.googleusercontent.com/d/1rJXnumcwJo5cVpo-voiOYyo8VPFzMCiH",
+      "https://lh3.googleusercontent.com/d/1m5IxVdseTQVAYmjglVlGYlhJ_6hNZzSd",
+      "https://lh3.googleusercontent.com/d/1v84GFSY1_hgn5TTYY_SoDbmIgQN1K51z"
+    ],
+    "video": ""
+  },
+  {
     "id": "MceuQFImyE",
     "price": "2000",
     "type": "Condominium",
@@ -1568,46 +1586,6 @@
       "https://lh3.googleusercontent.com/d/10D1Z_bJR6sZ4tbF-Fdrd4p-TGsrBvlKP",
       "https://lh3.googleusercontent.com/d/1l9UpJPYeNb6t35TWaUMEPPHfSTYCT54g",
       "https://lh3.googleusercontent.com/d/1HxaaU5eZkP71Q4sB3-9EcZ0Fy1xBMk9X"
-    ],
-    "video": ""
-  },
-  {
-    "id": "q6NWr9b5gq",
-    "price": "1.28M",
-    "type": "Terrace",
-    "floor": "2Sty",
-    "rooms": "4",
-    "baths": "3",
-    "parking": "2",
-    "size": "2200",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1ymG1h5T50b8aZmk8e_aIvlDjieTNxJ_2",
-      "https://lh3.googleusercontent.com/d/1qMlsTK6rvoXZAmSv2SlWoxgWw7iTSOIf",
-      "https://lh3.googleusercontent.com/d/1F7hJCgr_ohLOKi0kEdQJ0JnzKoP8MxI7",
-      "https://lh3.googleusercontent.com/d/1ivha0wbJqxQD2VTJGsZ3JMQeJgjnJCt6",
-      "https://lh3.googleusercontent.com/d/1S4PKkUif9g422UI_0m9s1TL_Zfvd9PHe",
-      "https://lh3.googleusercontent.com/d/19sGfmC5yfCzjXwFVpkD1PQ4Wt2RbXOX1",
-      "https://lh3.googleusercontent.com/d/1pbBvI4StUYmQJTwOYl6tetEuQ7THSrdR",
-      "https://lh3.googleusercontent.com/d/1HFbaiABG-lZuEITnurQAkYo2BRszjq1s",
-      "https://lh3.googleusercontent.com/d/1mQa97ynzA_-mmNFc9VK0kVGKC_d0kiuq",
-      "https://lh3.googleusercontent.com/d/1zgp_AquxfsPZqsAlh6hMc2vrwDy0285z",
-      "https://lh3.googleusercontent.com/d/1unfEKIxLYB_i8BdsrHXRREIBbKctm3KM",
-      "https://lh3.googleusercontent.com/d/1gLUOrUCMkDk9-7-MXuBZnGHCY5Y-9ZGe",
-      "https://lh3.googleusercontent.com/d/1i2UIKOIfW4WqMrhBlmjE-321bOBVRnir",
-      "https://lh3.googleusercontent.com/d/17P7M8SvESSvU0LcH5toqmqcPiZcN9fgp",
-      "https://lh3.googleusercontent.com/d/1C189ilnzsdKLiqhEoAXEt-5oyvs3zXbt",
-      "https://lh3.googleusercontent.com/d/1-tw9q3v7vzGc7sbt0HCiKCEhLkT8mgbW",
-      "https://lh3.googleusercontent.com/d/164tl6FaQfML-x8E5gpR_WUMlcGMUXUTM",
-      "https://lh3.googleusercontent.com/d/13T_enJNgcdYWSK_jzU1jdeKyipRqdlh6",
-      "https://lh3.googleusercontent.com/d/1vK_GSn-24XQR8X1ZvJBOwSht2NGDTNf8",
-      "https://lh3.googleusercontent.com/d/1V5CSM9lS9klhN67_JP36sjbytioGQMt6",
-      "https://lh3.googleusercontent.com/d/18KhVMWSS8aMk_3H9vprX8Nxqo16JEUIA",
-      "https://lh3.googleusercontent.com/d/1cunOHqd9OsVZVCEqe5JbzZ1oCP70aZtj",
-      "https://lh3.googleusercontent.com/d/1jrEYfNZfHKCG8zcPcW41bCsKWpAmivRF",
-      "https://lh3.googleusercontent.com/d/1Z8B_zlWf-KlRUoJuJwGpmKPC7xrJWkfg",
-      "https://lh3.googleusercontent.com/d/1kdxYccXeL45Ups95uejGkgBaahYz5JFl",
-      "https://lh3.googleusercontent.com/d/1kuiLP_rWrtNZA-3w5r7JwH2mR6HXNNZt",
-      "https://lh3.googleusercontent.com/d/1Om5mX33GdCgoYhdzhPoxNSLx8lOsyidG"
     ],
     "video": ""
   }
