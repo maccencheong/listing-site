@@ -1,5 +1,27 @@
 [
   {
+    "id": "2gzUkox8uH",
+    "price": "2200",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "117",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1y9oCdzIOQgw5YTCJFbq6v0Hm4asNT_T9",
+      "https://lh3.googleusercontent.com/d/1tewzSbV2xPRmzH8TGvxOF6cZRlmJmBbS",
+      "https://lh3.googleusercontent.com/d/1KKz7Sb4-k5VnAJglhqHD_oCqzLH8e9gT",
+      "https://lh3.googleusercontent.com/d/1nWJvTwPi8pNHl-XnU6aXwhlFNdilTIW5",
+      "https://lh3.googleusercontent.com/d/1V4EBMYTi1qcy5Z8pOEfdYMiOM6yLkVl_",
+      "https://lh3.googleusercontent.com/d/1NHKJOtlS15EB0lR36Xun3wvG3_qvYqAu",
+      "https://lh3.googleusercontent.com/d/1MTKY2Kx1JmCVGmA2PckkwLV_b2jWb-mc",
+      "https://lh3.googleusercontent.com/d/1S6L2-lSbinYZcCepTuJVaJTA-pvE9AOJ",
+      "https://lh3.googleusercontent.com/d/12rKvEoKXEAI4x0TFqM8RrlZ95_2YXxG_"
+    ],
+    "video": ""
+  },
+  {
     "id": "7MlQjZscfl",
     "price": "370K",
     "type": "Apartment",
