@@ -1,5 +1,26 @@
 [
   {
+    "id": "a4CEqIS-uI",
+    "price": "1600",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1140",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1gVtOqwef5Gkiu69xL3joTeOlPGHBNbN5",
+      "https://lh3.googleusercontent.com/d/1XeZlch4xV5KpBpPrr0aLkXoXMF-l15FZ",
+      "https://lh3.googleusercontent.com/d/1cLFjVUWA472qVozavaw5IEu7NKh7COO-",
+      "https://lh3.googleusercontent.com/d/1JyQRfxlUPQzhJ_k3HAjlz-YwhJ2yX3oY",
+      "https://lh3.googleusercontent.com/d/1J7ga4qF9iHY_Sh9EHgJmhg1zymkHW991",
+      "https://lh3.googleusercontent.com/d/1CYAooWFk7wLyb3w5IvcV6bJFl09JqmSd",
+      "https://lh3.googleusercontent.com/d/1XlE8JLqiX3rCt2OkxBchyel_apw0vFk6",
+      "https://lh3.googleusercontent.com/d/1r6n1DOgJ9h3vd8r-8qxADoQvwm7erfDL"
+    ],
+    "video": ""
+  },
+  {
     "id": "KxaCNsVn3r",
     "price": "360K",
     "type": "Apartment",
@@ -1277,32 +1298,5 @@
       "https://lh3.googleusercontent.com/d/1lb0OLWozoZtTcQsvsKMMCNjwJVQKrL8e"
     ],
     "video": ""
-  },
-  {
-    "id": "8P3sWRAzGX",
-    "price": "550K",
-    "type": "Terrace",
-    "floor": "2Sty",
-    "rooms": "4",
-    "baths": "2",
-    "parking": "2",
-    "size": "20",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/11g60v9Phz70eot-bqiO2pEHNs5AQym9q",
-      "https://lh3.googleusercontent.com/d/1tvJPaRUrIgdcE9_BqFkTXrIZfGulMlVI",
-      "https://lh3.googleusercontent.com/d/1P8zcrTT3oQWVC54qZAwZv9JRIMb7S3TV",
-      "https://lh3.googleusercontent.com/d/12oCFODd75jaYAWdB1zHDsjV86Ea6NbQ0",
-      "https://lh3.googleusercontent.com/d/140BhIp1uYSQTLrCCdfII4ASQucCogBr7",
-      "https://lh3.googleusercontent.com/d/1B1DzKj_9vP_tkqZCs_aJiiOO1RSDkWq8",
-      "https://lh3.googleusercontent.com/d/1cTuFKvIUhL8qaCTG4rt71hs63sQ0LtX8",
-      "https://lh3.googleusercontent.com/d/1fGrqIEeHWbCl125IwZzwV0pAdijHC948",
-      "https://lh3.googleusercontent.com/d/1GNW2gWV41eeTe4veQTbAlzG3qtyI1OBI",
-      "https://lh3.googleusercontent.com/d/1ik0HTmb16IFF1eH737zxnz2lVozcDINX",
-      "https://lh3.googleusercontent.com/d/1KmbRGMoCVlj-4Pa3QDTI8sX1pmHAys8H",
-      "https://lh3.googleusercontent.com/d/1Pg2Vb9uPlX4bm4EUKmlMx31mTUdNSk6Z",
-      "https://lh3.googleusercontent.com/d/1w7tbjoPltL2APoI8pIfynvifTZQoFUMc",
-      "https://lh3.googleusercontent.com/d/1Z7Pr7GUpj960Y-abzmh4uIerTI7cR0It"
-    ],
-    "video": "https://drive.google.com/uc?export=download&id=15Xp5PQwSDHt7LMSIs4KHZUNkOvTMDMQb"
   }
 ]
