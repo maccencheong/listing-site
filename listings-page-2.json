@@ -1,5 +1,34 @@
 [
   {
+    "id": "JBmMjLvd7p",
+    "price": "480K",
+    "type": "Shop Lot / Service Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1141",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1iYeWHPigvQREfUBfqlqkEJEv0pz-4EPL",
+      "https://lh3.googleusercontent.com/d/1W8EyndzU3SHKqKGcTDvMVqjEEnzCiCQD",
+      "https://lh3.googleusercontent.com/d/1jx-NwHX0Qml2McEYq347qZDdsYIukFaW",
+      "https://lh3.googleusercontent.com/d/1umvum-_i-yetzKvRC-ti0_LLHZIWqtFe",
+      "https://lh3.googleusercontent.com/d/1I-e1ppAQIij25C4i9acKw8TSAu54NMKC",
+      "https://lh3.googleusercontent.com/d/1DS0dtS3Ogg5oSrHZ-wWaLEgx_AYHxI_c",
+      "https://lh3.googleusercontent.com/d/14osGOmiVle0B00KHfFDhmY-8PskJdWsg",
+      "https://lh3.googleusercontent.com/d/1wCddEFa66dHbrgQauo6PF3MnYdBjrj1i",
+      "https://lh3.googleusercontent.com/d/125xpnuOS7lftkAv1nAZxqP8IYA4TdJE5",
+      "https://lh3.googleusercontent.com/d/1ahdU00RD2BJtk5KxSuT2ppngC5M3Ocvx",
+      "https://lh3.googleusercontent.com/d/1O4XlxeIs5yNnxJqwBq95vNq9mZIeggQM",
+      "https://lh3.googleusercontent.com/d/1Aa0j6nYBtIYa2wTK2eiygAz_UhiqdhJ2",
+      "https://lh3.googleusercontent.com/d/1pG7R79wrdPmGWrfCLja4L4Km_rsO_3Bl",
+      "https://lh3.googleusercontent.com/d/1zu9dWaFfrQGYbTGw3EEy8qwf3Yf1CJ6-",
+      "https://lh3.googleusercontent.com/d/1xd3SoVyC_LFdlNkCHpZKJGP8oBy4tZv7",
+      "https://lh3.googleusercontent.com/d/1Ad28MO9Jao1-4tfo4GdRC5QCKSdDSDyA"
+    ],
+    "video": "https://drive.google.com/uc?export=download&id=1u6lEOzE9QtYbqE52-Nn-CcAfUqU9fMg9"
+  },
+  {
     "id": "VqwrPu1bhG",
     "price": "600K",
     "type": "Shop Lot / Service Apartment",
@@ -1218,35 +1247,6 @@
       "https://lh3.googleusercontent.com/d/1ozD8iBDZ_y21OIDHLtuqHnvi-SxmhT4Y",
       "https://lh3.googleusercontent.com/d/1wG1ncSAUFA-itGkzijbFXR1SCE_c_Fya",
       "https://lh3.googleusercontent.com/d/1kK-rTjmKtd-xEghp_LCtyALJ6XugqEMu"
-    ],
-    "video": ""
-  },
-  {
-    "id": "GBgnd1wxSG",
-    "price": "1500",
-    "type": "Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "1",
-    "size": "1000",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1wqPXg4iOyIryT6B-_uuJ9Rr_zKAKDX1h",
-      "https://lh3.googleusercontent.com/d/1Tqwr4TNmLYY1L13kz5t9N5ovjdX2vS3W",
-      "https://lh3.googleusercontent.com/d/1Yi21HIExAMx4kvMFhdXZfibfJb_rAYXO",
-      "https://lh3.googleusercontent.com/d/1091Ep7c9tk4pakURxIGXdu1uDeeFX-LE",
-      "https://lh3.googleusercontent.com/d/15wRzSCEG4IGVFQURsT1m4IrEKaba9dG0",
-      "https://lh3.googleusercontent.com/d/1kD70EQ2rtOiCZMov_wKlgNrSIK7I2Mwj",
-      "https://lh3.googleusercontent.com/d/1gYFMwc8-ibQaPu5VXKgUNBzKgSeCkE8h",
-      "https://lh3.googleusercontent.com/d/1y-6o0MBCL5xq1jLXUlcHVaQzHUeGDn-4",
-      "https://lh3.googleusercontent.com/d/1yAqglUgD9-yU_ZzxfQxoAOf_5nlanvZC",
-      "https://lh3.googleusercontent.com/d/1sXq9dzRhgwfdbsVRX8QY3jKxJ8rIUbfP",
-      "https://lh3.googleusercontent.com/d/1N3O6gGlIK6f7DsH0GNLOxzgu7EbfqELZ",
-      "https://lh3.googleusercontent.com/d/1LCrxZJc2CdepLuZTPPZDf_kx3h8DjC90",
-      "https://lh3.googleusercontent.com/d/1NHILXxhYxnlRF8TbBgyvUAkp5fQkMn4g",
-      "https://lh3.googleusercontent.com/d/1XScuwoqdOIN6p-LFLGDi5ptuYSVN427x",
-      "https://lh3.googleusercontent.com/d/1CordwqRblFFtzsQ40YPfJDKtbgRhP0x_",
-      "https://lh3.googleusercontent.com/d/1FBFx8sxWi_LKfAwJq5zeTEegAzfG-WjO"
     ],
     "video": ""
   }
