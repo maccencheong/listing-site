@@ -1,5 +1,19 @@
 [
   {
+    "id": "oY_Vxm76AN",
+    "price": "800",
+    "type": "Apartment",
+    "floor": "",
+    "rooms": "3",
+    "baths": "1",
+    "parking": "1",
+    "size": "720",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1msirv3PuFZAph1TiTmUjGOdAtBCYIErI"
+    ],
+    "video": ""
+  },
+  {
     "id": "VFfBLaufvk",
     "price": "2.1K",
     "type": "Shop Lot / Service Apartment",
@@ -1267,34 +1281,5 @@
       "https://lh3.googleusercontent.com/d/1sVlVS1jh_iuNka1JaR8AQ8UtqfWUJ3-y"
     ],
     "video": ""
-  },
-  {
-    "id": "JBmMjLvd7p",
-    "price": "480K",
-    "type": "Shop Lot / Service Apartment",
-    "floor": "",
-    "rooms": "3",
-    "baths": "2",
-    "parking": "2",
-    "size": "1141",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1iYeWHPigvQREfUBfqlqkEJEv0pz-4EPL",
-      "https://lh3.googleusercontent.com/d/1W8EyndzU3SHKqKGcTDvMVqjEEnzCiCQD",
-      "https://lh3.googleusercontent.com/d/1jx-NwHX0Qml2McEYq347qZDdsYIukFaW",
-      "https://lh3.googleusercontent.com/d/1umvum-_i-yetzKvRC-ti0_LLHZIWqtFe",
-      "https://lh3.googleusercontent.com/d/1I-e1ppAQIij25C4i9acKw8TSAu54NMKC",
-      "https://lh3.googleusercontent.com/d/1DS0dtS3Ogg5oSrHZ-wWaLEgx_AYHxI_c",
-      "https://lh3.googleusercontent.com/d/14osGOmiVle0B00KHfFDhmY-8PskJdWsg",
-      "https://lh3.googleusercontent.com/d/1wCddEFa66dHbrgQauo6PF3MnYdBjrj1i",
-      "https://lh3.googleusercontent.com/d/125xpnuOS7lftkAv1nAZxqP8IYA4TdJE5",
-      "https://lh3.googleusercontent.com/d/1ahdU00RD2BJtk5KxSuT2ppngC5M3Ocvx",
-      "https://lh3.googleusercontent.com/d/1O4XlxeIs5yNnxJqwBq95vNq9mZIeggQM",
-      "https://lh3.googleusercontent.com/d/1Aa0j6nYBtIYa2wTK2eiygAz_UhiqdhJ2",
-      "https://lh3.googleusercontent.com/d/1pG7R79wrdPmGWrfCLja4L4Km_rsO_3Bl",
-      "https://lh3.googleusercontent.com/d/1zu9dWaFfrQGYbTGw3EEy8qwf3Yf1CJ6-",
-      "https://lh3.googleusercontent.com/d/1xd3SoVyC_LFdlNkCHpZKJGP8oBy4tZv7",
-      "https://lh3.googleusercontent.com/d/1Ad28MO9Jao1-4tfo4GdRC5QCKSdDSDyA"
-    ],
-    "video": "https://drive.google.com/uc?export=download&id=1u6lEOzE9QtYbqE52-Nn-CcAfUqU9fMg9"
   }
 ]
