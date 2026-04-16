@@ -1,5 +1,23 @@
 [
   {
+    "id": "U-hWoNeXWB",
+    "price": "598K",
+    "type": "Condominium",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "2",
+    "size": "1099",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1zFEm_maoav1LCMSMlUGagMwnNTbYZo-K",
+      "https://lh3.googleusercontent.com/d/13rGwNC1BELvUJsqv3JNkpEmIvchbTiYM",
+      "https://lh3.googleusercontent.com/d/1_cxyrxFV7AR6DZAVQrozsmF_WpJX9145",
+      "https://lh3.googleusercontent.com/d/1859tBsiZXJFp5USsGiE3nAQGm5hDfCX7",
+      "https://lh3.googleusercontent.com/d/1vV5FpIXMN6klijf9FkGckxEbnNxZAwFf"
+    ],
+    "video": ""
+  },
+  {
     "id": "TdH2YmNQ03",
     "price": "2300",
     "type": "Condominium",
@@ -1532,31 +1550,6 @@
       "https://lh3.googleusercontent.com/d/1DW2Xjt2u3Qe4hfrCIN087BNPFL8llv3o",
       "https://lh3.googleusercontent.com/d/1PkAHR-_SaOPvjjuPg1rwT01DJfSdERqu",
       "https://lh3.googleusercontent.com/d/1XYDg6wAp-OB7j5voM9UGxragPsAw9Hoz"
-    ],
-    "video": ""
-  },
-  {
-    "id": "9Tklqg-ytR",
-    "price": "1.7M",
-    "type": "Terrace",
-    "floor": "2Sty",
-    "rooms": "7",
-    "baths": "4",
-    "parking": "2",
-    "size": "2660",
-    "photos": [
-      "https://lh3.googleusercontent.com/d/1lObl65rnaCXjgm_FFhSvEnDfXyql3M9q",
-      "https://lh3.googleusercontent.com/d/19QTpAzsd-LBtismFFQ2n5hlHcR8nMCPt",
-      "https://lh3.googleusercontent.com/d/1pfpTQD8W3uaMW0bA3zF76xL_niPgEz72",
-      "https://lh3.googleusercontent.com/d/1l_IXCmt7FYfC3jyojfsLMKpzC05Zpjqp",
-      "https://lh3.googleusercontent.com/d/1pB-TBxAsPj8QIlMVuqPRM104W2hSH82v",
-      "https://lh3.googleusercontent.com/d/1xoOTzq0q9nvUC8xQ5tOTRdcTRcTNp3Tw",
-      "https://lh3.googleusercontent.com/d/1ME7vWtHQYDhUl22_Qx6YU-v1a1x0dXTh",
-      "https://lh3.googleusercontent.com/d/1Isy1JCO8JWZLyArujinEqnLMVTSCf7i6",
-      "https://lh3.googleusercontent.com/d/1dc9Wnv5_Jm3SzpuLeOKAuVV1g-hZuqnF",
-      "https://lh3.googleusercontent.com/d/19tiIdrD3OcTuuixdRe_VdYS0q5pzdJJ3",
-      "https://lh3.googleusercontent.com/d/1TiNlZpAnZQIjn2_XLqawnTPhOdhmD2Pw",
-      "https://lh3.googleusercontent.com/d/14RsvBecmibvAvKLmT5CM-kw4snVph5LY"
     ],
     "video": ""
   }
