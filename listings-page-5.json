@@ -1,5 +1,29 @@
 [
   {
+    "id": "f7W6ACc8U8",
+    "price": "1800",
+    "type": "",
+    "floor": "",
+    "rooms": "3",
+    "baths": "2",
+    "parking": "1",
+    "size": "940",
+    "photos": [
+      "https://lh3.googleusercontent.com/d/1_FpSRsBu23s6XuDZmbdTPDG6IZUxr1p8",
+      "https://lh3.googleusercontent.com/d/1BjUeMAYga6OMFKvIM8lYh-N97HuC7ppd",
+      "https://lh3.googleusercontent.com/d/1A-gb6Fc-csgkchGUUFYT9I1G_NDo2Hox",
+      "https://lh3.googleusercontent.com/d/1riJGTgK8dgFmnXdjoVIXKka_3O_OvjQC",
+      "https://lh3.googleusercontent.com/d/1lPeEAvhYb_8ivMQggly5o9Q8pdivUQF-",
+      "https://lh3.googleusercontent.com/d/1EoeY5u3912y-46vONfPCb3kQ0-9QWIEE",
+      "https://lh3.googleusercontent.com/d/1ys9f8zjxq-xqUeYA3nFmFjv_E8ueZcGo",
+      "https://lh3.googleusercontent.com/d/1Gdo0lw8z593-uQ7n-VquZvyWyisdwXsC",
+      "https://lh3.googleusercontent.com/d/16IWALCzMSX1Xtf5uWtyJdEWNnQSvEqJi",
+      "https://lh3.googleusercontent.com/d/1bi90GQxrXaMCsmXoCdBjAcODEWRFw1C2",
+      "https://lh3.googleusercontent.com/d/1JdYb2t6MqCb8a95I80yVazT2Pn8itvFB"
+    ],
+    "video": ""
+  },
+  {
     "id": "kdRK0BQSiz",
     "price": "1500",
     "type": "Terrace",
